@@ -169,22 +169,26 @@ public class WorldEventHandler
 					
 					if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
 					{
-						ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-						ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-						ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-						ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-						
-						target.entityDropItem(head, 1);
-						target.entityDropItem(body, 1);
-						target.entityDropItem(legs, 1);
-						target.entityDropItem(feet, 1);
-						
-						target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
-						
-						stack.setItemDamage(stack.getItemDamage() + 50);
+						if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
+								target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
+						{
+							ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+							ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+							ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+							ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+							
+							target.entityDropItem(head, 1);
+							target.entityDropItem(body, 1);
+							target.entityDropItem(legs, 1);
+							target.entityDropItem(feet, 1);
+							
+							target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
+							target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
+							target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+							target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
+							
+							stack.setItemDamage(stack.getItemDamage() + 50);
+						}
 					}
 				}
 			
@@ -194,22 +198,26 @@ public class WorldEventHandler
 					
 					if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
 					{
-						ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-						ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-						ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-						ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-						
-						target.entityDropItem(head, 1);
-						target.entityDropItem(body, 1);
-						target.entityDropItem(legs, 1);
-						target.entityDropItem(feet, 1);
-						
-						target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
-						
-						stack.setItemDamage(stack.getItemDamage() + 50);
+						if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
+								target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
+						{
+							ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+							ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+							ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+							ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+							
+							target.entityDropItem(head, 1);
+							target.entityDropItem(body, 1);
+							target.entityDropItem(legs, 1);
+							target.entityDropItem(feet, 1);
+							
+							target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
+							target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
+							target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+							target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
+							
+							stack.setItemDamage(stack.getItemDamage() + 50);
+						}
 					}
 				}
 			}

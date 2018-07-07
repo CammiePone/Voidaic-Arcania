@@ -36,7 +36,7 @@ public class ItemFlightCloakActive extends ItemFlightCloak
 			{
 				player1.capabilities.allowFlying = true;
 				
-				if(player1.capabilities.isFlying && player1.ticksExisted % 40 == 0 && stack.getItemDamage() <= stack.getMaxDamage() - 50)
+				if(player1.capabilities.isFlying && player1.ticksExisted % 80 == 0 && stack.getItemDamage() <= stack.getMaxDamage() - 50)
 				{
 					stack.setItemDamage(stack.getItemDamage() + 50);
 				}
