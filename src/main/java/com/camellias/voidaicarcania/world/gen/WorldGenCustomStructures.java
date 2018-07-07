@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.world.gen;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.world.biomes.BiomeVoid;
 import com.camellias.voidaicarcania.world.gen.generators.WorldGenStructure;
 
@@ -45,6 +46,12 @@ public class WorldGenCustomStructures implements IWorldGenerator
 				
 			case -64:
 				
+				generateStructure2(new WorldGenStructure("constructtemple"), world, rand, chunkX, chunkZ, 3000, ModBlocks.BLOCK_VOIDSTONE, BiomeVoid.class);
+				
+				generateStructure2(new WorldGenStructure("voidflower"), world, rand, chunkX, chunkZ, 5, ModBlocks.BLOCK_VOIDSTONE, BiomeVoid.class);
+				
+				generateStructure2(new WorldGenStructure("voidgrass"), world, rand, chunkX, chunkZ, 5, ModBlocks.BLOCK_VOIDSTONE, BiomeVoid.class);
+				
 				generateStructure(new WorldGenStructure("voidtemple"), world, rand, chunkX, chunkZ, 3000, Blocks.AIR, BiomeVoid.class);
 				
 				generateStructure(new WorldGenStructure("islandruin_1"), world, rand, chunkX, chunkZ, 1000, Blocks.AIR, BiomeVoid.class);
@@ -73,39 +80,47 @@ public class WorldGenCustomStructures implements IWorldGenerator
 		
 		Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
 		
-		if(world.getWorldType() != WorldType.FLAT)
+		if(classesList.contains(biome))
 		{
-			if(classesList.contains(biome))
+			if(rand.nextInt(chance) == 0)
 			{
-				if(rand.nextInt(chance) == 0)
-				{
-					generator.generate(world, rand, pos);
-				}
+				generator.generate(world, rand, pos);
 			}
 		}
 	}
 	
-	private void generateStructure2(WorldGenerator generator, World world, Random rand, 
+	private void generateStructure2(WorldGenerator generator, World world, Random random, 
 			int chunkX, int chunkZ, int chance, Block topBlock, Class<?>... classes)
 	{
-		List<Class<?>> classesList = Arrays.asList(classes);
+		ArrayList<Class<?>> classesList = new ArrayList<Class<?>>(Arrays.asList(classes));
 		
-		int x = (chunkX * 16) + rand.nextInt(15);
-		int z = (chunkZ * 16) + rand.nextInt(15);
-		int y = rand.nextInt(256);
+		int x = (chunkX * 16) + random.nextInt(15) + 8;
+		int z = (chunkZ * 16) + random.nextInt(15) + 8;
+		int y = calculateGenerationHeight(world, x, z, topBlock);
 		BlockPos pos = new BlockPos(x, y, z);
 		
 		Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
 		
-		if(world.getWorldType() != WorldType.FLAT)
+		if(classesList.contains(biome))
 		{
-			if(classesList.contains(biome))
+			if(random.nextInt(chance) == 0)
 			{
-				if(rand.nextInt(chance) == 0)
-				{
-					generator.generate(world, rand, pos);
-				}
+				generator.generate(world, random, pos);
 			}
 		}
+	}
+	
+	private static int calculateGenerationHeight(World world, int x, int z, Block topBlock)
+	{
+		int y = world.getHeight();
+		boolean foundGround = false;
+		
+		while(!foundGround && y-- >= 0)
+		{
+			Block block = world.getBlockState(new BlockPos(x,y,z)).getBlock();
+			foundGround = block == topBlock;
+		}
+		
+		return y;
 	}
 }

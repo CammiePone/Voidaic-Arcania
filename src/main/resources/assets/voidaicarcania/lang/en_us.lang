@@ -186,6 +186,20 @@ container.botany_altar=Arcane Botanical Altar
 
 
 
+
+effect.lifesteal=Life Steal
+effect.voidtouch=Void Touch
+
+
+
+
+
+death.attack.voidtouch=%1$s was touched by the void...
+
+
+
+
+
 advancements.voidaicarcania.orb=A Peculiar Discovery
 advancements.voidaicarcania.orb.desc=Make an Orb of Transmutation
 

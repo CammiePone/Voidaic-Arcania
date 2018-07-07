@@ -1,5 +1,6 @@
 package com.camellias.voidaicarcania.util.handlers;
 
+import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.items.crystals.ItemStorageMid;
 import com.camellias.voidaicarcania.items.crystals.ItemStorageStrong;
@@ -7,9 +8,8 @@ import com.camellias.voidaicarcania.items.crystals.ItemStorageWeak;
 import com.camellias.voidaicarcania.world.dimension.voidic.TeleporterVoid;
 
 import baubles.api.BaublesApi;
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityShulker;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
@@ -22,7 +22,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -74,12 +73,12 @@ public class WorldEventHandler
         if(event.getEntityLiving() instanceof EntityPlayerMP && event.getEntityLiving().dimension == -64 
         		&& event.getEntityLiving().getPosition().getY() <= -60) 
         {
-            EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
-            PlayerList playerList = player.getEntityWorld().getMinecraftServer().getPlayerList();
-            
-            event.setCanceled(true);
-            playerList.transferPlayerToDimension(player, -1, 
-            		new TeleporterVoid((WorldServer) player.getEntityWorld(), player.getPosition().getX(), 250, player.getPosition().getZ()));
+        	EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
+        	PlayerList playerList = player.getEntityWorld().getMinecraftServer().getPlayerList();
+        	
+        	event.setCanceled(true);
+        	playerList.transferPlayerToDimension(player, -1, 
+        			new TeleporterVoid((WorldServer) player.getEntityWorld(), player.getPosition().getX(), 250, player.getPosition().getZ()));
         }
         
         if(event.getEntityLiving() instanceof EntityPlayer)
