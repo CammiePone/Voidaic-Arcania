@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SVS",
+        "SSS"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "voidaicarcania:block_voidrock_smooth"
+        },
+        
+        "V":
+        {
+            "item": "voidaicarcania:void_star"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_voideye",
+        "count": 1
+    }
+}

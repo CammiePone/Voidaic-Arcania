@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        " D ",
+        "DGD",
+        " D "
+    ],
+    
+    "key":
+    {
+        "G":
+        {
+            "item": "minecraft:glowstone"
+        },
+        
+        "D":
+        {
+            "item": "minecraft:diamond"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:transmutation_shard",
+        "count": 2
+    }
+}

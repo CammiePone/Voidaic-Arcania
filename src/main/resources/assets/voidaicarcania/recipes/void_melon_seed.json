@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+        
+    "ingredients": [
+        {
+            "item": "voidaicarcania:block_void_melon"
+        }
+    ],
+    
+    "result":
+    {
+        "item": "voidaicarcania:void_melon_seed",
+        "count": 3
+    }
+}

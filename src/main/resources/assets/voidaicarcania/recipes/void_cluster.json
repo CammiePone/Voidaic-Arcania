@@ -1,0 +1,15 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+    {
+        "item": "voidaicarcania:weak_void_cluster"
+    },
+    {
+        "item": "voidaicarcania:weak_void_cluster"
+    }
+    ],
+    "result":
+    {
+        "item": "voidaicarcania:void_cluster"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "display":
+    {
+        "icon":
+        {
+            "item": "voidaicarcania:block_botany_altar"
+        },
+        "title":
+        {
+            "translate": "advancements.voidaicarcania.botany_altar"
+        },
+        "description":
+        {
+            "translate": "advancements.voidaicarcania.botany_altar.desc"
+        }
+    },
+    "parent": "voidaicarcania:enter_void",
+    "criteria":
+    {
+        "sugar_in_inventory":
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions":
+            {
+                "items":
+                [{
+                    "item": "voidaicarcania:block_botany_altar"
+                }]
+            }
+	    }
+	}
+}

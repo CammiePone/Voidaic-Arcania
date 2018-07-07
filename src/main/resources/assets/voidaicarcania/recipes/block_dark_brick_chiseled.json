@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "D"
+    ],
+    
+    "key":
+    {
+        "D":
+        {
+            "item": "voidaicarcania:block_dark_brick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_dark_brick_chiseled",
+        "count": 1
+    }
+}

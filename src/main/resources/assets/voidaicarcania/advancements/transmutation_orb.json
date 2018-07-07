@@ -1,0 +1,34 @@
+{
+    "display": 
+    {
+        "icon": 
+        {
+            "item": "voidaicarcania:transmutation_orb"
+        },
+        "title": 
+        {
+            "translate": "advancements.voidaicarcania.orb"
+        },
+        "description": 
+        {
+            "translate": "advancements.voidaicarcania.orb.desc"
+        },
+        "background": "voidaicarcania:textures/blocks/dark_brick.png",
+        "show_toast": false,
+        "announce_to_chat": false
+    },
+    "criteria": 
+    {
+        "pad_in_inventory": 
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": 
+            {
+                "items": 
+                [{
+                    "item": "voidaicarcania:transmutation_orb"
+                }]
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        " P ",
+        "SSS"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:stone_slab",
+            "data": 7
+        },
+        
+        "P":
+        {
+            "item": "minecraft:quartz_block",
+            "data": 2
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_altar",
+        "count": 1
+    }
+}

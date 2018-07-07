@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SS",
+        "SS"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "voidaicarcania:block_voidrock"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_voidrock_tiles",
+        "count": 4
+    }
+}

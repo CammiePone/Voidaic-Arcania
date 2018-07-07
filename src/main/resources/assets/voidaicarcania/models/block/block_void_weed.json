@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "voidaicarcania:blocks/void_weed_top"
+    }
+}

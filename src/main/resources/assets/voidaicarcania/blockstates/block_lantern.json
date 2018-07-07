@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "voidaicarcania:block_lantern" },
+        "axis=z":   { "model": "voidaicarcania:block_lantern", "x": 90 },
+        "axis=x":   { "model": "voidaicarcania:block_lantern", "x": 90, "y": 90 }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "variants": 
+    {
+        "age=0": { "model": "voidaicarcania:block_featherweed0" },
+        "age=1": { "model": "voidaicarcania:block_featherweed1" },
+        "age=2": { "model": "voidaicarcania:block_featherweed2" },
+        "age=3": { "model": "voidaicarcania:block_featherweed2" },
+        "age=4": { "model": "voidaicarcania:block_featherweed3" },
+        "age=5": { "model": "voidaicarcania:block_featherweed3" },
+        "age=6": { "model": "voidaicarcania:block_featherweed4" },
+        "age=7": { "model": "voidaicarcania:block_featherweed5" }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "TTT",
+        "TDT",
+        "TTT"
+    ],
+    
+    "key":
+    {
+        "T":
+        {
+            "item": "voidaicarcania:transmutation_shard"
+        },
+        
+        "D":
+        {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:transmutation_orb",
+        "count": 1
+    }
+}

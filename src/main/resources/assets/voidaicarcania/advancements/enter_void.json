@@ -1,0 +1,29 @@
+{
+    "display":
+    {
+        "icon":
+        {
+            "item": "voidaicarcania:wraith_wisp"
+        },
+        "title":
+        {
+            "translate": "advancements.voidaicarcania.enter_void"
+        },
+        "description":
+        {
+            "translate": "advancements.voidaicarcania.enter_void.desc"
+        }
+    },
+    "parent": "voidaicarcania:transmutation_orb",
+    "criteria":
+    {
+        "sugar_in_inventory":
+        {
+            "trigger": "minecraft:changed_dimension",
+            "conditions":
+            {
+                "to": "Void"
+            }
+	    }
+	}
+}

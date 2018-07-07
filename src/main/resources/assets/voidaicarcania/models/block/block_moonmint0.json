@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "voidaicarcania:blocks/moon_mint_0"
+    }
+}

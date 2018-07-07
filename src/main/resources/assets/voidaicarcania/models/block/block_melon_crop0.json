@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "voidaicarcania:blocks/melon_crop_0"
+    }
+}

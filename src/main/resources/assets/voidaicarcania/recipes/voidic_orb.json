@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "VVV",
+        "VTV",
+        "VVV"
+    ],
+    
+    "key":
+    {
+        "T":
+        {
+            "item": "voidaicarcania:transmutation_orb"
+        },
+        
+        "V":
+        {
+            "item": "voidaicarcania:voidic_shard"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:voidic_orb",
+        "count": 1
+    }
+}

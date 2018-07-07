@@ -1,0 +1,31 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        " P ",
+        "SSS"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "minecraft:stone_slab",
+            "data": 0
+        },
+        
+        "P":
+        {
+            "item": "minecraft:log",
+            "data": 32767
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_botany_altar",
+        "count": 1
+    }
+}

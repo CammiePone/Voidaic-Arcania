@@ -1,0 +1,32 @@
+{
+    "display":
+    {
+        "icon":
+        {
+            "item": "voidaicarcania:block_altar"
+        },
+        "title":
+        {
+            "translate": "advancements.voidaicarcania.altar"
+        },
+        "description":
+        {
+            "translate": "advancements.voidaicarcania.altar.desc"
+        }
+    },
+    "parent": "voidaicarcania:transmutation_orb",
+    "criteria":
+    {
+        "sugar_in_inventory":
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions":
+            {
+                "items":
+                [{
+                    "item": "voidaicarcania:block_altar"
+                }]
+            }
+	    }
+	}
+}

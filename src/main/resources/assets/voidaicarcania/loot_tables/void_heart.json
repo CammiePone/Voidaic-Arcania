@@ -1,0 +1,21 @@
+{
+    "pools": [
+        {
+        	"name": "WraithMain",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "weight": 50,
+                    "name": "voidaicarcania:voidheart",
+                    "conditions": [
+                        {
+                            "condition": "random_chance",
+                            "chance": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

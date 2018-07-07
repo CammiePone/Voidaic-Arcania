@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "voidaicarcania:blocks/bulb_crop_0"
+    }
+}

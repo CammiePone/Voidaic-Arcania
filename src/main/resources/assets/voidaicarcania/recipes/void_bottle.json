@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "S",
+        "S",
+        "B"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "voidaicarcania:voidic_shard"
+        },
+        
+        "B":
+        {
+            "item": "minecraft:glass_bottle"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:void_bottle",
+        "count": 1
+    }
+}

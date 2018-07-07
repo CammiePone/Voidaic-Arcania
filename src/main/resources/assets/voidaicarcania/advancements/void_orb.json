@@ -1,0 +1,32 @@
+{
+    "display":
+    {
+        "icon":
+        {
+            "item": "voidaicarcania:voidic_orb"
+        },
+        "title":
+        {
+            "translate": "advancements.voidaicarcania.void_orb"
+        },
+        "description":
+        {
+            "translate": "advancements.voidaicarcania.void_orb.desc"
+        }
+    },
+    "parent": "voidaicarcania:void_shard",
+    "criteria":
+    {
+        "sugar_in_inventory":
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions":
+            {
+                "items":
+                [{
+                    "item": "voidaicarcania:voidic_orb"
+                }]
+            }
+	    }
+	}
+}

@@ -1,0 +1,13 @@
+{
+    "variants": 
+    {
+        "age=0": { "model": "voidaicarcania:block_starbloom0" },
+        "age=1": { "model": "voidaicarcania:block_starbloom0" },
+        "age=2": { "model": "voidaicarcania:block_starbloom0" },
+        "age=3": { "model": "voidaicarcania:block_starbloom1" },
+        "age=4": { "model": "voidaicarcania:block_starbloom1" },
+        "age=5": { "model": "voidaicarcania:block_starbloom1" },
+        "age=6": { "model": "voidaicarcania:block_starbloom1" },
+        "age=7": { "model": "voidaicarcania:block_starbloom2" }
+    }
+}
