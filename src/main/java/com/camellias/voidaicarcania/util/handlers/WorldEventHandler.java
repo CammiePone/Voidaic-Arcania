@@ -148,8 +148,11 @@ public class WorldEventHandler
 		{
 			if(BaublesApi.isBaubleEquipped(player, ModItems.A_REAPER_COWL) > -1)
 			{
-				player.heal(1.0F);
-				stack.setItemDamage(stack.getItemDamage() + 50);
+				if(player.getHealth() < player.getMaxHealth())
+				{
+					player.heal(1.0F);
+					stack.setItemDamage(stack.getItemDamage() + 50);
+				}
 			}
 		
 			if(BaublesApi.isBaubleEquipped(player, ModItems.A_VOID_CHARM) > -1)
