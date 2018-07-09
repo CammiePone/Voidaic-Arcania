@@ -1,0 +1,205 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+        "0": "blocks/furnace_bottom",
+        "1": "blocks/furnace_opening",
+        "2": "blocks/furnace_top_coal",
+        "3": "blocks/furnace_flute",
+        "4": "blocks/furnace_bar",
+        "5": "blocks/furnace_side_",
+        "6": "blocks/furnace_side",
+        "7": "blocks/furnace_cage"
+    },
+    "elements": [
+        {
+            "name": "FurnaceBase",
+            "from": [ 0.0, 0.0, 0.0 ], 
+            "to": [ 16.0, 12.0, 16.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 0.0, 4.0, 16.0, 16.0 ] },
+                "east": { "texture": "#0", "uv": [ 0.0, 4.0, 16.0, 16.0 ] },
+                "south": { "texture": "#1", "uv": [ 0.0, 4.0, 16.0, 16.0 ] },
+                "west": { "texture": "#0", "uv": [ 0.0, 4.0, 16.0, 16.0 ] },
+                "up": { "texture": "#2", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
+                "down": { "texture": "#2", "uv": [ 0.0, 0.0, 16.0, 16.0 ] }
+            }
+        },
+        {
+            "name": "FurnaceChuteNorth",
+            "from": [ 2.0, 24.0, 2.0 ], 
+            "to": [ 14.0, 26.0, 3.0 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#3", "uv": [ 2.0, 14.0, 14.0, 16.0 ] },
+                "east": { "texture": "#3", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+                "south": { "texture": "#3", "uv": [ 2.0, 14.0, 14.0, 16.0 ] },
+                "west": { "texture": "#3", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+                "up": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 1.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 1.0 ] }
+            }
+        },
+        {
+            "name": "FurnaceChuteSouth",
+            "from": [ 2.0, 24.0, 13.0 ], 
+            "to": [ 14.0, 26.0, 14.0 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#3", "uv": [ 2.0, 14.0, 14.0, 16.0 ] },
+                "east": { "texture": "#3", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+                "south": { "texture": "#3", "uv": [ 2.0, 14.0, 14.0, 16.0 ] },
+                "west": { "texture": "#3", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+                "up": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 1.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 12.0, 1.0 ] }
+            }
+        },
+        {
+            "name": "FurnaceChuteEast",
+            "from": [ 2.0, 24.0, 3.0 ], 
+            "to": [ 3.0, 26.0, 13.0 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#3", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+                "east": { "texture": "#3", "uv": [ 3.0, 14.0, 13.0, 16.0 ] },
+                "south": { "texture": "#3", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+                "west": { "texture": "#3", "uv": [ 3.0, 14.0, 13.0, 16.0 ] },
+                "up": { "texture": "#-1", "uv": [ 0.0, 0.0, 1.0, 10.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 1.0, 10.0 ] }
+            }
+        },
+        {
+            "name": "FurnaceChuteWest",
+            "from": [ 13.0, 24.0, 3.0 ], 
+            "to": [ 14.0, 26.0, 13.0 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#3", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+                "east": { "texture": "#3", "uv": [ 3.0, 14.0, 13.0, 16.0 ] },
+                "south": { "texture": "#3", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+                "west": { "texture": "#3", "uv": [ 3.0, 14.0, 13.0, 16.0 ] },
+                "up": { "texture": "#-1", "uv": [ 0.0, 0.0, 1.0, 10.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 1.0, 10.0 ] }
+            }
+        },
+        {
+            "name": "FluteNorth",
+            "from": [ 1.0, 26.0, 1.0 ], 
+            "to": [ 15.0, 28.0, 3.0 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#3", "uv": [ 0.0, 0.0, 14.0, 2.0 ] },
+                "east": { "texture": "#3", "uv": [ 0.0, 0.0, 2.0, 2.0 ] },
+                "south": { "texture": "#3", "uv": [ 0.0, 0.0, 14.0, 2.0 ] },
+                "west": { "texture": "#3", "uv": [ 0.0, 0.0, 2.0, 2.0 ] },
+                "up": { "texture": "#3", "uv": [ 0.0, 0.0, 14.0, 2.0 ] },
+                "down": { "texture": "#3", "uv": [ 0.0, 0.0, 14.0, 2.0 ] }
+            }
+        },
+        {
+            "name": "FluteSouth",
+            "from": [ 1.0, 26.0, 13.0 ], 
+            "to": [ 15.0, 28.0, 15.0 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#3", "uv": [ 0.0, 0.0, 14.0, 2.0 ] },
+                "east": { "texture": "#3", "uv": [ 0.0, 0.0, 2.0, 2.0 ] },
+                "south": { "texture": "#3", "uv": [ 0.0, 0.0, 14.0, 2.0 ] },
+                "west": { "texture": "#3", "uv": [ 0.0, 0.0, 2.0, 2.0 ] },
+                "up": { "texture": "#3", "uv": [ 0.0, 0.0, 14.0, 2.0 ] },
+                "down": { "texture": "#3", "uv": [ 0.0, 0.0, 14.0, 2.0 ] }
+            }
+        },
+        {
+            "name": "FluteEast",
+            "from": [ 1.0, 26.0, 3.0 ], 
+            "to": [ 3.0, 28.0, 13.0 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#3", "uv": [ 12.0, 0.0, 14.0, 2.0 ] },
+                "east": { "texture": "#3", "uv": [ 0.0, 0.0, 10.0, 2.0 ] },
+                "south": { "texture": "#3", "uv": [ 0.0, 0.0, 2.0, 2.0 ] },
+                "west": { "texture": "#3", "uv": [ 3.0, 0.0, 13.0, 2.0 ] },
+                "up": { "texture": "#4", "uv": [ 0.0, 0.0, 2.0, 10.0 ] },
+                "down": { "texture": "#4", "uv": [ 0.0, 0.0, 2.0, 10.0 ] }
+            }
+        },
+        {
+            "name": "FluteWest",
+            "from": [ 13.0, 26.0, 3.0 ], 
+            "to": [ 15.0, 28.0, 13.0 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#3", "uv": [ 0.0, 0.0, 2.0, 2.0 ] },
+                "east": { "texture": "#3", "uv": [ 0.0, 0.0, 10.0, 2.0 ] },
+                "south": { "texture": "#3", "uv": [ 0.0, 0.0, 2.0, 2.0 ] },
+                "west": { "texture": "#3", "uv": [ 0.0, 0.0, 10.0, 2.0 ] },
+                "up": { "texture": "#4", "uv": [ 0.0, 0.0, 2.0, 10.0 ] },
+                "down": { "texture": "#4", "uv": [ 0.0, 0.0, 2.0, 10.0 ] }
+            }
+        },
+        {
+            "name": "FurnaceWallNorth",
+            "from": [ 0.0, 12.0, 0.0 ], 
+            "to": [ 16.0, 24.0, 3.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 0.0, 4.0, 16.0, 16.0 ], "rotation": 180 },
+                "east": { "texture": "#5", "uv": [ 0.0, 0.0, 3.0, 12.0 ] },
+                "south": { "texture": "#0", "uv": [ 0.0, 4.0, 16.0, 16.0 ], "rotation": 180 },
+                "west": { "texture": "#6", "uv": [ 0.0, 0.0, 3.0, 12.0 ] },
+                "up": { "texture": "#2", "uv": [ 0.0, 0.0, 16.0, 3.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 16.0, 3.0 ] }
+            }
+        },
+        {
+            "name": "FurnaceWallSouth",
+            "from": [ 0.0, 12.0, 13.0 ], 
+            "to": [ 16.0, 24.0, 16.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 0.0, 4.0, 16.0, 16.0 ], "rotation": 180 },
+                "east": { "texture": "#6", "uv": [ 0.0, 0.0, 3.0, 12.0 ] },
+                "south": { "texture": "#0", "uv": [ 0.0, 4.0, 16.0, 16.0 ], "rotation": 180 },
+                "west": { "texture": "#5", "uv": [ 0.0, 0.0, 3.0, 12.0 ] },
+                "up": { "texture": "#2", "uv": [ 0.0, 13.0, 16.0, 16.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 16.0, 3.0 ] }
+            }
+        },
+        {
+            "name": "FurnaceWallEast",
+            "from": [ 0.0, 12.0, 3.0 ], 
+            "to": [ 3.0, 24.0, 13.0 ], 
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 3.0, 12.0 ] },
+                "east": { "texture": "#7", "uv": [ 3.0, 0.0, 13.0, 12.0 ] },
+                "south": { "texture": "#-1", "uv": [ 0.0, 0.0, 3.0, 12.0 ] },
+                "west": { "texture": "#7", "uv": [ 3.0, 0.0, 13.0, 12.0 ] },
+                "up": { "texture": "#2", "uv": [ 0.0, 3.0, 3.0, 13.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 3.0, 10.0 ] }
+            }
+        },
+        {
+            "name": "FurnaceWallWest",
+            "from": [ 13.0, 12.0, 3.0 ], 
+            "to": [ 16.0, 24.0, 13.0 ], 
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 3.0, 12.0 ] },
+                "east": { "texture": "#7", "uv": [ 3.0, 0.0, 13.0, 12.0 ] },
+                "south": { "texture": "#-1", "uv": [ 0.0, 0.0, 3.0, 12.0 ] },
+                "west": { "texture": "#7", "uv": [ 3.0, 0.0, 13.0, 12.0 ] },
+                "up": { "texture": "#2", "uv": [ 13.0, 3.0, 16.0, 13.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 3.0, 10.0 ] }
+            }
+        },
+        {
+            "name": "ChuteCoal",
+            "from": [ 3.0, 24.0, 3.0 ], 
+            "to": [ 13.0, 25.0, 13.0 ], 
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 10.0, 1.0 ] },
+                "east": { "texture": "#-1", "uv": [ 0.0, 0.0, 10.0, 1.0 ] },
+                "south": { "texture": "#-1", "uv": [ 0.0, 0.0, 10.0, 1.0 ] },
+                "west": { "texture": "#-1", "uv": [ 0.0, 0.0, 10.0, 1.0 ] },
+                "up": { "texture": "#2", "uv": [ 3.0, 3.0, 13.0, 13.0 ] },
+                "down": { "texture": "#2", "uv": [ 3.0, 3.0, 13.0, 13.0 ] }
+            }
+        }
+    ]
+}
