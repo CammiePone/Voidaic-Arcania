@@ -8,6 +8,7 @@ import com.camellias.voidaicarcania.items.crystals.ItemStorageWeak;
 import com.camellias.voidaicarcania.world.dimension.voidic.TeleporterVoid;
 
 import baubles.api.BaublesApi;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +20,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
@@ -28,12 +30,21 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber
 public class WorldEventHandler
 {
+	
+	@SubscribeEvent
+	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
+	{
+		event.player.sendMessage(new TextComponentString("Voidaic Arcania: This mod is still in BETA. Additional gameplay information can be found in the wiki here: https://github.com/CammiePone/Voidaic-Arcania/wiki"));
+	}
+	
+	
 	@SubscribeEvent
     public static void onPlayerHurt(LivingHurtEvent event) 
 	{
