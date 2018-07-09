@@ -1,15 +1,25 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "parent": "block/block",
     "textures": {
-        "0": "blocks/furnace_bottom",
-        "1": "blocks/furnace_opening",
-        "2": "blocks/furnace_top_coal",
-        "3": "blocks/furnace_flute",
-        "4": "blocks/furnace_bar",
-        "5": "blocks/furnace_side_",
-        "6": "blocks/furnace_side",
-        "7": "blocks/furnace_cage"
+    "particle": "
+        "0": "voidaicarcania:blocks/mortal_furnace/furnace_bottom",
+        "1": "voidaicarcania:blocks/mortal_furnace/furnace_opening",
+        "2": "voidaicarcania:blocks/mortal_furnace/furnace_top_coal",
+        "3": "voidaicarcania:blocks/mortal_furnace/furnace_flute",
+        "4": "voidaicarcania:blocks/mortal_furnace/furnace_bar",
+        "5": "voidaicarcania:blocks/mortal_furnace/furnace_side_2",
+        "6": "voidaicarcania:blocks/mortal_furnace/furnace_side",
+        "7": "voidaicarcania:blocks/mortal_furnace/furnace_cage"
     },
+    
+    "display": {
+        "fixed": {
+            "rotation": [ 0, 90, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.5, 0.5, 0.5 ]
+        }
+    },
+    
     "elements": [
         {
             "name": "FurnaceBase",

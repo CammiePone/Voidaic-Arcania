@@ -17,6 +17,7 @@ import com.camellias.voidaicarcania.blocks.BlockGlowgrowth;
 import com.camellias.voidaicarcania.blocks.BlockIdfk;
 import com.camellias.voidaicarcania.blocks.BlockLantern;
 import com.camellias.voidaicarcania.blocks.BlockMoonMint;
+import com.camellias.voidaicarcania.blocks.BlockMortalCentrifuge;
 import com.camellias.voidaicarcania.blocks.BlockNeddlesprout;
 import com.camellias.voidaicarcania.blocks.BlockStarbloom;
 import com.camellias.voidaicarcania.blocks.BlockStem;
@@ -69,6 +70,7 @@ public class ModBlocks
 	public static final Block BLOCK_EYE = new BlockVoidEye("block_voideye", Material.ROCK);
 	public static final Block BLOCK_VOID_MELON = new BlockVoidMelon("block_void_melon", Material.GOURD); //Not actual block, but melon
 	public static final Block BLOCK_VOIDCLOUD = new BlockVoidCloud("block_voidcloud", Material.CARPET);
+	public static final Block BLOCK_MORTAL_FURNACE = new BlockMortalCentrifuge("block_mortal_furnace", Material.ROCK);
 	
 	//Plants
 	public static final Block BLOCK_VOID_FLOWER = new BlockVoidFlower("block_void_flower", Material.PLANTS);
