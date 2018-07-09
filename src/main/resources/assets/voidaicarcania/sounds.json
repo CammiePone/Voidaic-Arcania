@@ -1,0 +1,6 @@
+{
+	"voidic.ambient":
+	{
+		"sounds": [{"name": "voidaicarcania:void_entry_ambient", "stream": true}]
+	}
+}
