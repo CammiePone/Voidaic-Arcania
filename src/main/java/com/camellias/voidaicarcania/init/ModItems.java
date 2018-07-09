@@ -9,6 +9,7 @@ import com.camellias.voidaicarcania.items.ItemDwarfBrick;
 import com.camellias.voidaicarcania.items.ItemFeatherweed;
 import com.camellias.voidaicarcania.items.ItemFloatshroom;
 import com.camellias.voidaicarcania.items.ItemGlowgrowth;
+import com.camellias.voidaicarcania.items.ItemInfusedIngot;
 import com.camellias.voidaicarcania.items.ItemMoonMint;
 import com.camellias.voidaicarcania.items.ItemNeddlesprout;
 import com.camellias.voidaicarcania.items.ItemSecretStick;
@@ -145,6 +146,9 @@ public class ModItems
 	public static final Item STARBLOOM = new ItemStarbloom("starbloom", 0, 0, false); //FoodItem
 	public static final Item MOON_MINT = new ItemMoonMint("moon_mint", 0, 0, false); //FoodItem
 	public static final Item FEATHERWEED = new ItemFeatherweed("featherweed", 0, 0, false); //FoodItem
+	
+	//-----Metallurgy-----//
+	public static final Item INFUSED_INGOT = new ItemInfusedIngot("infused_ingot");
 	
 	//-----Stews-----//
 	public static final Item MUSHROOM_BULB = new ItemMushroomBulb("mushroom_stew_1", 6);

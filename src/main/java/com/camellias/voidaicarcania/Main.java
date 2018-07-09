@@ -6,6 +6,7 @@ import com.camellias.voidaicarcania.potions.PotionLifeSteal;
 import com.camellias.voidaicarcania.potions.PotionVoidTouch;
 import com.camellias.voidaicarcania.proxy.CommonProxy;
 import com.camellias.voidaicarcania.tabs.VoidicAlchemyTab;
+import com.camellias.voidaicarcania.tabs.VoidicMetallurgyTab;
 import com.camellias.voidaicarcania.tabs.VoidicTab;
 import com.camellias.voidaicarcania.util.handlers.RegistryHandler;
 import com.camellias.voidaicarcania.util.handlers.SoundsHandler;
@@ -37,6 +38,7 @@ public class Main
 	
 	public static final CreativeTabs voidictab = new VoidicTab("voidictab");
 	public static final CreativeTabs alchemytab = new VoidicAlchemyTab("alchemytab");
+	public static final CreativeTabs metaltab = new VoidicMetallurgyTab("metaltab");
 	
 	//Proxy
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)

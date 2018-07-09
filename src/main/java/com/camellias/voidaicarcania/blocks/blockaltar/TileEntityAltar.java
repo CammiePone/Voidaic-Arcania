@@ -181,6 +181,16 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 			return ConfigHandler.LUCK_CHARM;
 		}
 		
+		else if (input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(ModItems.CRYSTAL)))
+		{
+			return ConfigHandler.DWARF_BRICK;
+		}
+		
+		else if (input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(ModItems.CRYSTAL)))
+		{
+			return ConfigHandler.DWARF_BRICK;
+		}
+		
 		return 0;
 	}
 	

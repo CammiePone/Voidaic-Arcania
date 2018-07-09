@@ -45,6 +45,8 @@ item.neddlesprout.name=Neddlesprout
 item.featherweed.name=Featherweed
 item.moon_mint.name=Moon Mint
 
+item.infused_ingot.name=Infused Ingot
+
 item.mushroom_stew_1.name=Mushroom Stew
 item.mushroom_stew_2.name=Mushroom Stew
 item.mushroom_stew_3.name=Mushroom Stew
@@ -166,7 +168,7 @@ enchantment.enchant_cloudstep=Void Walker
 
 itemGroup.voidictab=§5Voidaic Arcania
 itemGroup.alchemytab=§5Voidaic Alchemy
-
+itemGroup.metaltab=§5Voidaic Metallurgy
 
 
 
