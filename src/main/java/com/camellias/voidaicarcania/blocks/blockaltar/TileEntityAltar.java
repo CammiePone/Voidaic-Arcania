@@ -43,7 +43,7 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 	
 	public int getCookTime(ItemStack input1, ItemStack input2) 
 	{
-		if(input1 == new ItemStack(Item.getItemFromBlock(Blocks.AIR)) && input2 == new ItemStack(Item.getItemFromBlock(Blocks.AIR)))
+		if(input1.isItemEqual(new ItemStack(Items.AIR)) && input2.isItemEqual(new ItemStack(Items.AIR)))
 		{
 			return 0;
 		}
@@ -131,24 +131,50 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 			return ConfigHandler.DWARF_BRICK;
 		}
 		
-		else if (input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(ModItems.VOID_STAR)))
+		else if (input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)))
 		{
-			return ConfigHandler.SHIELD_AMULET;
+			if(input2.isItemEqual(new ItemStack(ModItems.VOID_STAR)))
+			{
+				return ConfigHandler.SHIELD_AMULET;
+			}
+			
+			if(input2.isItemEqual(new ItemStack(Items.LEATHER)))
+			{
+				return ConfigHandler.STRENGTH_BELT;
+			}
+			
+			if(input2.isItemEqual(new ItemStack(Blocks.WOOL)))
+			{
+				return ConfigHandler.FLIGHT_CLOAK;
+			}
+			
+			if(input2.isItemEqual(new ItemStack(Items.NETHER_STAR)))
+			{
+				return ConfigHandler.LUCK_CHARM;
+			}
 		}
 		
-		else if (input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(ModItems.VOID_STAR)))
+		else if (input1.isItemEqual(new ItemStack(Items.IRON_INGOT)))
 		{
-			return ConfigHandler.INVERSE_AMULET;
-		}
-		
-		else if (input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(Items.LEATHER)))
-		{
-			return ConfigHandler.STRENGTH_BELT;
-		}
-		
-		else if (input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(Items.LEATHER)))
-		{
-			return ConfigHandler.RESISTANCE_BELT;
+			if(input2.isItemEqual(new ItemStack(ModItems.VOID_STAR)))
+			{
+				return ConfigHandler.INVERSE_AMULET;
+			}
+			
+			if(input2.isItemEqual(new ItemStack(Items.LEATHER)))
+			{
+				return ConfigHandler.RESISTANCE_BELT;
+			}
+			
+			if(input2.isItemEqual(new ItemStack(Blocks.WOOL)))
+			{
+				return ConfigHandler.INVIS_CLOAK;
+			}
+			
+			if(input2.isItemEqual(new ItemStack(Items.NETHER_STAR)))
+			{
+				return ConfigHandler.VOID_CHARM;
+			}
 		}
 		
 		else if (input1.isItemEqual(new ItemStack(Items.STRING)) && input2.isItemEqual(new ItemStack(Blocks.WOOL)))
@@ -161,34 +187,12 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 			return ConfigHandler.REAPER_COWL;
 		}
 		
-		else if (input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(Blocks.WOOL)))
+		else if (input1.isItemEqual(new ItemStack(ModItems.CRYSTAL)))
 		{
-			return ConfigHandler.FLIGHT_CLOAK;
-		}
-		
-		else if (input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(Blocks.WOOL)))
-		{
-			return ConfigHandler.INVIS_CLOAK;
-		}
-		
-		else if (input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(Items.NETHER_STAR)))
-		{
-			return ConfigHandler.VOID_CHARM;
-		}
-		
-		else if (input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(Items.NETHER_STAR)))
-		{
-			return ConfigHandler.LUCK_CHARM;
-		}
-		
-		else if (input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(ModItems.CRYSTAL)))
-		{
-			return ConfigHandler.DWARF_BRICK;
-		}
-		
-		else if (input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(ModItems.CRYSTAL)))
-		{
-			return ConfigHandler.DWARF_BRICK;
+			if(input2.isItemEqual(new ItemStack(Items.GOLD_INGOT)) || input2.isItemEqual(new ItemStack(Items.IRON_INGOT)))
+			{
+				return ConfigHandler.DWARF_BRICK;
+			}
 		}
 		
 		return 0;
