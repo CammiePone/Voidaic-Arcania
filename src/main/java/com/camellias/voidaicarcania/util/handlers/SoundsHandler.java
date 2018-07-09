@@ -7,9 +7,10 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
-//@Mod.EventBusSubscriber(modid = Reference.MODID)
+@Mod.EventBusSubscriber(modid = Reference.MODID)
 public class SoundsHandler 
 {
 	/*public static SoundEvent VOID_THEME;
@@ -38,7 +39,7 @@ public class SoundsHandler
 		return e;
 	}*/
 	
-	public static final SoundEvent VOIDIC_AMBIENT = registerSound("voidic.ambient");
+	/*public static final SoundEvent VOIDIC_AMBIENT = registerSound("voidic.ambient");
 	
 	private static SoundEvent registerSound(String soundName) 
 	{
@@ -58,9 +59,8 @@ public class SoundsHandler
 		}
 	}
 	
-}
+}*/
 
-/*{
 	public static SoundEvent VOID_ENTRY_AMBIENT;
 	
 	public static void registerSounds() 
@@ -76,4 +76,4 @@ public class SoundsHandler
 		ForgeRegistries.SOUND_EVENTS.register(event);
 		return event;
 	}
-} */
+} 

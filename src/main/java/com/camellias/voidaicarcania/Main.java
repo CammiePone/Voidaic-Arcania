@@ -8,6 +8,7 @@ import com.camellias.voidaicarcania.proxy.CommonProxy;
 import com.camellias.voidaicarcania.tabs.VoidicAlchemyTab;
 import com.camellias.voidaicarcania.tabs.VoidicTab;
 import com.camellias.voidaicarcania.util.handlers.RegistryHandler;
+import com.camellias.voidaicarcania.util.handlers.SoundsHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.potion.Potion;
@@ -60,6 +61,7 @@ public class Main
 	public void init(FMLInitializationEvent event)
 	{	
 		RegistryHandler.initRegistries();
+		
 	}
 	
 	@EventHandler
