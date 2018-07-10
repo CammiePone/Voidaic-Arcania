@@ -1,7 +1,7 @@
 {
     "parent": "block/block",
     "textures": {
-    "particle": "
+    "particle": "voidaicarcania:blocks/mortal_furnace/furnace_bottom",
         "0": "voidaicarcania:blocks/mortal_furnace/furnace_bottom",
         "1": "voidaicarcania:blocks/mortal_furnace/furnace_opening",
         "2": "voidaicarcania:blocks/mortal_furnace/furnace_top_coal",
@@ -16,7 +16,7 @@
         "fixed": {
             "rotation": [ 0, 90, 0 ],
             "translation": [ 0, 0, 0 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "scale": [ 0.3, 0.3, 0.3 ]
         }
     },
     
