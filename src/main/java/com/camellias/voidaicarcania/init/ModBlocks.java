@@ -38,13 +38,14 @@ import com.camellias.voidaicarcania.blocks.BlockVoidTea;
 import com.camellias.voidaicarcania.blocks.BlockVoidWeed;
 import com.camellias.voidaicarcania.blocks.BlockWhiteWood;
 import com.camellias.voidaicarcania.blocks.BlockWhiteWoodLeaves;
+import com.camellias.voidaicarcania.blocks.beacons.healbeacon.BlockHealBeacon;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 public class ModBlocks 
 {
-	//Block list
+	//-----Block list-----//
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 			
 	public static final Block BLOCK_ALTAR = new BlockAltar("block_altar", Material.ROCK);
@@ -72,7 +73,10 @@ public class ModBlocks
 	public static final Block BLOCK_VOIDCLOUD = new BlockVoidCloud("block_voidcloud", Material.CARPET);
 	public static final Block BLOCK_MORTAL_FURNACE = new BlockMortalCentrifuge("block_mortal_furnace", Material.ROCK);
 	
-	//Plants
+	//-----Beacons-----//
+	public static final Block HEAL_BEACON = new BlockHealBeacon("healing_beacon", Material.SPONGE);
+	
+	//-----Plants-----//
 	public static final Block BLOCK_VOID_FLOWER = new BlockVoidFlower("block_void_flower", Material.PLANTS);
 	public static final Block BLOCK_VOID_WEED = new BlockVoidWeed("block_void_weed", Material.PLANTS);
 	public static final Block BLOCK_VOID_CROP = new BlockVoidCrop("block_void_crop");
