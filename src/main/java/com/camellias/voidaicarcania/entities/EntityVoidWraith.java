@@ -18,6 +18,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.EntityMoveHelper;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,7 +32,9 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockPos.MutableBlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
@@ -69,10 +72,9 @@ public class EntityVoidWraith extends EntityMob
 	public void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(15.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5F);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(100.0D);
     }
 	
@@ -222,37 +224,124 @@ public class EntityVoidWraith extends EntityMob
 		this.dataManager.set(WRAITH_FLAGS, Byte.valueOf((byte)(i & 255)));
 	}
 	
-	class AIMoveControl extends EntityMoveHelper
+	static class AIMoveControl extends EntityMoveHelper
 	{
-		public AIMoveControl(EntityVoidWraith wraith)
-		{
-			super(wraith);
-		}
+		protected int courseChangeCooldown;
 		
+		public AIMoveControl(EntityLiving entity) 
+		{
+			super(entity);
+		}
+
+		@Override
 		public void onUpdateMoveHelper()
 		{
-			if (this.action == EntityMoveHelper.Action.MOVE_TO)
+			IAttributeInstance entityMoveSpeedAttribute = this.entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MOVEMENT_SPEED);
+			double entityMoveSpeed = entityMoveSpeedAttribute != null ? entityMoveSpeedAttribute.getAttributeValue() : 1.0D;
+			double speed = this.getFlightSpeed() * entityMoveSpeed;
+
+			if(this.action == EntityMoveHelper.Action.MOVE_TO)
 			{
-				double d0 = this.posX - EntityVoidWraith.this.posX;
-				double d1 = this.posY - EntityVoidWraith.this.posY;
-				double d2 = this.posZ - EntityVoidWraith.this.posZ;
-				double d3 = d0 * d0 + d1 * d1 + d2 * d2;
-				d3 = (double)MathHelper.sqrt(d3);
-				
-				if (d3 < EntityVoidWraith.this.getEntityBoundingBox().getAverageEdgeLength())
+				double dx = this.posX - this.entity.posX;
+				double dy = this.posY - this.entity.posY;
+				double dz = this.posZ - this.entity.posZ;
+				double dist = dx * dx + dy * dy + dz * dz;
+
+				if(this.courseChangeCooldown-- <= 0)
 				{
+					this.courseChangeCooldown += this.getCourseChangeCooldown();
+
+					dist = (double)MathHelper.sqrt(dist);
+
+					if(this.isNotColliding(this.posX, this.posY, this.posZ, dist))
+					{
+						this.entity.motionX += dx / dist * speed;
+						this.entity.motionY += dy / dist * speed;
+						this.entity.motionZ += dz / dist * speed;
+
+						float yaw = (float)(MathHelper.atan2(dz, dx) * (180D / Math.PI)) - 90.0F;
+						this.entity.rotationYaw = this.limitAngle(this.entity.rotationYaw, yaw, 90.0F);
+
+						this.entity.setAIMoveSpeed((float)speed);
+					}
+					
 					this.action = EntityMoveHelper.Action.WAIT;
-					EntityVoidWraith.this.motionX *= 0.5D;
-					EntityVoidWraith.this.motionY *= 0.5D;
-					EntityVoidWraith.this.motionZ *= 0.5D;
-				}
-				else
-				{
-					EntityVoidWraith.this.motionX += d0 / d3 * 0.05D * this.speed;
-					EntityVoidWraith.this.motionY += d1 / d3 * 0.05D * this.speed;
-					EntityVoidWraith.this.motionZ += d2 / d3 * 0.05D * this.speed;
 				}
 			}
+			
+			else if(this.action == EntityMoveHelper.Action.STRAFE)
+			{
+				float forward = this.moveForward;
+				float strafe = this.moveStrafe;
+				float dist = MathHelper.sqrt(forward * forward + strafe * strafe);
+
+				float rotX = MathHelper.sin(this.entity.rotationYaw * 0.017453292F);
+				float rotZ = MathHelper.cos(this.entity.rotationYaw * 0.017453292F);
+				float strafeX = strafe * rotZ - forward * rotX;
+				float strafeZ = forward * rotZ + strafe * rotX;
+
+				this.entity.motionX += strafeX / dist * speed * 0.15D;
+				this.entity.motionZ += strafeZ / dist * speed * 0.15D;
+
+				this.entity.setAIMoveSpeed((float)speed);
+				this.entity.setMoveForward(this.moveForward);
+				this.entity.setMoveStrafing(this.moveStrafe);
+				
+				this.action = EntityMoveHelper.Action.WAIT;
+			}
+		}
+		
+		protected int getCourseChangeCooldown()
+		{
+			return this.entity.getRNG().nextInt(5) + 2;
+		}
+		
+		protected boolean isNotColliding(double x, double y, double z, double step)
+		{
+			if(this.entity.noClip)
+			{
+				return true;
+			}
+
+			double stepX = (x - this.entity.posX) / step;
+			double stepY = (y - this.entity.posY) / step;
+			double stepZ = (z - this.entity.posZ) / step;
+			AxisAlignedBB aabb = this.entity.getEntityBoundingBox();
+
+			for(int i = 1; (double)i < step; ++i) 
+			{
+				aabb = aabb.offset(stepX, stepY, stepZ);
+			}
+
+			return true;
+		}
+		
+		protected double getFlightSpeed()
+		{
+			return this.speed;
+		}
+		
+		public static BlockPos getGroundHeight(World world, BlockPos pos, int maxIter, BlockPos fallback)
+		{
+			if(world.canSeeSky(pos))
+			{
+				return world.getHeight(pos);
+			}
+			
+			MutableBlockPos mutablePos = new MutableBlockPos();
+			int i = 0;
+			for(; i < maxIter; i++)
+			{
+				mutablePos.setPos(pos.getX(), pos.getY() - i, pos.getZ());
+				if(!world.isAirBlock(mutablePos))
+					break;
+			}
+			
+			if(i < maxIter)
+			{
+				return new BlockPos(pos.getX(), pos.getY() - i, pos.getZ());
+			}
+			return fallback;
 		}
 	}
 	
