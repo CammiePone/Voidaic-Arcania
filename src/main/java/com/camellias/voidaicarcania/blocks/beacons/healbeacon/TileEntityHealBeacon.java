@@ -11,7 +11,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 
 public class TileEntityHealBeacon extends TileEntity implements ITickable
 {
-	public void setName(String displayName) 
+	public void setName(String name) 
 	{
 		
 	}
@@ -24,7 +24,7 @@ public class TileEntityHealBeacon extends TileEntity implements ITickable
 		int l = this.pos.getY();
 		int i1 = this.pos.getZ();
 		AxisAlignedBB axisalignedbb = (new AxisAlignedBB((double)k, (double)l, (double)i1, (double)(k + 1), (double)(l + 1), (double)(i1 + 1))).grow(d0).expand(0.0D, (double)this.world.getHeight(), 0.0D);
-		List<EntityLivingBase> list = getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(getPos()).grow(9, 7, 9));
+		List<EntityLivingBase> list = getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(getPos()).grow(4, 4, 4));
 	
 		for (EntityLivingBase player : list)
 		{

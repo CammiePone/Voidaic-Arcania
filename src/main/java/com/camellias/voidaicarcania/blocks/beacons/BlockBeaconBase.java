@@ -64,12 +64,6 @@ public class BlockBeaconBase extends Block implements IHasModel, ITileEntityProv
     {
         return false;
     }
-    
-	@Override
-    public EnumBlockRenderType getRenderType(IBlockState state)
-    {
-        return EnumBlockRenderType.INVISIBLE;
-    }
 	
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta)
