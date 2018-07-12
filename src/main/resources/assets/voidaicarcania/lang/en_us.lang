@@ -46,6 +46,7 @@ item.featherweed.name=Featherweed
 item.moon_mint.name=Moon Mint
 
 item.infused_ingot.name=Infused Ingot
+item.mercury.name=Liquid Mercury
 
 item.mushroom_stew_1.name=Mushroom Stew
 item.mushroom_stew_2.name=Mushroom Stew
@@ -103,6 +104,7 @@ item.void_star.name=§5Void Star
 item.voidheart.name=Voidheart
 item.bullet.name=Shulker Bullet
 item.void_crystal.name=Void Crystal
+item.cinnabar.name=Cinnabar
 
 item.wraith_wisp.name=Wraith Wisp
 
@@ -112,6 +114,7 @@ item.wraith_wisp.name=Wraith Wisp
 
 tile.block_altar.name=Altar
 tile.block_botany_altar.name=Arcane Botanical Altar
+tile.block_mortal_furnace.name=Mortal Furnace
 
 tile.block_voidrock.name=Voidrock
 tile.block_voidrock_pillar.name=Voidrock Pillar

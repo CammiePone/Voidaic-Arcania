@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.camellias.voidaicarcania.items.ItemChorusTea;
+import com.camellias.voidaicarcania.items.ItemCinnabar;
 import com.camellias.voidaicarcania.items.ItemDarkCamellia;
 import com.camellias.voidaicarcania.items.ItemDwarfBrick;
 import com.camellias.voidaicarcania.items.ItemFeatherweed;
 import com.camellias.voidaicarcania.items.ItemFloatshroom;
 import com.camellias.voidaicarcania.items.ItemGlowgrowth;
 import com.camellias.voidaicarcania.items.ItemInfusedIngot;
+import com.camellias.voidaicarcania.items.ItemMercury;
 import com.camellias.voidaicarcania.items.ItemMoonMint;
 import com.camellias.voidaicarcania.items.ItemNeddlesprout;
 import com.camellias.voidaicarcania.items.ItemSecretStick;
@@ -148,7 +150,9 @@ public class ModItems
 	public static final Item FEATHERWEED = new ItemFeatherweed("featherweed", 0, 0, false); //FoodItem
 	
 	//-----Metallurgy-----//
+	public static final Item CINNABAR = new ItemCinnabar("cinnabar");
 	public static final Item INFUSED_INGOT = new ItemInfusedIngot("infused_ingot");
+	public static final Item MERCURY = new ItemMercury("mercury");
 	
 	//-----Stews-----//
 	public static final Item MUSHROOM_BULB = new ItemMushroomBulb("mushroom_stew_1", 6);
