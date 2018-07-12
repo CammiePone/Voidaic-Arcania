@@ -24,6 +24,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
@@ -33,7 +34,6 @@ import net.minecraft.world.World;
 
 public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEntityProvider
 {
-	
 	//private static final AxisAlignedBB FURNACE_BOX = new AxisAlignedBB(0, 0, 0, .0625 * 16, .0625 * 28, .0625 * 16);
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	
@@ -43,6 +43,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 		
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
+		this.setHardness(3.0F);
 		this.setCreativeTab(Main.metaltab);
 		
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
@@ -63,13 +64,13 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 		}
 	}
 	
-	/*@Override
+	@Override
 	public EnumBlockRenderType getRenderType(IBlockState state)
 	{
 		return EnumBlockRenderType.MODEL;
 	}
 	
-	@Override
+	/*@Override
 	public BlockRenderLayer getBlockLayer()
 	{
 		return BlockRenderLayer.CUTOUT;
@@ -97,35 +98,36 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	{
 		if (!worldIn.isRemote)
 		{
-        IBlockState iblockstate = worldIn.getBlockState(pos.north());
-        IBlockState iblockstate1 = worldIn.getBlockState(pos.south());
-        IBlockState iblockstate2 = worldIn.getBlockState(pos.west());
-        IBlockState iblockstate3 = worldIn.getBlockState(pos.east());
-        EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
-
-        if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock())
-        {
-            enumfacing = EnumFacing.SOUTH;
-        }
-        else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock())
-        {
-            enumfacing = EnumFacing.NORTH;
-        }
-        else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock())
-        {
-            enumfacing = EnumFacing.EAST;
-        }
-        else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock())
-        {
-            enumfacing = EnumFacing.WEST;
-        }
-
-        worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
+			IBlockState iblockstate = worldIn.getBlockState(pos.north());
+			IBlockState iblockstate1 = worldIn.getBlockState(pos.south());
+			IBlockState iblockstate2 = worldIn.getBlockState(pos.west());
+			IBlockState iblockstate3 = worldIn.getBlockState(pos.east());
+			EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
+			
+			if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock())
+			{
+				enumfacing = EnumFacing.SOUTH;
+			}
+			else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock())
+			{
+				enumfacing = EnumFacing.NORTH;
+			}
+			else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock())
+			{
+				enumfacing = EnumFacing.EAST;
+			}
+			else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock())
+			{
+				enumfacing = EnumFacing.WEST;
+			}
+			
+			worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
 		}
 	}
+	
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
-        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
     }
  
 	public IBlockState getStateFromMeta(int meta)

@@ -76,7 +76,7 @@ public class TileEntityMortalCentrifuge extends TileEntity implements IInventory
 	@Override
 	public String getName() 
 	{
-		return this.hasCustomName() ? this.customName : "container.centrifuge_altar";
+		return this.hasCustomName() ? this.customName : "container.centrifuge_furnace";
 	}
 
 	@Override
