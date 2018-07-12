@@ -1,6 +1,7 @@
 {
     "parent": "block/block",
     "textures": {
+        "particle": "voidaicarcania:blocks/altar_wool_top",
         "0": "blocks/log_big_oak",
         "1": "blocks/stone_andesite_smooth",
         "2": "voidaicarcania:blocks/altar_wool_top",

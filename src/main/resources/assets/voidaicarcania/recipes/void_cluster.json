@@ -1,15 +1,18 @@
 {
-    "type": "crafting_shapeless",
-    "ingredients": [
-    {
-        "item": "voidaicarcania:weak_void_cluster"
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": 
+    [{
+        "item": "voidaicarcania:weak_void_cluster",
+        "data": 0
     },
     {
-        "item": "voidaicarcania:weak_void_cluster"
-    }
-    ],
+        "item": "voidaicarcania:weak_void_cluster",
+        "data": 0
+    }],
+    
     "result":
     {
-        "item": "voidaicarcania:void_cluster"
+        "item": "voidaicarcania:void_cluster",
+        "amount": 1
     }
 }

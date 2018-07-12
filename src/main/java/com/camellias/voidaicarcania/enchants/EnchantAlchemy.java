@@ -63,7 +63,7 @@ public class EnchantAlchemy extends Enchantment
 					if(state.getBlock() == Blocks.IRON_ORE)
 					{
 						event.getDrops().clear();
-						event.getDrops().add(new ItemStack(Blocks.GOLD_ORE));
+						event.getDrops().add(new ItemStack(Items.GOLD_INGOT));
 					}
 					
 					if(state.getBlock() == Blocks.GOLD_ORE)

@@ -1,24 +1,30 @@
 {
-    "type": "crafting_shapeless",
-    "ingredients": [
-    {
-        "item": "voidaicarcania:void_cluster"
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": 
+    [{
+        "item": "voidaicarcania:void_cluster",
+        "data": 0
     },
     {
-        "item": "voidaicarcania:void_cluster"
+        "item": "voidaicarcania:void_cluster",
+        "data": 0
     },
     {
-        "item": "voidaicarcania:void_cluster"
+        "item": "voidaicarcania:void_cluster",
+        "data": 0
     },
     {
-        "item": "voidaicarcania:void_cluster"
+        "item": "voidaicarcania:void_cluster",
+        "data": 0
     },
     {
-        "item": "voidaicarcania:void_cluster"
-    }
-    ],
+        "item": "voidaicarcania:void_cluster",
+        "data": 0
+    }],
+    
     "result":
     {
-        "item": "voidaicarcania:strong_void_cluster"
+        "item": "voidaicarcania:strong_void_cluster",
+        "amount": 1
     }
 }
