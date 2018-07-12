@@ -41,7 +41,7 @@ import net.minecraft.world.World;
 public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEntityProvider
 {
 	
-	private static final AxisAlignedBB FURNACE_BOX = new AxisAlignedBB(0, 0, 0, .0625 * 16, .0625 * 28, .0625 * 16);
+	//private static final AxisAlignedBB FURNACE_BOX = new AxisAlignedBB(0, 0, 0, .0625 * 16, .0625 * 28, .0625 * 16);
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	
 	public BlockMortalCentrifuge(String name, Material material) 
@@ -70,26 +70,26 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 		}
 	}
 	
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state)
-	{
-		return EnumBlockRenderType.MODEL;
-	}
+	//@Override
+	//public EnumBlockRenderType getRenderType(IBlockState state)
+	//{
+	//	return EnumBlockRenderType.MODEL;
+	//}
 	
-	@Override
-	public BlockRenderLayer getBlockLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
+	//@Override
+	//public BlockRenderLayer getBlockLayer() {
+	//	return BlockRenderLayer.CUTOUT;
+	//}
 	
-	@Override //Bounding box
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return FURNACE_BOX;
-	}
+	//@Override //Bounding box
+	//public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+	//	return FURNACE_BOX;
+	//}
 	
-	@Override //Collision box
-	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_) {
-		super.addCollisionBoxToList(pos, entityBox, collidingBoxes, FURNACE_BOX);
-	}
+	//@Override //Collision box
+	//public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_) {
+	//	super.addCollisionBoxToList(pos, entityBox, collidingBoxes, FURNACE_BOX);
+	//}
 	
 	//Positioning
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
