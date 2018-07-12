@@ -1,11 +1,9 @@
 package com.camellias.voidaicarcania.blocks;
 
-import java.util.List;
 import java.util.Random;
 
 import com.camellias.voidaicarcania.Main;
-import com.camellias.voidaicarcania.blocks.blockaltar.TileEntityAltar;
-import com.camellias.voidaicarcania.blocks.blockbotanyaltar.TileEntityBotanyAltar;
+import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.TileEntityMortalCentrifuge;
 import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.util.IHasModel;
@@ -19,7 +17,6 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
@@ -27,15 +24,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEntityProvider
@@ -70,26 +63,29 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 		}
 	}
 	
-	//@Override
-	//public EnumBlockRenderType getRenderType(IBlockState state)
-	//{
-	//	return EnumBlockRenderType.MODEL;
-	//}
+	/*@Override
+	public EnumBlockRenderType getRenderType(IBlockState state)
+	{
+		return EnumBlockRenderType.MODEL;
+	}
 	
-	//@Override
-	//public BlockRenderLayer getBlockLayer() {
-	//	return BlockRenderLayer.CUTOUT;
-	//}
+	@Override
+	public BlockRenderLayer getBlockLayer()
+	{
+		return BlockRenderLayer.CUTOUT;
+	}
 	
-	//@Override //Bounding box
-	//public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-	//	return FURNACE_BOX;
-	//}
+	@Override //Bounding box
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+	{
+		return FURNACE_BOX;
+	}
 	
-	//@Override //Collision box
-	//public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_) {
-	//	super.addCollisionBoxToList(pos, entityBox, collidingBoxes, FURNACE_BOX);
-	//}
+	@Override //Collision box
+	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_)
+	{
+		super.addCollisionBoxToList(pos, entityBox, collidingBoxes, FURNACE_BOX);
+	}*/
 	
 	//Positioning
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
@@ -173,7 +169,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state)
 	{
-		TileEntityBotanyAltar tileEntity = (TileEntityBotanyAltar)world.getTileEntity(pos);
+		TileEntityMortalCentrifuge tileEntity = (TileEntityMortalCentrifuge)world.getTileEntity(pos);
 		InventoryHelper.dropInventoryItems(world, pos, tileEntity);
 		super.breakBlock(world, pos, state);
 	}
@@ -196,7 +192,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	{
 		if(!world.isRemote)
 		{
-			player.openGui(Main.instance, ConfigHandler.GUI_BOTANY_ALTAR, world, pos.getX(), pos.getY(), pos.getZ());
+			player.openGui(Main.instance, ConfigHandler.GUI_MORTAL_FURNACE, world, pos.getX(), pos.getY(), pos.getZ());
 		}
 		return true;
 	}
@@ -204,7 +200,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) 
 	{
-		return new TileEntityBotanyAltar();
+		return new TileEntityMortalCentrifuge();
 	}
 	
 	@Override

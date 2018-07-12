@@ -14,7 +14,8 @@ public class ConfigHandler
 	
 	public static int GUI_ALTAR = 0;
 	public static int GUI_BOTANY_ALTAR = 1;
-	public static int GUI_SPELLBOOK = 2;
+	public static int GUI_MORTAL_FURNACE = 2;
+	public static int GUI_SPELLBOOK = 3;
 	public static int ENTITY_VOID_WRAITH = 128;
 	public static int ENTITY_VOID_CONSTRUCT = 129;
 	public static int ENTITY_HEART_BOSS = 130;
@@ -69,6 +70,7 @@ public class ConfigHandler
 		
 		GUI_ALTAR = config.getInt("Altar GUI ID", category, 0, 0, 3000, "Altar GUI ID");
 		GUI_BOTANY_ALTAR = config.getInt("Botany Altar GUI ID", category, 1, 0, 3000, "Botany Altar GUI ID");
+		GUI_MORTAL_FURNACE = config.getInt("Mortal Furnace GUI ID", category, 2, 2, 3000, "Mortal Furnace GUI ID");
 		GUI_SPELLBOOK = config.getInt("Spell Book GUI ID", category, 2, 0, 3000, "Spell Book GUI ID");
 		
 		category = "Biomes";
