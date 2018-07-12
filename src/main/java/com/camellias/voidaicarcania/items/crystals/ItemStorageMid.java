@@ -30,6 +30,12 @@ public class ItemStorageMid extends Item implements IHasModel
 	}
 	
 	@Override
+	public boolean hasEffect(ItemStack stack)
+	{
+		return true;
+	}
+	
+	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{
 		if (!world.isRemote)
