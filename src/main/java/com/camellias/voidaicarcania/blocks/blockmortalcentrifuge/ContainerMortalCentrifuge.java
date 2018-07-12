@@ -23,7 +23,7 @@ public class ContainerMortalCentrifuge extends Container
 		
 		this.addSlotToContainer(new Slot(tileentity, 0, 58, 23));
 		this.addSlotToContainer(new Slot(tileentity, 1, 100, 23));
-		this.addSlotToContainer(new SlotMortalCentrifugeFuel(tileentity, 2, 37, 52));
+		this.addSlotToContainer(new SlotMortalCentrifugeFuel(tileentity, 2, 79, 38));
 		this.addSlotToContainer(new SlotMortalCentrifugeOutput(player.player, tileentity, 3, 79, 72));
 		
 		for(int y = 0; y < 3; y++)

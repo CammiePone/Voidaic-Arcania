@@ -27,7 +27,7 @@ public class MortalCentrifugeRecipes
 	
 	private MortalCentrifugeRecipes() 
 	{
-		addCentrifugeRecipe(new ItemStack(Blocks.WOOL), new ItemStack(Items.STRING), new ItemStack(ModItems.FEAST_COWL));
+		addCentrifugeRecipe(new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.INFUSED_INGOT), new ItemStack(ModItems.ASTRALITE));
 	}
 
 	public void addCentrifugeRecipe(ItemStack input1, ItemStack input2, ItemStack result) 

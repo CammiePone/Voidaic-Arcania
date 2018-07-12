@@ -35,7 +35,7 @@ public class GuiMortalCentrifuge extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int x, int y)
 	{
 		String tileName = this.tileEntity.getDisplayName().getUnformattedText();
-		this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName) / 2), 4, 8421504);
+		this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName) / 2), 8, 8421504);
 		this.fontRenderer.drawString(this.player.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 8421504);
 	}
 	
@@ -46,8 +46,21 @@ public class GuiMortalCentrifuge extends GuiContainer
 		this.mc.getTextureManager().bindTexture(TEXTURES);
 		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 		
+		if(TileEntityMortalCentrifuge.isBurning(tileEntity))
+		{
+			int k = this.getBurnLeftScaled(15);
+			this.drawTexturedModalRect(this.guiLeft + 82, this.guiTop + 35 - k, 176, 45 - k, 10, k + 1); //fuelbar
+		}
+		
 		int l = this.getCookProgressScaled(28);
 		this.drawTexturedModalRect(this.guiLeft + 64, this.guiTop + 40, 176, 3, 46, l - 1); //progressbar
+	}
+	
+	private int getBurnLeftScaled(int pixels)
+	{
+		int i = this.tileEntity.getField(1);
+		if(i == 0) i = 200;
+		return this.tileEntity.getField(0) * pixels / i;
 	}
 	
 	private int getCookProgressScaled(int pixels)
