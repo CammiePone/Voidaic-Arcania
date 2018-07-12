@@ -3,19 +3,23 @@ package com.camellias.voidaicarcania.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.camellias.voidaicarcania.items.ItemAstralite;
 import com.camellias.voidaicarcania.items.ItemChorusTea;
 import com.camellias.voidaicarcania.items.ItemCinnabar;
 import com.camellias.voidaicarcania.items.ItemDarkCamellia;
 import com.camellias.voidaicarcania.items.ItemDwarfBrick;
+import com.camellias.voidaicarcania.items.ItemEnargite;
 import com.camellias.voidaicarcania.items.ItemFeatherweed;
 import com.camellias.voidaicarcania.items.ItemFloatshroom;
 import com.camellias.voidaicarcania.items.ItemGlowgrowth;
 import com.camellias.voidaicarcania.items.ItemInfusedIngot;
 import com.camellias.voidaicarcania.items.ItemMercury;
 import com.camellias.voidaicarcania.items.ItemMoonMint;
+import com.camellias.voidaicarcania.items.ItemMythril;
 import com.camellias.voidaicarcania.items.ItemNeddlesprout;
 import com.camellias.voidaicarcania.items.ItemSecretStick;
 import com.camellias.voidaicarcania.items.ItemShulkerBullet;
+import com.camellias.voidaicarcania.items.ItemSortigellium;
 import com.camellias.voidaicarcania.items.ItemStarbloom;
 import com.camellias.voidaicarcania.items.ItemTransmutationOrb;
 import com.camellias.voidaicarcania.items.ItemTransmutationShard;
@@ -153,6 +157,10 @@ public class ModItems
 	public static final Item CINNABAR = new ItemCinnabar("cinnabar");
 	public static final Item INFUSED_INGOT = new ItemInfusedIngot("infused_ingot");
 	public static final Item MERCURY = new ItemMercury("mercury");
+	public static final Item ENARGITE = new ItemEnargite("enargite_ingot");
+	public static final Item SORTIGELLIUM = new ItemSortigellium("sortigellium_ingot");
+	public static final Item ASTRALITE = new ItemAstralite("astralite_ingot");
+	public static final Item MYTHRIL = new ItemMythril("mythril_ingot");
 	
 	//-----Stews-----//
 	public static final Item MUSHROOM_BULB = new ItemMushroomBulb("mushroom_stew_1", 6);

@@ -9,7 +9,7 @@ public class VoidicMetallurgyTab extends CreativeTabs
 {
 	public VoidicMetallurgyTab(String label)
 	{
-		super("voidictab");
+		super("metaltab");
 		this.setBackgroundImageName("voidic.png");
 	}
 
