@@ -14,6 +14,7 @@ import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -35,6 +36,7 @@ import net.minecraft.world.World;
 public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEntityProvider
 {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
+	public static final PropertyBool BURNING = PropertyBool.create("burning");
 	
 	public BlockMortalCentrifuge(String name, Material material) 
 	{
@@ -45,21 +47,30 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 		this.setHardness(3.0F);
 		this.setCreativeTab(Main.metaltab);
 		
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
 		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 	
-	public static void setState(boolean active, World world, BlockPos pos)
+	public static void setState(boolean active, World world, BlockPos pos) 
 	{
 		IBlockState state = world.getBlockState(pos);
-		TileEntity tileEntity = world.getTileEntity(pos);
+		TileEntity tileentity = world.getTileEntity(pos);
 		
-		if(tileEntity != null)
+		if(active) 
 		{
-			tileEntity.validate();
-			world.setTileEntity(pos, tileEntity);
+			world.setBlockState(pos, ModBlocks.BLOCK_MORTAL_FURNACE.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, true), 3);
+		}
+		else
+		{
+			world.setBlockState(pos, ModBlocks.BLOCK_MORTAL_FURNACE.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, false), 3);
+		}
+		
+		if(tileentity != null) 
+		{
+			tileentity.validate();
+			world.setTileEntity(pos, tileentity);
 		}
 	}
 	
@@ -68,80 +79,6 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	{
 		return EnumBlockRenderType.MODEL;
 	}
-	
-	//Positioning
-	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
-    {
-        this.setDefaultFacing(worldIn, pos, state);
-    }
-
-	private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state)
-	{
-		if (!worldIn.isRemote)
-		{
-			IBlockState iblockstate = worldIn.getBlockState(pos.north());
-			IBlockState iblockstate1 = worldIn.getBlockState(pos.south());
-			IBlockState iblockstate2 = worldIn.getBlockState(pos.west());
-			IBlockState iblockstate3 = worldIn.getBlockState(pos.east());
-			EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
-			
-			if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock())
-			{
-				enumfacing = EnumFacing.SOUTH;
-			}
-			else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock())
-			{
-				enumfacing = EnumFacing.NORTH;
-			}
-			else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock())
-			{
-				enumfacing = EnumFacing.EAST;
-			}
-			else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock())
-			{
-				enumfacing = EnumFacing.WEST;
-			}
-			
-			worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
-		}
-	}
-	
-	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
-        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
-    }
- 
-	public IBlockState getStateFromMeta(int meta)
-    {
-        EnumFacing enumfacing = EnumFacing.getFront(meta);
-
-        if (enumfacing.getAxis() == EnumFacing.Axis.Y)
-        {
-            enumfacing = EnumFacing.NORTH;
-        }
-
-        return this.getDefaultState().withProperty(FACING, enumfacing);
-    }
- 
-	public int getMetaFromState(IBlockState state)
-    {
-        return ((EnumFacing)state.getValue(FACING)).getIndex();
-    }
- 
-	public IBlockState withRotation(IBlockState state, Rotation rot)
-    {
-        return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
-    }
- 
-	public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
-    {
-        return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
-    }
-
-	protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer(this, new IProperty[] {FACING});
-    }
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
@@ -181,7 +118,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) 
+	public TileEntity createNewTileEntity(World world, int meta) 
 	{
 		return new TileEntityMortalCentrifuge();
 	}
@@ -190,5 +127,68 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	public void registerModels() 
 	{
 		Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+	}
+	
+	@Override
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) 
+	{
+		if (!world.isRemote) 
+        {
+            IBlockState north = world.getBlockState(pos.north());
+            IBlockState south = world.getBlockState(pos.south());
+            IBlockState west = world.getBlockState(pos.west());
+            IBlockState east = world.getBlockState(pos.east());
+            EnumFacing face = (EnumFacing)state.getValue(FACING);
+            
+            if (face == EnumFacing.NORTH && north.isFullBlock() && !south.isFullBlock()) face = EnumFacing.SOUTH;
+            else if (face == EnumFacing.SOUTH && south.isFullBlock() && !north.isFullBlock()) face = EnumFacing.NORTH;
+            else if (face == EnumFacing.WEST && west.isFullBlock() && !east.isFullBlock()) face = EnumFacing.EAST;
+            else if (face == EnumFacing.EAST && east.isFullBlock() && !west.isFullBlock()) face = EnumFacing.WEST;
+            world.setBlockState(pos, state.withProperty(FACING, face), 2);
+        }
+	}
+	
+	@Override
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) 
+	{
+		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+	}
+	
+	@Override
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) 
+	{
+		world.setBlockState(pos, this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
+	}
+	
+	@Override
+	public IBlockState withRotation(IBlockState state, Rotation rot)
+	{
+		return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
+	}
+	
+	@Override
+	public IBlockState withMirror(IBlockState state, Mirror mirror) 
+	{
+		return state.withRotation(mirror.toRotation((EnumFacing)state.getValue(FACING)));
+	}
+	
+	@Override
+	protected BlockStateContainer createBlockState() 
+	{
+		return new BlockStateContainer(this, new IProperty[] {BURNING, FACING});
+	}
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta) 
+	{
+		EnumFacing facing = EnumFacing.getFront(meta);
+		if(facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
+		return this.getDefaultState().withProperty(FACING, facing);
+	}
+	
+	@Override
+	public int getMetaFromState(IBlockState state) 
+	{
+		return ((EnumFacing)state.getValue(FACING)).getIndex();
 	}
 }

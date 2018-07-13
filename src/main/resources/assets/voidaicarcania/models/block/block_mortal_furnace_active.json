@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "voidaicarcania:blocks/mortal_furnace_top",
+        "front": "voidaicarcania:blocks/mortal_furnace_lit",
+        "side": "voidaicarcania:blocks/mortal_furnace_side"
+    }
+}

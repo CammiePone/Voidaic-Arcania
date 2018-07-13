@@ -95,7 +95,7 @@ public class TileEntityMortalCentrifuge extends TileEntity implements IInventory
 	{
 		return this.hasCustomName() ? new TextComponentString(this.getName()) : new TextComponentTranslation(this.getName());
 	}
-
+	
 	@Override
 	public int getSizeInventory() 
 	{
