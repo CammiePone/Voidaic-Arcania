@@ -1,9 +1,10 @@
 package com.camellias.voidaicarcania.blocks;
 
+import java.util.Random;
+
 import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
@@ -45,9 +46,12 @@ public class BlockVoidMelonCrop extends BlockCrops
 	{
 		if(!world.isRemote)
 		{
+			Random rand = world.rand;
+			
 			if(this.isMaxAge(state))
 			{
 				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Item.getItemFromBlock(ModBlocks.BLOCK_VOID_MELON), 1)));
+				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(rand.nextInt(10) == 0 ? ModItems.TRANSROOT : ModBlocks.BLOCK_MELON_CROP.getItemDropped(state, rand, 0))));
 				world.setBlockState(pos, this.withAge(0));
 				return true;
 			}

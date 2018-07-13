@@ -44,7 +44,7 @@ public class BotanyAltarRecipes
 		addBotanyAltarRecipe(new ItemStack(ModItems.DARK_CAMELLIA), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.MOON_MINT));
 		addBotanyAltarRecipe(new ItemStack(Items.DYE, 1, 2), new ItemStack(Items.STICK), new ItemStack(ModItems.NEDDLESPROUT));
 		addBotanyAltarRecipe(new ItemStack(ModItems.WRAITH_WISP), new ItemStack(Items.NETHER_STAR), new ItemStack(ModItems.STARBLOOM));
-		addBotanyAltarRecipe(new ItemStack(ModItems.WRAITH_WISP), new ItemStack(Items.BEETROOT), new ItemStack(ModItems.TRANSROOT));
+		addBotanyAltarRecipe(new ItemStack(ModBlocks.BLOCK_VOID_MELON), new ItemStack(ModItems.TRANSROOT), new ItemStack(ModItems.TRANSROOT, 2));
 		
 		addBotanyAltarRecipe(new ItemStack(ModItems.VOID_BULB), new ItemStack(Items.MUSHROOM_STEW), new ItemStack(ModItems.MUSHROOM_BULB));
 		addBotanyAltarRecipe(new ItemStack(ModItems.FLOATSHROOM), new ItemStack(Items.MUSHROOM_STEW), new ItemStack(ModItems.MUSHROOM_FLOAT));

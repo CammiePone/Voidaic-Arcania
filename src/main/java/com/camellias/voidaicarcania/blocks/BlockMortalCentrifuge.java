@@ -33,10 +33,9 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEntityProvider
+public class BlockMortalCentrifuge extends Block implements IHasModel
 {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
-	public static final PropertyBool BURNING = PropertyBool.create("burning");
 	
 	public BlockMortalCentrifuge(String name, Material material) 
 	{
@@ -47,7 +46,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 		this.setHardness(3.0F);
 		this.setCreativeTab(Main.metaltab);
 		
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -57,15 +56,6 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	{
 		IBlockState state = world.getBlockState(pos);
 		TileEntity tileentity = world.getTileEntity(pos);
-		
-		if(active) 
-		{
-			world.setBlockState(pos, ModBlocks.BLOCK_MORTAL_FURNACE.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, true), 3);
-		}
-		else
-		{
-			world.setBlockState(pos, ModBlocks.BLOCK_MORTAL_FURNACE.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, false), 3);
-		}
 		
 		if(tileentity != null) 
 		{
@@ -118,7 +108,13 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta) 
+	public boolean hasTileEntity()
+	{
+		return true;
+	}
+	
+	@Override
+	public TileEntity createTileEntity(World world, IBlockState state)
 	{
 		return new TileEntityMortalCentrifuge();
 	}
@@ -175,7 +171,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel, ITileEnti
 	@Override
 	protected BlockStateContainer createBlockState() 
 	{
-		return new BlockStateContainer(this, new IProperty[] {BURNING, FACING});
+		return new BlockStateContainer(this, new IProperty[] {FACING});
 	}
 	
 	@Override
