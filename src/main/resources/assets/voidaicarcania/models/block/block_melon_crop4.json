@@ -1,5 +1,6 @@
 {
     "textures": {
+        "particle": "voidaicarcania:blocks/void_melon_fruit",
         "0": "voidaicarcania:blocks/void_melon_fruit",
         "1": "voidaicarcania:blocks/stem_plant"
     },

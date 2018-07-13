@@ -21,6 +21,7 @@ import com.camellias.voidaicarcania.items.ItemSecretStick;
 import com.camellias.voidaicarcania.items.ItemShulkerBullet;
 import com.camellias.voidaicarcania.items.ItemSortigellium;
 import com.camellias.voidaicarcania.items.ItemStarbloom;
+import com.camellias.voidaicarcania.items.ItemTransformRoot;
 import com.camellias.voidaicarcania.items.ItemTransmutationOrb;
 import com.camellias.voidaicarcania.items.ItemTransmutationShard;
 import com.camellias.voidaicarcania.items.ItemVoidBottle;
@@ -55,49 +56,8 @@ import com.camellias.voidaicarcania.items.baubles.head.ItemReaperCowlActive;
 import com.camellias.voidaicarcania.items.crystals.ItemStorageMid;
 import com.camellias.voidaicarcania.items.crystals.ItemStorageStrong;
 import com.camellias.voidaicarcania.items.crystals.ItemStorageWeak;
-import com.camellias.voidaicarcania.items.foodstuff.breads.ItemBreadBloom;
-import com.camellias.voidaicarcania.items.foodstuff.breads.ItemBreadBulb;
-import com.camellias.voidaicarcania.items.foodstuff.breads.ItemBreadFeather;
-import com.camellias.voidaicarcania.items.foodstuff.breads.ItemBreadFloat;
-import com.camellias.voidaicarcania.items.foodstuff.breads.ItemBreadGlow;
-import com.camellias.voidaicarcania.items.foodstuff.breads.ItemBreadMint;
-import com.camellias.voidaicarcania.items.foodstuff.breads.ItemBreadNeddle;
-import com.camellias.voidaicarcania.items.foodstuff.cookies.ItemCookieBloom;
-import com.camellias.voidaicarcania.items.foodstuff.cookies.ItemCookieBulb;
-import com.camellias.voidaicarcania.items.foodstuff.cookies.ItemCookieFeather;
-import com.camellias.voidaicarcania.items.foodstuff.cookies.ItemCookieFloat;
-import com.camellias.voidaicarcania.items.foodstuff.cookies.ItemCookieGlow;
-import com.camellias.voidaicarcania.items.foodstuff.cookies.ItemCookieMint;
-import com.camellias.voidaicarcania.items.foodstuff.cookies.ItemCookieNeddle;
-import com.camellias.voidaicarcania.items.foodstuff.pies.ItemPieBloom;
-import com.camellias.voidaicarcania.items.foodstuff.pies.ItemPieBulb;
-import com.camellias.voidaicarcania.items.foodstuff.pies.ItemPieFeather;
-import com.camellias.voidaicarcania.items.foodstuff.pies.ItemPieFloat;
-import com.camellias.voidaicarcania.items.foodstuff.pies.ItemPieGlow;
-import com.camellias.voidaicarcania.items.foodstuff.pies.ItemPieMint;
-import com.camellias.voidaicarcania.items.foodstuff.pies.ItemPieNeddle;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemBeetBloom;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemBeetBulb;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemBeetFeather;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemBeetFloat;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemBeetGlow;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemBeetMint;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemBeetNeddle;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemMushroomBloom;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemMushroomBulb;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemMushroomFeather;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemMushroomFloat;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemMushroomGlow;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemMushroomMint;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemMushroomNeddle;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemRabbitBloom;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemRabbitBulb;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemRabbitFeather;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemRabbitFloat;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemRabbitGlow;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemRabbitMint;
-import com.camellias.voidaicarcania.items.foodstuff.stews.ItemRabbitNeddle;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class ModItems 
@@ -152,6 +112,7 @@ public class ModItems
 	public static final Item STARBLOOM = new ItemStarbloom("starbloom", 0, 0, false); //FoodItem
 	public static final Item MOON_MINT = new ItemMoonMint("moon_mint", 0, 0, false); //FoodItem
 	public static final Item FEATHERWEED = new ItemFeatherweed("featherweed", 0, 0, false); //FoodItem
+	public static final Item TRANSROOT = new ItemTransformRoot("transformative_root");
 	
 	//-----Metallurgy-----//
 	public static final Item CINNABAR = new ItemCinnabar("cinnabar");
@@ -163,56 +124,56 @@ public class ModItems
 	public static final Item MYTHRIL = new ItemMythril("mythril_ingot");
 	
 	//-----Stews-----//
-	public static final Item MUSHROOM_BULB = new ItemMushroomBulb("mushroom_stew_1", 6);
-	public static final Item MUSHROOM_FLOAT = new ItemMushroomFloat("mushroom_stew_2", 6);
-	public static final Item MUSHROOM_GLOW = new ItemMushroomGlow("mushroom_stew_3", 6);
-	public static final Item MUSHROOM_NEDDLE = new ItemMushroomNeddle("mushroom_stew_4", 6);
-	public static final Item MUSHROOM_BLOOM = new ItemMushroomBloom("mushroom_stew_5", 6);
-	public static final Item MUSHROOM_MINT = new ItemMushroomMint("mushroom_stew_6", 6);
-	public static final Item MUSHROOM_FEATHER = new ItemMushroomFeather("mushroom_stew_7", 6);
+	public static final Item MUSHROOM_BULB = new ItemVoidBulb("mushroom_stew_1", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item MUSHROOM_FLOAT = new ItemFloatshroom("mushroom_stew_2", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item MUSHROOM_GLOW = new ItemGlowgrowth("mushroom_stew_3", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item MUSHROOM_NEDDLE = new ItemNeddlesprout("mushroom_stew_4", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item MUSHROOM_BLOOM = new ItemStarbloom("mushroom_stew_5", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item MUSHROOM_MINT = new ItemMoonMint("mushroom_stew_6", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item MUSHROOM_FEATHER = new ItemFeatherweed("mushroom_stew_7", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
 	
-	public static final Item RABBIT_BULB = new ItemRabbitBulb("rabbit_stew_1", 10);
-	public static final Item RABBIT_FLOAT = new ItemRabbitFloat("rabbit_stew_2", 10);
-	public static final Item RABBIT_GLOW = new ItemRabbitGlow("rabbit_stew_3", 10);
-	public static final Item RABBIT_NEDDLE = new ItemRabbitNeddle("rabbit_stew_4", 10);
-	public static final Item RABBIT_BLOOM = new ItemRabbitBloom("rabbit_stew_5", 10);
-	public static final Item RABBIT_MINT = new ItemRabbitMint("rabbit_stew_6", 10);
-	public static final Item RABBIT_FEATHER = new ItemRabbitFeather("rabbit_stew_7", 10);
+	public static final Item RABBIT_BULB = new ItemVoidBulb("rabbit_stew_1", 10, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item RABBIT_FLOAT = new ItemFloatshroom("rabbit_stew_2", 10, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item RABBIT_GLOW = new ItemGlowgrowth("rabbit_stew_3", 10, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item RABBIT_NEDDLE = new ItemNeddlesprout("rabbit_stew_4", 10, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item RABBIT_BLOOM = new ItemStarbloom("rabbit_stew_5", 10, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item RABBIT_MINT = new ItemMoonMint("rabbit_stew_6", 10, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item RABBIT_FEATHER = new ItemFeatherweed("rabbit_stew_7", 10, 0, false).setCreativeTab(CreativeTabs.FOOD);
 	
-	public static final Item BEET_BULB = new ItemBeetBulb("beetroot_soup_1", 6);
-	public static final Item BEET_FLOAT = new ItemBeetFloat("beetroot_soup_2", 6);
-	public static final Item BEET_GLOW = new ItemBeetGlow("beetroot_soup_3", 6);
-	public static final Item BEET_NEDDLE = new ItemBeetNeddle("beetroot_soup_4", 6);
-	public static final Item BEET_BLOOM = new ItemBeetBloom("beetroot_soup_5", 6);
-	public static final Item BEET_MINT = new ItemBeetMint("beetroot_soup_6", 6);
-	public static final Item BEET_FEATHER = new ItemBeetFeather("beetroot_soup_7", 6);
+	public static final Item BEET_BULB = new ItemVoidBulb("beetroot_soup_1", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BEET_FLOAT = new ItemFloatshroom("beetroot_soup_2", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BEET_GLOW = new ItemGlowgrowth("beetroot_soup_3", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BEET_NEDDLE = new ItemNeddlesprout("beetroot_soup_4", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BEET_BLOOM = new ItemStarbloom("beetroot_soup_5", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BEET_MINT = new ItemMoonMint("beetroot_soup_6", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BEET_FEATHER = new ItemFeatherweed("beetroot_soup_7", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
 	
 	//-----Breads-----//
-	public static final Item BREAD_BULB = new ItemBreadBulb("bread_1", 5);
-	public static final Item BREAD_FLOAT = new ItemBreadFloat("bread_2", 5);
-	public static final Item BREAD_GLOW = new ItemBreadGlow("bread_3", 5);
-	public static final Item BREAD_NEDDLE = new ItemBreadNeddle("bread_4", 5);
-	public static final Item BREAD_BLOOM = new ItemBreadBloom("bread_5", 5);
-	public static final Item BREAD_MINT = new ItemBreadMint("bread_6", 5);
-	public static final Item BREAD_FEATHER = new ItemBreadFeather("bread_7", 5);
+	public static final Item BREAD_BULB = new ItemVoidBulb("bread_1", 5, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BREAD_FLOAT = new ItemFloatshroom("bread_2", 5, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BREAD_GLOW = new ItemGlowgrowth("bread_3", 5, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BREAD_NEDDLE = new ItemNeddlesprout("bread_4", 5, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BREAD_BLOOM = new ItemStarbloom("bread_5", 5, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BREAD_MINT = new ItemMoonMint("bread_6", 5, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item BREAD_FEATHER = new ItemFeatherweed("bread_7", 5, 0, false).setCreativeTab(CreativeTabs.FOOD);
 	
 	//-----Cookies-----//
-	public static final Item COOKIE_BULB = new ItemCookieBulb("cookie_1", 2);
-	public static final Item COOKIE_FLOAT = new ItemCookieFloat("cookie_2", 2);
-	public static final Item COOKIE_GLOW = new ItemCookieGlow("cookie_3", 2);
-	public static final Item COOKIE_NEDDLE = new ItemCookieNeddle("cookie_4", 2);
-	public static final Item COOKIE_BLOOM = new ItemCookieBloom("cookie_5", 2);
-	public static final Item COOKIE_MINT = new ItemCookieMint("cookie_6", 2);
-	public static final Item COOKIE_FEATHER = new ItemCookieFeather("cookie_7", 2);
+	public static final Item COOKIE_BULB = new ItemVoidBulb("cookie_1", 2, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item COOKIE_FLOAT = new ItemFloatshroom("cookie_2", 2, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item COOKIE_GLOW = new ItemGlowgrowth("cookie_3", 2, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item COOKIE_NEDDLE = new ItemNeddlesprout("cookie_4", 2, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item COOKIE_BLOOM = new ItemStarbloom("cookie_5", 2, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item COOKIE_MINT = new ItemMoonMint("cookie_6", 2, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item COOKIE_FEATHER = new ItemFeatherweed("cookie_7", 2, 0, false).setCreativeTab(CreativeTabs.FOOD);
 	
 	//-----Pies-----//
-	public static final Item PIE_BULB = new ItemPieBulb("pumpkin_pie_1", 5);
-	public static final Item PIE_FLOAT = new ItemPieFloat("pumpkin_pie_2", 5);
-	public static final Item PIE_GLOW = new ItemPieGlow("pumpkin_pie_3", 5);
-	public static final Item PIE_NEDDLE = new ItemPieNeddle("pumpkin_pie_4", 5);
-	public static final Item PIE_BLOOM = new ItemPieBloom("pumpkin_pie_5", 5);
-	public static final Item PIE_MINT = new ItemPieMint("pumpkin_pie_6", 5);
-	public static final Item PIE_FEATHER = new ItemPieFeather("pumpkin_pie_7", 5);
+	public static final Item PIE_BULB = new ItemVoidBulb("pumpkin_pie_1", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item PIE_FLOAT = new ItemFloatshroom("pumpkin_pie_2", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item PIE_GLOW = new ItemGlowgrowth("pumpkin_pie_3", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item PIE_NEDDLE = new ItemNeddlesprout("pumpkin_pie_4", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item PIE_BLOOM = new ItemStarbloom("pumpkin_pie_5", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item PIE_MINT = new ItemMoonMint("pumpkin_pie_6", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
+	public static final Item PIE_FEATHER = new ItemFeatherweed("pumpkin_pie_7", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
 	
 	public static final Item CHORUS_TEA = new ItemChorusTea("chorus_tea", 0, 5, false); //TeaItem
 	

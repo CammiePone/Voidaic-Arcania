@@ -33,7 +33,7 @@ public class GuiBotanyAltar extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int x, int y)
 	{
 		String tileName = this.tileEntity.getDisplayName().getUnformattedText();
-		this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName) / 2), 4, 8421504);
+		this.fontRenderer.drawString(tileName, (this.xSize / 2 - this.fontRenderer.getStringWidth(tileName) / 2), 8, 8421504);
 		this.fontRenderer.drawString(this.player.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 8421504);
 	}
 	

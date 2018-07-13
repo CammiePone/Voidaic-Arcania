@@ -5,6 +5,7 @@ import com.camellias.voidaicarcania.blocks.BlockBotanyAltar;
 import com.camellias.voidaicarcania.init.ModItems;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
@@ -33,7 +34,7 @@ public class TileEntityBotanyAltar extends TileEntity implements IInventory, ITi
 	
 	public int getCookTime(ItemStack input1, ItemStack input2) 
 	{
-		return 1;
+		return 20;
 	}
 	
 	public static int getItemBurnTime(ItemStack fuel) 
@@ -43,7 +44,7 @@ public class TileEntityBotanyAltar extends TileEntity implements IInventory, ITi
 		{
 			Item item = fuel.getItem();
 			
-			if(item == ModItems.WRAITH_WISP) return 1;
+			if(item == ModItems.WRAITH_WISP) return 20;
 
 			return GameRegistry.getFuelValue(fuel);
 		}
@@ -253,6 +254,7 @@ public class TileEntityBotanyAltar extends TileEntity implements IInventory, ITi
 		{
 			ItemStack input1 = (ItemStack)this.inventory.get(0);
 			ItemStack input2 = (ItemStack)this.inventory.get(1);
+			ItemStack fuel = (ItemStack)this.inventory.get(2);
 			ItemStack result = BotanyAltarRecipes.getInstance().getBotanyAltarResult(input1, input2);
 			ItemStack output = (ItemStack)this.inventory.get(3);
 			

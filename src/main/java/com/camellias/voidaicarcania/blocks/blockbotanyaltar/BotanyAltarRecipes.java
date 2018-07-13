@@ -44,6 +44,7 @@ public class BotanyAltarRecipes
 		addBotanyAltarRecipe(new ItemStack(ModItems.DARK_CAMELLIA), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.MOON_MINT));
 		addBotanyAltarRecipe(new ItemStack(Items.DYE, 1, 2), new ItemStack(Items.STICK), new ItemStack(ModItems.NEDDLESPROUT));
 		addBotanyAltarRecipe(new ItemStack(ModItems.WRAITH_WISP), new ItemStack(Items.NETHER_STAR), new ItemStack(ModItems.STARBLOOM));
+		addBotanyAltarRecipe(new ItemStack(ModItems.WRAITH_WISP), new ItemStack(Items.BEETROOT), new ItemStack(ModItems.TRANSROOT));
 		
 		addBotanyAltarRecipe(new ItemStack(ModItems.VOID_BULB), new ItemStack(Items.MUSHROOM_STEW), new ItemStack(ModItems.MUSHROOM_BULB));
 		addBotanyAltarRecipe(new ItemStack(ModItems.FLOATSHROOM), new ItemStack(Items.MUSHROOM_STEW), new ItemStack(ModItems.MUSHROOM_FLOAT));
@@ -95,6 +96,15 @@ public class BotanyAltarRecipes
 		
 		addBotanyAltarRecipe(new ItemStack(ModItems.CRYSTAL), new ItemStack(Items.BOOK), ALCHEMY_BOOK);
 		addBotanyAltarRecipe(new ItemStack(ModItems.FLOATSHROOM), new ItemStack(Items.BOOK), CLOUDSTEP_BOOK);
+		
+		addBotanyAltarRecipe(new ItemStack(Items.COAL), new ItemStack(ModItems.TRANSROOT), new ItemStack(Items.IRON_INGOT));
+		addBotanyAltarRecipe(new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.TRANSROOT), new ItemStack(Items.GOLD_INGOT));
+		addBotanyAltarRecipe(new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.TRANSROOT), new ItemStack(Items.DIAMOND));
+		addBotanyAltarRecipe(new ItemStack(Items.DIAMOND), new ItemStack(ModItems.TRANSROOT), new ItemStack(Items.EMERALD));
+		addBotanyAltarRecipe(new ItemStack(Items.EMERALD), new ItemStack(ModItems.TRANSROOT), new ItemStack(ModItems.CRYSTAL));
+		addBotanyAltarRecipe(new ItemStack(Items.DYE, 1, 4), new ItemStack(ModItems.TRANSROOT), new ItemStack(Items.REDSTONE));
+		addBotanyAltarRecipe(new ItemStack(Items.REDSTONE), new ItemStack(ModItems.TRANSROOT), new ItemStack(Items.GLOWSTONE_DUST));
+		addBotanyAltarRecipe(new ItemStack(Items.QUARTZ), new ItemStack(ModItems.TRANSROOT), new ItemStack(ModItems.CRYSTAL));
 	}
 
 	public void addBotanyAltarRecipe(ItemStack input1, ItemStack input2, ItemStack result) 

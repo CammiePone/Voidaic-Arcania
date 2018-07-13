@@ -1,6 +1,7 @@
 package com.camellias.voidaicarcania.blocks;
 
 import java.util.List;
+import java.util.Random;
 
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.init.ModBlocks;
@@ -23,7 +24,6 @@ import net.minecraft.world.World;
 
 public class BlockVoidMelon extends Block implements IHasModel
 {
-	
 	private static final AxisAlignedBB MELON_BOX = new AxisAlignedBB(.0625 * 4, 0, .0625 * 4, .0625 * 12, .0625 * 12, .0625 * 12);
 	
 	public BlockVoidMelon(String name, Material material) 
@@ -46,7 +46,8 @@ public class BlockVoidMelon extends Block implements IHasModel
 	}
 	
 	@Override
-	public boolean isOpaqueCube(IBlockState state) {
+	public boolean isOpaqueCube(IBlockState state)
+	{
 		return false;
 	}
 	
@@ -57,12 +58,14 @@ public class BlockVoidMelon extends Block implements IHasModel
 	}
 	
 	@Override
-	public boolean isTranslucent(IBlockState state) {
+	public boolean isTranslucent(IBlockState state)
+	{
 		return true;
 	}
 	
 	@Override
-	public BlockRenderLayer getBlockLayer() {
+	public BlockRenderLayer getBlockLayer()
+	{
 		return BlockRenderLayer.CUTOUT;
 	}
 	
@@ -72,12 +75,14 @@ public class BlockVoidMelon extends Block implements IHasModel
 	}
 	
 	@Override //Bounding box
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+	{
 		return MELON_BOX;
 	}
 	
 	@Override //Collision box
-	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_) {
+	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_)
+	{
 		super.addCollisionBoxToList(pos, entityBox, collidingBoxes, MELON_BOX);
 	}
 	

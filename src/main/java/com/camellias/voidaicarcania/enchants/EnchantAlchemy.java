@@ -1,7 +1,10 @@
 package com.camellias.voidaicarcania.enchants;
 
+import java.util.Random;
+
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.init.ModEnchants;
+import com.camellias.voidaicarcania.init.ModItems;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
@@ -16,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.oredict.OreDictionary;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class EnchantAlchemy extends Enchantment 
@@ -53,29 +57,54 @@ public class EnchantAlchemy extends Enchantment
 					World world = event.getWorld();
 					BlockPos pos = event.getPos();
 					IBlockState state = event.getState();
+					Random rand = world.rand;
 					
 					if(state.getBlock() == Blocks.COAL_ORE)
 					{
 						event.getDrops().clear();
-						event.getDrops().add(new ItemStack(Items.IRON_INGOT));
+						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? Items.IRON_INGOT : state.getBlock().getItemDropped(state, rand, 0)));
 					}
 					
 					if(state.getBlock() == Blocks.IRON_ORE)
 					{
 						event.getDrops().clear();
-						event.getDrops().add(new ItemStack(Items.GOLD_INGOT));
+						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? Items.GOLD_INGOT : state.getBlock().getItemDropped(state, rand, 0)));
 					}
 					
 					if(state.getBlock() == Blocks.GOLD_ORE)
 					{
 						event.getDrops().clear();
-						event.getDrops().add(new ItemStack(Items.DIAMOND));
+						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? Items.DIAMOND : state.getBlock().getItemDropped(state, rand, 0)));
 					}
 					
 					if(state.getBlock() == Blocks.DIAMOND_ORE)
 					{
 						event.getDrops().clear();
-						event.getDrops().add(new ItemStack(Items.EMERALD));
+						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? Items.EMERALD : state.getBlock().getItemDropped(state, rand, 0)));
+					}
+					
+					if(state.getBlock() == Blocks.EMERALD_ORE)
+					{
+						event.getDrops().clear();
+						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? ModItems.CRYSTAL : state.getBlock().getItemDropped(state, rand, 0)));
+					}
+					
+					if(state.getBlock() == Blocks.LAPIS_ORE)
+					{
+						event.getDrops().clear();
+						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? Items.REDSTONE : state.getBlock().getItemDropped(state, rand, 0), 8));
+					}
+					
+					if(state.getBlock() == Blocks.REDSTONE_ORE || state.getBlock() == Blocks.LIT_REDSTONE_ORE)
+					{
+						event.getDrops().clear();
+						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? Items.GLOWSTONE_DUST : state.getBlock().getItemDropped(state, rand, 0), 5));
+					}
+					
+					if(state.getBlock() == Blocks.QUARTZ_ORE)
+					{
+						event.getDrops().clear();
+						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? ModItems.CRYSTAL : state.getBlock().getItemDropped(state, rand, 0)));
 					}
 				}
 			}
