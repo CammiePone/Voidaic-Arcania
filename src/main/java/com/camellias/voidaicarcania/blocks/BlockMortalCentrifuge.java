@@ -108,7 +108,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel
 	}
 	
 	@Override
-	public boolean hasTileEntity()
+	public boolean hasTileEntity(IBlockState state)
 	{
 		return true;
 	}
@@ -126,34 +126,9 @@ public class BlockMortalCentrifuge extends Block implements IHasModel
 	}
 	
 	@Override
-	public void onBlockAdded(World world, BlockPos pos, IBlockState state) 
-	{
-		if (!world.isRemote) 
-        {
-            IBlockState north = world.getBlockState(pos.north());
-            IBlockState south = world.getBlockState(pos.south());
-            IBlockState west = world.getBlockState(pos.west());
-            IBlockState east = world.getBlockState(pos.east());
-            EnumFacing face = (EnumFacing)state.getValue(FACING);
-            
-            if (face == EnumFacing.NORTH && north.isFullBlock() && !south.isFullBlock()) face = EnumFacing.SOUTH;
-            else if (face == EnumFacing.SOUTH && south.isFullBlock() && !north.isFullBlock()) face = EnumFacing.NORTH;
-            else if (face == EnumFacing.WEST && west.isFullBlock() && !east.isFullBlock()) face = EnumFacing.EAST;
-            else if (face == EnumFacing.EAST && east.isFullBlock() && !west.isFullBlock()) face = EnumFacing.WEST;
-            world.setBlockState(pos, state.withProperty(FACING, face), 2);
-        }
-	}
-	
-	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) 
 	{
-		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
-	}
-	
-	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) 
-	{
-		world.setBlockState(pos, this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
+		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
 	}
 	
 	@Override

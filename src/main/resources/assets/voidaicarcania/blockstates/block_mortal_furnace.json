@@ -1,12 +1,8 @@
 {
     "variants": {
-        "burning = false, facing = south":  { "model": "voidaicarcania:block_mortal_furnace"},
-        "burning = false, facing = west":   { "model": "voidaicarcania:block_mortal_furnace", "y": 90},
-        "burning = false, facing = north":   { "model": "voidaicarcania:block_mortal_furnace", "y": 180},
-        "burning = false, facing = east":  { "model": "voidaicarcania:block_mortal_furnace", "y": 270},
-        "burning = true, facing = south":  { "model": "voidaicarcania:block_mortal_furnace_active"},
-        "burning = true, facing = west":   { "model": "voidaicarcania:block_mortal_furnace_active", "y": 90},
-        "burning = true, facing = north":   { "model": "voidaicarcania:block_mortal_furnace_active", "y": 180},
-        "burning = true, facing = east":  { "model": "voidaicarcania:block_mortal_furnace_active", "y": 270}
+        "facing=south":  { "model": "voidaicarcania:block_mortal_furnace"},
+        "facing=west":   { "model": "voidaicarcania:block_mortal_furnace", "y": 90},
+        "facing=north":   { "model": "voidaicarcania:block_mortal_furnace", "y": 180},
+        "facing=east":  { "model": "voidaicarcania:block_mortal_furnace", "y": 270}
     }
 }
