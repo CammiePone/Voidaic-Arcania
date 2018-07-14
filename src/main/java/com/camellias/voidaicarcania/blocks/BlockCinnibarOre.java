@@ -1,5 +1,7 @@
 package com.camellias.voidaicarcania.blocks;
 
+import java.util.Random;
+
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
@@ -32,6 +34,12 @@ public class BlockCinnibarOre extends Block implements IHasModel
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 	
+	
+	@Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+        return ModItems.CINNIBAR;
+    }
 	
 	@Override
 	public void registerModels() 

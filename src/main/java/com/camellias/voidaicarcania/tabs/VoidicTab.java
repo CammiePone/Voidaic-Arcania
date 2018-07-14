@@ -1,5 +1,6 @@
 package com.camellias.voidaicarcania.tabs;
 
+import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,6 +17,6 @@ public class VoidicTab extends CreativeTabs
 	@Override
 	public ItemStack getTabIconItem() 
 	{
-		return new ItemStack(ModItems.VOID_BOTTLE);
+		return new ItemStack(ModBlocks.BLOCK_ALTAR);
 	}
 }

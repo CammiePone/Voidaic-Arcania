@@ -6,7 +6,7 @@
         "1": "voidaicarcania:blocks/mortal_furnace_side",
         "2": "voidaicarcania:blocks/mortal_furnace_top",
         "3": "voidaicarcania:blocks/void_crystal_block",
-        "4": "voidaicarcania:blocks/wool_void",
+        "4": "voidaicarcania:blocks/mortal_furnace_heart",
         "5": "voidaicarcania:blocks/construct_base"
     },
     "elements": [
