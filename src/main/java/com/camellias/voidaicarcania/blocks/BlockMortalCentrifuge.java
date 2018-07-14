@@ -92,10 +92,25 @@ public class BlockMortalCentrifuge extends Block implements IHasModel
 			double d1 = (double)pos.getY() + 1.5D;
 			double d2 = (double)pos.getZ() + 0.5D;
 			
-			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, 0.02D);
-			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, -0.02D);
-			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH, d0, d1, d2, 0.02D, -0.006D, 0.0D);
-			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH, d0, d1, d2, -0.02D, -0.006D, 0.0D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, 0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, -0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.02D, -0.006D, 0.0D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, -0.02D, -0.006D, 0.0D);
+			
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, 0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, -0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.02D, -0.006D, 0.0D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, -0.02D, -0.006D, 0.0D);
+			
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, 0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, -0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.02D, -0.006D, 0.0D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, -0.02D, -0.006D, 0.0D);
+			
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, 0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, -0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, 0.02D, -0.006D, 0.0D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, d0, d1, d2, -0.02D, -0.006D, 0.0D);
 			
 			setLightLevel(1.0F);
 		}
