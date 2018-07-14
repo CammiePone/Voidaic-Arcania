@@ -11,13 +11,13 @@ import com.camellias.voidaicarcania.util.handlers.ConfigHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
@@ -29,14 +29,18 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockMortalCentrifuge extends Block implements IHasModel
 {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
+	public static final PropertyBool SMELTING = PropertyBool.create("smelting");
 	
 	public BlockMortalCentrifuge(String name, Material material) 
 	{
@@ -47,7 +51,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel
 		this.setHardness(3.0F);
 		this.setCreativeTab(Main.metaltab);
 		
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(SMELTING, false));
 		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -58,10 +62,40 @@ public class BlockMortalCentrifuge extends Block implements IHasModel
 		IBlockState state = world.getBlockState(pos);
 		TileEntity tileentity = world.getTileEntity(pos);
 		
+		if(active)
+		{
+			world.setBlockState(pos, ModBlocks.BLOCK_MORTAL_FURNACE.getDefaultState().withProperty(FACING, state.getValue(FACING))
+					.withProperty(SMELTING, true));
+		}
+		else
+		{
+			world.setBlockState(pos, ModBlocks.BLOCK_MORTAL_FURNACE.getDefaultState().withProperty(FACING, state.getValue(FACING))
+					.withProperty(SMELTING, false));
+		}
+		
 		if(tileentity != null) 
 		{
 			tileentity.validate();
 			world.setTileEntity(pos, tileentity);
+		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
+	{
+		boolean smelting = (state.getValue(SMELTING).booleanValue());
+		
+		if(smelting == true)
+		{
+			double d0 = (double)pos.getX() + 0.5D;
+			double d1 = (double)pos.getY() + 1.5D;
+			double d2 = (double)pos.getZ() + 0.5D;
+			
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, 0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH, d0, d1, d2, 0.0D, -0.006D, -0.02D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH, d0, d1, d2, 0.02D, -0.006D, 0.0D);
+			world.spawnParticle(EnumParticleTypes.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH.DRAGON_BREATH, d0, d1, d2, -0.02D, -0.006D, 0.0D);
 		}
 	}
 	
@@ -98,12 +132,14 @@ public class BlockMortalCentrifuge extends Block implements IHasModel
     }
 	
 	@Override
-	public boolean isTranslucent(IBlockState state) {
+	public boolean isTranslucent(IBlockState state)
+	{
 		return true;
 	}
 	
 	@Override
-	public BlockRenderLayer getBlockLayer() {
+	public BlockRenderLayer getBlockLayer()
+	{
 		return BlockRenderLayer.CUTOUT_MIPPED;
 	}
 	
@@ -137,7 +173,8 @@ public class BlockMortalCentrifuge extends Block implements IHasModel
 	}
 	
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) 
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, 
+			int meta, EntityLivingBase placer, EnumHand hand) 
 	{
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
 	}
@@ -157,7 +194,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel
 	@Override
 	protected BlockStateContainer createBlockState() 
 	{
-		return new BlockStateContainer(this, new IProperty[] {FACING});
+		return new BlockStateContainer(this, new IProperty[] {SMELTING,FACING});
 	}
 	
 	@Override
@@ -165,7 +202,7 @@ public class BlockMortalCentrifuge extends Block implements IHasModel
 	{
 		EnumFacing facing = EnumFacing.getFront(meta);
 		if(facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
-		return this.getDefaultState().withProperty(FACING, facing);
+		return this.getDefaultState().withProperty(FACING, facing).withProperty(SMELTING, false);
 	}
 	
 	@Override

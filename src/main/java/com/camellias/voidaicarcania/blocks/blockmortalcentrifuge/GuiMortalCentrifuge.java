@@ -52,7 +52,7 @@ public class GuiMortalCentrifuge extends GuiContainer
 			this.drawTexturedModalRect(this.guiLeft + 82, this.guiTop + 35 - k, 176, 45 - k, 10, k + 1); //fuelbar
 		}
 		
-		int l = this.getCookProgressScaled(28);
+		int l = this.getCookProgressScaled(30);
 		this.drawTexturedModalRect(this.guiLeft + 64, this.guiTop + 40, 176, 3, 46, l - 1); //progressbar
 	}
 	

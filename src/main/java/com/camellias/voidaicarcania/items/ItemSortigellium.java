@@ -24,7 +24,6 @@ public class ItemSortigellium extends Item implements IHasModel
 		ModItems.ITEMS.add(this);
 	}
 	
-	
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{

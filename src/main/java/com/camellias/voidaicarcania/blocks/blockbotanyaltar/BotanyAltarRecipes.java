@@ -104,7 +104,8 @@ public class BotanyAltarRecipes
 		addBotanyAltarRecipe(new ItemStack(Items.EMERALD), new ItemStack(ModItems.TRANSROOT), new ItemStack(ModItems.CRYSTAL));
 		addBotanyAltarRecipe(new ItemStack(Items.DYE, 1, 4), new ItemStack(ModItems.TRANSROOT), new ItemStack(Items.REDSTONE));
 		addBotanyAltarRecipe(new ItemStack(Items.REDSTONE), new ItemStack(ModItems.TRANSROOT), new ItemStack(Items.GLOWSTONE_DUST));
-		addBotanyAltarRecipe(new ItemStack(Items.QUARTZ), new ItemStack(ModItems.TRANSROOT), new ItemStack(ModItems.CRYSTAL));
+		addBotanyAltarRecipe(new ItemStack(Items.QUARTZ), new ItemStack(ModItems.TRANSROOT), new ItemStack(ModItems.ENARGITE));
+		addBotanyAltarRecipe(new ItemStack(ModItems.ENARGITE), new ItemStack(ModItems.TRANSROOT), new ItemStack(ModItems.CRYSTAL));
 	}
 
 	public void addBotanyAltarRecipe(ItemStack input1, ItemStack input2, ItemStack result) 

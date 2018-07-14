@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.enchants;
 import java.util.Random;
 
 import com.camellias.voidaicarcania.Reference;
+import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModEnchants;
 import com.camellias.voidaicarcania.init.ModItems;
 
@@ -102,6 +103,12 @@ public class EnchantAlchemy extends Enchantment
 					}
 					
 					if(state.getBlock() == Blocks.QUARTZ_ORE)
+					{
+						event.getDrops().clear();
+						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? ModItems.ENARGITE : state.getBlock().getItemDropped(state, rand, 0)));
+					}
+					
+					if(state.getBlock() == ModBlocks.BLOCK_BORNITE_ORE)
 					{
 						event.getDrops().clear();
 						event.getDrops().add(new ItemStack(rand.nextInt(25) == 0 ? ModItems.CRYSTAL : state.getBlock().getItemDropped(state, rand, 0)));
