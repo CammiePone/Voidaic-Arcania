@@ -3,7 +3,6 @@ package com.camellias.voidaicarcania.blocks;
 import java.util.Random;
 
 import com.camellias.voidaicarcania.Main;
-import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.blocks.blockaltar.TileEntityAltar;
 import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
@@ -11,11 +10,7 @@ import com.camellias.voidaicarcania.util.IHasModel;
 import com.camellias.voidaicarcania.util.handlers.ConfigHandler;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
@@ -29,7 +24,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockAltar extends Block implements IHasModel, ITileEntityProvider
+public class BlockAltar extends Block implements IHasModel
 {
 	public BlockAltar(String name, Material material) 
 	{
@@ -100,7 +95,13 @@ public class BlockAltar extends Block implements IHasModel, ITileEntityProvider
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) 
+	public boolean hasTileEntity(IBlockState state)
+	{
+		return true;
+	}
+	
+	@Override
+	public TileEntity createTileEntity(World world, IBlockState state)
 	{
 		return new TileEntityAltar();
 	}
