@@ -1,13 +1,13 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "parent": "block/block",
     "textures": {
-        "particle": "blocks/blocks/mortal_furnace_side",
-        "0": "blocks/mortal_furnace_front",
-        "1": "blocks/mortal_furnace_side",
-        "2": "blocks/mortal_furnace_top",
-        "3": "blocks/void_crystal_block",
-        "4": "blocks/voidaic_lantern",
-        "5": "blocks/construct_base"
+        "particle": "voidaicarcania:blocks/mortal_furnace_side",
+        "0": "voidaicarcania:blocks/mortal_furnace_front",
+        "1": "voidaicarcania:blocks/mortal_furnace_side",
+        "2": "voidaicarcania:blocks/mortal_furnace_top",
+        "3": "voidaicarcania:blocks/void_crystal_block",
+        "4": "voidaicarcania:blocks/wool_void",
+        "5": "voidaicarcania:blocks/construct_base"
     },
     "elements": [
         {

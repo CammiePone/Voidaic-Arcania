@@ -2,6 +2,7 @@ package com.camellias.voidaicarcania;
 
 import java.io.File;
 
+import com.camellias.voidaicarcania.init.ModSmelting;
 import com.camellias.voidaicarcania.proxy.CommonProxy;
 import com.camellias.voidaicarcania.tabs.VoidicAlchemyTab;
 import com.camellias.voidaicarcania.tabs.VoidicMetallurgyTab;
@@ -53,7 +54,7 @@ public class Main
 	public void init(FMLInitializationEvent event)
 	{	
 		RegistryHandler.initRegistries();
-		
+		ModSmelting.init();	
 	}
 	
 	@EventHandler

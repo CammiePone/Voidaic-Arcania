@@ -5,7 +5,9 @@ import java.util.List;
 
 import com.camellias.voidaicarcania.blocks.BlockAltar;
 import com.camellias.voidaicarcania.blocks.BlockArcaneEarth;
+import com.camellias.voidaicarcania.blocks.BlockBorniteOre;
 import com.camellias.voidaicarcania.blocks.BlockBotanyAltar;
+import com.camellias.voidaicarcania.blocks.BlockCinnibarOre;
 import com.camellias.voidaicarcania.blocks.BlockConstruct;
 import com.camellias.voidaicarcania.blocks.BlockDarkBrick;
 import com.camellias.voidaicarcania.blocks.BlockDarkBrickChiseled;
@@ -23,6 +25,7 @@ import com.camellias.voidaicarcania.blocks.BlockStarbloom;
 import com.camellias.voidaicarcania.blocks.BlockStem;
 import com.camellias.voidaicarcania.blocks.BlockVoidCloud;
 import com.camellias.voidaicarcania.blocks.BlockVoidCrop;
+import com.camellias.voidaicarcania.blocks.BlockVoidCrystal;
 import com.camellias.voidaicarcania.blocks.BlockVoidEye;
 import com.camellias.voidaicarcania.blocks.BlockVoidFlower;
 import com.camellias.voidaicarcania.blocks.BlockVoidGlass;
@@ -54,6 +57,7 @@ public class ModBlocks
 	public static final Block BLOCK_VOIDSTONE_TILES_CRACKED = new BlockVoidStoneTilesCracked("block_voidrock_tiles_cracked", Material.ROCK);
 	public static final Block BLOCK_VOIDSTONE_SMOOTH = new BlockVoidStoneSmooth("block_voidrock_smooth", Material.ROCK);
 	public static final Block BLOCK_VOIDGLASS = new BlockVoidGlass("block_voidglass", Material.GLASS);
+	public static final Block BLOCK_VOID_CRYSTAL = new BlockVoidCrystal("block_void_crystal", Material.GLASS);
 	public static final Block BLOCK_VOIDSAND = new BlockVoidSand("block_voidsand", Material.SAND);
 	public static final Block BLOCK_ARCANE_EARTH = new BlockArcaneEarth("block_arcane_earth", Material.GROUND);
 	public static final Block BLOCK_LANTERN = new BlockLantern("block_lantern", Material.GLASS);
@@ -71,6 +75,8 @@ public class ModBlocks
 	public static final Block BLOCK_VOID_MELON = new BlockVoidMelon("block_void_melon", Material.GOURD); //Not actual block, but melon
 	public static final Block BLOCK_VOIDCLOUD = new BlockVoidCloud("block_voidcloud", Material.CARPET);
 	public static final Block BLOCK_MORTAL_FURNACE = new BlockMortalCentrifuge("block_mortal_furnace", Material.ROCK);
+	public static final Block BLOCK_CINNIBAR_ORE = new BlockCinnibarOre("block_cinnibar_ore", Material.ROCK);
+	public static final Block BLOCK_BORNITE_ORE = new BlockBorniteOre("block_peacock_ore", Material.ROCK);
 	
 	//-----Plants-----//
 	public static final Block BLOCK_VOID_FLOWER = new BlockVoidFlower("block_void_flower", Material.PLANTS);

@@ -49,7 +49,7 @@ public class TileEntityMortalCentrifuge extends TileEntity implements IInventory
 	
 	public int getCookTime(ItemStack input1, ItemStack input2) 
 	{
-		return 800;
+		return 400;
 	}
 	
 	public static int getItemBurnTime(ItemStack fuel) 

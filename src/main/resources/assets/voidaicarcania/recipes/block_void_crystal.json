@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SS",
+        "SS"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "voidaicarcania:void_crystal"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_void_crystal",
+        "count": 1
+    }
+}

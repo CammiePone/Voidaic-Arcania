@@ -108,9 +108,10 @@ item.void_star.name=§5Void Star
 item.voidheart.name=Voidheart
 item.bullet.name=Shulker Bullet
 item.void_crystal.name=Void Crystal
-item.cinnabar.name=Cinnabar
+item.cinnibar.name=Cinnibar
 
 item.wraith_wisp.name=Wraith Wisp
+item.transformative_root.name=Transformative Root
 
 
 
@@ -126,6 +127,9 @@ tile.block_voidrock_tiles.name=Voidrock Tiles
 tile.block_voidrock_tiles_cracked.name=Cracked Voidrock Tile
 tile.block_voidrock_smooth.name=Polished Voidrock
 
+tile.block_cinnibar_ore.name=Cinnibar Ore
+tile.block_peacock_ore.name=Peacock Ore
+
 tile.block_voidsand.name=Void Sand
 tile.block_arcane_earth.name=Arcane Earth
 tile.block_voidcloud.name=Void Mist
@@ -133,6 +137,7 @@ tile.block_voidcloud.name=Void Mist
 tile.block_stem.name=Lantern Stem
 tile.block_lantern.name=Voidaic Lantern
 tile.block_voidglass.name=Void Glass
+tile.block_void_crystal.name=Void Crystal Block
 
 tile.block_void_flower.name=Void Flower
 tile.block_void_crop.name=Void Bulb Crop
@@ -230,3 +235,6 @@ advancements.voidaicarcania.enter_void.desc=Travel to The Void...
 
 advancements.voidaicarcania.metallurgy=Heavy Metal
 advancements.voidaicarcania.metallurgy.desc=Create an Infused Ingot
+
+advancements.voidaicarcania.peacock=Desaturation
+advancements.voidaicarcania.peacock.desc=That rainbow ore makes whaaaaat?

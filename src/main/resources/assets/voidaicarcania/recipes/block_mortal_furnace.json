@@ -1,0 +1,39 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "CHC",
+        "ICI",
+        "VVV"
+    ],
+    
+    "key":
+    {
+        "C":
+        {
+            "item": "voidaicarcania:void_crystal"
+        },
+        
+        "I":
+        {
+            "item": "voidaicarcania:infused_ingot"
+        },
+        
+        "H":
+        {
+            "item": "voidaicarcania:voidheart"
+        },
+        
+        "V":
+        {
+            "item": "voidaicarcania:block_voidrock_smooth"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_mortal_furnace",
+        "count": 1
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "display":
+    {
+        "icon":
+        {
+            "item": "voidaicarcania:enargite_ingot"
+        },
+        "title":
+        {
+            "translate": "advancements.voidaicarcania.peacock"
+        },
+        "description":
+        {
+            "translate": "advancements.voidaicarcania.peacock.desc"
+        }
+    },
+    "parent": "voidaicarcania:metallurgy",
+    "criteria":
+    {
+        "sugar_in_inventory":
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions":
+            {
+                "items":
+                [{
+                    "item": "voidaicarcania:enargite_ingot"
+                }]
+            }
+	    }
+	}
+}
