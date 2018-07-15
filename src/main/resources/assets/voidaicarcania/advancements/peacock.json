@@ -17,7 +17,7 @@
     "parent": "voidaicarcania:metallurgy",
     "criteria":
     {
-        "sugar_in_inventory":
+        "inventory":
         {
             "trigger": "minecraft:inventory_changed",
             "conditions":

@@ -17,7 +17,7 @@
     "parent": "voidaicarcania:enter_void",
     "criteria":
     {
-        "sugar_in_inventory":
+        "inventory":
         {
             "trigger": "minecraft:inventory_changed",
             "conditions":

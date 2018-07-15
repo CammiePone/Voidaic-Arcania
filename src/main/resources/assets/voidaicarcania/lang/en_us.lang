@@ -108,7 +108,7 @@ item.void_star.name=§5Void Star
 item.voidheart.name=Voidheart
 item.bullet.name=Shulker Bullet
 item.void_crystal.name=Void Crystal
-item.cinnibar.name=Cinnibar
+item.cinnabar.name=Cinnabar
 
 item.wraith_wisp.name=Wraith Wisp
 item.transformative_root.name=Transformative Root
@@ -238,3 +238,12 @@ advancements.voidaicarcania.metallurgy.desc=Create an Infused Ingot
 
 advancements.voidaicarcania.peacock=Desaturation
 advancements.voidaicarcania.peacock.desc=That rainbow ore makes whaaaaat?
+
+advancements.voidaicarcania.stackoverflow=java.lang.StackOverflowError
+advancements.voidaicarcania.stackoverflow.desc=Collect a stack of all ingots and plants from Voidaic Arcania
+
+advancements.voidaicarcania.heartboss=The Chosen One
+advancements.voidaicarcania.heartboss.desc=Defeat the Heart of The Void
+
+advancements.voidaicarcania.baubles=Master of The Void
+advancements.voidaicarcania.baubles.desc=Obtain all 10 active baubles

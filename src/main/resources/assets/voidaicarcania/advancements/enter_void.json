@@ -17,7 +17,7 @@
     "parent": "voidaicarcania:transmutation_orb",
     "criteria":
     {
-        "sugar_in_inventory":
+        "changed_dimension":
         {
             "trigger": "minecraft:changed_dimension",
             "conditions":

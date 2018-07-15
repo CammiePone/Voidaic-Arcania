@@ -1,0 +1,102 @@
+{
+    "display":
+    {
+        "icon":
+        {
+            "item": "voidaicarcania:mythril_ingot"
+        },
+        "title":
+        {
+            "translate": "advancements.voidaicarcania.stackoverflow"
+        },
+        "description":
+        {
+            "translate": "advancements.voidaicarcania.stackoverflow.desc"
+        },
+        "frame": "challenge"
+    },
+    "parent": "voidaicarcania:enter_void",
+    "rewards": 
+    {
+        "experience": 500
+    },
+    "criteria":
+    {
+        "inventory":
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions":
+            {
+                "items":
+                [{
+                    "item": "voidaicarcania:void_bulb",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:floatshroom",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:glowgrowth",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:dark_camellia",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:block_void_melon",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:neddlesprout",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:starbloom",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:moon_mint",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:featherweed",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:transformative_root",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:cinnabar",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:infused_ingot",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:mercury",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:enargite_ingot",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:sortigellium_ingot",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:astralite_ingot",
+                    "count": 64
+                },
+                {
+                    "item": "voidaicarcania:mythril_ingot",
+                    "count": 64
+                }]
+            }
+	    }
+	}
+}

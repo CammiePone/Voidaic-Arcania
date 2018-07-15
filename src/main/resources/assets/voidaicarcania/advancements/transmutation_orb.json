@@ -15,11 +15,11 @@
         },
         "background": "voidaicarcania:textures/blocks/dark_brick.png",
         "show_toast": false,
-        "announce_to_chat": false
+        "announce_to_chat": true
     },
     "criteria": 
     {
-        "pad_in_inventory": 
+        "inventory": 
         {
             "trigger": "minecraft:inventory_changed",
             "conditions": 

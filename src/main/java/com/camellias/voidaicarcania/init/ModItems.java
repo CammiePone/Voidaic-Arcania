@@ -115,7 +115,7 @@ public class ModItems
 	public static final Item TRANSROOT = new ItemTransformRoot("transformative_root");
 	
 	//-----Metallurgy-----//
-	public static final Item CINNIBAR = new ItemCinnabar("cinnibar");
+	public static final Item CINNIBAR = new ItemCinnabar("cinnabar");
 	public static final Item INFUSED_INGOT = new ItemInfusedIngot("infused_ingot");
 	public static final Item MERCURY = new ItemMercury("mercury");
 	public static final Item ENARGITE = new ItemEnargite("enargite_ingot");

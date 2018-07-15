@@ -131,7 +131,7 @@ public class EntityVoidConstruct extends EntityMob
 			world.createExplosion(this, this.posX, this.posY, this.posZ, 6.0F, true);
 			
 			EntityVoidHeartBoss heartBoss = new EntityVoidHeartBoss(world);
-			heartBoss.copyLocationAndAnglesFrom(this);
+			heartBoss.setLocationAndAngles(this.posX, this.posY + 1, this.posZ, this.rotationYaw, this.rotationPitch);
 			this.world.spawnEntity(heartBoss);
 		}
 	}

@@ -1,0 +1,32 @@
+{
+    "display":
+    {
+        "icon":
+        {
+            "item": "voidaicarcania:voidheart"
+        },
+        "title":
+        {
+            "translate": "advancements.voidaicarcania.heartboss"
+        },
+        "description":
+        {
+            "translate": "advancements.voidaicarcania.heartboss.desc"
+        }
+    },
+    "parent": "voidaicarcania:enter_void",
+    "criteria":
+    {
+        "inventory":
+        {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions":
+            {
+                "entities":
+                {
+                    "type": "voidaicarcania:void_heart_boss"
+                }
+            }
+	    }
+	}
+}

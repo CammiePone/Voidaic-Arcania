@@ -1,0 +1,64 @@
+{
+    "display":
+    {
+        "icon":
+        {
+            "item": "voidaicarcania:inverse_amulet"
+        },
+        "title":
+        {
+            "translate": "advancements.voidaicarcania.baubles"
+        },
+        "description":
+        {
+            "translate": "advancements.voidaicarcania.baubles.desc"
+        },
+        "frame": "challenge"
+    },
+    "parent": "voidaicarcania:kill_heartboss",
+    "rewards": 
+    {
+        "experience": 1500
+    },
+    "criteria":
+    {
+        "inventory":
+        {
+            "trigger": "minecraft:inventory_changed",
+            "conditions":
+            {
+                "items":
+                [{
+                    "item": "voidaicarcania:active_shield_amulet"
+                },
+                {
+                    "item": "voidaicarcania:active_inverse_amulet"
+                },
+                {
+                    "item": "voidaicarcania:active_strength_belt"
+                },
+                {
+                    "item": "voidaicarcania:active_resistance_belt"
+                },
+                {
+                    "item": "voidaicarcania:active_feast_cowl"
+                },
+                {
+                    "item": "voidaicarcania:active_reaper_cowl"
+                },
+                {
+                    "item": "voidaicarcania:active_flight_cloak"
+                },
+                {
+                    "item": "voidaicarcania:active_invisibility_cloak"
+                },
+                {
+                    "item": "voidaicarcania:active_protect_charm"
+                },
+                {
+                    "item": "voidaicarcania:active_explode_charm"
+                }]
+            }
+	    }
+	}
+}
