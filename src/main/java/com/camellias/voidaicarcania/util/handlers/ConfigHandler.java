@@ -20,6 +20,7 @@ public class ConfigHandler
 	public static int ENTITY_VOID_CONSTRUCT = 129;
 	public static int ENTITY_HEART_BOSS = 130;
 	public static int ENTITY_HEART_PASSIVE = 131;
+	public static int ENTITY_VOID_EYE = 132;
 	
 	public static boolean spawnVoidBiomeOverworld;
 	
@@ -67,6 +68,7 @@ public class ConfigHandler
 		ENTITY_VOID_CONSTRUCT = config.getInt("Entity Voidic Construct ID", category, 129, 120, 3000, "Voidic Construct ID");
 		ENTITY_HEART_BOSS = config.getInt("Entity Voidic Heart Boss ID", category, 130, 120, 3000, "Voidic Heart Boss ID");
 		ENTITY_HEART_PASSIVE = config.getInt("Entity Voidic Heart Passive ID", category, 131, 120, 3000, "Voidic Heart Passive ID");
+		ENTITY_VOID_EYE = config.getInt("Entity Void Eye ID", category, 132, 120, 3000, "Void Eye ID");
 		
 		GUI_ALTAR = config.getInt("Altar GUI ID", category, 0, 0, 3000, "Altar GUI ID");
 		GUI_BOTANY_ALTAR = config.getInt("Botany Altar GUI ID", category, 1, 0, 3000, "Botany Altar GUI ID");

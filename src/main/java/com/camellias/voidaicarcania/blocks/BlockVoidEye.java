@@ -1,9 +1,7 @@
 package com.camellias.voidaicarcania.blocks;
 
-import java.util.Random;
-
 import com.camellias.voidaicarcania.Main;
-import com.camellias.voidaicarcania.entities.EntityVoidConstruct;
+import com.camellias.voidaicarcania.entities.EntityVoidEye;
 import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.util.IHasModel;
@@ -18,7 +16,6 @@ import net.minecraft.block.state.pattern.BlockMaterialMatcher;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
-import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -78,8 +75,8 @@ public class BlockVoidEye extends Block implements IHasModel
 
         	BlockPos blockpos = patternhelper.translateOffset(1, 2, 0).getPos();
         	
-        	EntityVoidConstruct construct = new EntityVoidConstruct(world);
-        	construct.setLocationAndAngles((double)blockpos.getX() + 0.5D, (double)blockpos.getY() + 0.05D, 
+        	EntityVoidEye construct = new EntityVoidEye(world);
+        	construct.setLocationAndAngles((double)blockpos.getX() + 0.5D, (double)blockpos.getY() + 1.0D, 
      	  			(double)blockpos.getZ() + 0.5D, 0.0F, 0.0F);
      	  	world.spawnEntity(construct);
 

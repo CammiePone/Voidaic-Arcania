@@ -123,7 +123,7 @@ public class ItemFeastCowl extends Item implements IHasModel, IBauble, IRenderBa
 			if(player.hasItemInSlot(EntityEquipmentSlot.HEAD))
 			{
 				GlStateManager.translate(0F, -0.1F, 0F);
-				GlStateManager.scale(1.1F, 1.1F, 1.1F);
+				GlStateManager.scale(1.05F, 1.05F, 1.05F);
 			}
 			
 			GL11.glRotated(180, 1, 0, 0);

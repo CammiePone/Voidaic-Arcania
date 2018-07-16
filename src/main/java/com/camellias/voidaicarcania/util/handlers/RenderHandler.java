@@ -1,10 +1,12 @@
 package com.camellias.voidaicarcania.util.handlers;
 
 import com.camellias.voidaicarcania.entities.EntityVoidConstruct;
+import com.camellias.voidaicarcania.entities.EntityVoidEye;
 import com.camellias.voidaicarcania.entities.EntityVoidHeartBoss;
 import com.camellias.voidaicarcania.entities.EntityVoidHeartPassive;
 import com.camellias.voidaicarcania.entities.EntityVoidWraith;
 import com.camellias.voidaicarcania.entities.render.RenderVoidConstruct;
+import com.camellias.voidaicarcania.entities.render.RenderVoidEye;
 import com.camellias.voidaicarcania.entities.render.RenderVoidHeartBoss;
 import com.camellias.voidaicarcania.entities.render.RenderVoidHeartPassive;
 import com.camellias.voidaicarcania.entities.render.RenderVoidWraith;
@@ -51,6 +53,15 @@ public class RenderHandler
 			public Render<? super EntityVoidHeartPassive> createRenderFor(RenderManager manager) 
 			{
 				return new RenderVoidHeartPassive(manager);
+			}
+		});
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityVoidEye.class, new IRenderFactory<EntityVoidEye>()
+		{
+			@Override
+			public Render<? super EntityVoidEye> createRenderFor(RenderManager manager) 
+			{
+				return new RenderVoidEye(manager);
 			}
 		});
 	}
