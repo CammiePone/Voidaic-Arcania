@@ -35,6 +35,12 @@ public class EnchantCloudStep extends Enchantment
 	}
 	
 	@Override
+	public boolean isAllowedOnBooks()
+	{
+		return false;
+	}
+	
+	@Override
 	public int getMaxLevel()
 	{
 		return 1;

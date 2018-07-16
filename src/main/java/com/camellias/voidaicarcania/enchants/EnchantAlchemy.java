@@ -12,6 +12,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -35,6 +36,23 @@ public class EnchantAlchemy extends Enchantment
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack)
 	{
+		return true;
+	}
+	
+	@Override
+	public boolean isAllowedOnBooks()
+	{
+		return false;
+	}
+	
+	@Override
+	protected boolean canApplyTogether(Enchantment ench)
+	{
+		if(ench == Enchantments.FORTUNE || ench == Enchantments.SILK_TOUCH)
+		{
+			return false;
+		}
+		
 		return true;
 	}
 	
