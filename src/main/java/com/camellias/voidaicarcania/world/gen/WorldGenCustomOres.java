@@ -22,7 +22,7 @@ public class WorldGenCustomOres implements IWorldGenerator
 	public WorldGenCustomOres()
 	{
 		cinnabar = new WorldGenMinable(ModBlocks.BLOCK_CINNIBAR_ORE.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.STONE));
-		peacock = new WorldGenMinable(ModBlocks.BLOCK_BORNITE_ORE.getDefaultState(), 6, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		peacock = new WorldGenMinable(ModBlocks.BLOCK_BORNITE_ORE.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.NETHERRACK));
 	}
 	
 	@Override
@@ -31,12 +31,12 @@ public class WorldGenCustomOres implements IWorldGenerator
 		switch(world.provider.getDimension())
 		{
 		case -1:
-			runGenerator(peacock, world, random, chunkX, chunkZ, 30, 0, 128);
+			runGenerator(peacock, world, random, chunkX, chunkZ, 60, 0, 128);
 			
 			break;
 			
 		case 0:
-			runGenerator(cinnabar, world, random, chunkX, chunkZ, 40, 0, 128);
+			runGenerator(cinnabar, world, random, chunkX, chunkZ, 80, 0, 128);
 			
 			break;
 			
