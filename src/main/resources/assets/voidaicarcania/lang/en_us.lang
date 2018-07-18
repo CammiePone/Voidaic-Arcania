@@ -127,7 +127,7 @@ tile.block_voidrock_tiles.name=Voidrock Tiles
 tile.block_voidrock_tiles_cracked.name=Cracked Voidrock Tile
 tile.block_voidrock_smooth.name=Polished Voidrock
 
-tile.block_cinnibar_ore.name=Cinnibar Ore
+tile.block_cinnibar_ore.name=Cinnabar Ore
 tile.block_peacock_ore.name=Peacock Ore
 
 tile.block_voidsand.name=Void Sand
