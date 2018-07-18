@@ -1,15 +1,9 @@
 package com.camellias.voidaicarcania.util.handlers;
 
-import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.init.ModItems;
-import com.camellias.voidaicarcania.items.crystals.ItemStorageMid;
-import com.camellias.voidaicarcania.items.crystals.ItemStorageStrong;
-import com.camellias.voidaicarcania.items.crystals.ItemStorageWeak;
 import com.camellias.voidaicarcania.world.dimension.voidic.TeleporterVoid;
 
 import baubles.api.BaublesApi;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -100,14 +94,14 @@ public class WorldEventHandler
 			{
 				ItemStack stack = BaublesApi.getBaublesHandler(player).getStackInSlot(0);
 				
-				if(ModItems.A_SHIELD_AMULET.getDamage(stack) < 5)
+				if(ModItems.A_SHIELD_AMULET.getDamage(stack) < 3)
 				{
 					ModItems.A_SHIELD_AMULET.setDamage(stack, ModItems.A_SHIELD_AMULET.getDamage(stack) + 1);
 					
 					event.setCanceled(true);
 				}
 				
-				if(ModItems.A_SHIELD_AMULET.getDamage(stack) == 5)
+				if(ModItems.A_SHIELD_AMULET.getDamage(stack) == 3)
 				{
 					
 				}
@@ -115,123 +109,79 @@ public class WorldEventHandler
 		}
     }
 	
-	private static ItemStack findCrystals(EntityPlayer player)
-    {
-        if (isCrystal(player.getHeldItem(EnumHand.OFF_HAND)))
-        {
-            return player.getHeldItem(EnumHand.OFF_HAND);
-        }
-        else if (isCrystal(player.getHeldItem(EnumHand.MAIN_HAND)))
-        {
-            return player.getHeldItem(EnumHand.MAIN_HAND);
-        }
-        else
-        {
-            for (int i = 0; i < player.inventory.getSizeInventory(); ++i)
-            {
-                ItemStack itemstack = player.inventory.getStackInSlot(i);
-
-                if(itemstack.getItemDamage() < itemstack.getMaxDamage())
-                {
-                	if(isCrystal(itemstack))
-                	{
-                		return itemstack;
-                	}
-                }
-            }
-
-            return ItemStack.EMPTY;
-        }
-    }
-
-    protected static boolean isCrystal(ItemStack stack)
-    {
-        return stack.getItem() instanceof ItemStorageWeak || stack.getItem() instanceof ItemStorageMid || stack.getItem() instanceof ItemStorageStrong;
-    }
-	
 	@SubscribeEvent
 	public static void onPlayerAttack(AttackEntityEvent event)
 	{
 		EntityPlayer player = event.getEntityPlayer();
-		ItemStack stack = findCrystals(player);
 		
-		if(player.inventory.hasItemStack(stack) && stack.getItemDamage() <= stack.getMaxDamage() - 50)
+		if(BaublesApi.isBaubleEquipped(player, ModItems.A_REAPER_COWL) > -1)
 		{
-			if(BaublesApi.isBaubleEquipped(player, ModItems.A_REAPER_COWL) > -1)
+			if(player.getHealth() < player.getMaxHealth())
 			{
-				if(player.getHealth() < player.getMaxHealth())
-				{
-					player.heal(1.0F);
-					stack.setItemDamage(stack.getItemDamage() + 50);
-				}
+				player.heal(1.0F);
 			}
+		}
 		
-			if(BaublesApi.isBaubleEquipped(player, ModItems.A_VOID_CHARM) > -1)
+		if(BaublesApi.isBaubleEquipped(player, ModItems.A_VOID_CHARM) > -1)
+		{
+			if(!player.world.isRemote)
 			{
-				if(!player.world.isRemote)
-				{
-					player.world.createExplosion(player, player.posX, player.posY, player.posZ, 3.0F, true);
-					stack.setItemDamage(stack.getItemDamage() + 50);
-				}
+				player.world.createExplosion(player, player.posX, player.posY, player.posZ, 3.0F, true);
 			}
+		}
 		
-			if(BaublesApi.isBaubleEquipped(player, ModItems.A_LUCK_CHARM) > -1)
+		if(BaublesApi.isBaubleEquipped(player, ModItems.A_LUCK_CHARM) > -1)
+		{
+			if(event.getTarget() instanceof EntityLiving)
 			{
-				if(event.getTarget() instanceof EntityLiving)
+				EntityLiving target = (EntityLiving) event.getTarget();
+				
+				if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
 				{
-					EntityLiving target = (EntityLiving) event.getTarget();
-					
-					if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
+					if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
+							target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
 					{
-						if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
-								target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
-						{
-							ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-							ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-							ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-							ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+						ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+						ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+						ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+						ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+						
+						target.entityDropItem(head, 1);
+						target.entityDropItem(body, 1);
+						target.entityDropItem(legs, 1);
+						target.entityDropItem(feet, 1);
 							
-							target.entityDropItem(head, 1);
-							target.entityDropItem(body, 1);
-							target.entityDropItem(legs, 1);
-							target.entityDropItem(feet, 1);
-							
-							target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
-							target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
-							target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
-							target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
-							
-							stack.setItemDamage(stack.getItemDamage() + 50);
-						}
+						target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
+						target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
+						target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+						target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
 					}
 				}
-			
-				if(event.getTarget() instanceof EntityPlayer)
+			}
+				
+			if(event.getTarget() instanceof EntityPlayer)
+			{
+				EntityPlayer target = (EntityPlayer) event.getTarget();
+				
+				if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
 				{
-					EntityPlayer target = (EntityPlayer) event.getTarget();
-					
-					if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
+					if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
+							target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
 					{
-						if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
-								target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
-						{
-							ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-							ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-							ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-							ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+						ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+						ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+						ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+						ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 							
-							target.entityDropItem(head, 1);
-							target.entityDropItem(body, 1);
-							target.entityDropItem(legs, 1);
-							target.entityDropItem(feet, 1);
+						target.entityDropItem(head, 1);
+						target.entityDropItem(body, 1);
+						target.entityDropItem(legs, 1);
+						target.entityDropItem(feet, 1);
 							
-							target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
-							target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
-							target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
-							target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
-							
-							stack.setItemDamage(stack.getItemDamage() + 50);
-						}
+						target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
+						target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
+						target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+						target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
 					}
 				}
 			}

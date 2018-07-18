@@ -53,9 +53,6 @@ import com.camellias.voidaicarcania.items.baubles.head.ItemFeastCowl;
 import com.camellias.voidaicarcania.items.baubles.head.ItemFeastCowlActive;
 import com.camellias.voidaicarcania.items.baubles.head.ItemReaperCowl;
 import com.camellias.voidaicarcania.items.baubles.head.ItemReaperCowlActive;
-import com.camellias.voidaicarcania.items.crystals.ItemStorageMid;
-import com.camellias.voidaicarcania.items.crystals.ItemStorageStrong;
-import com.camellias.voidaicarcania.items.crystals.ItemStorageWeak;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -68,9 +65,6 @@ public class ModItems
 	public static final Item TRANS_SHARD = new ItemTransmutationShard("transmutation_shard");
 	public static final Item VOIDIC_SHARD = new ItemVoidicShard("voidic_shard");
 	public static final Item VOID_BOTTLE = new ItemVoidBottle("void_bottle");
-	public static final Item STORAGE_WEAK = new ItemStorageWeak("weak_void_cluster");
-	public static final Item STORAGE_MID = new ItemStorageMid("void_cluster");
-	public static final Item STORAGE_STRONG = new ItemStorageStrong("strong_void_cluster");
 	
 	//-----Baubles-----//
 	public static final Item SHIELD_AMULET = new ItemShieldAmulet("shield_amulet");
