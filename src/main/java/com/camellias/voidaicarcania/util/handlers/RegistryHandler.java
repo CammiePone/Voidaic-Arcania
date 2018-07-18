@@ -10,6 +10,7 @@ import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.util.AspectRegistry;
 import com.camellias.voidaicarcania.util.IHasModel;
 import com.camellias.voidaicarcania.util.OreDictionaryCompatibility;
+import com.camellias.voidaicarcania.world.gen.WorldGenCustomOres;
 import com.camellias.voidaicarcania.world.gen.WorldGenCustomStructures;
 
 import net.minecraft.block.Block;
@@ -71,6 +72,7 @@ public class RegistryHandler
 	public static void otherRegistries()
 	{
 		ModBiomes.registerBiomes();
+		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
 	}
 	
 	public static void preInitRegistries(FMLPreInitializationEvent event)
