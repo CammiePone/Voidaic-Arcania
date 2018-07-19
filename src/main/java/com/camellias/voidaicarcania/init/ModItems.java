@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.items.ItemAstralite;
 import com.camellias.voidaicarcania.items.ItemChorusTea;
 import com.camellias.voidaicarcania.items.ItemCinnabar;
@@ -33,6 +34,7 @@ import com.camellias.voidaicarcania.items.ItemVoidheart;
 import com.camellias.voidaicarcania.items.ItemVoidicOrb;
 import com.camellias.voidaicarcania.items.ItemVoidicShard;
 import com.camellias.voidaicarcania.items.ItemWraithWisp;
+import com.camellias.voidaicarcania.items.armour.ArmourMythril;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmulet;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmuletActive;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemShieldAmulet;
@@ -55,7 +57,11 @@ import com.camellias.voidaicarcania.items.baubles.head.ItemReaperCowl;
 import com.camellias.voidaicarcania.items.baubles.head.ItemReaperCowlActive;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems 
 {
@@ -182,4 +188,12 @@ public class ModItems
 	public static final Item CRYSTAL = new ItemVoidCrystal("void_crystal");
 	
 	public static final Item CAMS_SUPER_SECRET_STICK = new ItemSecretStick("secret_stick");
+	
+	//-----Armours-----//
+	public static final ArmorMaterial MYTHRIL_ARMOUR = EnumHelper.addArmorMaterial("mythril", Reference.MODID + ":armour/mythril_armour.png", 40, new int[]{4,8,5,2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
+	
+	public static final Item MYTHRIL_HELM = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.HEAD, "mythril_helm");
+	public static final Item MYTHRIL_CHEST = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.CHEST, "mythril_chestplate");
+	public static final Item MYTHRIL_LEGS = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.LEGS, "mythril_leggings");
+	public static final Item MYTHRIL_BOOTS = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.FEET, "mythril_boots");
 }
