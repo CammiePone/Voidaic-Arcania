@@ -92,7 +92,12 @@ public class RegistryHandler
 	public static void initRegistries()
 	{
 		OreDictionaryCompatibility.registerOres();
-		AspectRegistry.registry();
+		
+		if(Main.thaumcraftLoaded == true)
+		{
+			AspectRegistry.registry();
+		}
+		
 		SoundsHandler.registerSounds();
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());

@@ -1,5 +1,6 @@
 package com.camellias.voidaicarcania.blocks.blockaltar;
 
+import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.blocks.BlockAltar;
 import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
@@ -235,23 +236,26 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 			}
 			if (item == ModItems.VOID_BULB) return 5;
 			
-			if (ItemStack.areItemsEqual(fuel, new ItemStack(ItemsTC.nuggets, 1, 7))) return 11;
-			
 			if (item == Items.ENDER_PEARL) return 50;
 			
 			if (item == Items.ENDER_EYE) return 75;
 			
 			if (item == Items.DRAGON_BREATH) return 100;
-			if (item == ItemsTC.voidSeed) return 100;
-			if (ItemStack.areItemsEqual(fuel, new ItemStack(ItemsTC.ingots, 1, 1))) return 100;
 			if (item == ModItems.VOIDIC_SHARD) return 100;
 			
-			if (item == ItemsTC.eldritchEye) return 200;
 			if (item == ModItems.VOID_BOTTLE) return 200;
 			
-			if (item == ItemsTC.bucketDeath) return 500;
-			
-			if (item == ItemsTC.primordialPearl) return 2000;
+			if(Main.thaumcraftLoaded == true)
+			{
+				if (ItemStack.areItemsEqual(fuel, new ItemStack(ItemsTC.nuggets, 1, 7))) return 11;
+				
+				if (item == ItemsTC.voidSeed) return 100;
+				if (ItemStack.areItemsEqual(fuel, new ItemStack(ItemsTC.ingots, 1, 1))) return 100;
+				
+				if (item == ItemsTC.eldritchEye) return 200;
+				
+				if (item == ItemsTC.primordialPearl) return 2000;
+			}
 
 			return GameRegistry.getFuelValue(fuel);
 		}

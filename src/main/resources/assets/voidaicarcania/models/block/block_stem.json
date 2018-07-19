@@ -1,6 +1,7 @@
 {
     "parent": "block/block",
     "textures": {
+        "particle": "voidaicarcania:blocks/voidaic_lantern_end",
         "0": "voidaicarcania:blocks/voidaic_lantern_end"
     },
     "elements": [

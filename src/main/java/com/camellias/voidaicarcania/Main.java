@@ -25,6 +25,7 @@ public class Main
 {
 	public static File config;
 	public static boolean voidcraftLoaded = false;
+	public static boolean thaumcraftLoaded = false;
 	
 	@Instance
 	public static Main instance;
@@ -41,9 +42,14 @@ public class Main
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		if(Loader.isModLoaded("voidcraftLoaded"))
+		if(Loader.isModLoaded("voidcraft"))
 		{
 			voidcraftLoaded = true;
+		}
+		
+		if(Loader.isModLoaded("thaumcraft"))
+		{
+			thaumcraftLoaded = true;
 		}
 		
 		RegistryHandler.otherRegistries();
