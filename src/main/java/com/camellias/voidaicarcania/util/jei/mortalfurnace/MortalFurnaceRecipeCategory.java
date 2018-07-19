@@ -1,7 +1,6 @@
-package com.camellias.voidaicarcania.util.jei.altar;
+package com.camellias.voidaicarcania.util.jei.mortalfurnace;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.util.jei.RecipeCategories;
 
 import mezz.jei.api.IGuiHelper;
@@ -11,16 +10,17 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import net.minecraft.client.Minecraft;
 
-public class AltarRecipeCategory extends AbstractAltarRecipeCategory<AltarRecipe>
+public class MortalFurnaceRecipeCategory extends AbstractMortalFurnaceRecipeCategory<MortalFurnaceRecipe>
 {
 	private final IDrawable background;
 	private final String name;
 	
-	public AltarRecipeCategory(IGuiHelper helper)
+	public MortalFurnaceRecipeCategory(IGuiHelper helper)
 	{
 		super(helper);
-		background = helper.createDrawable(TEXTURES, 4, 4, 169, 78);
-		name = "Altar";
+		
+		this.background = helper.createDrawable(TEXTURES, 4, 4, 168, 100);
+		this.name = "Mortal Furnace";
 	}
 	
 	@Override
@@ -32,8 +32,13 @@ public class AltarRecipeCategory extends AbstractAltarRecipeCategory<AltarRecipe
 	@Override
 	public void drawExtras(Minecraft minecraft)
 	{
-		animatedFlame.draw(minecraft, 64, 42);
-		animatedArrow.draw(minecraft, 105, 10);
+		animatedArrow.draw(minecraft, 60, 36);
+	}
+	
+	@Override
+	public String getUid()
+	{
+		return RecipeCategories.MORTAL;
 	}
 	
 	@Override
@@ -47,19 +52,14 @@ public class AltarRecipeCategory extends AbstractAltarRecipeCategory<AltarRecipe
 	{
 		return Reference.NAME;
 	}
-	
+
 	@Override
-	public String getUid()
-	{
-		return RecipeCategories.ALTAR;
-	}
-	
-	public void setRecipe(IRecipeLayout recipeLayout, AltarRecipe recipeWrapper, IIngredients ingredients)
+	public void setRecipe(IRecipeLayout recipeLayout, MortalFurnaceRecipe recipeWrapper, IIngredients ingredients)
 	{
 		IGuiItemStackGroup stacks = recipeLayout.getItemStacks();
-		stacks.init(input1, true, 64, 9);
-		stacks.init(input2, true, 86, 9);
-		stacks.init(output, false, 136, 9);
+		stacks.init(input1, true, 53, 18);
+		stacks.init(input2, true, 95, 18);
+		stacks.init(output, false, 74, 67);
 		stacks.set(ingredients);
 	};
 }

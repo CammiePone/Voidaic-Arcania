@@ -48,6 +48,27 @@ public class AspectRegistry
 		ThaumcraftApi.registerObjectTag(new ItemStack(ModItems.VOID_HEART), new AspectList().add(Aspect.LIFE, 32)
 				.add(Aspect.BEAST, 32).add(Aspect.DARKNESS, 32).add(Aspect.VOID, 64));
 		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModItems.BULLET), new AspectList().add(Aspect.AIR, 6)
+				.add(Aspect.BEAST, 5).add(Aspect.ELDRITCH, 3));
+		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModItems.CRYSTAL), new AspectList().add(Aspect.VOID, 10)
+				.add(Aspect.EARTH, 2).add(Aspect.CRYSTAL, 4));
+		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModItems.NEDDLESPROUT), new AspectList().add(Aspect.PLANT, 10)
+				.add(Aspect.TRAP, 2));
+		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModItems.STARBLOOM), new AspectList().add(Aspect.PLANT, 10)
+				.add(Aspect.MAGIC, 20).add(Aspect.ORDER, 20).add(Aspect.ELDRITCH, 10).add(Aspect.AURA, 10));
+		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModItems.MOON_MINT), new AspectList().add(Aspect.PLANT, 10)
+				.add(Aspect.ALCHEMY, 2));
+		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModItems.FEATHERWEED), new AspectList().add(Aspect.PLANT, 10)
+				.add(Aspect.AIR, 2));
+		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModItems.TRANSROOT), new AspectList().add(Aspect.PLANT, 10)
+				.add(Aspect.EARTH, 2).add(Aspect.EXCHANGE, 5));
+		
 		
 		
 		
@@ -125,5 +146,14 @@ public class AspectRegistry
 		
 		ThaumcraftApi.registerObjectTag(new ItemStack(ModBlocks.BLOCK_BOTANY_ALTAR), new AspectList().add(Aspect.PLANT, 10)
 				.add(Aspect.CRAFT, 10).add(Aspect.MAGIC, 25));
+		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModBlocks.BLOCK_CINNIBAR_ORE), new AspectList().add(Aspect.EARTH, 4)
+				.add(Aspect.ALCHEMY, 5).add(Aspect.DEATH, 10));
+		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModBlocks.BLOCK_BORNITE_ORE), new AspectList().add(Aspect.EARTH, 4)
+				.add(Aspect.ALCHEMY, 5).add(Aspect.METAL, 10).add(Aspect.AURA, 3));
+		
+		ThaumcraftApi.registerObjectTag(new ItemStack(ModBlocks.VOID_TOTEM), new AspectList().add(Aspect.VOID, 13)
+				.add(Aspect.AURA, 6).add(Aspect.ELDRITCH, 13));
 	}
 }

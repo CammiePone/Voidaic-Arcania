@@ -6,10 +6,14 @@ import com.camellias.voidaicarcania.blocks.blockaltar.ContainerAltar;
 import com.camellias.voidaicarcania.blocks.blockaltar.GuiAltar;
 import com.camellias.voidaicarcania.blocks.blockbotanyaltar.ContainerBotanyAltar;
 import com.camellias.voidaicarcania.blocks.blockbotanyaltar.GuiBotanyAltar;
+import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.ContainerMortalCentrifuge;
+import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.GuiMortalCentrifuge;
 import com.camellias.voidaicarcania.util.jei.altar.AltarRecipeCategory;
 import com.camellias.voidaicarcania.util.jei.altar.AltarRecipeMaker;
 import com.camellias.voidaicarcania.util.jei.botany.BotanyRecipeCategory;
 import com.camellias.voidaicarcania.util.jei.botany.BotanyRecipeMaker;
+import com.camellias.voidaicarcania.util.jei.mortalfurnace.MortalFurnaceRecipeCategory;
+import com.camellias.voidaicarcania.util.jei.mortalfurnace.MortalFurnaceRecipeMaker;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IJeiHelpers;
@@ -32,6 +36,7 @@ public class JeiCompat implements IModPlugin
 		
 		registry.addRecipeCategories(new AltarRecipeCategory(gui));
 		registry.addRecipeCategories(new BotanyRecipeCategory(gui));
+		registry.addRecipeCategories(new MortalFurnaceRecipeCategory(gui));
 	}
 	
 	@Override
@@ -48,6 +53,10 @@ public class JeiCompat implements IModPlugin
 		registry.addRecipes(BotanyRecipeMaker.getRecipes(jeiHelpers), RecipeCategories.BOTANY);
 		registry.addRecipeClickArea(GuiBotanyAltar.class, 79, 40, 24, 17, RecipeCategories.BOTANY);
 		recipeTransfer.addRecipeTransferHandler(ContainerBotanyAltar.class, RecipeCategories.BOTANY, 0, 1, 3, 36);
+		
+		registry.addRecipes(MortalFurnaceRecipeMaker.getRecipes(jeiHelpers), RecipeCategories.MORTAL);
+		registry.addRecipeClickArea(GuiMortalCentrifuge.class, 64, 56, 46, 10, RecipeCategories.MORTAL);
+		recipeTransfer.addRecipeTransferHandler(ContainerMortalCentrifuge.class, RecipeCategories.MORTAL, 0, 1, 3, 36);
 	}
 	
 	public static String translateToLocal(String key)

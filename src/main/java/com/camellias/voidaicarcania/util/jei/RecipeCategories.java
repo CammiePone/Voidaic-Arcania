@@ -6,4 +6,5 @@ public class RecipeCategories
 {
 	public static final String ALTAR = Reference.MODID + ".altar";
 	public static final String BOTANY = Reference.MODID + ".botany";
+	public static final String MORTAL = Reference.MODID + ".mortal_furnace";
 }
