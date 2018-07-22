@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -52,6 +53,7 @@ public class EntityVoidWraith extends EntityMob
 		super(world);
 		this.moveHelper = new EntityVoidWraith.AIMoveControl(this);
 		this.isImmuneToFire = false;
+		
 		this.setSize(1.0F, 1.0F);
 	}
 	
@@ -83,15 +85,13 @@ public class EntityVoidWraith extends EntityMob
     {
         super.initEntityAI();
         
-        this.tasks.addTask(1, new EntityVoidWraith.AIChargeAttack());
-        this.tasks.addTask(3, new EntityAITempt(this, 1.25D, ModItems.VOIDIC_SHARD, false));
-        this.tasks.addTask(4, new EntityAISwimming(this));
-        this.tasks.addTask(8, new EntityVoidWraith.AIMoveRandom());
-        this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
+        this.tasks.addTask(2, new EntityAITempt(this, 1.25D, ModItems.VOIDIC_SHARD, false));
+        this.tasks.addTask(3, new EntityAIAttackMelee(this, 1.0D, false));
+        this.tasks.addTask(4, new EntityVoidWraith.AIChargeAttack());
+        this.tasks.addTask(5, new EntityVoidWraith.AIMoveRandom());
         
         this.targetTasks.addTask(0, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, new Class[] {EntityVoidWraith.class}));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] {EntityVoidWraith.class}));
     }
 	
 	@Override

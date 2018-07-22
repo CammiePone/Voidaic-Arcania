@@ -4,15 +4,12 @@ import com.camellias.voidaicarcania.util.handlers.LootTableHandler;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
@@ -20,11 +17,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 
 public class EntityVoidHeartBoss extends EntityMob
 {
@@ -106,7 +104,7 @@ public class EntityVoidHeartBoss extends EntityMob
 		this.setDead();
 		if(!world.isRemote)
 		{
-			world.getClosestPlayerToEntity(this, 30D).sendMessage(new TextComponentString("You are worthy, " 
+			world.getClosestPlayerToEntity(this, 30D).sendMessage(new TextComponentString("§5§You are worthy, " 
 					+ world.getClosestPlayerToEntity(this, 30D).getDisplayNameString() 
 					+ ". Give me an item, and I shall imbue it with power."));
 			
@@ -161,16 +159,47 @@ public class EntityVoidHeartBoss extends EntityMob
 			this.heal(3.0F);
 		}
 		
-		if(this.ticksExisted == 100)
+		if(!world.isRemote)
 		{
-			EntityVoidWraith entitywraith = new EntityVoidWraith(world);
-			entitywraith.copyLocationAndAnglesFrom(this);
+			if(this.ticksExisted % 100 == 0)
+			{
+				EntityVoidWraith entitywraith = new EntityVoidWraith(world);
+				entitywraith.copyLocationAndAnglesFrom(this);
+				
+				this.world.spawnEntity(entitywraith);
+			}
 			
-			this.world.spawnEntity(entitywraith);
-			this.ticksExisted = 0;
+			if(this.ticksExisted % 150 == 0)
+			{
+				this.teleportRandomly();
+			}
 		}
 		
 		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+    }
+	
+	protected boolean teleportRandomly()
+    {
+		double d0 = this.posX + (this.rand.nextDouble() - 0.5D) * 16.0D;
+        double d1 = this.posY + (double)(this.rand.nextInt(16) - 8);
+        double d2 = this.posZ + (this.rand.nextDouble() - 0.5D) * 16.0D;
+        return this.teleportTo(d0, d1, d2);
+    }
+	
+    private boolean teleportTo(double x, double y, double z)
+    {
+        EnderTeleportEvent event = new EnderTeleportEvent(this, x, y, z, 0);
+        if (net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event)) return false;
+        boolean flag = this.attemptTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ());
+        
+        if (flag)
+        {
+            this.world.playSound((EntityPlayer)null, this.prevPosX, this.prevPosY, this.prevPosZ, 
+            		SoundEvents.ENTITY_ENDERMEN_TELEPORT, this.getSoundCategory(), 1.0F, 1.0F);
+            this.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+        }
+        
+        return flag;
     }
 	
 	@Override

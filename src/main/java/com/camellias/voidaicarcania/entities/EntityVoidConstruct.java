@@ -1,5 +1,7 @@
 package com.camellias.voidaicarcania.entities;
 
+import com.camellias.voidaicarcania.init.ModBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -13,6 +15,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -21,11 +24,13 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -36,6 +41,7 @@ public class EntityVoidConstruct extends EntityMob
 	private static final DataParameter<Integer> TARGET_ENTITY = EntityDataManager.<Integer>createKey(EntityVoidConstruct.class, DataSerializers.VARINT);
 	
 	private int attackTimer;
+	private int blockBreakCounter;
 	
 	public EntityVoidConstruct(World world) 
 	{
@@ -87,6 +93,7 @@ public class EntityVoidConstruct extends EntityMob
 		super.damageEntity(damageSrc, damageAmount);
 	}
 	
+	@Override
 	public void onLivingUpdate()
     {
         super.onLivingUpdate();
@@ -94,22 +101,6 @@ public class EntityVoidConstruct extends EntityMob
         if (this.attackTimer > 0)
         {
             --this.attackTimer;
-        }
-        
-        if (this.motionX * this.motionX + this.motionZ * this.motionZ > 2.500000277905201E-7D && this.rand.nextInt(5) == 0)
-        {
-            int i = MathHelper.floor(this.posX);
-            int j = MathHelper.floor(this.posY - 0.20000000298023224D);
-            int k = MathHelper.floor(this.posZ);
-            IBlockState iblockstate = this.world.getBlockState(new BlockPos(i, j, k));
-            
-            if (iblockstate.getMaterial() != Material.AIR)
-            {
-                this.world.spawnParticle(EnumParticleTypes.BLOCK_CRACK, this.posX + ((double)this.rand.nextFloat() - 0.5D) 
-                		* (double)this.width, this.getEntityBoundingBox().minY + 0.1D, this.posZ + ((double)this.rand.nextFloat() - 0.5D) 
-                		* (double)this.width, 4.0D * ((double)this.rand.nextFloat() - 0.5D), 0.5D, ((double)this.rand.nextFloat() - 0.5D) 
-                		* 4.0D, Block.getStateId(iblockstate));
-            }
         }
     }
 	
@@ -136,16 +127,17 @@ public class EntityVoidConstruct extends EntityMob
     }
 	
 	@Override
-	public boolean attackEntityAsMob(Entity entityIn)
+	public boolean attackEntityAsMob(Entity entity)
     {
         this.attackTimer = 20;
         this.world.setEntityState(this, (byte)4);
-        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(7 + this.rand.nextInt(15)));
+        boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), 
+        		(float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getBaseValue());
 
         if (flag)
         {
-            entityIn.motionY += 0.4000000059604645D;
-            this.applyEnchantments(this, entityIn);
+            entity.motionY += 0.4000000059604645D;
+            this.applyEnchantments(this, entity);
         }
 
         this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
@@ -165,7 +157,7 @@ public class EntityVoidConstruct extends EntityMob
     }
 	
 	@Override
-    protected void playStepSound(BlockPos pos, Block blockIn)
+    protected void playStepSound(BlockPos pos, Block block)
     {
         this.playSound(SoundEvents.ENTITY_IRONGOLEM_STEP, 1.0F, 1.0F);
     }
