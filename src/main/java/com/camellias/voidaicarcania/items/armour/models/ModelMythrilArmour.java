@@ -10,8 +10,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class ModelMythrilArmour extends ModelBiped 
 {
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID + ":textures/armour/mythril_armour_layer_1.png");
-	
     public ModelRenderer HelmetLeft1;
     public ModelRenderer HelmetLeft2;
     public ModelRenderer HelmetRight1;
@@ -166,36 +164,6 @@ public class ModelMythrilArmour extends ModelBiped
     {
     	super.render(entity, f, f1, f2, f3, f4, f5);
     	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    	
-    	Minecraft.getMinecraft().renderEngine.bindTexture(TEXTURE);
-    	
-    	/*HelmetLeft1.render(f5);
-        HelmetLeft2.render(f5);
-        HelmetRight1.render(f5);
-        HelmetRight2.render(f5);
-        HelmetFrontLeft1.render(f5);
-        HelmetFrontLeft2.render(f5);
-        HelmetFrontRight1.render(f5);
-        HelmetFrontLeft2_1.render(f5);
-        HelmetFrontTop.render(f5);
-        HelmetFrontMid.render(f5);
-        HelmetTop.render(f5);
-        HelmetBack.render(f5);
-        
-        RightPauldron1.render(f5);
-        RightPauldron2.render(f5);
-        
-        LeftPauldron1.render(f5);
-        LeftPauldron2.render(f5);
-        
-        TorsoChest.render(f5);
-        TorsoStomach.render(f5);
-        
-        RightLegGuard.render(f5);
-        RightFoot.render(f5);
-        
-        LeftLegGuard.render(f5);
-        LeftFoot.render(f5);*/
     }
     
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)

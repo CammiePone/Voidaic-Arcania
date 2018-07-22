@@ -1,5 +1,7 @@
 package com.camellias.voidaicarcania.items.armour;
 
+import javax.annotation.Nullable;
+
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.items.armour.models.ModelMythrilArmour;
@@ -12,6 +14,8 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ArmourMythril extends ItemArmor implements IHasModel
 {
@@ -40,37 +44,35 @@ public class ArmourMythril extends ItemArmor implements IHasModel
 	}
 	
 	@Override
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default)
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel(EntityLivingBase entity, ItemStack stack, EntityEquipmentSlot slot, ModelBiped biped)
 	{
-		if(!itemStack.isEmpty())
+		if(!stack.isEmpty())
 		{
-			if(itemStack.getItem() instanceof ItemArmor)
+			if(stack.getItem() instanceof ItemArmor)
 			{
+				ModelMythrilArmour model = new ModelMythrilArmour(1.0F);
 				
-				ModelMythrilArmour armorModel = new ModelMythrilArmour(1.0f);
-				ModelMythrilArmour armorModelLegs = new ModelMythrilArmour(0.5f);
+				model.bipedHead.showModel = slot == EntityEquipmentSlot.HEAD;
+				model.bipedHeadwear.showModel = slot == EntityEquipmentSlot.HEAD;
 				
-				armorModel.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-				armorModel.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-				armorModel.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-				armorModel.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-				armorModel.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-				armorModelLegs.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS) || (armorSlot == EntityEquipmentSlot.FEET);
-				armorModelLegs.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS) || (armorSlot == EntityEquipmentSlot.FEET);
-
-				armorModel.isSneak = _default.isSneak;
-				armorModel.isRiding = _default.isRiding;
-				armorModel.isChild = _default.isChild;
-				armorModel.rightArmPose = _default.rightArmPose;
-				armorModel.leftArmPose = _default.leftArmPose;
+				model.bipedBody.showModel = slot == EntityEquipmentSlot.CHEST;
+				model.bipedRightArm.showModel = slot == EntityEquipmentSlot.CHEST;
+				model.bipedLeftArm.showModel = slot == EntityEquipmentSlot.CHEST;
 				
-				armorModelLegs.isSneak = _default.isSneak;
-				armorModelLegs.isRiding = _default.isRiding;
-				armorModelLegs.isChild = _default.isChild;
-				armorModelLegs.rightArmPose = _default.rightArmPose;
-				armorModelLegs.leftArmPose = _default.leftArmPose;
-
-				return armorModel;
+				model.bipedRightLeg.showModel = (slot == EntityEquipmentSlot.LEGS) || (slot == EntityEquipmentSlot.FEET);
+				model.bipedLeftLeg.showModel = (slot == EntityEquipmentSlot.LEGS) || (slot == EntityEquipmentSlot.FEET);
+				
+				
+				
+				model.isSneak = biped.isSneak;
+				model.isRiding = biped.isRiding;
+				model.isChild = biped.isChild;
+				
+				model.rightArmPose = biped.rightArmPose;
+				model.leftArmPose = biped.leftArmPose;
+				
+				return model;
 			}
 		}
 		
