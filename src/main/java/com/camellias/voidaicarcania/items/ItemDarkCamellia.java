@@ -66,5 +66,4 @@ public class ItemDarkCamellia extends Item implements IHasModel, IPlantable
 	{
 		return ModBlocks.BLOCK_VOIDTEA.getDefaultState();
 	}
-	
 }

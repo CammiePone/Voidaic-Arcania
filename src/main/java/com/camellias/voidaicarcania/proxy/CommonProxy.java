@@ -1,7 +1,6 @@
 package com.camellias.voidaicarcania.proxy;
 
-import com.camellias.voidaicarcania.items.armour.models.ModelMythrilArmour;
-
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 
 public class CommonProxy 
