@@ -15,9 +15,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ArmourMythril extends ItemArmor implements IHasModel
 {
-	public ArmourMythril(ArmorMaterial material, int renderIndex, EntityEquipmentSlot equipmentSlot, String name)
+	protected ModelBiped model;
+	
+	public ArmourMythril(ArmorMaterial material, int index, EntityEquipmentSlot slot, String name)
 	{
-		super(material, renderIndex, equipmentSlot);
+		super(material, index, slot);
 		
 		this.setUnlocalizedName(name);         
 		this.setRegistryName(name);
@@ -27,46 +29,15 @@ public class ArmourMythril extends ItemArmor implements IHasModel
 		ModItems.ITEMS.add(this);
 	}
 	
-	@SideOnly(Side.CLIENT)
-    public ModelBiped model;
-	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getArmorModel(EntityLivingBase entity, ItemStack stack, EntityEquipmentSlot slot, ModelBiped biped)
 	{
 		if(model == null)
 		{
-            if(armorType == slot.HEAD)
-            {
-            	model = new ModelMythrilArmour(1F, true, false, false, false);
-            }
-            
-            else if(armorType == slot.CHEST)
-            {
-            	model = new ModelMythrilArmour(1F, false, true, false, false);
-            }
-            
-            else if(armorType == slot.LEGS)
-            {
-            	model = new ModelMythrilArmour(1F, false, false, true, false);
-            }
-            
-            else if(armorType == slot.FEET)
-            {
-            	model = new ModelMythrilArmour(1F, false, false, false, true);
-            }
-            
-            model.bipedHead.showModel = (armorType == slot.HEAD);
-            model.bipedHeadwear.showModel = (armorType == slot.HEAD);
-            
-            model.bipedBody.showModel = (armorType == slot.CHEST);
-            model.bipedLeftArm.showModel = (armorType == slot.CHEST);
-            model.bipedRightArm.showModel = (armorType == slot.CHEST);
-            
-            model.bipedLeftLeg.showModel = (armorType == slot.LEGS || armorType == slot.FEET);
-            model.bipedRightLeg.showModel = (armorType == slot.LEGS || armorType == slot.FEET);
+            model = new ModelMythrilArmour(slot);
         }
-        
+		
         return model;
 	}
 	
