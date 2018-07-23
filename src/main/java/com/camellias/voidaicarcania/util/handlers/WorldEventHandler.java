@@ -14,6 +14,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -250,6 +251,8 @@ public class WorldEventHandler
 				if(event.getAdvancement() == player.getServer().getAdvancementManager().getAdvancement(new ResourceLocation
 						("voidaicarcania", "enter_void")))
 				{
+					player.playSound(SoundsHandler.VOID_THEME, 1.0F, 1.0F);
+					
 					server.getCommandManager().executeCommand(server, "/give " + player.getName() + 
 							" written_book 1 0 {title:\"Missing Notes 5\", author:\"Artemis\", pages:["
 							+ " \"{text:\\\"4th Quarter Moon, 1055 -                        This confounded place... I had thought it would be easier than this. I cannot fly back out the way I came, nor can I create a portal. It seems that its forcing me to stay, or... go further down? I'll have to try, but first, research!\\\"}\","

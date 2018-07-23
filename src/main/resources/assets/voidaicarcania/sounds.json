@@ -1,6 +1,8 @@
 {
-	"voidic.ambient":
+	"voiddim.entry":
 	{
-		"sounds": [{"name": "voidaicarcania:void_entry_ambient", "stream": true}]
+	   "category": "ambient",
+	   "subtitle": "voiddim.entry",
+	   "sounds": [{"name": "voidaicarcania:/voiddim/entry", "stream": true}]
 	}
 }
