@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania;
 import java.io.File;
 
 import com.camellias.voidaicarcania.init.ModSmelting;
+import com.camellias.voidaicarcania.proxy.ClientProxy;
 import com.camellias.voidaicarcania.proxy.CommonProxy;
 import com.camellias.voidaicarcania.tabs.VoidicAlchemyTab;
 import com.camellias.voidaicarcania.tabs.VoidicMetallurgyTab;

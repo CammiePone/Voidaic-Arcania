@@ -15,8 +15,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ArmourMythril extends ItemArmor implements IHasModel
 {
-	protected ModelBiped model;
-	
 	public ArmourMythril(ArmorMaterial material, int index, EntityEquipmentSlot slot, String name)
 	{
 		super(material, index, slot);
@@ -33,12 +31,33 @@ public class ArmourMythril extends ItemArmor implements IHasModel
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getArmorModel(EntityLivingBase entity, ItemStack stack, EntityEquipmentSlot slot, ModelBiped biped)
 	{
-		if(model == null)
-		{
-            model = new ModelMythrilArmour(slot);
-        }
+		ModelMythrilArmour armourModel = ModelMythrilArmour.INSTANCE;
 		
-        return model;
+		if(stack != null)
+		{
+			if(stack.getItem() instanceof ItemArmor)
+			{
+				armourModel.bipedHead.showModel = slot == EntityEquipmentSlot.HEAD;
+				armourModel.bipedHeadwear.showModel = slot == EntityEquipmentSlot.HEAD;
+				
+				armourModel.bipedBody.showModel = (slot == EntityEquipmentSlot.CHEST) || (slot == EntityEquipmentSlot.CHEST);
+				armourModel.bipedRightArm.showModel = slot == EntityEquipmentSlot.CHEST;
+				armourModel.bipedLeftArm.showModel = slot == EntityEquipmentSlot.CHEST;
+				
+				armourModel.bipedRightLeg.showModel = (slot == EntityEquipmentSlot.LEGS) || (slot == EntityEquipmentSlot.FEET);
+				armourModel.bipedLeftLeg.showModel = (slot == EntityEquipmentSlot.LEGS) || (slot == EntityEquipmentSlot.FEET);
+
+				armourModel.isSneak = biped.isSneak;
+				armourModel.isRiding = biped.isRiding;
+				armourModel.isChild = biped.isChild;
+				armourModel.rightArmPose = biped.rightArmPose;
+				armourModel.leftArmPose = biped.leftArmPose;
+
+				return armourModel;
+			}
+		}
+		
+		return armourModel;
 	}
 	
 	@Override
