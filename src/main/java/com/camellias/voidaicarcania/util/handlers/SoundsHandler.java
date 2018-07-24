@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
-public class SoundsHandler 
+public class SoundsHandler
 {
 	public static SoundEvent VOID_THEME;
 	
