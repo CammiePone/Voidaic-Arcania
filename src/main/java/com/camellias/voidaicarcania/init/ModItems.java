@@ -194,6 +194,6 @@ public class ModItems
 	
 	public static final Item MYTHRIL_HELM = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.HEAD, "mythril_helm");
 	public static final Item MYTHRIL_CHEST = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.CHEST, "mythril_chestplate");
-	public static final Item MYTHRIL_LEGS = new ArmourMythril(MYTHRIL_ARMOUR, 2, EntityEquipmentSlot.LEGS, "mythril_leggings");
+	public static final Item MYTHRIL_LEGS = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.LEGS, "mythril_leggings");
 	public static final Item MYTHRIL_BOOTS = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.FEET, "mythril_boots");
 }
