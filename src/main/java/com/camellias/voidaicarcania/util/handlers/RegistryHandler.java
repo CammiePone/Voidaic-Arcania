@@ -84,6 +84,7 @@ public class RegistryHandler
 		{
 			RenderHandler.registerEntityRenders();
 		}
+		
 		ConfigHandler.registerConfig(event);
 		
 		GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
