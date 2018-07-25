@@ -102,7 +102,7 @@ public class ArmourEnargite extends ItemArmor implements IHasModel
 			}
 		}
 		
-		return null;
+		return null; 
 	}
 	
 	@Override

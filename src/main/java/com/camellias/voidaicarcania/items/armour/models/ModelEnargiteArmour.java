@@ -149,7 +149,7 @@ public class ModelEnargiteArmour extends ModelBiped
         
         LeftFoot = new ModelRenderer(this, 40, 94);
         LeftFoot.setRotationPoint(0.0F, 0.0F, 0.0F);
-        LeftFoot.addBox(-1.8F, 6.0F, -3.0F, 4, 6, 6, 0.0F);
+        LeftFoot.addBox(-1.8F, 6.0F, -3.0F, 4, 6, 6, 0.0F); 
         
         
         
