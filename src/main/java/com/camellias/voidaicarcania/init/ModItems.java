@@ -34,6 +34,7 @@ import com.camellias.voidaicarcania.items.ItemVoidheart;
 import com.camellias.voidaicarcania.items.ItemVoidicOrb;
 import com.camellias.voidaicarcania.items.ItemVoidicShard;
 import com.camellias.voidaicarcania.items.ItemWraithWisp;
+import com.camellias.voidaicarcania.items.armour.ArmourEnargite;
 import com.camellias.voidaicarcania.items.armour.ArmourMythril;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmulet;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmuletActive;
@@ -191,9 +192,15 @@ public class ModItems
 	
 	//-----Armours-----//
 	public static final ArmorMaterial MYTHRIL_ARMOUR = EnumHelper.addArmorMaterial("mythril", Reference.MODID + ":mythril_armour", 40, new int[]{4,8,5,2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
+	public static final ArmorMaterial ENARGITE_ARMOUR = EnumHelper.addArmorMaterial("enargite", Reference.MODID + ":enargite_armour", 20, new int[]{4,8,5,3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3.0F);
 	
 	public static final Item MYTHRIL_HELM = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.HEAD, "mythril_helm");
 	public static final Item MYTHRIL_CHEST = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.CHEST, "mythril_chestplate");
-	public static final Item MYTHRIL_LEGS = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.LEGS, "mythril_leggings");
+	public static final Item MYTHRIL_LEGS = new ArmourMythril(MYTHRIL_ARMOUR, 2, EntityEquipmentSlot.LEGS, "mythril_leggings");
 	public static final Item MYTHRIL_BOOTS = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.FEET, "mythril_boots");
+	
+	public static final Item ENARGITE_HELM = new ArmourEnargite(ENARGITE_ARMOUR, 1, EntityEquipmentSlot.HEAD, "enargite_helm");
+	public static final Item ENARGITE_CHEST = new ArmourEnargite(ENARGITE_ARMOUR, 1, EntityEquipmentSlot.CHEST, "enargite_chestplate");
+	public static final Item ENARGITE_LEGS = new ArmourEnargite(ENARGITE_ARMOUR, 2, EntityEquipmentSlot.LEGS, "enargite_leggings");
+	public static final Item ENARGITE_BOOTS = new ArmourEnargite(ENARGITE_ARMOUR, 1, EntityEquipmentSlot.FEET, "enargite_boots");
 }
