@@ -191,8 +191,19 @@ public class ModItems
 	public static final Item CAMS_SUPER_SECRET_STICK = new ItemSecretStick("secret_stick");
 	
 	//-----Armours-----//
-	public static final ArmorMaterial MYTHRIL_ARMOUR = EnumHelper.addArmorMaterial("mythril", Reference.MODID + ":mythril_armour", 40, new int[]{4,8,5,2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
-	public static final ArmorMaterial ENARGITE_ARMOUR = EnumHelper.addArmorMaterial("enargite", Reference.MODID + ":enargite_armour", 20, new int[]{4,8,5,3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3.0F);
+	
+	public static final ArmorMaterial MYTHRIL_ARMOUR = EnumHelper.addArmorMaterial("mythril", 
+			Reference.MODID + ":mythril_armour", 33, new int[]{3,8,6,2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
+	
+	public static final ArmorMaterial ENARGITE_ARMOUR = EnumHelper.addArmorMaterial("enargite", 
+			Reference.MODID + ":enargite_armour", 15, new int[]{3,8,6,3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3.0F);
+	
+	public static final ArmorMaterial SORITGELLIUM_ARMOUR = EnumHelper.addArmorMaterial("sortigellium", 
+			Reference.MODID + ":sortigellium_armour", 7, new int[]{5,9,7,4}, 10, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+	
+	
+	
+	
 	
 	public static final Item MYTHRIL_HELM = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.HEAD, "mythril_helm");
 	public static final Item MYTHRIL_CHEST = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.CHEST, "mythril_chestplate");
