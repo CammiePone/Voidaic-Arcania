@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -118,20 +119,6 @@ public class ArmourMythril extends ItemArmor implements IHasModel
 		EntityEquipmentSlot body = EntityEquipmentSlot.CHEST;
 		EntityEquipmentSlot legs = EntityEquipmentSlot.LEGS;
 		EntityEquipmentSlot feet = EntityEquipmentSlot.FEET;
-		
-		if(event.getEntityLiving() instanceof EntityLivingBase)
-		{
-			EntityLivingBase entity = event.getEntityLiving();
-			
-			if(entity.getItemStackFromSlot(head).getItem() == ModItems.MYTHRIL_HELM
-					&& entity.getItemStackFromSlot(body).getItem() == ModItems.MYTHRIL_CHEST
-					&& entity.getItemStackFromSlot(legs).getItem() == ModItems.MYTHRIL_LEGS
-					&& entity.getItemStackFromSlot(feet).getItem() == ModItems.MYTHRIL_BOOTS
-					&& event.getSource().isMagicDamage())
-			{
-				event.setAmount(event.getAmount() / 2.0F);
-			}
-		}
 		
 		if(event.getEntityLiving() instanceof EntityPlayer)
 		{

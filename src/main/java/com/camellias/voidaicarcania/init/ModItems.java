@@ -34,8 +34,10 @@ import com.camellias.voidaicarcania.items.ItemVoidheart;
 import com.camellias.voidaicarcania.items.ItemVoidicOrb;
 import com.camellias.voidaicarcania.items.ItemVoidicShard;
 import com.camellias.voidaicarcania.items.ItemWraithWisp;
+import com.camellias.voidaicarcania.items.armour.ArmourAstralite;
 import com.camellias.voidaicarcania.items.armour.ArmourEnargite;
 import com.camellias.voidaicarcania.items.armour.ArmourMythril;
+import com.camellias.voidaicarcania.items.armour.ArmourSortigellium;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmulet;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmuletActive;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemShieldAmulet;
@@ -198,8 +200,11 @@ public class ModItems
 	public static final ArmorMaterial ENARGITE_ARMOUR = EnumHelper.addArmorMaterial("enargite", 
 			Reference.MODID + ":enargite_armour", 15, new int[]{3,8,6,3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3.0F);
 	
-	public static final ArmorMaterial SORITGELLIUM_ARMOUR = EnumHelper.addArmorMaterial("sortigellium", 
-			Reference.MODID + ":sortigellium_armour", 7, new int[]{5,9,7,4}, 10, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+	public static final ArmorMaterial SORTIGELLIUM_ARMOUR = EnumHelper.addArmorMaterial("sortigellium", 
+			Reference.MODID + ":sortigellium_armour", 7, new int[]{5,9,7,4}, 10, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.0F);
+	
+	public static final ArmorMaterial ASTRALITE_ARMOUR = EnumHelper.addArmorMaterial("astralite", 
+			Reference.MODID + ":astralite_armour", 20, new int[]{3,8,6,2}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
 	
 	
 	
@@ -214,4 +219,14 @@ public class ModItems
 	public static final Item ENARGITE_CHEST = new ArmourEnargite(ENARGITE_ARMOUR, 1, EntityEquipmentSlot.CHEST, "enargite_chestplate");
 	public static final Item ENARGITE_LEGS = new ArmourEnargite(ENARGITE_ARMOUR, 2, EntityEquipmentSlot.LEGS, "enargite_leggings");
 	public static final Item ENARGITE_BOOTS = new ArmourEnargite(ENARGITE_ARMOUR, 1, EntityEquipmentSlot.FEET, "enargite_boots");
+	
+	public static final Item SORTIGELLIUM_HELM = new ArmourSortigellium(SORTIGELLIUM_ARMOUR, 1, EntityEquipmentSlot.HEAD, "sortigellium_helm");
+	public static final Item SORTIGELLIUM_CHEST = new ArmourSortigellium(SORTIGELLIUM_ARMOUR, 1, EntityEquipmentSlot.CHEST, "sortigellium_chestplate");
+	public static final Item SORTIGELLIUM_LEGS = new ArmourSortigellium(SORTIGELLIUM_ARMOUR, 2, EntityEquipmentSlot.LEGS, "sortigellium_leggings");
+	public static final Item SORTIGELLIUM_BOOTS = new ArmourSortigellium(SORTIGELLIUM_ARMOUR, 1, EntityEquipmentSlot.FEET, "sortigellium_boots");
+	
+	public static final Item ASTRALITE_HELM = new ArmourAstralite(ASTRALITE_ARMOUR, 1, EntityEquipmentSlot.HEAD, "astralite_helm");
+	public static final Item ASTRALITE_CHEST = new ArmourAstralite(ASTRALITE_ARMOUR, 1, EntityEquipmentSlot.CHEST, "astralite_chestplate");
+	public static final Item ASTRALITE_LEGS = new ArmourAstralite(ASTRALITE_ARMOUR, 1, EntityEquipmentSlot.LEGS, "astralite_leggings");
+	public static final Item ASTRALITE_BOOTS = new ArmourAstralite(ASTRALITE_ARMOUR, 1, EntityEquipmentSlot.FEET, "astralite_boots");
 }
