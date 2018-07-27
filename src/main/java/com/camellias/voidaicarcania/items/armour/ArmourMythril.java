@@ -26,7 +26,7 @@ public class ArmourMythril extends ItemArmor implements IHasModel
 	{
 		super(material, index, slot);
 		
-		this.setUnlocalizedName(name);         
+		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(Main.metaltab);
 		this.setMaxStackSize(1);
