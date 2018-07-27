@@ -3,16 +3,15 @@ package com.camellias.voidaicarcania.items.armour;
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.init.ModItems;
+import com.camellias.voidaicarcania.items.armour.models.ModelAstraliteArmour;
 import com.camellias.voidaicarcania.util.IHasModel;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -39,6 +38,77 @@ public class ArmourAstralite extends ItemArmor implements IHasModel
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getArmorModel(EntityLivingBase entity, ItemStack stack, EntityEquipmentSlot slot, ModelBiped biped)
 	{
+		if(stack != null)
+		{
+			if(stack.getItem() instanceof ItemArmor)
+			{
+				if(slot == EntityEquipmentSlot.HEAD)
+				{
+					ModelAstraliteArmour armourModel = ModelAstraliteArmour.INSTANCE_HEAD;
+					
+					armourModel.bipedHead.showModel = slot == EntityEquipmentSlot.HEAD;
+					armourModel.bipedHeadwear.showModel = slot == EntityEquipmentSlot.HEAD;
+					
+					armourModel.isSneak = biped.isSneak;
+					armourModel.isRiding = biped.isRiding;
+					armourModel.isChild = biped.isChild;
+					armourModel.rightArmPose = biped.rightArmPose;
+					armourModel.leftArmPose = biped.leftArmPose;
+					
+					return armourModel;
+				}
+				
+				if(slot == EntityEquipmentSlot.CHEST)
+				{
+					ModelAstraliteArmour armourModel = ModelAstraliteArmour.INSTANCE_CHEST;
+					
+					armourModel.bipedBody.showModel = slot == EntityEquipmentSlot.CHEST;
+					armourModel.bipedRightArm.showModel = slot == EntityEquipmentSlot.CHEST;
+					armourModel.bipedLeftArm.showModel = slot == EntityEquipmentSlot.CHEST;
+					
+					armourModel.isSneak = biped.isSneak;
+					armourModel.isRiding = biped.isRiding;
+					armourModel.isChild = biped.isChild;
+					armourModel.rightArmPose = biped.rightArmPose;
+					armourModel.leftArmPose = biped.leftArmPose;
+					
+					return armourModel;
+				}
+				
+				if(slot == EntityEquipmentSlot.LEGS)
+				{
+					ModelAstraliteArmour armourModel = ModelAstraliteArmour.INSTANCE_LEGS;
+					
+					armourModel.bipedRightLeg.showModel = slot == EntityEquipmentSlot.LEGS;
+					armourModel.bipedLeftLeg.showModel = slot == EntityEquipmentSlot.LEGS;
+
+					armourModel.isSneak = biped.isSneak;
+					armourModel.isRiding = biped.isRiding;
+					armourModel.isChild = biped.isChild;
+					armourModel.rightArmPose = biped.rightArmPose;
+					armourModel.leftArmPose = biped.leftArmPose;
+					
+					return armourModel;
+				}
+				
+				if(slot == EntityEquipmentSlot.FEET)
+				{
+					ModelAstraliteArmour armourModel = ModelAstraliteArmour.INSTANCE_BOOTS;
+					
+					armourModel.bipedRightLeg.showModel = slot == EntityEquipmentSlot.FEET;
+					armourModel.bipedLeftLeg.showModel = slot == EntityEquipmentSlot.FEET;
+
+					armourModel.isSneak = biped.isSneak;
+					armourModel.isRiding = biped.isRiding;
+					armourModel.isChild = biped.isChild;
+					armourModel.rightArmPose = biped.rightArmPose;
+					armourModel.leftArmPose = biped.leftArmPose;
+					
+					return armourModel;
+				}
+			}
+		}
+		
 		return null;
 	}
 	
