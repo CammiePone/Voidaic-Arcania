@@ -56,7 +56,7 @@ public class ModelAstraliteArmour extends ModelBiped
         HelmetWingRight.addBox(-6.0F, -11.0F, -4.0F, 1, 8, 3, 0.0F);
         setRotateAngle(HelmetWingRight, -0.4363323129985824F, 0.0F, 0.0F);
         
-        HelmetRight = new ModelRenderer(this, 0, 118);
+        HelmetRight = new ModelRenderer(this, 44, 111);
         HelmetRight.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetRight.addBox(-5.0F, -8.0F, -5.0F, 1, 8, 9, 0.0F);
         
@@ -68,7 +68,7 @@ public class ModelAstraliteArmour extends ModelBiped
         HelmetFront.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetFront.addBox(-4.0F, -8.0F, -5.0F, 8, 3, 1, 0.0F);
         
-        HelmetLeft = new ModelRenderer(this, 0, 118);
+        HelmetLeft = new ModelRenderer(this, 44, 111);
         HelmetLeft.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetLeft.addBox(4.0F, -8.0F, -5.0F, 1, 8, 9, 0.0F);
         
