@@ -17,14 +17,14 @@
     "parent": "voidaicarcania:enter_void",
     "criteria":
     {
-        "inventory":
+        "heart_boss":
         {
             "trigger": "minecraft:player_killed_entity",
             "conditions":
             {
-                "entities":
+                "entity":
                 {
-                    "type": "voidaicarcania:void_heart_boss"
+                    "type": "voidaicarcania:heart_boss"
                 }
             }
 	    }

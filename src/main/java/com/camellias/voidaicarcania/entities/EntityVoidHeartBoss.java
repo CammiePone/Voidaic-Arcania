@@ -104,7 +104,7 @@ public class EntityVoidHeartBoss extends EntityMob
 		this.setDead();
 		if(!world.isRemote)
 		{
-			world.getClosestPlayerToEntity(this, 30D).sendMessage(new TextComponentString("§5§You are worthy, " 
+			world.getClosestPlayerToEntity(this, 30D).sendMessage(new TextComponentString("§5You are worthy, " 
 					+ world.getClosestPlayerToEntity(this, 30D).getDisplayNameString() 
 					+ ". Give me an item, and I shall imbue it with power."));
 			
@@ -154,9 +154,9 @@ public class EntityVoidHeartBoss extends EntityMob
     {
 		super.updateAITasks();
 		
-		if(this.ticksExisted % 20 == 0)
+		if(this.ticksExisted % 30 == 0)
 		{
-			this.heal(3.0F);
+			this.heal(2.0F);
 		}
 		
 		if(!world.isRemote)
@@ -169,7 +169,7 @@ public class EntityVoidHeartBoss extends EntityMob
 				this.world.spawnEntity(entitywraith);
 			}
 			
-			if(this.ticksExisted % 150 == 0)
+			if(this.ticksExisted % 50 == 0)
 			{
 				this.teleportRandomly();
 			}
@@ -183,19 +183,26 @@ public class EntityVoidHeartBoss extends EntityMob
 		double d0 = this.posX + (this.rand.nextDouble() - 0.5D) * 16.0D;
         double d1 = this.posY + (double)(this.rand.nextInt(16) - 8);
         double d2 = this.posZ + (this.rand.nextDouble() - 0.5D) * 16.0D;
+        
         return this.teleportTo(d0, d1, d2);
     }
 	
     private boolean teleportTo(double x, double y, double z)
     {
         EnderTeleportEvent event = new EnderTeleportEvent(this, x, y, z, 0);
-        if (net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event)) return false;
-        boolean flag = this.attemptTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ());
         
-        if (flag)
+        if(net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event))
+        {
+        	return false;
+        }
+        
+        boolean flag = this.attemptTeleport(event.getTargetX(), event.getTargetY() + 1, event.getTargetZ());
+        
+        if(flag)
         {
             this.world.playSound((EntityPlayer)null, this.prevPosX, this.prevPosY, this.prevPosZ, 
             		SoundEvents.ENTITY_ENDERMEN_TELEPORT, this.getSoundCategory(), 1.0F, 1.0F);
+            
             this.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
         }
         

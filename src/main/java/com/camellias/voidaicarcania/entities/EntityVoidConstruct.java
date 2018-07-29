@@ -65,7 +65,12 @@ public class EntityVoidConstruct extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(500.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(15.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25F);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
+        
+        if(this.getHealth() > 200)
+        {
+        	this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
+        }
+        	
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(10.0D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(100.0D);
     }
@@ -88,6 +93,11 @@ public class EntityVoidConstruct extends EntityMob
 		if(damageAmount > 20F)
 		{
 			damageAmount = 20F;
+		}
+		
+		if(damageSrc == DamageSource.FALL)
+		{
+			damageAmount = 0F;
 		}
 		
 		super.damageEntity(damageSrc, damageAmount);
@@ -183,9 +193,26 @@ public class EntityVoidConstruct extends EntityMob
 	protected void updateAITasks()
     {
 		super.updateAITasks();
+		
 		if(this.ticksExisted % 20 == 0)
 		{
-			this.heal(1.0F);
+			if(this.getHealth() > 200)
+			{
+				this.heal(1.0F);
+			}
+		}
+		
+		if(this.ticksExisted % 100 == 0)
+		{
+			if(this.getHealth() <= 200)
+			{
+				this.motionY = 2.0F;
+				
+				if(!world.isRemote)
+				{
+					world.createExplosion(this, this.posX, this.posY, this.posZ, 4.0F, true);
+				}
+			}
 		}
 		
 		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());

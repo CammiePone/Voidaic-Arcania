@@ -28,6 +28,7 @@ public class BlockVoidStone extends Block implements IHasModel
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setHardness(3.0F);
+		this.setResistance(18000000.0F);
 		this.setCreativeTab(Main.voidictab);
 		
 		ModBlocks.BLOCKS.add(this);

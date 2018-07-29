@@ -59,6 +59,17 @@ public class EntityVoidHeartPassive extends EntityMob
     }
 	
 	@Override
+	protected void damageEntity(DamageSource damageSrc, float damageAmount)
+	{
+		if(damageAmount > 0F)
+		{
+			damageAmount = 0F;
+		}
+		
+		super.damageEntity(damageSrc, damageAmount);
+	}
+	
+	@Override
 	public boolean canBreatheUnderwater()
     {
         return true;
