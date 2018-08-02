@@ -1,0 +1,219 @@
+item.item.name=Name
+
+item.transmutation_shard.name=§aОсколок трансмутации
+item.voidic_shard.name=§8Осколок пустоты
+item.void_bottle.name=§8Пузырек эссенции пустоты
+item.weak_void_cluster.name=Кристалл пустоты (Уровень 1)
+item.void_cluster.name=Кристалл пустоты (Уровень 2)
+item.strong_void_cluster.name=Кристалл пустоты (Уровень 3)
+
+item.feast_cowl.name=§6Капюшон вечного насыщения
+item.active_feast_cowl.name=§6Капюшон вечного насыщения
+item.reaper_cowl.name=§6Капюшон жнеца
+item.active_reaper_cowl.name=§6Капюшон жнеца
+
+item.flight_cloak.name=§6Небесная накидка
+item.active_flight_cloak.name=§6Небесная накидка
+item.invisibility_cloak.name=§6Накидка невидимости
+item.active_invisibility_cloak.name=§6Накидка невидимости
+
+item.shield_amulet.name=§6Амулет щита
+item.active_shield_amulet.name=§6Амулет щита
+item.inverse_amulet.name=§6Амулет обмена
+item.active_inverse_amulet.name=§6Амулет обмена
+
+item.protect_charm.name=§6Брелок отстранения
+item.active_protect_charm.name=§6Брелок отстранения
+item.explode_charm.name=§6Брелок ударной волны
+item.active_explode_charm.name=§6Брелок ударной волны
+
+item.strength_belt.name=§6Пояс силы
+item.active_strength_belt.name=§6Пояс силы
+item.resistance_belt.name=§6Пояс защиты
+item.active_resistance_belt.name=§6Пояс защиты
+
+item.transmutation_orb.name=§aСфера трансмутации
+item.voidic_orb.name=§8Пустотная сфера трансмутации
+
+item.void_bulb.name=Луковица пустоты
+item.floatshroom.name=Летногриб
+item.glowgrowth.name=Светоцвет
+item.dark_camellia.name=Камелия пустоты
+item.void_melon_seed.name=Семена арбуза пустоты
+item.starbloom.name=Зведоцвет
+item.neddlesprout.name=Незрельник
+item.featherweed.name=Перьяник
+item.moon_mint.name=Лунная мята
+
+item.mushroom_stew_1.name=Грибной суп
+item.mushroom_stew_2.name=Грибной суп
+item.mushroom_stew_3.name=Грибной суп
+item.mushroom_stew_4.name=Грибной суп
+item.mushroom_stew_5.name=Грибной суп
+item.mushroom_stew_6.name=Грибной суп
+item.mushroom_stew_7.name=Грибной суп
+
+item.rabbit_stew_1.name=Рагу из крольчатины
+item.rabbit_stew_2.name=Рагу из крольчатины
+item.rabbit_stew_3.name=Рагу из крольчатины
+item.rabbit_stew_4.name=Рагу из крольчатины
+item.rabbit_stew_5.name=Рагу из крольчатины
+item.rabbit_stew_6.name=Рагу из крольчатины
+item.rabbit_stew_7.name=Рагу из крольчатины
+
+item.beetroot_soup_1.name=Свекольный суп
+item.beetroot_soup_2.name=Свекольный суп
+item.beetroot_soup_3.name=Свекольный суп
+item.beetroot_soup_4.name=Свекольный суп
+item.beetroot_soup_5.name=Свекольный суп
+item.beetroot_soup_6.name=Свекольный суп
+item.beetroot_soup_7.name=Свекольный суп
+
+item.bread_1.name=Хлеб
+item.bread_2.name=Хлеб
+item.bread_3.name=Хлеб
+item.bread_4.name=Хлеб
+item.bread_5.name=Хлеб
+item.bread_6.name=Хлеб
+item.bread_7.name=Хлеб
+
+item.cookie_1.name=Печенье
+item.cookie_2.name=Печенье
+item.cookie_3.name=Печенье
+item.cookie_4.name=Печенье
+item.cookie_5.name=Печенье
+item.cookie_6.name=Печенье
+item.cookie_7.name=Печенье
+
+item.pumpkin_pie_1.name=Тыквенный пирог
+item.pumpkin_pie_2.name=Тыквенный пирог
+item.pumpkin_pie_3.name=Тыквенный пирог
+item.pumpkin_pie_4.name=Тыквенный пирог
+item.pumpkin_pie_5.name=Тыквенный пирог
+item.pumpkin_pie_6.name=Тыквенный пирог
+item.pumpkin_pie_7.name=Тыквенный пирог
+
+item.chorus_tea.name=Чай из коруса
+
+item.dwarf_brick.name=Гномьи кирпичи
+item.spell_base.name=Заклятая бумага
+item.void_star.name=§5Звезда пустоты
+item.voidheart.name=Сердце пустоты
+item.bullet.name=Снаряд шалкера
+item.void_crystal.name=Кристалл пустоты
+
+item.wraith_wisp.name=Призрачная эссенция
+
+
+
+
+
+tile.block_altar.name=Алтарь
+tile.block_botany_altar.name=Ботанический алтарь
+
+tile.block_voidrock.name=Пустокамень
+tile.block_voidrock_pillar.name=Пустокаменная колонна
+tile.block_voidrock_tiles.name=Пустокаменная плитка
+tile.block_voidrock_tiles_cracked.name=Поврежденная пустокаменная плитка
+tile.block_voidrock_smooth.name=Полированный пустокаменнь
+
+tile.block_voidsand.name=Пустотный песок 
+tile.block_arcane_earth.name=Таинственная земля
+tile.block_voidcloud.name=Туман пустоты
+
+tile.block_stem.name=Держатель фонаря
+tile.block_lantern.name=Фонарь пустоты
+tile.block_voidglass.name=Пустотное стекло
+
+tile.block_void_flower.name=Цветок пустоты
+tile.block_void_crop.name=Луковица пустоты
+tile.block_floatshroom.name=Летногриб
+tile.block_glowgrowth.name=Светоцвет
+tile.block_void_weed.name=Сорняк пустоты
+tile.block_void_melon.name=Арбуз пустоты
+tile.block_voidtea.name=Куст темной камелии
+tile.block_melon_crop.name=Арбуз пустоты
+tile.block_featherweed.name=Перьяник
+tile.block_moonmint.name=Лунная мята
+tile.block_neddlesprout.name=Незрельник
+tile.block_starbloom.name=Зведоцвет
+
+tile.block_dwarf_brick.name=Гномьи кирпичи
+tile.block_dwarf_stairs.name=Гномьи ступеньки
+
+tile.block_dark_brick.name=Темные кирпичи
+tile.block_dark_brick_chiseled.name=Резные темные кирпичи
+
+tile.block_whitewood.name=Белодрево
+tile.block_whitewood_leaves.name=Листва белодрева
+
+tile.block_construct.name=Основа конструкции
+tile.block_voideye.name=§5Глаз конструкции
+
+tile.block_idfk.name=TestBlock-ModMCdl
+item.secret_stick.name=§dCam's Super Secret Stick
+
+
+
+
+enchantment.enchant_alchemy=Алхимия
+enchantment.enchant_cloudstep=Бездноход
+
+
+
+
+
+
+itemGroup.voidictab=§5Voidaic Arcania
+itemGroup.alchemytab=§5Voidaic Alchemy
+
+
+
+
+
+entity.void_wraith.name=Призрак бездны
+entity.void_construct.name=Конструкция пустоты
+entity.heart_boss.name=Сердце пустоты
+entity.heart_passive.name=Сердце пустоты
+
+
+
+
+
+container.altar=Алтарь
+container.botany_altar=Ботанический алтарь
+
+
+
+
+
+effect.lifesteal=Life Steal
+effect.voidtouch=Void Touch
+
+
+
+
+
+death.attack.voidtouch=%1$s was touched by the void...
+
+
+
+
+
+advancements.voidaicarcania.orb=A Peculiar Discovery
+advancements.voidaicarcania.orb.desc=Make an Orb of Transmutation
+
+advancements.voidaicarcania.void_shard=A Dark Awakening
+advancements.voidaicarcania.void_shard.desc=Find, or Create, a Voidic Shard
+
+advancements.voidaicarcania.void_orb=Powerplay
+advancements.voidaicarcania.void_orb.desc=Create the Superior Voidic Orb of Transmutation
+
+advancements.voidaicarcania.altar=The Beginnings of Something Big
+advancements.voidaicarcania.altar.desc=Create an Altar
+
+advancements.voidaicarcania.botany_altar=Flower Power
+advancements.voidaicarcania.botany_altar.desc=Obtain an Arcane Botanical Altar
+
+advancements.voidaicarcania.enter_void=Into The Unknown
+advancements.voidaicarcania.enter_void.desc=Travel to The Void...
