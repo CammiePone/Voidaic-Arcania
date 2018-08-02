@@ -166,6 +166,7 @@ enchantment.enchant_cloudstep=Бездноход
 
 itemGroup.voidictab=§5Voidaic Arcania
 itemGroup.alchemytab=§5Voidaic Alchemy
+itemGroup.metaltab=Â§5Voidaic Metallurgy
 
 
 
@@ -187,33 +188,33 @@ container.botany_altar=Ботанический алтарь
 
 
 
-effect.lifesteal=Life Steal
-effect.voidtouch=Void Touch
+effect.lifesteal=Кража жизни
+effect.voidtouch=Прикосновение пустоты
 
 
 
 
 
-death.attack.voidtouch=%1$s was touched by the void...
+death.attack.voidtouch=%1$s был поглощен пустотой...
 
 
 
 
 
-advancements.voidaicarcania.orb=A Peculiar Discovery
-advancements.voidaicarcania.orb.desc=Make an Orb of Transmutation
+advancements.voidaicarcania.orb=Особое открытие
+advancements.voidaicarcania.orb.desc=Создайте Сферу трансмутации
 
-advancements.voidaicarcania.void_shard=A Dark Awakening
-advancements.voidaicarcania.void_shard.desc=Find, or Create, a Voidic Shard
+advancements.voidaicarcania.void_shard=Пробуждение тьмы
+advancements.voidaicarcania.void_shard.desc=Найдите или создайте Осколок пустоты
 
 advancements.voidaicarcania.void_orb=Powerplay
-advancements.voidaicarcania.void_orb.desc=Create the Superior Voidic Orb of Transmutation
+advancements.voidaicarcania.void_orb.desc=Создайте высшую Пустотную сферу трансмутации
 
-advancements.voidaicarcania.altar=The Beginnings of Something Big
-advancements.voidaicarcania.altar.desc=Create an Altar
+advancements.voidaicarcania.altar=Начало чего-то большего
+advancements.voidaicarcania.altar.desc=Создайте алтарь
 
-advancements.voidaicarcania.botany_altar=Flower Power
-advancements.voidaicarcania.botany_altar.desc=Obtain an Arcane Botanical Altar
+advancements.voidaicarcania.botany_altar=Сила цветов
+advancements.voidaicarcania.botany_altar.desc=Получите Ботанический алтарь
 
-advancements.voidaicarcania.enter_void=Into The Unknown
-advancements.voidaicarcania.enter_void.desc=Travel to The Void...
+advancements.voidaicarcania.enter_void=В неизвестность
+advancements.voidaicarcania.enter_void.desc=Попадите в пустоту...
