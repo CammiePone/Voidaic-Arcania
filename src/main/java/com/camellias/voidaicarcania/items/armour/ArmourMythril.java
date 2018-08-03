@@ -35,6 +35,12 @@ public class ArmourMythril extends ItemArmor implements IHasModel
 	}
 	
 	@Override
+	public boolean hasEffect(ItemStack stack)
+	{
+		return true;
+	}
+	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getArmorModel(EntityLivingBase entity, ItemStack stack, EntityEquipmentSlot slot, ModelBiped biped)
 	{

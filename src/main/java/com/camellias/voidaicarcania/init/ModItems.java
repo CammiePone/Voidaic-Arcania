@@ -63,6 +63,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
@@ -192,7 +193,7 @@ public class ModItems
 	
 	public static final Item CAMS_SUPER_SECRET_STICK = new ItemSecretStick("secret_stick");
 	
-	//-----Armours-----//
+	//-----Armours & Tools-----//
 	
 	public static final ArmorMaterial MYTHRIL_ARMOUR = EnumHelper.addArmorMaterial("mythril", 
 			Reference.MODID + ":mythril_armour", 33, new int[]{3,8,6,2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
@@ -205,6 +206,10 @@ public class ModItems
 	
 	public static final ArmorMaterial ASTRALITE_ARMOUR = EnumHelper.addArmorMaterial("astralite", 
 			Reference.MODID + ":astralite_armour", 20, new int[]{3,8,6,2}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
+	
+	
+	
+	public static final ToolMaterial ENARGITE_TOOL = EnumHelper.addToolMaterial("enargite", 4, 251, 2, 1, 15);
 	
 	
 	

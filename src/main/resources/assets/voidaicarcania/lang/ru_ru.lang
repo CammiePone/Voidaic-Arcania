@@ -35,6 +35,13 @@ item.active_resistance_belt.name=§6Пояс защиты
 item.transmutation_orb.name=§aСфера трансмутации
 item.voidic_orb.name=§8Пустотная сфера трансмутации
 
+item.infused_ingot.name=Наполненный слиток
+item.mercury.name=Жидкая ртуть
+item.enargite_ingot.name=Слиток энаргита
+item.sortigellium_ingot.name=Слиток сортигеллиума
+item.astralite_ingot.name=Слиток астралита
+item.mythril_ingot.name=цСлиток мифрила
+
 item.void_bulb.name=Луковица пустоты
 item.floatshroom.name=Летногриб
 item.glowgrowth.name=Светоцвет
@@ -101,8 +108,10 @@ item.void_star.name=§5Звезда пустоты
 item.voidheart.name=Сердце пустоты
 item.bullet.name=Снаряд шалкера
 item.void_crystal.name=Кристалл пустоты
+item.cinnabar.name=Киноварь
 
 item.wraith_wisp.name=Призрачная эссенция
+item.transformative_root.name=Корень трансформации
 
 
 
@@ -110,6 +119,7 @@ item.wraith_wisp.name=Призрачная эссенция
 
 tile.block_altar.name=Алтарь
 tile.block_botany_altar.name=Ботанический алтарь
+tile.block_mortal_furnace.name=Жаровня смерти
 
 tile.block_voidrock.name=Пустокамень
 tile.block_voidrock_pillar.name=Пустокаменная колонна
@@ -124,6 +134,7 @@ tile.block_voidcloud.name=Туман пустоты
 tile.block_stem.name=Держатель фонаря
 tile.block_lantern.name=Фонарь пустоты
 tile.block_voidglass.name=Пустотное стекло
+tile.block_void_crystal.name=Блок кристалла пустоты
 
 tile.block_void_flower.name=Цветок пустоты
 tile.block_void_crop.name=Луковица пустоты
@@ -137,6 +148,9 @@ tile.block_featherweed.name=Перьяник
 tile.block_moonmint.name=Лунная мята
 tile.block_neddlesprout.name=Незрельник
 tile.block_starbloom.name=Зведоцвет
+
+tile.block_cinnibar_ore.name=Руда киновари
+tile.block_peacock_ore.name=Руда борнита
 
 tile.block_dwarf_brick.name=Гномьи кирпичи
 tile.block_dwarf_stairs.name=Гномьи ступеньки
@@ -166,7 +180,7 @@ enchantment.enchant_cloudstep=Бездноход
 
 itemGroup.voidictab=§5Voidaic Arcania
 itemGroup.alchemytab=§5Voidaic Alchemy
-itemGroup.metaltab=Â§5Voidaic Metallurgy
+itemGroup.metaltab=§5Voidaic Metallurgy
 
 
 
@@ -183,6 +197,7 @@ entity.heart_passive.name=Сердце пустоты
 
 container.altar=Алтарь
 container.botany_altar=Ботанический алтарь
+container.centrifuge_furnace=Жаровня смерти
 
 
 
@@ -218,3 +233,18 @@ advancements.voidaicarcania.botany_altar.desc=Получите Ботаниче�
 
 advancements.voidaicarcania.enter_void=В неизвестность
 advancements.voidaicarcania.enter_void.desc=Попадите в пустоту...
+
+advancements.voidaicarcania.metallurgy=Твердый металл
+advancements.voidaicarcania.metallurgy.desc=Создайте Наполненный слиток
+
+advancements.voidaicarcania.peacock=Жажда
+advancements.voidaicarcania.peacock.desc=Чтоооо делает эта радужная руда?
+
+advancements.voidaicarcania.stackoverflow=java.lang.StackOverflowError
+advancements.voidaicarcania.stackoverflow.desc=Соберите стак всех слитков и растений из Voidaic Arcania
+
+advancements.voidaicarcania.heartboss=Избранный
+advancements.voidaicarcania.heartboss.desc=Уничтожте сердце пустоты
+
+advancements.voidaicarcania.baubles=Мастер бездны
+advancements.voidaicarcania.baubles.desc=Получите все 10 активных аксеcсуаров Baubles
