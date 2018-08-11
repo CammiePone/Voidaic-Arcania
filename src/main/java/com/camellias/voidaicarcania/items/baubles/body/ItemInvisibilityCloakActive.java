@@ -1,15 +1,25 @@
 package com.camellias.voidaicarcania.items.baubles.body;
 
+import java.util.List;
+
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class ItemInvisibilityCloakActive extends ItemInvisibilityCloak
 {
 	public ItemInvisibilityCloakActive(String name)
 	{
 		super(name);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
+		tooltip.add("§aActivated");
 	}
 	
 	@Override

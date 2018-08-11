@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "I",
+        "S",
+        "S"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "voidaicarcania:mythril_ingot"
+        },
+        
+        "S":
+        {
+            "item": "minecraft:stick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:mythril_shovel",
+        "count": 1
+    }
+}

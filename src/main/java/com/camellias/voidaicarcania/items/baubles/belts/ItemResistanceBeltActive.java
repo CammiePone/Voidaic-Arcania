@@ -1,16 +1,26 @@
 package com.camellias.voidaicarcania.items.baubles.belts;
 
+import java.util.List;
+
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
 
 public class ItemResistanceBeltActive extends ItemResistanceBelt
 {
 	public ItemResistanceBeltActive(String name)
 	{
 		super(name);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
+		tooltip.add("§aActivated");
 	}
 	
 	@Override

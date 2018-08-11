@@ -1,5 +1,7 @@
 package com.camellias.voidaicarcania.items.baubles.amulets;
 
+import java.util.List;
+
 import org.lwjgl.opengl.GL11;
 
 import com.camellias.voidaicarcania.Main;
@@ -16,6 +18,7 @@ import baubles.api.cap.IBaublesItemHandler;
 import baubles.api.render.IRenderBauble;
 import baubles.api.render.IRenderBauble.RenderType;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -48,6 +51,12 @@ public class ItemInverseAmulet extends Item implements IHasModel, IBauble, IRend
 		this.maxStackSize = 1;
 		
 		ModItems.ITEMS.add(this);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
+		tooltip.add("§4Inert");
 	}
 	
 	@Override

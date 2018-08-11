@@ -18,7 +18,6 @@ import com.camellias.voidaicarcania.items.ItemMercury;
 import com.camellias.voidaicarcania.items.ItemMoonMint;
 import com.camellias.voidaicarcania.items.ItemMythril;
 import com.camellias.voidaicarcania.items.ItemNeddlesprout;
-import com.camellias.voidaicarcania.items.ItemSecretStick;
 import com.camellias.voidaicarcania.items.ItemShulkerBullet;
 import com.camellias.voidaicarcania.items.ItemSortigellium;
 import com.camellias.voidaicarcania.items.ItemStarbloom;
@@ -37,7 +36,6 @@ import com.camellias.voidaicarcania.items.ItemWraithWisp;
 import com.camellias.voidaicarcania.items.armour.ArmourAstralite;
 import com.camellias.voidaicarcania.items.armour.ArmourEnargite;
 import com.camellias.voidaicarcania.items.armour.ArmourMythril;
-import com.camellias.voidaicarcania.items.armour.ArmourSortigellium;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmulet;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmuletActive;
 import com.camellias.voidaicarcania.items.baubles.amulets.ItemShieldAmulet;
@@ -58,6 +56,13 @@ import com.camellias.voidaicarcania.items.baubles.head.ItemFeastCowl;
 import com.camellias.voidaicarcania.items.baubles.head.ItemFeastCowlActive;
 import com.camellias.voidaicarcania.items.baubles.head.ItemReaperCowl;
 import com.camellias.voidaicarcania.items.baubles.head.ItemReaperCowlActive;
+import com.camellias.voidaicarcania.items.tools.axe.AstraliteAxe;
+import com.camellias.voidaicarcania.items.tools.axe.AxeBase;
+import com.camellias.voidaicarcania.items.tools.hoe.HoeBase;
+import com.camellias.voidaicarcania.items.tools.pick.PickaxeBase;
+import com.camellias.voidaicarcania.items.tools.shovel.ShovelBase;
+import com.camellias.voidaicarcania.items.tools.sword.MythrilSword;
+import com.camellias.voidaicarcania.items.tools.sword.SwordBase;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
@@ -191,7 +196,7 @@ public class ModItems
 	public static final Item BULLET = new ItemShulkerBullet("bullet");
 	public static final Item CRYSTAL = new ItemVoidCrystal("void_crystal");
 	
-	public static final Item CAMS_SUPER_SECRET_STICK = new ItemSecretStick("secret_stick");
+	//public static final Item CAMS_SUPER_SECRET_STICK = new ItemSecretStick("secret_stick");
 	
 	//-----Armours & Tools-----//
 	
@@ -201,15 +206,16 @@ public class ModItems
 	public static final ArmorMaterial ENARGITE_ARMOUR = EnumHelper.addArmorMaterial("enargite", 
 			Reference.MODID + ":enargite_armour", 15, new int[]{3,8,6,3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3.0F);
 	
-	public static final ArmorMaterial SORTIGELLIUM_ARMOUR = EnumHelper.addArmorMaterial("sortigellium", 
-			Reference.MODID + ":sortigellium_armour", 7, new int[]{5,9,7,4}, 10, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.0F);
-	
 	public static final ArmorMaterial ASTRALITE_ARMOUR = EnumHelper.addArmorMaterial("astralite", 
 			Reference.MODID + ":astralite_armour", 20, new int[]{3,8,6,2}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
 	
+	public static final ToolMaterial MYTHRIL_TOOL = EnumHelper.addToolMaterial("mythril", 4, 552, 3, 3F, 20);
 	
+	public static final ToolMaterial ENARGITE_TOOL = EnumHelper.addToolMaterial("enargite", 4, 251, 2, 3F, 15);
 	
-	public static final ToolMaterial ENARGITE_TOOL = EnumHelper.addToolMaterial("enargite", 4, 251, 2, 1, 15);
+	public static final ToolMaterial ASTRALITE_TOOL = EnumHelper.addToolMaterial("astralite", 4, 351, 4, 3F, 20);
+	
+	public static final ToolMaterial SORTIGELLIUM_TOOL = EnumHelper.addToolMaterial("sortigellium", 5, 100, 5, 5F, 7);
 	
 	
 	
@@ -218,20 +224,44 @@ public class ModItems
 	public static final Item MYTHRIL_HELM = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.HEAD, "mythril_helm");
 	public static final Item MYTHRIL_CHEST = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.CHEST, "mythril_chestplate");
 	public static final Item MYTHRIL_LEGS = new ArmourMythril(MYTHRIL_ARMOUR, 2, EntityEquipmentSlot.LEGS, "mythril_leggings");
-	public static final Item MYTHRIL_BOOTS = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.FEET, "mythril_boots"); 
+	public static final Item MYTHRIL_BOOTS = new ArmourMythril(MYTHRIL_ARMOUR, 1, EntityEquipmentSlot.FEET, "mythril_boots");
+	
+	public static final Item MYTHRIL_SWORD = new MythrilSword("mythril_sword", MYTHRIL_TOOL);
+	public static final Item MYTHRIL_SHOVEL = new ShovelBase("mythril_shovel", MYTHRIL_TOOL);
+	public static final Item MYTHRIL_PICKAXE = new PickaxeBase("mythril_pickaxe", MYTHRIL_TOOL);
+	public static final Item MYTHRIL_AXE = new AxeBase("mythril_axe", MYTHRIL_TOOL);
+	public static final Item MYTHRIL_HOE = new HoeBase("mythril_hoe", MYTHRIL_TOOL);
+	
+	
 	
 	public static final Item ENARGITE_HELM = new ArmourEnargite(ENARGITE_ARMOUR, 1, EntityEquipmentSlot.HEAD, "enargite_helm");
 	public static final Item ENARGITE_CHEST = new ArmourEnargite(ENARGITE_ARMOUR, 1, EntityEquipmentSlot.CHEST, "enargite_chestplate");
 	public static final Item ENARGITE_LEGS = new ArmourEnargite(ENARGITE_ARMOUR, 2, EntityEquipmentSlot.LEGS, "enargite_leggings");
 	public static final Item ENARGITE_BOOTS = new ArmourEnargite(ENARGITE_ARMOUR, 1, EntityEquipmentSlot.FEET, "enargite_boots");
 	
-	public static final Item SORTIGELLIUM_HELM = new ArmourSortigellium(SORTIGELLIUM_ARMOUR, 1, EntityEquipmentSlot.HEAD, "sortigellium_helm");
-	public static final Item SORTIGELLIUM_CHEST = new ArmourSortigellium(SORTIGELLIUM_ARMOUR, 1, EntityEquipmentSlot.CHEST, "sortigellium_chestplate");
-	public static final Item SORTIGELLIUM_LEGS = new ArmourSortigellium(SORTIGELLIUM_ARMOUR, 2, EntityEquipmentSlot.LEGS, "sortigellium_leggings");
-	public static final Item SORTIGELLIUM_BOOTS = new ArmourSortigellium(SORTIGELLIUM_ARMOUR, 1, EntityEquipmentSlot.FEET, "sortigellium_boots");
+	public static final Item ENARGITE_SWORD = new SwordBase("enargite_sword", ENARGITE_TOOL);
+	public static final Item ENARGITE_SHOVEL = new ShovelBase("enargite_shovel", ENARGITE_TOOL);
+	public static final Item ENARGITE_PICKAXE = new PickaxeBase("enargite_pickaxe", ENARGITE_TOOL);
+	public static final Item ENARGITE_AXE = new AxeBase("enargite_axe", ENARGITE_TOOL);
+	public static final Item ENARGITE_HOE = new HoeBase("enargite_hoe", ENARGITE_TOOL);
+	
+	
 	
 	public static final Item ASTRALITE_HELM = new ArmourAstralite(ASTRALITE_ARMOUR, 1, EntityEquipmentSlot.HEAD, "astralite_helm");
 	public static final Item ASTRALITE_CHEST = new ArmourAstralite(ASTRALITE_ARMOUR, 1, EntityEquipmentSlot.CHEST, "astralite_chestplate");
 	public static final Item ASTRALITE_LEGS = new ArmourAstralite(ASTRALITE_ARMOUR, 1, EntityEquipmentSlot.LEGS, "astralite_leggings");
 	public static final Item ASTRALITE_BOOTS = new ArmourAstralite(ASTRALITE_ARMOUR, 1, EntityEquipmentSlot.FEET, "astralite_boots");
+	
+	public static final Item ASTRALITE_SHOVEL = new ShovelBase("astralite_shovel", ASTRALITE_TOOL);
+	public static final Item ASTRALITE_PICKAXE = new PickaxeBase("astralite_pickaxe", ASTRALITE_TOOL);
+	public static final Item ASTRALITE_AXE = new AstraliteAxe("astralite_axe", ASTRALITE_TOOL);
+	public static final Item ASTRALITE_HOE = new HoeBase("astralite_hoe", ASTRALITE_TOOL);
+	
+	
+	
+	public static final Item SORTIGELLIUM_SWORD = new SwordBase("sortigellium_sword", SORTIGELLIUM_TOOL);
+	public static final Item SORTIGELLIUM_SHOVEL = new ShovelBase("sortigellium_shovel", SORTIGELLIUM_TOOL);
+	public static final Item SORTIGELLIUM_PICKAXE = new PickaxeBase("sortigellium_pickaxe", SORTIGELLIUM_TOOL);
+	public static final Item SORTIGELLIUM_AXE = new AxeBase("sortigellium_axe", SORTIGELLIUM_TOOL);
+	public static final Item SORTIGELLIUM_HOE = new HoeBase("sortigellium_hoe", SORTIGELLIUM_TOOL);
 }

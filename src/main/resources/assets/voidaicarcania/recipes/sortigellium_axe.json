@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "II",
+        "IS",
+        " S"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "voidaicarcania:sortigellium_ingot"
+        },
+        
+        "S":
+        {
+            "item": "minecraft:stick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:sortigellium_axe",
+        "count": 1
+    }
+}

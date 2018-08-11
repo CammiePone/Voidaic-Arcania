@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "I I",
+        "III",
+        "III"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "voidaicarcania:mythril_ingot"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:mythril_chestplate",
+        "count": 1
+    }
+}

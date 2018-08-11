@@ -1,5 +1,8 @@
 package com.camellias.voidaicarcania.items.baubles.charms;
 
+import java.util.List;
+
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,6 +18,12 @@ public class ItemLuckCharmActive extends ItemLuckCharm
 		super(name);
 		
 		this.setMaxDamage(1);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
+		tooltip.add("§aActivated");
 	}
 	
 	@Override

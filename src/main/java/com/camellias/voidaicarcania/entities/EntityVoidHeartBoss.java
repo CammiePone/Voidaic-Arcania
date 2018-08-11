@@ -89,7 +89,7 @@ public class EntityVoidHeartBoss extends EntityMob
         this.world.setEntityState(this, (byte)4);
         boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(7 + this.rand.nextInt(15)));
 
-        if (flag)
+        if(flag)
         {
             entity.motionY += 0.8000000119209290D;
             this.applyEnchantments(this, entity);

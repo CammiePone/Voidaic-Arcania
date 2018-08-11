@@ -1,6 +1,6 @@
 item.item.name=Name
 
-item.transmutation_shard.name=§aShard of Transmutation
+item.transmutation_shard.name=§aShard of Creation
 item.voidic_shard.name=§8Voidic Shard
 item.void_bottle.name=§8Bottle of Voidic Essence
 item.weak_void_cluster.name=Voidic Crystal (Tier 1)
@@ -32,8 +32,8 @@ item.active_strength_belt.name=§6Belt of Strength
 item.resistance_belt.name=§6Belt of Resistance
 item.active_resistance_belt.name=§6Belt of Resistance
 
-item.transmutation_orb.name=§aOrb of Transmutation
-item.voidic_orb.name=§8Voidic Orb of Transmutation
+item.transmutation_orb.name=§aOrb of Creation
+item.voidic_orb.name=§8Voidic Orb of Creation
 
 item.void_bulb.name=Void Bulb
 item.floatshroom.name=Floatshroom
@@ -112,6 +112,41 @@ item.cinnabar.name=Cinnabar
 
 item.wraith_wisp.name=Wraith Wisp
 item.transformative_root.name=Transformative Root
+
+item.mythril_helm.name=Mythril Helm
+item.mythril_chestplate.name=Mythril Chestplate
+item.mythril_leggings.name=Mythril Leggings
+item.mythril_boots.name=Mythril Boots
+item.mythril_sword.name=Mythril Blade
+item.mythril_shovel.name=Mythril Shovel
+item.mythril_pickaxe.name=Mythril Pickaxe
+item.mythril_axe.name=Mythril Axe
+item.mythril_hoe.name=Mythril Hoe
+
+item.enargite_helm.name=Enargite Helm
+item.enargite_chestplate.name=Enargite Chestplate
+item.enargite_leggings.name=Enargite Leggings
+item.enargite_boots.name=Enargite Boots
+item.enargite_sword.name=Enargite Sword
+item.enargite_shovel.name=Enargite Shovel
+item.enargite_pickaxe.name=Enargite Pickaxe
+item.enargite_axe.name=Enargite Axe
+item.enargite_hoe.name=Enargite Hoe
+
+item.astralite_helm.name=Astralite Helm
+item.astralite_chestplate.name=Astralite Chestplate
+item.astralite_leggings.name=Astralite Leggings
+item.astralite_boots.name=Astralite Boots
+item.astralite_shovel.name=Astralite Shovel
+item.astralite_pickaxe.name=Astralite Pickaxe
+item.astralite_axe.name=Astralite Axe
+item.astralite_hoe.name=Astralite Hoe
+
+item.sortigellium_sword.name=Sortigellium Sword
+item.sortigellium_shovel.name=Sortigellium Shovel
+item.sortigellium_pickaxe.name=Sortigellium Pickaxe
+item.sortigellium_axe.name=Sortigellium Axe
+item.sortigellium_hoe.name=Sortigellium Hoe
 
 
 

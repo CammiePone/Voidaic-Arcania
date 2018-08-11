@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "III",
+        "I I",
+        "I I"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "voidaicarcania:astralite_ingot"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:astralite_leggings",
+        "count": 1
+    }
+}

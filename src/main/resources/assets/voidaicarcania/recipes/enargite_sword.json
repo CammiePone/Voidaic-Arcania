@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "I",
+        "I",
+        "S"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "voidaicarcania:enargite_ingot"
+        },
+        
+        "S":
+        {
+            "item": "minecraft:stick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:enargite_sword",
+        "count": 1
+    }
+}

@@ -1,5 +1,8 @@
 package com.camellias.voidaicarcania.items.baubles.amulets;
 
+import java.util.List;
+
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,13 +11,19 @@ import net.minecraft.world.World;
 
 public class ItemShieldAmuletActive extends ItemShieldAmulet
 {
-	int shieldRegen = 10 * 20;
+	int shieldRegen = 5 * 20;
 
 	public ItemShieldAmuletActive(String name)
 	{
 		super(name);
 		
 		this.setMaxDamage(3);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
+		tooltip.add("§aActivated");
 	}
 	
 	@Override

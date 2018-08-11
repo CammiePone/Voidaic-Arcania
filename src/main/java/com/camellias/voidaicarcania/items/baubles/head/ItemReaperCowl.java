@@ -1,5 +1,7 @@
 package com.camellias.voidaicarcania.items.baubles.head;
 
+import java.util.List;
+
 import org.lwjgl.opengl.GL11;
 
 import com.camellias.voidaicarcania.Main;
@@ -15,6 +17,7 @@ import baubles.api.IBauble;
 import baubles.api.cap.IBaublesItemHandler;
 import baubles.api.render.IRenderBauble;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
@@ -42,6 +45,12 @@ public class ItemReaperCowl extends Item implements IHasModel, IBauble, IRenderB
 		this.maxStackSize = 1;
 		
 		ModItems.ITEMS.add(this);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
+		tooltip.add("§4Inert");
 	}
 	
 	@Override

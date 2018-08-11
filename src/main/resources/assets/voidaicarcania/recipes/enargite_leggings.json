@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "III",
+        "I I",
+        "I I"
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "voidaicarcania:enargite_ingot"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:enargite_leggings",
+        "count": 1
+    }
+}

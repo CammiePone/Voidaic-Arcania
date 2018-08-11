@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "III",
+        "ISI",
+        " S "
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "voidaicarcania:astralite_ingot"
+        },
+        
+        "S":
+        {
+            "item": "minecraft:stick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:astralite_axe",
+        "count": 1
+    }
+}

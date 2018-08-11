@@ -1,5 +1,7 @@
 package com.camellias.voidaicarcania.items.baubles.charms;
 
+import java.util.List;
+
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.entities.EntityVoidHeartPassive;
 import com.camellias.voidaicarcania.init.ModItems;
@@ -9,6 +11,7 @@ import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import baubles.api.IBauble;
 import baubles.api.cap.IBaublesItemHandler;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
@@ -32,6 +35,12 @@ public class ItemLuckCharm extends Item implements IHasModel, IBauble
 		this.maxStackSize = 1;
 		
 		ModItems.ITEMS.add(this);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
+		tooltip.add("§4Inert");
 	}
 	
 	@Override
