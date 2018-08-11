@@ -4,18 +4,14 @@ import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.world.dimension.voidic.TeleporterVoid;
 
 import baubles.api.BaublesApi;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentString;
@@ -136,9 +132,9 @@ public class WorldEventHandler
 		
 		if(BaublesApi.isBaubleEquipped(player, ModItems.A_LUCK_CHARM) > -1)
 		{
-			if(event.getTarget() instanceof EntityLiving)
+			if(event.getTarget() instanceof EntityLivingBase)
 			{
-				EntityLiving target = (EntityLiving) event.getTarget();
+				EntityLivingBase target = (EntityLivingBase) event.getTarget();
 				
 				if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
 				{
@@ -163,7 +159,7 @@ public class WorldEventHandler
 				}
 			}
 				
-			if(event.getTarget() instanceof EntityPlayer)
+			/*if(event.getTarget() instanceof EntityPlayer)
 			{
 				EntityPlayer target = (EntityPlayer) event.getTarget();
 				
@@ -188,7 +184,7 @@ public class WorldEventHandler
 						target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
 					}
 				}
-			}
+			}*/
 		}
 	}
 	

@@ -1,5 +1,7 @@
 package com.camellias.voidaicarcania.items.armour;
 
+import java.util.List;
+
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.init.ModItems;
@@ -7,12 +9,14 @@ import com.camellias.voidaicarcania.items.armour.models.ModelAstraliteArmour;
 import com.camellias.voidaicarcania.util.IHasModel;
 
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -32,6 +36,13 @@ public class ArmourAstralite extends ItemArmor implements IHasModel
 		this.setMaxStackSize(1);
 		
 		ModItems.ITEMS.add(this);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
+		tooltip.add("§7Full Set Bonus:");
+		tooltip.add("	§7-50% Fall Damage Taken");
 	}
 	
 	@Override

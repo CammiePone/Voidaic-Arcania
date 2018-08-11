@@ -4,17 +4,17 @@ import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.util.IHasModel;
 
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@Mod.EventBusSubscriber
 public class MythrilSword extends ItemSword implements IHasModel
 {
 	public MythrilSword(String name, ToolMaterial material)
@@ -27,24 +27,18 @@ public class MythrilSword extends ItemSword implements IHasModel
 		ModItems.ITEMS.add(this);
 	}
 	
-	@Override
-	public EnumAction getItemUseAction(ItemStack stack)
+	@SubscribeEvent
+	public static void onAttack(AttackEntityEvent event)
 	{
-		return EnumAction.BLOCK;
-	}
-	
-	@Override
-	public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer player, EntityLivingBase target,
-			EnumHand hand)
-	{
-		if(target instanceof EntityLiving || target instanceof EntityPlayer)
-		{
-			target.attackEntityFrom(DamageSource.MAGIC, 2.0F);
-			
-			return true;
-		}
+		EntityPlayer player = event.getEntityPlayer();
+		EntityLivingBase target = (EntityLivingBase) event.getTarget();
 		
-		return false;
+		if(player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.MYTHRIL_SWORD)
+		{
+			target.addPotionEffect(new PotionEffect(MobEffects.INSTANT_DAMAGE));
+			
+			System.out.println("Mythril Sword Attack");
+		}
 	}
 	
 	@Override

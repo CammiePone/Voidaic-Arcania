@@ -201,13 +201,13 @@ public class ModItems
 	//-----Armours & Tools-----//
 	
 	public static final ArmorMaterial MYTHRIL_ARMOUR = EnumHelper.addArmorMaterial("mythril", 
-			Reference.MODID + ":mythril_armour", 33, new int[]{3,8,6,2}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
+			Reference.MODID + ":mythril_armour", 33, new int[]{2,6,8,3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
 	
 	public static final ArmorMaterial ENARGITE_ARMOUR = EnumHelper.addArmorMaterial("enargite", 
-			Reference.MODID + ":enargite_armour", 15, new int[]{3,8,6,3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3.0F);
+			Reference.MODID + ":enargite_armour", 15, new int[]{3,6,8,3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3.0F);
 	
 	public static final ArmorMaterial ASTRALITE_ARMOUR = EnumHelper.addArmorMaterial("astralite", 
-			Reference.MODID + ":astralite_armour", 20, new int[]{3,8,6,2}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
+			Reference.MODID + ":astralite_armour", 20, new int[]{2,6,8,3}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
 	
 	public static final ToolMaterial MYTHRIL_TOOL = EnumHelper.addToolMaterial("mythril", 4, 552, 3, 3F, 20);
 	
