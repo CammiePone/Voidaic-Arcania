@@ -25,6 +25,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -158,33 +159,6 @@ public class WorldEventHandler
 					}
 				}
 			}
-				
-			/*if(event.getTarget() instanceof EntityPlayer)
-			{
-				EntityPlayer target = (EntityPlayer) event.getTarget();
-				
-				if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
-				{
-					if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
-							target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
-					{
-						ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-						ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-						ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-						ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-							
-						target.entityDropItem(head, 1);
-						target.entityDropItem(body, 1);
-						target.entityDropItem(legs, 1);
-						target.entityDropItem(feet, 1);
-							
-						target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
-					}
-				}
-			}*/
 		}
 	}
 	
@@ -291,6 +265,30 @@ public class WorldEventHandler
 			if(BaublesApi.isBaubleEquipped(player, ModItems.A_INVISIBILITY_CLOAK) > -1)
 			{
 				event.setCanceled(true);
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public static void onPlayerTick(PlayerTickEvent event)
+	{
+		EntityPlayer player = event.player;
+		
+		if(player.dimension == -64)
+		{
+			if(player.isSneaking() && !player.isElytraFlying() && !player.capabilities.isFlying && player.isAirBorne)
+			{
+				player.motionY = -0.3D;
+			}
+			
+			if(!player.isSneaking() && !player.isElytraFlying() && !player.capabilities.isFlying && player.isAirBorne)
+			{
+				player.motionY = 0.05D;
+			}
+			
+			if(player.fallDistance != 0.0F)
+			{
+				player.fallDistance = 0.0F;
 			}
 		}
 	}
