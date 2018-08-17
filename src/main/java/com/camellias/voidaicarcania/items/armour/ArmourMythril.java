@@ -42,7 +42,7 @@ public class ArmourMythril extends ItemArmor implements IHasModel
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
 		tooltip.add("§7Full Set Bonus:");
-		tooltip.add("	§7-50% Magic Damage Taken");
+		tooltip.add("   §7-50% Magic Damage Taken");
 	}
 	
 	@Override

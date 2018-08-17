@@ -40,7 +40,7 @@ public class AstraliteAxe extends ItemTool implements IHasModel
 		ModItems.ITEMS.add(this);
 	}
 	
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public static void onAttack(AttackEntityEvent event)
 	{
 		EntityPlayer player = event.getEntityPlayer();
@@ -52,7 +52,7 @@ public class AstraliteAxe extends ItemTool implements IHasModel
 			
 			System.out.println("Astralite Battleaxe Attack");
 		}
-	}
+	}*/
 	
 	@Override
 	public float getDestroySpeed(ItemStack stack, IBlockState state)

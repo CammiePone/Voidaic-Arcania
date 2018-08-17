@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -42,7 +43,7 @@ public class ArmourAstralite extends ItemArmor implements IHasModel
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
 		tooltip.add("§7Full Set Bonus:");
-		tooltip.add("	§7-50% Fall Damage Taken");
+		tooltip.add("   §7Low Gravity");
 	}
 	
 	@Override
@@ -124,6 +125,28 @@ public class ArmourAstralite extends ItemArmor implements IHasModel
 	}
 	
 	@SubscribeEvent
+	public static void onPlayerJump(LivingJumpEvent event)
+	{
+		if(event.getEntityLiving() instanceof EntityPlayer)
+		{
+			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+			
+			EntityEquipmentSlot head = EntityEquipmentSlot.HEAD;
+			EntityEquipmentSlot body = EntityEquipmentSlot.CHEST;
+			EntityEquipmentSlot legs = EntityEquipmentSlot.LEGS;
+			EntityEquipmentSlot feet = EntityEquipmentSlot.FEET;
+			
+			if(player.getItemStackFromSlot(head).getItem() == ModItems.ASTRALITE_HELM
+					&& player.getItemStackFromSlot(body).getItem() == ModItems.ASTRALITE_CHEST
+					&& player.getItemStackFromSlot(legs).getItem() == ModItems.ASTRALITE_LEGS
+					&& player.getItemStackFromSlot(feet).getItem() == ModItems.ASTRALITE_BOOTS)
+			{
+				player.motionY *= 2.5D;
+			}
+		}
+	}
+	
+	@SubscribeEvent
     public static void onPlayerHurt(LivingHurtEvent event) 
 	{
 		EntityEquipmentSlot head = EntityEquipmentSlot.HEAD;
@@ -138,10 +161,35 @@ public class ArmourAstralite extends ItemArmor implements IHasModel
 			if(player.getItemStackFromSlot(head).getItem() == ModItems.ASTRALITE_HELM
 					&& player.getItemStackFromSlot(body).getItem() == ModItems.ASTRALITE_CHEST
 					&& player.getItemStackFromSlot(legs).getItem() == ModItems.ASTRALITE_LEGS
-					&& player.getItemStackFromSlot(feet).getItem() == ModItems.ASTRALITE_BOOTS
-					&& event.getSource() == DamageSource.FALL)
+					&& player.getItemStackFromSlot(feet).getItem() == ModItems.ASTRALITE_BOOTS)
 			{
-				event.setAmount(event.getAmount() / 2.0F);
+				if(!player.isElytraFlying() && !player.capabilities.isFlying)
+				{
+					if (!player.onGround)
+					{
+						if(player.motionY < 0.0D && player.posY <= 160)
+						{
+							player.motionY *= 0.9D;
+							
+							if(player.isSneaking())
+							{
+								player.motionY *= 1.05D;
+					        }
+						}
+						
+						if(player.motionY < 0.0D && player.posY > 160)
+						{
+							player.motionY *= 0.95D;
+						}
+						
+						player.jumpMovementFactor = 0.05F;
+					}
+				}
+					
+				if(player.fallDistance != 0.0F)
+				{
+					player.fallDistance = 0.0F;
+				}
 			}
 		}
 	}

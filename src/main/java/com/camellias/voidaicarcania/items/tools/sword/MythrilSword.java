@@ -27,7 +27,7 @@ public class MythrilSword extends ItemSword implements IHasModel
 		ModItems.ITEMS.add(this);
 	}
 	
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public static void onAttack(AttackEntityEvent event)
 	{
 		EntityPlayer player = event.getEntityPlayer();
@@ -39,7 +39,7 @@ public class MythrilSword extends ItemSword implements IHasModel
 			
 			System.out.println("Mythril Sword Attack");
 		}
-	}
+	}*/
 	
 	@Override
 	public void registerModels() 
