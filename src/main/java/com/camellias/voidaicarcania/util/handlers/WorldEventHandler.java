@@ -18,6 +18,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -270,20 +271,47 @@ public class WorldEventHandler
 	}
 	
 	@SubscribeEvent
+	public static void onPlayerJump(LivingJumpEvent event)
+	{
+		if(event.getEntityLiving() instanceof EntityPlayer)
+		{
+			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+			
+			if(player.dimension == -64)
+			{
+				player.motionY *= 2.5D;
+			}
+		}
+	}
+	
+	@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent event)
 	{
 		EntityPlayer player = event.player;
 		
 		if(player.dimension == -64)
 		{
-			if(player.isSneaking() && !player.isElytraFlying() && !player.capabilities.isFlying && player.isAirBorne)
+			if(!player.isElytraFlying() && !player.capabilities.isFlying)
 			{
-				player.motionY = -0.3D;
-			}
-			
-			if(!player.isSneaking() && !player.isElytraFlying() && !player.capabilities.isFlying && player.isAirBorne)
-			{
-				player.motionY = 0.05D;
+				if (!player.onGround)
+		        {
+					if(player.motionY < 0.0D && player.posY <= 160)
+					{
+			            player.motionY *= 0.9D;
+			            
+			            if(player.isSneaking())
+			            {
+			            	player.motionY *= 1.05D;
+			            }
+					}
+					
+					if(player.motionY < 0.0D && player.posY > 160)
+					{
+						player.motionY *= 0.95D;
+					}
+					
+					player.jumpMovementFactor = 0.05F;
+		        }
 			}
 			
 			if(player.fallDistance != 0.0F)
