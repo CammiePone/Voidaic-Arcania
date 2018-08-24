@@ -40,7 +40,7 @@ item.mercury.name=Жидкая ртуть
 item.enargite_ingot.name=Слиток энаргита
 item.sortigellium_ingot.name=Слиток сортигеллиума
 item.astralite_ingot.name=Слиток астралита
-item.mythril_ingot.name=цСлиток мифрила
+item.mythril_ingot.name=Слиток мифрила
 
 item.void_bulb.name=Луковица пустоты
 item.floatshroom.name=Летногриб
@@ -112,6 +112,41 @@ item.cinnabar.name=Киноварь
 
 item.wraith_wisp.name=Призрачная эссенция
 item.transformative_root.name=Корень трансформации
+
+item.mythril_helm.name=Мифриловый шлем
+item.mythril_chestplate.name=Мифриловый нагрудник
+item.mythril_leggings.name=Мифриловые поножи
+item.mythril_boots.name=Мифриловые ботинки
+item.mythril_sword.name=Мифриловый меч
+item.mythril_shovel.name=Мифриловая лопата
+item.mythril_pickaxe.name=Мифриловая кирка
+item.mythril_axe.name=Мифриловый топор
+item.mythril_hoe.name=Мифриловая мотыга
+
+item.enargite_helm.name=Энаргитовый шлем
+item.enargite_chestplate.name=Энаргитовый нагрудник
+item.enargite_leggings.name=Энаргитовые поножи
+item.enargite_boots.name=Энаргитовые ботинки
+item.enargite_sword.name=Энаргитовый меч
+item.enargite_shovel.name=Энаргитовая лопата
+item.enargite_pickaxe.name=Энаргитовая кирка
+item.enargite_axe.name=Энаргитовый топор
+item.enargite_hoe.name=Энаргитовая мотыга
+
+item.astralite_helm.name=Астралитовый шлем
+item.astralite_chestplate.name=Астралитовый нагрудник
+item.astralite_leggings.name=Астралитовые поножи
+item.astralite_boots.name=Астралитовые ботинки
+item.astralite_shovel.name=Астралитовая лопата
+item.astralite_pickaxe.name=Астралитовая кирка
+item.astralite_axe.name=Астралитовый боевой топор
+item.astralite_hoe.name=Астралитовая мотыга
+
+item.sortigellium_sword.name=Сортигеллимовый меч
+item.sortigellium_shovel.name=Сортигеллимовая лопата
+item.sortigellium_pickaxe.name=Сортигеллимовая кирка
+item.sortigellium_axe.name=Сортигеллимовый топор
+item.sortigellium_hoe.name=Сортигеллимовая мотыга
 
 
 
