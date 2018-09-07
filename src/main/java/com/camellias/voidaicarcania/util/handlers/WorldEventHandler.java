@@ -308,7 +308,7 @@ public class WorldEventHandler
 						player.motionY *= 0.9D;
 					}
 					
-					player.jumpMovementFactor *= 2.5F;
+					player.jumpMovementFactor *= 1.3F;
 				}
 			}
 				
@@ -339,7 +339,7 @@ public class WorldEventHandler
 						player.motionY *= 0.95D;
 					}
 					
-					player.jumpMovementFactor *= 2.5F;
+					player.jumpMovementFactor *= 1.3F;
 		        }
 			}
 			
