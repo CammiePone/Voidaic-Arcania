@@ -26,6 +26,7 @@ public class BlockBorniteOre extends Block implements IHasModel
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setHardness(3.0F);
+		this.setHarvestLevel("pickaxe", 2);
 		this.setCreativeTab(Main.voidictab);
 		
 		ModBlocks.BLOCKS.add(this);

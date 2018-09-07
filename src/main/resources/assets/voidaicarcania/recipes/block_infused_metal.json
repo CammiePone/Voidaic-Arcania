@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "voidaicarcania:infused_ingot"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_infused_metal",
+        "count": 1
+    }
+}

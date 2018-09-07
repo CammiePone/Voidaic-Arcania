@@ -17,6 +17,7 @@ import com.camellias.voidaicarcania.blocks.BlockFeatherweed;
 import com.camellias.voidaicarcania.blocks.BlockFloatshroom;
 import com.camellias.voidaicarcania.blocks.BlockGlowgrowth;
 import com.camellias.voidaicarcania.blocks.BlockIdfk;
+import com.camellias.voidaicarcania.blocks.BlockInfusedMetal;
 import com.camellias.voidaicarcania.blocks.BlockLantern;
 import com.camellias.voidaicarcania.blocks.BlockMoonMint;
 import com.camellias.voidaicarcania.blocks.BlockMortalCentrifuge;
@@ -79,6 +80,7 @@ public class ModBlocks
 	public static final Block BLOCK_MORTAL_FURNACE = new BlockMortalCentrifuge("block_mortal_furnace", Material.ROCK);
 	public static final Block BLOCK_CINNIBAR_ORE = new BlockCinnibarOre("block_cinnibar_ore", Material.ROCK);
 	public static final Block BLOCK_BORNITE_ORE = new BlockBorniteOre("block_peacock_ore", Material.ROCK);
+	public static final Block BLOCK_INFUSED_METAL = new BlockInfusedMetal("block_infused_metal", Material.IRON);
 	
 	//-----Plants-----//
 	public static final Block BLOCK_VOID_FLOWER = new BlockVoidFlower("block_void_flower", Material.PLANTS);

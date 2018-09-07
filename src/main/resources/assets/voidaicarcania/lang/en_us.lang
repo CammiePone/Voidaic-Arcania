@@ -197,6 +197,11 @@ tile.block_whitewood.name=Whitewood Log
 tile.block_whitewood_leaves.name=Whitewood Leaves
 
 tile.block_void_totem.name=Voidic Totem
+tile.block_infused_metal.name=Block of Infused Metal
+tile.block_enargite_metal.name=Block of Enargite
+tile.block_astralite_metal.name=Block of Astralite
+tile.block_mythril_metal.name=Block of Mythril
+tile.block_frozen_mercury.name=Block of Frozen Mercury
 
 tile.block_construct.name=Construct Base
 tile.block_voideye.name=§5Eye Of The Construct
