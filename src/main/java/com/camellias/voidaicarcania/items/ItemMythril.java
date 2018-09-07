@@ -28,7 +28,7 @@ public class ItemMythril extends Item implements IHasModel
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
-		tooltip.add("§6A strong, arcane alloy");
+		tooltip.add("\u00A76A strong, arcane alloy");
 	}
 	
 	@Override

@@ -28,7 +28,7 @@ public class ItemMercury extends Item implements IHasModel
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
-		tooltip.add("§6Fun to play with, not to eat");
+		tooltip.add("\u00A76Fun to play with, not to eat");
 	}
 	
 	@Override

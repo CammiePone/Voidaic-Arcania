@@ -37,7 +37,7 @@ public class WorldEventHandler
 	@SubscribeEvent
 	public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
 	{
-		event.player.sendMessage(new TextComponentString("§5§l[Voidaic Arcania:] §r§dThis mod is still in BETA. Additional gameplay information can be found in the wiki here: §ohttps://github.com/CammiePone/Voidaic-Arcania/wiki"));
+		event.player.sendMessage(new TextComponentString("\u00A75\u00A7l[Voidaic Arcania:] \u00A7r\u00A7dThis mod is still in BETA. Additional gameplay information can be found in the wiki here: \u00A7ohttps://github.com/CammiePone/Voidaic-Arcania/wiki"));
 	}
 	
 	

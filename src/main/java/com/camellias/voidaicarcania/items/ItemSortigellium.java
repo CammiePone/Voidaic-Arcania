@@ -27,7 +27,7 @@ public class ItemSortigellium extends Item implements IHasModel
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
-		tooltip.add("§6This metal is see-though!");
+		tooltip.add("\u00A76This metal is see-though!");
 	}
 	
 	@Override

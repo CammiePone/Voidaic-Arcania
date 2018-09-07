@@ -42,8 +42,8 @@ public class ArmourAstralite extends ItemArmor implements IHasModel
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
-		tooltip.add("§7Full Set Bonus:");
-		tooltip.add("   §7Low Gravity");
+		tooltip.add("\u00A77Full Set Bonus:");
+		tooltip.add("   \u00A77Low Gravity");
 	}
 	
 	@Override

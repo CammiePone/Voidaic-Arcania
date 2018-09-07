@@ -27,7 +27,7 @@ public class ItemAstralite extends Item implements IHasModel
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
-		tooltip.add("§6Forged in the heavens");
+		tooltip.add("\u00A76Forged in the heavens");
 	}
 	
 	@Override

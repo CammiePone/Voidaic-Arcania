@@ -44,110 +44,110 @@ public class ModelEnargiteArmour extends ModelBiped
 
     public ModelEnargiteArmour(boolean isHelm, boolean isChest, boolean isLegs, boolean isBoots)
     {
-        textureWidth = 64;
+        textureWidth = 128;
         textureHeight = 128;
         
-        LeftSpike2 = new ModelRenderer(this, 54, 69);
+        LeftSpike2 = new ModelRenderer(this, 54 + 64, 69 - 64);
         LeftSpike2.setRotationPoint(0.0F, 0.0F, 0.0F);
         LeftSpike2.addBox(2.0F, -3.5F, -0.5F, 1, 1, 1, 0.0F);
         
-        HelmetFrontLeft = new ModelRenderer(this, 0, 68);
+        HelmetFrontLeft = new ModelRenderer(this, 0 + 64, 68 - 64);
         HelmetFrontLeft.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetFrontLeft.addBox(3.0F, -6.0F, -5.0F, 2, 5, 1, 0.0F);
         setRotateAngle(HelmetFrontLeft, 0.0F, 0.0F, -0.17453292519943295F);
         
-        RightChainSleeve = new ModelRenderer(this, 0, 104);
+        RightChainSleeve = new ModelRenderer(this, 0 + 64, 104 - 64);
         RightChainSleeve.setRotationPoint(0.0F, 0.0F, 0.0F);
         RightChainSleeve.addBox(-3.5F, 0.8F, -2.5F, 5, 3, 5, 0.0F);
         
-        HelmetFrontRight = new ModelRenderer(this, 0, 68);
+        HelmetFrontRight = new ModelRenderer(this, 0 + 64, 68 - 64);
         HelmetFrontRight.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetFrontRight.addBox(-5.0F, -6.0F, -5.0F, 2, 5, 1, 0.0F);
         setRotateAngle(HelmetFrontRight, 0.0F, 0.0F, 0.17453292519943295F);
         
-        LeftSpaulder = new ModelRenderer(this, 0, 95);
+        LeftSpaulder = new ModelRenderer(this, 0 + 64, 95 - 64);
         LeftSpaulder.setRotationPoint(0.0F, 0.0F, 0.0F);
         LeftSpaulder.addBox(-2.0F, -3.0F, -2.5F, 6, 4, 5, 0.0F);
         setRotateAngle(LeftSpaulder, 0.0F, 0.0F, 0.17453292519943295F);
         
-        HelmetRight1 = new ModelRenderer(this, 32, 64);
+        HelmetRight1 = new ModelRenderer(this, 32 + 64, 64 - 64);
         HelmetRight1.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetRight1.addBox(-5.0F, -8.0F, -4.0F, 1, 5, 8, 0.0F);
         
-        ChestPlate = new ModelRenderer(this, 0, 83);
+        ChestPlate = new ModelRenderer(this, 0 + 64, 83 - 64);
         ChestPlate.setRotationPoint(0.0F, 0.0F, 0.0F);
         ChestPlate.addBox(-4.0F, 0.0F, -3.0F, 8, 6, 6, 0.0F);
         
-        LeftChainSleeve = new ModelRenderer(this, 0, 104);
+        LeftChainSleeve = new ModelRenderer(this, 0 + 64, 104 - 64);
         LeftChainSleeve.setRotationPoint(0.0F, 0.0F, 0.0F);
         LeftChainSleeve.addBox(-1.5F, 0.8F, -2.5F, 5, 3, 5, 0.0F);
         
-        RightSpaulder = new ModelRenderer(this, 0, 95);
+        RightSpaulder = new ModelRenderer(this, 0 + 64, 95 - 64);
         RightSpaulder.setRotationPoint(0.0F, 0.0F, 0.0F);
         RightSpaulder.addBox(-4.0F, -3.0F, -2.5F, 6, 4, 5, 0.0F);
         setRotateAngle(RightSpaulder, 0.0F, 0.0F, -0.17453292519943295F);
         
-        HelmetTop = new ModelRenderer(this, 0, 74);
+        HelmetTop = new ModelRenderer(this, 0 + 64, 74 - 64);
         HelmetTop.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetTop.addBox(-4.0F, -9.0F, -4.0F, 8, 1, 8, 0.0F);
         
-        HelmetLeft1 = new ModelRenderer(this, 32, 64);
+        HelmetLeft1 = new ModelRenderer(this, 32 + 64, 64 - 64);
         HelmetLeft1.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetLeft1.addBox(4.0F, -8.0F, -4.0F, 1, 5, 8, 0.0F);
         
-        HelmetFrontTop = new ModelRenderer(this, 0, 64);
+        HelmetFrontTop = new ModelRenderer(this, 0 + 64, 64 - 64);
         HelmetFrontTop.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetFrontTop.addBox(-4.0F, -8.0F, -5.0F, 8, 3, 1, 0.0F);
         
-        HelmetBack = new ModelRenderer(this, 32, 77);
+        HelmetBack = new ModelRenderer(this, 32 + 64, 77 - 64);
         HelmetBack.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetBack.addBox(-4.0F, -8.0F, 4.0F, 8, 5, 1, 0.0F);
         
-        RightSpike2 = new ModelRenderer(this, 54, 69);
+        RightSpike2 = new ModelRenderer(this, 54 + 64, 69 - 64);
         RightSpike2.setRotationPoint(0.0F, 0.0F, 0.0F);
         RightSpike2.addBox(-3.0F, -3.5F, -0.5F, 1, 1, 1, 0.0F);
         
-        LeftSpike1 = new ModelRenderer(this, 54, 69);
+        LeftSpike1 = new ModelRenderer(this, 54 + 64, 69 - 64);
         LeftSpike1.setRotationPoint(0.0F, 0.0F, 0.0F);
         LeftSpike1.addBox(0.0F, -3.8F, -0.5F, 1, 1, 1, 0.0F);
         
-        HeadFrontMask1 = new ModelRenderer(this, 50, 64);
+        HeadFrontMask1 = new ModelRenderer(this, 50 + 64, 64 - 64);
         HeadFrontMask1.setRotationPoint(0.0F, 0.0F, 0.0F);
         HeadFrontMask1.addBox(-3.0F, -3.0F, -4.5F, 6, 1, 1, 0.0F);
         
-        ChestChain = new ModelRenderer(this, 28, 83);
+        ChestChain = new ModelRenderer(this, 28 + 64, 83 - 64);
         ChestChain.setRotationPoint(0.0F, 0.0F, 0.0F);
         ChestChain.addBox(-4.0F, 6.0F, -2.5F, 8, 6, 5, 0.0F);
         
-        HelmetLeft2 = new ModelRenderer(this, 18, 64);
+        HelmetLeft2 = new ModelRenderer(this, 18 + 64, 64 - 64);
         HelmetLeft2.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetLeft2.addBox(4.0F, -3.0F, -4.0F, 1, 1, 5, 0.0F);
         
-        HeadFrontMask2 = new ModelRenderer(this, 50, 68);
+        HeadFrontMask2 = new ModelRenderer(this, 50 + 64, 68 - 64);
         HeadFrontMask2.setRotationPoint(0.0F, 0.0F, 0.0F);
         HeadFrontMask2.addBox(-0.5F, -5.0F, -4.5F, 1, 2, 1, 0.0F);
         
-        HelmetRight2 = new ModelRenderer(this, 18, 64);
+        HelmetRight2 = new ModelRenderer(this, 18 + 64, 64 - 64);
         HelmetRight2.setRotationPoint(0.0F, 0.0F, 0.0F);
         HelmetRight2.addBox(-5.0F, -3.0F, -4.0F, 1, 1, 5, 0.0F);
         
-        RightSpike1 = new ModelRenderer(this, 54, 69);
+        RightSpike1 = new ModelRenderer(this, 54 + 64, 69 - 64);
         RightSpike1.setRotationPoint(0.0F, 0.0F, 0.0F);
         RightSpike1.addBox(-1.0F, -3.8F, -0.5F, 1, 1, 1, 0.0F);
         
-        RightLegGuard = new ModelRenderer(this, 24, 109);
+        RightLegGuard = new ModelRenderer(this, 24 + 64, 109 - 64);
         RightLegGuard.setRotationPoint(0.0F, 0.0F, 0.0F);
         RightLegGuard.addBox(-2.1F, -2.0F, -2.5F, 4, 14, 5, 0.0F);
         
-        LeftLegGuard = new ModelRenderer(this, 24, 109);
+        LeftLegGuard = new ModelRenderer(this, 24 + 64, 109 - 64);
         LeftLegGuard.setRotationPoint(0.0F, 0.0F, 0.0F);
         LeftLegGuard.addBox(-1.9F, -2.0F, -2.5F, 4, 14, 5, 0.0F);
         
-        RightFoot = new ModelRenderer(this, 40, 94);
+        RightFoot = new ModelRenderer(this, 40 + 64, 94 - 64);
         RightFoot.setRotationPoint(0.0F, 0.0F, 0.0F);
         RightFoot.addBox(-2.2F, 6.0F, -3.0F, 4, 6, 6, 0.0F);
         
-        LeftFoot = new ModelRenderer(this, 40, 94);
+        LeftFoot = new ModelRenderer(this, 40 + 64, 94 - 64);
         LeftFoot.setRotationPoint(0.0F, 0.0F, 0.0F);
         LeftFoot.addBox(-1.8F, 6.0F, -3.0F, 4, 6, 6, 0.0F); 
         
