@@ -289,11 +289,40 @@ public class WorldEventHandler
 	{
 		EntityPlayer player = event.player;
 		
+		EntityEquipmentSlot head = EntityEquipmentSlot.HEAD;
+		EntityEquipmentSlot body = EntityEquipmentSlot.CHEST;
+		EntityEquipmentSlot legs = EntityEquipmentSlot.LEGS;
+		EntityEquipmentSlot feet = EntityEquipmentSlot.FEET;
+		
+		if(player.getItemStackFromSlot(head).getItem() == ModItems.ASTRALITE_HELM
+				&& player.getItemStackFromSlot(body).getItem() == ModItems.ASTRALITE_CHEST
+				&& player.getItemStackFromSlot(legs).getItem() == ModItems.ASTRALITE_LEGS
+				&& player.getItemStackFromSlot(feet).getItem() == ModItems.ASTRALITE_BOOTS)
+		{
+			if(!player.isElytraFlying() && !player.capabilities.isFlying)
+			{
+				if (player.isAirBorne)
+				{
+					if(player.motionY < 0.0D)
+					{
+						player.motionY *= 0.9D;
+					}
+					
+					player.jumpMovementFactor *= 2.5F;
+				}
+			}
+				
+			if(player.fallDistance != 0.0F)
+			{
+				player.fallDistance = 0.0F;
+			}
+		}
+		
 		if(player.dimension == -64)
 		{
 			if(!player.isElytraFlying() && !player.capabilities.isFlying)
 			{
-				if (!player.onGround)
+				if (player.isAirBorne)
 		        {
 					if(player.motionY < 0.0D && player.posY <= 160)
 					{
@@ -310,7 +339,7 @@ public class WorldEventHandler
 						player.motionY *= 0.95D;
 					}
 					
-					player.jumpMovementFactor = 0.05F;
+					player.jumpMovementFactor *= 2.5F;
 		        }
 			}
 			

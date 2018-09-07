@@ -146,54 +146,6 @@ public class ArmourAstralite extends ItemArmor implements IHasModel
 		}
 	}
 	
-	@SubscribeEvent
-    public static void onPlayerHurt(LivingHurtEvent event) 
-	{
-		EntityEquipmentSlot head = EntityEquipmentSlot.HEAD;
-		EntityEquipmentSlot body = EntityEquipmentSlot.CHEST;
-		EntityEquipmentSlot legs = EntityEquipmentSlot.LEGS;
-		EntityEquipmentSlot feet = EntityEquipmentSlot.FEET;
-		
-		if(event.getEntityLiving() instanceof EntityPlayer)
-		{
-			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-			
-			if(player.getItemStackFromSlot(head).getItem() == ModItems.ASTRALITE_HELM
-					&& player.getItemStackFromSlot(body).getItem() == ModItems.ASTRALITE_CHEST
-					&& player.getItemStackFromSlot(legs).getItem() == ModItems.ASTRALITE_LEGS
-					&& player.getItemStackFromSlot(feet).getItem() == ModItems.ASTRALITE_BOOTS)
-			{
-				if(!player.isElytraFlying() && !player.capabilities.isFlying)
-				{
-					if (!player.onGround)
-					{
-						if(player.motionY < 0.0D && player.posY <= 160)
-						{
-							player.motionY *= 0.9D;
-							
-							if(player.isSneaking())
-							{
-								player.motionY *= 1.05D;
-					        }
-						}
-						
-						if(player.motionY < 0.0D && player.posY > 160)
-						{
-							player.motionY *= 0.95D;
-						}
-						
-						player.jumpMovementFactor = 0.05F;
-					}
-				}
-					
-				if(player.fallDistance != 0.0F)
-				{
-					player.fallDistance = 0.0F;
-				}
-			}
-		}
-	}
-	
 	@Override
 	public void registerModels() 
 	{
