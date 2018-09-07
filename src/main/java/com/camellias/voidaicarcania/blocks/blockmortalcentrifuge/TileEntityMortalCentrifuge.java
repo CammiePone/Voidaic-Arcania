@@ -173,14 +173,13 @@ public class TileEntityMortalCentrifuge extends TileEntity implements IInventory
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) 
 	{
-		super.writeToNBT(compound);
 		compound.setInteger("BurnTime", (short)this.burnTime);
 		compound.setInteger("CookTime", (short)this.cookTime);
 		compound.setInteger("CookTimeTotal", (short)this.totalCookTime);
 		ItemStackHelper.saveAllItems(compound, this.inventory);
 		
 		if(this.hasCustomName()) compound.setString("CustomName", this.customName);
-		return compound;
+		return super.writeToNBT(compound);
 	}
 
 	@Override
