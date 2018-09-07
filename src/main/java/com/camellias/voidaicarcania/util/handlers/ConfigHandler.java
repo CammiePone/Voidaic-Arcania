@@ -87,7 +87,7 @@ public class ConfigHandler
 				"Cost to make coal with an orb of transmutation");
 		IRON_TRANS_ORB = config.getInt("Iron & Transmutation Orb", category, 6, 0, 100000, 
 				"Cost to make iron ingots with an orb of transmutation");
-		PEARL_TRANS_ORB = config.getInt("Ender Pearl & Transmutation Orb", category, 3, 0, 100000, 
+		PEARL_TRANS_ORB = config.getInt("Ender Pearl & Transmutation Orb", category, 100, 0, 100000, 
 				"Cost to make ender pearls with an orb of transmutation");
 		REDSTONE_TRANS_ORB = config.getInt("Redstone & Transmutation Orb", category, 2, 0, 100000, 
 				"Cost to make redstone dust with an orb of transmutation");
@@ -100,7 +100,7 @@ public class ConfigHandler
 				"Cost to make coal with a voidic orb of transmutation");
 		IRON_VOID_ORB = config.getInt("Iron & Void Orb", category, 3, 0, 100000, 
 				"Cost to make iron ingots with a voidic orb of transmutation");
-		PEARL_VOID_ORB = config.getInt("Ender Pearl & Void Orb", category, 2, 0, 100000, 
+		PEARL_VOID_ORB = config.getInt("Ender Pearl & Void Orb", category, 50, 0, 100000, 
 				"Cost to make ender pearls with a voidic orb of transmutation");
 		REDSTONE_VOID_ORB = config.getInt("Redstone & Voidic Orb", category, 1, 0, 100000, 
 				"Cost to make redstone dust with a voidic orb of transmutation");
