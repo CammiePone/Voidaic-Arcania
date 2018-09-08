@@ -142,6 +142,11 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 		{
 			return ConfigHandler.VOID_BOTTLE;
 		}
+		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.GLASS_BOTTLE), 
+				new ItemStack(Items.END_CRYSTAL)) != null)
+		{
+			return ConfigHandler.VOID_BOTTLE;
+		}
 		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.IRON_NUGGET), 
 				new ItemStack(Items.BRICK)) != null)
 		{

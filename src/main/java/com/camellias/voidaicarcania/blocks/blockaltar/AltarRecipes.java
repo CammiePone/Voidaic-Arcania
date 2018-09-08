@@ -44,6 +44,7 @@ public class AltarRecipes
 		
 		//Misc Recipes
 		addAltarRecipe(new ItemStack(Items.DRAGON_BREATH), new ItemStack(Items.ENDER_PEARL), new ItemStack(ModItems.VOID_BOTTLE));
+		addAltarRecipe(new ItemStack(Items.GLASS_BOTTLE), new ItemStack(Items.END_CRYSTAL), new ItemStack(Items.DRAGON_BREATH));
 		addAltarRecipe(new ItemStack(Items.BRICK), new ItemStack(Items.IRON_NUGGET), new ItemStack(ModItems.DWARF_BRICK));
 		
 		addAltarRecipe(new ItemStack(ModItems.VOID_STAR), new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.SHIELD_AMULET));

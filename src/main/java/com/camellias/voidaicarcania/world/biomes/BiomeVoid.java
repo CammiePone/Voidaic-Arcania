@@ -16,7 +16,7 @@ public class BiomeVoid extends Biome
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
         
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityVoidWraith.class, 40, 1, 10));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityVoidWraith.class, 60, 1, 5));
 	}
 	
 	@SideOnly(Side.CLIENT)

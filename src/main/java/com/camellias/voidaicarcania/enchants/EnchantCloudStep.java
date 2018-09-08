@@ -21,9 +21,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class EnchantCloudStep extends Enchantment
 {
-	public EnchantCloudStep(String name, Rarity rarity, EnumEnchantmentType type, EntityEquipmentSlot[] slots)
+	public EnchantCloudStep(String name, Rarity rarity, EntityEquipmentSlot... slots)
 	{
-		super(rarity, type, slots);
+		super(rarity, EnumEnchantmentType.ARMOR_FEET, slots);
 		this.setName(name);
 		this.setRegistryName(name);
 	}

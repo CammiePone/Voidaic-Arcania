@@ -26,9 +26,9 @@ import net.minecraftforge.oredict.OreDictionary;
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class EnchantAlchemy extends Enchantment 
 {
-	public EnchantAlchemy(String name, Rarity rarity, EnumEnchantmentType type, EntityEquipmentSlot[] slots)
+	public EnchantAlchemy(String name, Rarity rarity, EntityEquipmentSlot... slots)
 	{
-		super(rarity, type, slots);
+		super(rarity, EnumEnchantmentType.DIGGER, slots);
 		this.setName(name);
 		this.setRegistryName(name);
 	}
