@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.camellias.voidaicarcania.blocks.BlockAltar;
 import com.camellias.voidaicarcania.blocks.BlockArcaneEarth;
+import com.camellias.voidaicarcania.blocks.BlockAstraliteMetal;
 import com.camellias.voidaicarcania.blocks.BlockBorniteOre;
 import com.camellias.voidaicarcania.blocks.BlockBotanyAltar;
 import com.camellias.voidaicarcania.blocks.BlockCinnibarOre;
@@ -13,14 +14,17 @@ import com.camellias.voidaicarcania.blocks.BlockDarkBrick;
 import com.camellias.voidaicarcania.blocks.BlockDarkBrickChiseled;
 import com.camellias.voidaicarcania.blocks.BlockDwarfBrick;
 import com.camellias.voidaicarcania.blocks.BlockDwarvenStairs;
+import com.camellias.voidaicarcania.blocks.BlockEnargiteMetal;
 import com.camellias.voidaicarcania.blocks.BlockFeatherweed;
 import com.camellias.voidaicarcania.blocks.BlockFloatshroom;
+import com.camellias.voidaicarcania.blocks.BlockFrozenMercury;
 import com.camellias.voidaicarcania.blocks.BlockGlowgrowth;
 import com.camellias.voidaicarcania.blocks.BlockIdfk;
 import com.camellias.voidaicarcania.blocks.BlockInfusedMetal;
 import com.camellias.voidaicarcania.blocks.BlockLantern;
 import com.camellias.voidaicarcania.blocks.BlockMoonMint;
 import com.camellias.voidaicarcania.blocks.BlockMortalCentrifuge;
+import com.camellias.voidaicarcania.blocks.BlockMythrilMetal;
 import com.camellias.voidaicarcania.blocks.BlockNeddlesprout;
 import com.camellias.voidaicarcania.blocks.BlockStarbloom;
 import com.camellias.voidaicarcania.blocks.BlockStem;
@@ -81,6 +85,11 @@ public class ModBlocks
 	public static final Block BLOCK_CINNIBAR_ORE = new BlockCinnibarOre("block_cinnibar_ore", Material.ROCK);
 	public static final Block BLOCK_BORNITE_ORE = new BlockBorniteOre("block_peacock_ore", Material.ROCK);
 	public static final Block BLOCK_INFUSED_METAL = new BlockInfusedMetal("block_infused_metal", Material.IRON);
+	public static final Block BLOCK_MYTHRIL_METAL = new BlockMythrilMetal("block_mythril_metal", Material.IRON);
+	public static final Block BLOCK_ASTRALITE_METAL = new BlockAstraliteMetal("block_astralite_metal", Material.IRON);
+	public static final Block BLOCK_ENARGITE_METAL = new BlockEnargiteMetal("block_enargite_metal", Material.IRON);
+	public static final Block BLOCK_MERCURY = new BlockFrozenMercury("block_frozen_mercury", Material.IRON);
+	
 	
 	//-----Plants-----//
 	public static final Block BLOCK_VOID_FLOWER = new BlockVoidFlower("block_void_flower", Material.PLANTS);

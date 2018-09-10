@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "voidaicarcania:mythril_ingot"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_mythril_metal",
+        "count": 1
+    }
+}

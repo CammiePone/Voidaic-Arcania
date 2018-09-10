@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "voidaicarcania:astralite_ingot"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_astralite_metal",
+        "count": 1
+    }
+}
