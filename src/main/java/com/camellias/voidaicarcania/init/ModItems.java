@@ -18,6 +18,7 @@ import com.camellias.voidaicarcania.items.ItemMercury;
 import com.camellias.voidaicarcania.items.ItemMoonMint;
 import com.camellias.voidaicarcania.items.ItemMythril;
 import com.camellias.voidaicarcania.items.ItemNeddlesprout;
+import com.camellias.voidaicarcania.items.ItemObsidium;
 import com.camellias.voidaicarcania.items.ItemShulkerBullet;
 import com.camellias.voidaicarcania.items.ItemSortigellium;
 import com.camellias.voidaicarcania.items.ItemStarbloom;
@@ -131,6 +132,8 @@ public class ModItems
 	public static final Item SORTIGELLIUM = new ItemSortigellium("sortigellium_ingot");
 	public static final Item ASTRALITE = new ItemAstralite("astralite_ingot");
 	public static final Item MYTHRIL = new ItemMythril("mythril_ingot");
+	public static final Item OBSIDIUM = new ItemObsidium("obsidium_ingot");
+	public static final Item DEMONIRON = new ItemDemoniron("demon_ingot");
 	
 	//-----Stews-----//
 	public static final Item MUSHROOM_BULB = new ItemVoidBulb("mushroom_stew_1", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);

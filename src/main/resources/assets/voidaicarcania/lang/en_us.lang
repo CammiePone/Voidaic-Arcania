@@ -51,6 +51,8 @@ item.enargite_ingot.name=Enargite Ingot
 item.sortigellium_ingot.name=Sortigellium Ingot
 item.astralite_ingot.name=Astralite Ingot
 item.mythril_ingot.name=Mythril Ingot
+item.obsidium_ingot.name=Obsidium Ingot
+item.demon_ingot.name=Daemonite Ingot
 
 item.mushroom_stew_1.name=Mushroom Stew
 item.mushroom_stew_2.name=Mushroom Stew

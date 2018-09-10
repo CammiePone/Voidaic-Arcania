@@ -30,6 +30,8 @@ public class MortalCentrifugeRecipes
 		addCentrifugeRecipe(new ItemStack(Blocks.GLASS), new ItemStack(ModItems.INFUSED_INGOT), new ItemStack(ModItems.SORTIGELLIUM));
 		addCentrifugeRecipe(new ItemStack(ModItems.TRANS_SHARD), new ItemStack(ModItems.INFUSED_INGOT), new ItemStack(ModItems.MYTHRIL));
 		addCentrifugeRecipe(new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT), new ItemStack(ModItems.ASTRALITE));
+		addCentrifugeRecipe(new ItemStack(Blocks.OBSIDIAN), new ItemStack(ModItems.INFUSED_INGOT), new ItemStack(ModItems.OBSIDIUM));
+		//addCentrifugeRecipe(new ItemStack(ModItems.ENARGITE))
 	}
 
 	public void addCentrifugeRecipe(ItemStack input1, ItemStack input2, ItemStack result) 
