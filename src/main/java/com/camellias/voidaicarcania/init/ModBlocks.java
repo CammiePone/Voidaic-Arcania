@@ -12,6 +12,7 @@ import com.camellias.voidaicarcania.blocks.BlockCinnibarOre;
 import com.camellias.voidaicarcania.blocks.BlockConstruct;
 import com.camellias.voidaicarcania.blocks.BlockDarkBrick;
 import com.camellias.voidaicarcania.blocks.BlockDarkBrickChiseled;
+import com.camellias.voidaicarcania.blocks.BlockDemonMetal;
 import com.camellias.voidaicarcania.blocks.BlockDwarfBrick;
 import com.camellias.voidaicarcania.blocks.BlockDwarvenStairs;
 import com.camellias.voidaicarcania.blocks.BlockEnargiteMetal;
@@ -26,6 +27,7 @@ import com.camellias.voidaicarcania.blocks.BlockMoonMint;
 import com.camellias.voidaicarcania.blocks.BlockMortalCentrifuge;
 import com.camellias.voidaicarcania.blocks.BlockMythrilMetal;
 import com.camellias.voidaicarcania.blocks.BlockNeddlesprout;
+import com.camellias.voidaicarcania.blocks.BlockNetherheartOre;
 import com.camellias.voidaicarcania.blocks.BlockStarbloom;
 import com.camellias.voidaicarcania.blocks.BlockStem;
 import com.camellias.voidaicarcania.blocks.BlockVoidCloud;
@@ -89,6 +91,8 @@ public class ModBlocks
 	public static final Block BLOCK_ASTRALITE_METAL = new BlockAstraliteMetal("block_astralite_metal", Material.IRON);
 	public static final Block BLOCK_ENARGITE_METAL = new BlockEnargiteMetal("block_enargite_metal", Material.IRON);
 	public static final Block BLOCK_MERCURY = new BlockFrozenMercury("block_frozen_mercury", Material.IRON);
+	public static final Block BLOCK_DEMONIRON = new BlockDemonMetal("block_demon_metal", Material.IRON);
+	public static final Block BLOCK_NETHERHEART_ORE = new BlockNetherheartOre("block_netherheart_ore", Material.ROCK);
 	
 	
 	//-----Plants-----//

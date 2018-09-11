@@ -8,6 +8,7 @@ import com.camellias.voidaicarcania.items.ItemAstralite;
 import com.camellias.voidaicarcania.items.ItemChorusTea;
 import com.camellias.voidaicarcania.items.ItemCinnabar;
 import com.camellias.voidaicarcania.items.ItemDarkCamellia;
+import com.camellias.voidaicarcania.items.ItemDemoniron;
 import com.camellias.voidaicarcania.items.ItemDwarfBrick;
 import com.camellias.voidaicarcania.items.ItemEnargite;
 import com.camellias.voidaicarcania.items.ItemFeatherweed;
@@ -18,6 +19,7 @@ import com.camellias.voidaicarcania.items.ItemMercury;
 import com.camellias.voidaicarcania.items.ItemMoonMint;
 import com.camellias.voidaicarcania.items.ItemMythril;
 import com.camellias.voidaicarcania.items.ItemNeddlesprout;
+import com.camellias.voidaicarcania.items.ItemNetherCore;
 import com.camellias.voidaicarcania.items.ItemObsidium;
 import com.camellias.voidaicarcania.items.ItemShulkerBullet;
 import com.camellias.voidaicarcania.items.ItemSortigellium;
@@ -126,6 +128,7 @@ public class ModItems
 	
 	//-----Metallurgy-----//
 	public static final Item CINNIBAR = new ItemCinnabar("cinnabar");
+	public static final Item NETHER_CORE = new ItemNetherCore("nether_core");
 	public static final Item INFUSED_INGOT = new ItemInfusedIngot("infused_ingot");
 	public static final Item MERCURY = new ItemMercury("mercury");
 	public static final Item ENARGITE = new ItemEnargite("enargite_ingot");
@@ -134,6 +137,7 @@ public class ModItems
 	public static final Item MYTHRIL = new ItemMythril("mythril_ingot");
 	public static final Item OBSIDIUM = new ItemObsidium("obsidium_ingot");
 	public static final Item DEMONIRON = new ItemDemoniron("demon_ingot");
+	
 	
 	//-----Stews-----//
 	public static final Item MUSHROOM_BULB = new ItemVoidBulb("mushroom_stew_1", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);

@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "SSS",
+        "SSS",
+        "SSS"
+    ],
+    
+    "key":
+    {
+        "S":
+        {
+            "item": "voidaicarcania:demon_ingot"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_demon_metal",
+        "count": 1
+    }
+}

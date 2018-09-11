@@ -114,6 +114,7 @@ item.cinnabar.name=Cinnabar
 
 item.wraith_wisp.name=Wraith Wisp
 item.transformative_root.name=Transformative Root
+item.nether_core.name=Nether Core
 
 item.mythril_helm.name=Mythril Helm
 item.mythril_chestplate.name=Mythril Chestplate
@@ -166,6 +167,7 @@ tile.block_voidrock_smooth.name=Polished Voidrock
 
 tile.block_cinnibar_ore.name=Cinnabar Ore
 tile.block_peacock_ore.name=Peacock Ore
+tile.block_netherheart_ore.name=Netherheart Ore
 
 tile.block_voidsand.name=Void Sand
 tile.block_arcane_earth.name=Arcane Earth
@@ -204,6 +206,7 @@ tile.block_enargite_metal.name=Block of Enargite
 tile.block_astralite_metal.name=Block of Astralite
 tile.block_mythril_metal.name=Block of Mythril
 tile.block_frozen_mercury.name=Block of Frozen Mercury
+tile.block_demon_metal.name=Block of Daemonite
 
 tile.block_construct.name=Construct Base
 tile.block_voideye.name=§5Eye Of The Construct
