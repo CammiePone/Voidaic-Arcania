@@ -48,7 +48,7 @@ public class ItemInvisibilityCloak extends Item implements IHasModel, IBauble
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
-		tooltip.add("§4Inert");
+		tooltip.add("\u00A74Inert");
 	}
 	
 	@Override

@@ -6,7 +6,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BiomeVoid extends Biome 
+public class BiomeVoid extends Biome
 {
 	public BiomeVoid() 
 	{
@@ -16,7 +16,7 @@ public class BiomeVoid extends Biome
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
         
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityVoidWraith.class, 60, 1, 5));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityVoidWraith.class, 80, 1, 1));
 	}
 	
 	@SideOnly(Side.CLIENT)

@@ -20,7 +20,7 @@ public class ItemResistanceBeltActive extends ItemResistanceBelt
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
-		tooltip.add("§aActivated");
+		tooltip.add("\u00A7aActivated");
 	}
 	
 	@Override

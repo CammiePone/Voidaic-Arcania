@@ -74,10 +74,10 @@ public class EntityVoidWraith extends EntityMob
 	public void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5F);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(100.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50.0D);
     }
 	
 	@Override
@@ -131,6 +131,12 @@ public class EntityVoidWraith extends EntityMob
     {
         return SoundEvents.ENTITY_CAT_HISS;
     }
+	
+	@Override
+	protected float getSoundVolume()
+	{
+		return 0.3F;
+	}
 	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound)

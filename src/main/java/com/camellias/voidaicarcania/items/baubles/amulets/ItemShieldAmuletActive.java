@@ -23,7 +23,7 @@ public class ItemShieldAmuletActive extends ItemShieldAmulet
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
-		tooltip.add("§aActivated");
+		tooltip.add("\u00A7aActivated");
 	}
 	
 	@Override
