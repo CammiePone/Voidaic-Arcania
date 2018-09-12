@@ -18,11 +18,13 @@ public class WorldGenCustomOres implements IWorldGenerator
 {
 	private WorldGenerator cinnabar;
 	private WorldGenerator peacock;
+	private WorldGenerator nether_heart;
 	
 	public WorldGenCustomOres()
 	{
 		cinnabar = new WorldGenMinable(ModBlocks.BLOCK_CINNIBAR_ORE.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.STONE));
 		peacock = new WorldGenMinable(ModBlocks.BLOCK_BORNITE_ORE.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		nether_heart = new WorldGenMinable(ModBlocks.BLOCK_NETHERHEART_ORE.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.NETHERRACK));
 	}
 	
 	@Override
@@ -32,6 +34,7 @@ public class WorldGenCustomOres implements IWorldGenerator
 		{
 		case -1:
 			runGenerator(peacock, world, random, chunkX, chunkZ, 60, 0, 128);
+			runGenerator(nether_heart, world, random, chunkX, chunkZ, 60, 0, 128);
 			
 			break;
 			
