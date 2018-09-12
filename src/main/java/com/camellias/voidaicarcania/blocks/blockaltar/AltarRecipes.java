@@ -61,9 +61,8 @@ public class AltarRecipes
 		
 		addAltarRecipe(new ItemStack(Items.NETHER_STAR), new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.VOID_CHARM));
 		addAltarRecipe(new ItemStack(Items.NETHER_STAR), new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.LUCK_CHARM));
-		addAltarRecipe(new ItemStack(ModItems.ENARGITE), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
-		//addAltarRecipe(new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
-		//addAltarRecipe(new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
+		addAltarRecipe(new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
+		addAltarRecipe(new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
 	}
 
 	
