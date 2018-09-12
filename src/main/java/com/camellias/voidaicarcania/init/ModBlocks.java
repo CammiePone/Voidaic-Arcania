@@ -57,7 +57,7 @@ public class ModBlocks
 {
 	//-----Block list-----//
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
-			
+	
 	public static final Block BLOCK_ALTAR = new BlockAltar("block_altar", Material.ROCK);
 	public static final Block BLOCK_VOIDSTONE = new BlockVoidStone("block_voidrock", Material.ROCK);
 	public static final Block BLOCK_VOIDSTONE_PILLAR = new BlockVoidStonePillar("block_voidrock_pillar", Material.ROCK);
