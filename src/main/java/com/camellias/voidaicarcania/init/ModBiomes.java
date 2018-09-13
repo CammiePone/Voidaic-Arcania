@@ -19,7 +19,7 @@ public class ModBiomes
 	
 	public static void registerBiomes()
 	{
-		initBiome(VOID, "void", BiomeType.ICY, Type.END, Type.VOID, Type.MAGICAL);
+		initBiome(VOID, "void", BiomeType.ICY, Type.VOID, Type.MAGICAL);
 		initBiome(ANCIENT_MOUNTAIN, "AncientMountain", BiomeType.WARM, Type.HILLS, Type.MOUNTAIN, Type.DRY);
 	}
 	
