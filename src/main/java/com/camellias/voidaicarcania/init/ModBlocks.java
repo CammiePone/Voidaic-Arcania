@@ -28,6 +28,7 @@ import com.camellias.voidaicarcania.blocks.BlockMortalCentrifuge;
 import com.camellias.voidaicarcania.blocks.BlockMythrilMetal;
 import com.camellias.voidaicarcania.blocks.BlockNeddlesprout;
 import com.camellias.voidaicarcania.blocks.BlockNetherheartOre;
+import com.camellias.voidaicarcania.blocks.BlockReflectionPool;
 import com.camellias.voidaicarcania.blocks.BlockStarbloom;
 import com.camellias.voidaicarcania.blocks.BlockStem;
 import com.camellias.voidaicarcania.blocks.BlockVoidCloud;
@@ -36,6 +37,7 @@ import com.camellias.voidaicarcania.blocks.BlockVoidCrystal;
 import com.camellias.voidaicarcania.blocks.BlockVoidEye;
 import com.camellias.voidaicarcania.blocks.BlockVoidFlower;
 import com.camellias.voidaicarcania.blocks.BlockVoidGlass;
+import com.camellias.voidaicarcania.blocks.BlockVoidMass;
 import com.camellias.voidaicarcania.blocks.BlockVoidMelon;
 import com.camellias.voidaicarcania.blocks.BlockVoidMelonCrop;
 import com.camellias.voidaicarcania.blocks.BlockVoidSand;
@@ -47,6 +49,7 @@ import com.camellias.voidaicarcania.blocks.BlockVoidStoneTilesCracked;
 import com.camellias.voidaicarcania.blocks.BlockVoidTea;
 import com.camellias.voidaicarcania.blocks.BlockVoidTotem;
 import com.camellias.voidaicarcania.blocks.BlockVoidWeed;
+import com.camellias.voidaicarcania.blocks.BlockVoidWeedTall;
 import com.camellias.voidaicarcania.blocks.BlockWhiteWood;
 import com.camellias.voidaicarcania.blocks.BlockWhiteWoodLeaves;
 
@@ -93,10 +96,13 @@ public class ModBlocks
 	public static final Block BLOCK_MERCURY = new BlockFrozenMercury("block_frozen_mercury", Material.IRON);
 	public static final Block BLOCK_DEMONIRON = new BlockDemonMetal("block_demon_metal", Material.IRON);
 	public static final Block BLOCK_NETHERHEART_ORE = new BlockNetherheartOre("block_netherheart_ore", Material.ROCK);
+	public static final Block BLOCK_REFLECTION_POOL = new BlockReflectionPool("block_reflection_pool", Material.ROCK);
+	public static final Block BLOCK_VOIDMASS = new BlockVoidMass("block_voidmass", Material.GOURD);
 	
 	
 	//-----Plants-----//
 	public static final Block BLOCK_VOID_FLOWER = new BlockVoidFlower("block_void_flower", Material.PLANTS);
+	public static final Block BLOCK_WEED_TALL = new BlockVoidWeedTall("block_tall_weed", Material.PLANTS);
 	public static final Block BLOCK_VOID_WEED = new BlockVoidWeed("block_void_weed", Material.PLANTS);
 	public static final Block BLOCK_VOID_CROP = new BlockVoidCrop("block_void_crop");
 	public static final Block BLOCK_FLOATSHROOM = new BlockFloatshroom("block_floatshroom");

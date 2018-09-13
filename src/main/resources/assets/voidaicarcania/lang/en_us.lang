@@ -158,6 +158,7 @@ item.sortigellium_hoe.name=Sortigellium Hoe
 tile.block_altar.name=Altar
 tile.block_botany_altar.name=Arcane Botanical Altar
 tile.block_mortal_furnace.name=Mortal Furnace
+tile.block_reflection_pool.name=Reflection Pool
 
 tile.block_voidrock.name=Voidrock
 tile.block_voidrock_pillar.name=Voidrock Pillar
@@ -171,6 +172,7 @@ tile.block_netherheart_ore.name=Netherheart Ore
 
 tile.block_voidsand.name=Void Sand
 tile.block_arcane_earth.name=Arcane Earth
+tile.block_voidmass.name=Voidaic Mass
 tile.block_voidcloud.name=Void Mist
 
 tile.block_stem.name=Lantern Stem
@@ -183,6 +185,7 @@ tile.block_void_crop.name=Void Bulb Crop
 tile.block_floatshroom.name=Floatshroom Crop
 tile.block_glowgrowth.name=Glowgrowth Crop
 tile.block_void_weed.name=Void Weed
+tile.block_tall_weed.name=Tall Void Weed
 tile.block_void_melon.name=Void Melon
 tile.block_voidtea.name=Dark Camellia Bush
 tile.block_melon_crop.name=Void Melon Crop

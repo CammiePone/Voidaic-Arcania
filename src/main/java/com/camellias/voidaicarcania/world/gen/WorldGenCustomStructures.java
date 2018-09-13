@@ -52,6 +52,8 @@ public class WorldGenCustomStructures implements IWorldGenerator
 				
 				generateStructure2(new WorldGenStructure("voidgrass"), world, rand, chunkX, chunkZ, 5, ModBlocks.BLOCK_VOIDSTONE, BiomeVoid.class);
 				
+				generateStructure2(new WorldGenStructure("daemon_nest"), world, rand, chunkX, chunkZ, 400, ModBlocks.BLOCK_VOIDSTONE, BiomeVoid.class);
+				
 				generateStructure(new WorldGenStructure("voidtemple"), world, rand, chunkX, chunkZ, 3000, Blocks.AIR, BiomeVoid.class);
 				
 				generateStructure(new WorldGenStructure("islandruin_1"), world, rand, chunkX, chunkZ, 1000, Blocks.AIR, BiomeVoid.class);
@@ -59,6 +61,8 @@ public class WorldGenCustomStructures implements IWorldGenerator
 				generateStructure(new WorldGenStructure("ruin_garden"), world, rand, chunkX, chunkZ, 1000, Blocks.AIR, BiomeVoid.class);
 				
 				generateStructure(new WorldGenStructure("islandovergrown"), world, rand, chunkX, chunkZ, 750, Blocks.AIR, BiomeVoid.class);
+				
+				generateStructure(new WorldGenStructure("voidsanctuary"), world, rand, chunkX, chunkZ, 800, Blocks.AIR, BiomeVoid.class);
 				
 				generateStructure(new WorldGenStructure("islandobelisk"), world, rand, chunkX, chunkZ, 400, Blocks.AIR, BiomeVoid.class);
 				
