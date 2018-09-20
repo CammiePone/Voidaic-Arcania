@@ -225,7 +225,7 @@ public class WorldEventHandler
 				if(event.getAdvancement() == player.getServer().getAdvancementManager().getAdvancement(new ResourceLocation
 						("voidaicarcania", "enter_void")))
 				{
-					player.world.playSound(null, player.getPosition(), SoundsHandler.VOID_THEME, SoundCategory.MASTER, 1500.0F, 1.0F);
+					player.world.playSound(null, player.getPosition(), SoundsHandler.VOID_THEME, SoundCategory.MASTER, 1000.0F, 1.0F);
 					
 					server.getCommandManager().executeCommand(server, "/give " + player.getName() + 
 							" written_book 1 0 {title:\"Missing Notes 5\", author:\"Artemis\", pages:["
