@@ -34,6 +34,7 @@ item.active_resistance_belt.name=§6Belt of Resistance
 
 item.transmutation_orb.name=§aOrb of Creation
 item.voidic_orb.name=§8Voidic Orb of Creation
+item.luna_orb.name=§1Luna Orb
 
 item.void_bulb.name=Void Bulb
 item.floatshroom.name=Floatshroom
@@ -53,6 +54,7 @@ item.astralite_ingot.name=Astralite Ingot
 item.mythril_ingot.name=Mythril Ingot
 item.obsidium_ingot.name=Obsidium Ingot
 item.demon_ingot.name=Daemonite Ingot
+item.lunatite_ingot.name=Lunatite Ingot
 
 item.mushroom_stew_1.name=Mushroom Stew
 item.mushroom_stew_2.name=Mushroom Stew
@@ -202,6 +204,9 @@ tile.block_dark_brick_chiseled.name=Carved Dark Brick
 
 tile.block_whitewood.name=Whitewood Log
 tile.block_whitewood_leaves.name=Whitewood Leaves
+tile.block_whitewood_planks.name=Whitewood Planks
+tile.block_whitewood_stairs.name=Whitewood Stairs
+tile.block_whitewood_slab.name=Whitewood Slab
 
 tile.block_void_totem.name=Voidic Totem
 tile.block_infused_metal.name=Block of Infused Metal

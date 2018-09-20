@@ -15,6 +15,8 @@ import com.camellias.voidaicarcania.items.ItemFeatherweed;
 import com.camellias.voidaicarcania.items.ItemFloatshroom;
 import com.camellias.voidaicarcania.items.ItemGlowgrowth;
 import com.camellias.voidaicarcania.items.ItemInfusedIngot;
+import com.camellias.voidaicarcania.items.ItemLunaOrb;
+import com.camellias.voidaicarcania.items.ItemLunatite;
 import com.camellias.voidaicarcania.items.ItemMercury;
 import com.camellias.voidaicarcania.items.ItemMoonMint;
 import com.camellias.voidaicarcania.items.ItemMythril;
@@ -113,6 +115,7 @@ public class ModItems
 	//-----Orbs-----//
 	public static final Item TRANS_ORB = new ItemTransmutationOrb("transmutation_orb");
 	public static final Item VOID_ORB = new ItemVoidicOrb("voidic_orb");
+	public static final Item LUNA_ORB = new ItemLunaOrb("luna_orb");
 	
 	//-----Food Items and Seeds-----//
 	public static final Item VOID_BULB = new ItemVoidBulb("void_bulb", 0, 0, false); //FoodItem - FoodHandler contianed in specific class
@@ -137,6 +140,7 @@ public class ModItems
 	public static final Item MYTHRIL = new ItemMythril("mythril_ingot");
 	public static final Item OBSIDIUM = new ItemObsidium("obsidium_ingot");
 	public static final Item DEMONIRON = new ItemDemoniron("demon_ingot");
+	public static final Item LUNATITE = new ItemLunatite("lunatite_ingot");
 	
 	
 	//-----Stews-----//

@@ -52,6 +52,8 @@ import com.camellias.voidaicarcania.blocks.BlockVoidWeed;
 import com.camellias.voidaicarcania.blocks.BlockVoidWeedTall;
 import com.camellias.voidaicarcania.blocks.BlockWhiteWood;
 import com.camellias.voidaicarcania.blocks.BlockWhiteWoodLeaves;
+import com.camellias.voidaicarcania.blocks.BlockWhiteWoodPlanks;
+import com.camellias.voidaicarcania.blocks.BlockWhiteWoodStairs;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -78,6 +80,9 @@ public class ModBlocks
 	public static final Block BLOCK_DARK_BRICK_CHISELED = new BlockDarkBrickChiseled("block_dark_brick_chiseled", Material.ROCK);
 	public static final Block BLOCK_IDFK = new BlockIdfk("block_idfk", Material.WOOD);
 	public static final Block BLOCK_WHITEWOOD = new BlockWhiteWood("block_whitewood", Material.WOOD);
+	public static final Block BLOCK_WHITEWOOD_PLANKS = new BlockWhiteWoodPlanks("block_whitewood_planks", Material.WOOD);
+	public static final Block BLOCK_WHITEWOOD_STAIRS = new BlockWhiteWoodStairs("block_whitewood_stairs", BLOCK_WHITEWOOD_PLANKS.getDefaultState());
+	//public static final Block BLOCK_WHITEWOOD_SLAB = new BlockWhiteWoodSlab("block_whitewood_slab", Material.WOOD);
 	public static final Block BLOCK_WHITEWOOD_LEAVES = new BlockWhiteWoodLeaves("block_whitewood_leaves", Material.LEAVES);
 	public static final Block BLOCK_BOTANY_ALTAR = new BlockBotanyAltar("block_botany_altar", Material.ROCK);
 	public static final Block BLOCK_STEM = new BlockStem("block_stem", Material.IRON);

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "voidaicarcania:blocks/item_weed"
+        "layer0": "voidaicarcania:items/lunatite_ingot"
     }
 }

@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "B  ",
+        "BB ",
+        "BBB"
+    ],
+    
+    "key":
+    {
+        "B":
+        {
+            "item": "voidaicarcania:block_whitewood_planks"
+        }
+    },
+    
+    "result":
+    {
+        "item": "voidaicarcania:block_whitewood_stairs",
+        "count": 4
+    }
+}
