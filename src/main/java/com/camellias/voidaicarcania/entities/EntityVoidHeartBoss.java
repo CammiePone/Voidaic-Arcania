@@ -104,7 +104,7 @@ public class EntityVoidHeartBoss extends EntityMob
 		this.setDead();
 		if(!world.isRemote)
 		{
-			world.getClosestPlayerToEntity(this, 30D).sendMessage(new TextComponentString("§5You are worthy, " 
+			world.getClosestPlayerToEntity(this, 30D).sendMessage(new TextComponentString("\u00A75You are worthy, " 
 					+ world.getClosestPlayerToEntity(this, 30D).getDisplayNameString() 
 					+ ". Give me an item, and I shall imbue it with power."));
 			
