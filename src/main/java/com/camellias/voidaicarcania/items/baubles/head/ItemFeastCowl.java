@@ -124,6 +124,8 @@ public class ItemFeastCowl extends Item implements IHasModel, IBauble, IRenderBa
 				model = new ModelFeastCowl();
 			}
 			
+			GL11.glPushMatrix();
+			
 			if(player.isSneaking())
 			{
 				GlStateManager.translate(0F, 0.25F, 0F);

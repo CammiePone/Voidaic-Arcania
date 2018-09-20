@@ -122,6 +122,8 @@ public class ItemReaperCowl extends Item implements IHasModel, IBauble, IRenderB
 				model = new ModelReaperCowl();
 			}
 			
+			GL11.glPushMatrix();
+			
 			if(player.isSneaking())
 			{
 				GlStateManager.translate(0F, 0.25F, 0F);
