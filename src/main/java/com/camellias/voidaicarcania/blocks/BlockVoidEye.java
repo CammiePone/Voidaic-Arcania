@@ -1,5 +1,7 @@
 package com.camellias.voidaicarcania.blocks;
 
+import java.util.List;
+
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.entities.EntityVoidEye;
 import com.camellias.voidaicarcania.init.ModBlocks;
@@ -16,10 +18,12 @@ import net.minecraft.block.state.pattern.BlockMaterialMatcher;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
@@ -52,6 +56,12 @@ public class BlockVoidEye extends Block implements IHasModel
         super.onBlockAdded(world, pos, state);
         this.trySpawnBoss(world, pos);
     }
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
+		tooltip.add("\u00A78It whispers to you to place it in a temple...");
+	}
 	
 	@Override
 	public void registerModels() 

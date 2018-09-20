@@ -64,6 +64,7 @@ public class ModBlocks
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 	
 	public static final Block BLOCK_ALTAR = new BlockAltar("block_altar", Material.ROCK);
+	public static final Block BLOCK_REFLECTION_POOL = new BlockReflectionPool("block_reflection_pool", Material.ROCK);
 	public static final Block BLOCK_VOIDSTONE = new BlockVoidStone("block_voidrock", Material.ROCK);
 	public static final Block BLOCK_VOIDSTONE_PILLAR = new BlockVoidStonePillar("block_voidrock_pillar", Material.ROCK);
 	public static final Block BLOCK_VOIDSTONE_TILES = new BlockVoidStoneTiles("block_voidrock_tiles", Material.ROCK);
@@ -101,7 +102,6 @@ public class ModBlocks
 	public static final Block BLOCK_MERCURY = new BlockFrozenMercury("block_frozen_mercury", Material.IRON);
 	public static final Block BLOCK_DEMONIRON = new BlockDemonMetal("block_demon_metal", Material.IRON);
 	public static final Block BLOCK_NETHERHEART_ORE = new BlockNetherheartOre("block_netherheart_ore", Material.ROCK);
-	public static final Block BLOCK_REFLECTION_POOL = new BlockReflectionPool("block_reflection_pool", Material.ROCK);
 	public static final Block BLOCK_VOIDMASS = new BlockVoidMass("block_voidmass", Material.GOURD);
 	
 	

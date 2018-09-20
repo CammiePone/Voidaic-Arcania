@@ -154,7 +154,7 @@ public class EntityVoidHeartBoss extends EntityMob
     {
 		super.updateAITasks();
 		
-		if(this.ticksExisted % 30 == 0)
+		if(this.ticksExisted % 30 == 0 && this.getHealth() > 50)
 		{
 			this.heal(2.0F);
 		}
@@ -169,7 +169,7 @@ public class EntityVoidHeartBoss extends EntityMob
 				this.world.spawnEntity(entitywraith);
 			}
 			
-			if(this.ticksExisted % 50 == 0)
+			if(this.ticksExisted % 50 == 0 && this.getHealth() <= 50)
 			{
 				this.teleportRandomly();
 			}
