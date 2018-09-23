@@ -28,6 +28,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockVoidEye extends Block implements IHasModel
 {
@@ -58,6 +60,7 @@ public class BlockVoidEye extends Block implements IHasModel
     }
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
 		tooltip.add("\u00A78It whispers to you to place it in a temple...");

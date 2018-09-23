@@ -9,6 +9,8 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemResistanceBeltActive extends ItemResistanceBelt
 {
@@ -18,6 +20,7 @@ public class ItemResistanceBeltActive extends ItemResistanceBelt
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
 		tooltip.add("\u00A7aActivated");

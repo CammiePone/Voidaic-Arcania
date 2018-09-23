@@ -48,6 +48,7 @@ public class ItemReaperCowl extends Item implements IHasModel, IBauble, IRenderB
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
 		tooltip.add("\u00A74Inert");

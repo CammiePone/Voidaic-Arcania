@@ -49,6 +49,7 @@ public class ItemResistanceBelt extends Item implements IHasModel, IBauble, IRen
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
 		tooltip.add("\u00A74Inert");

@@ -17,7 +17,6 @@ public class ItemObsidium extends Item implements IHasModel
 		ModItems.ITEMS.add(this);
 	}
 	
-	
 	@Override
 	public void registerModels() 
 	{

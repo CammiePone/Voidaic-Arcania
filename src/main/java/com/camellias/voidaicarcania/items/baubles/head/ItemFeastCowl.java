@@ -50,6 +50,7 @@ public class ItemFeastCowl extends Item implements IHasModel, IBauble, IRenderBa
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
 		tooltip.add("\u00A74Inert");

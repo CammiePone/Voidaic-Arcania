@@ -40,6 +40,7 @@ public class ArmourAstralite extends ItemArmor implements IHasModel
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
 		tooltip.add("\u00A77Full Set Bonus:");
