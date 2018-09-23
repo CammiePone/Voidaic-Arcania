@@ -63,6 +63,7 @@ public class AltarRecipes
 		addAltarRecipe(new ItemStack(Items.NETHER_STAR), new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.LUCK_CHARM));
 		addAltarRecipe(new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
 		addAltarRecipe(new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
+		addAltarRecipe(new ItemStack(ModItems.MERCURY), new ItemStack(ModItems.MOON_MINT), new ItemStack(ModItems.LUNA_ORB));
 	}
 
 	
