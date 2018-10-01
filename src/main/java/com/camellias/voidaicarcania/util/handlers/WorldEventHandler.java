@@ -1,12 +1,15 @@
 package com.camellias.voidaicarcania.util.handlers;
 
+import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.world.dimension.voidic.TeleporterVoid;
 
 import baubles.api.BaublesApi;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -14,6 +17,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -55,25 +59,29 @@ public class WorldEventHandler
             if(player.posX > 0 && player.posZ > 0)
             {
             	playerList.transferPlayerToDimension(player, -64, 
-            			new TeleporterVoid((WorldServer) player.getEntityWorld(), player.posX + 1000, 250, player.posZ + 1000));
+            			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
+            					player.posX + 1250, 250, player.posZ + 1250));
             }
             
             if(player.posX < 0 && player.posZ < 0)
             {
             	playerList.transferPlayerToDimension(player, -64, 
-            			new TeleporterVoid((WorldServer) player.getEntityWorld(), player.posX - 1000, 250, player.posZ - 1000));
+            			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
+            					player.posX - 1250, 250, player.posZ - 1250));
             }
             
             if(player.posX < 0 && player.posZ > 0)
             {
             	playerList.transferPlayerToDimension(player, -64, 
-            			new TeleporterVoid((WorldServer) player.getEntityWorld(), player.posX - 1000, 250, player.posZ + 1000));
+            			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
+            					player.posX - 1250, 250, player.posZ + 1250));
             }
             
             if(player.posX > 0 && player.posZ < 0)
             {
             	playerList.transferPlayerToDimension(player, -64, 
-            			new TeleporterVoid((WorldServer) player.getEntityWorld(), player.posX + 1000, 250, player.posZ - 1000));
+            			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
+            					player.posX + 1250, 250, player.posZ - 1250));
             }
         }
         
@@ -85,7 +93,8 @@ public class WorldEventHandler
         	
         	event.setCanceled(true);
         	playerList.transferPlayerToDimension(player, -1, 
-        			new TeleporterVoid((WorldServer) player.getEntityWorld(), player.getPosition().getX(), 250, player.getPosition().getZ()));
+        			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
+        					player.getPosition().getX(), 250, player.getPosition().getZ()));
         }
         
         if(event.getEntityLiving() instanceof EntityPlayer)
@@ -324,7 +333,7 @@ public class WorldEventHandler
 			{
 				if (player.isAirBorne)
 		        {
-					if(player.motionY < 0.0D && player.posY <= 160)
+					if(player.motionY <= 0.0D)
 					{
 			            player.motionY *= 0.9D;
 			            
@@ -332,11 +341,6 @@ public class WorldEventHandler
 			            {
 			            	player.motionY *= 1.05D;
 			            }
-					}
-					
-					if(player.motionY < 0.0D && player.posY > 160)
-					{
-						player.motionY *= 0.95D;
 					}
 					
 					player.jumpMovementFactor *= 1.3F;

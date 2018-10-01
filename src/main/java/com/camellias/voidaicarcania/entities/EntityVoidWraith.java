@@ -54,7 +54,8 @@ public class EntityVoidWraith extends EntityMob
 		this.moveHelper = new EntityVoidWraith.AIMoveControl(this);
 		this.isImmuneToFire = false;
 		
-		this.setSize(1.5F, 1.5F);
+		this.setSize(1.5F, 0.75F);
+		this.getPositionEyes(0.35F);
 	}
 	
 	@Override
@@ -74,7 +75,7 @@ public class EntityVoidWraith extends EntityMob
 	public void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(5.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5F);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50.0D);
@@ -97,12 +98,10 @@ public class EntityVoidWraith extends EntityMob
 	@Override
 	public void onUpdate()
     {
-		this.noClip = true;
         super.onUpdate();
-        this.noClip = false;
         this.setNoGravity(true);
         
-        if(this.ticksExisted == 20 * 90)
+        if(this.ticksExisted == 20 * 30)
         {
         	this.despawnEntity();
         }
