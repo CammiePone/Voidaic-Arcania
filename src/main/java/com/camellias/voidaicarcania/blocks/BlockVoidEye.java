@@ -63,7 +63,7 @@ public class BlockVoidEye extends Block implements IHasModel
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
 	{
-		tooltip.add("\u00A78It whispers to you to place it in a temple...");
+		tooltip.add("\u00A78It whispers for you to place it in a temple...");
 	}
 	
 	@Override
