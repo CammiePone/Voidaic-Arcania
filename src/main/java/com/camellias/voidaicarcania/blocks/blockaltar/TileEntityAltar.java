@@ -50,7 +50,7 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 	public int getCookTime(ItemStack input1, ItemStack input2) 
 	{
 		//Transmutation Orb Recipes
-		if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
+		/*if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
 				new ItemStack(Items.COAL)).isEmpty())
 		{
 			return ConfigHandler.COAL_TRANS_ORB;
@@ -209,9 +209,9 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 				new ItemStack(ModItems.CRYSTAL)).isEmpty())
 		{
 			return ConfigHandler.DWARF_BRICK;
-		}
+		}*/
 		
-		return 0;
+		return 200;
 	}
 	
 	public static int getItemBurnTime(ItemStack fuel) 
