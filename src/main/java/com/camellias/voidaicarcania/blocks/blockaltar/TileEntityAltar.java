@@ -49,170 +49,164 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 	
 	public int getCookTime(ItemStack input1, ItemStack input2) 
 	{
-		if(input1.isItemEqual(new ItemStack(Items.AIR)) && input2.isItemEqual(new ItemStack(Items.AIR)))
-		{
-			return 0;
-		}
-		
-		
 		//Transmutation Orb Recipes
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.COAL)) != null)
+		if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
+				new ItemStack(Items.COAL)).isEmpty())
 		{
 			return ConfigHandler.COAL_TRANS_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB),
-				new ItemStack(Items.IRON_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB),
+				new ItemStack(Items.IRON_INGOT)).isEmpty())
 		{
 			return ConfigHandler.IRON_TRANS_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.ENDER_PEARL)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
+				new ItemStack(Items.ENDER_PEARL)).isEmpty())
 		{
 			return ConfigHandler.PEARL_TRANS_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.REDSTONE)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
+				new ItemStack(Items.REDSTONE)).isEmpty())
 		{
 			return ConfigHandler.REDSTONE_TRANS_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.DYE, 1, 4)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
+				new ItemStack(Items.DYE, 1, 4)).isEmpty())
 		{
 			return ConfigHandler.LAPIS_TRANS_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.GLOWSTONE_DUST)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
+				new ItemStack(Items.GLOWSTONE_DUST)).isEmpty())
 		{
 			return ConfigHandler.GLOWSTONE_TRANS_ORB;
 		}
 		
 		
 		//Void Orb Recipes
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.COAL)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
+				new ItemStack(Items.COAL)).isEmpty())
 		{
 			return ConfigHandler.COAL_VOID_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.IRON_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
+				new ItemStack(Items.IRON_INGOT)).isEmpty())
 		{
 			return ConfigHandler.IRON_VOID_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.ENDER_PEARL)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
+				new ItemStack(Items.ENDER_PEARL)).isEmpty())
 		{
 			return ConfigHandler.PEARL_VOID_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.REDSTONE)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
+				new ItemStack(Items.REDSTONE)).isEmpty())
 		{
 			return ConfigHandler.REDSTONE_VOID_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.DYE, 1, 4)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
+				new ItemStack(Items.DYE, 1, 4)).isEmpty())
 		{
 			return ConfigHandler.LAPIS_VOID_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.GLOWSTONE_DUST)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
+				new ItemStack(Items.GLOWSTONE_DUST)).isEmpty())
 		{
 			return ConfigHandler.GLOWSTONE_VOID_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.GOLD_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
+				new ItemStack(Items.GOLD_INGOT)).isEmpty())
 		{
 			return ConfigHandler.GOLD_VOID_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.DIAMOND)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
+				new ItemStack(Items.DIAMOND)).isEmpty())
 		{
 			return ConfigHandler.DIAMOND_VOID_ORB;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.EMERALD)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
+				new ItemStack(Items.EMERALD)).isEmpty())
 		{
 			return ConfigHandler.EMERALD_VOID_ORB;
 		}
 		
 		
 		//Misc Recipes
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.DRAGON_BREATH), 
-				new ItemStack(Items.ENDER_PEARL)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.DRAGON_BREATH), 
+				new ItemStack(Items.ENDER_PEARL)).isEmpty())
 		{
 			return ConfigHandler.VOID_BOTTLE;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.GLASS_BOTTLE), 
-				new ItemStack(Items.END_CRYSTAL)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.GLASS_BOTTLE), 
+				new ItemStack(Items.END_CRYSTAL)).isEmpty())
 		{
 			return ConfigHandler.VOID_BOTTLE;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.IRON_NUGGET), 
-				new ItemStack(Items.BRICK)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.IRON_NUGGET), 
+				new ItemStack(Items.BRICK)).isEmpty())
 		{
 			return ConfigHandler.DWARF_BRICK;
 		}
 		
 		
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_STAR), 
-				new ItemStack(Items.GOLD_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_STAR), 
+				new ItemStack(Items.GOLD_INGOT)).isEmpty())
 		{
 			return ConfigHandler.SHIELD_AMULET;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.LEATHER), 
-				new ItemStack(Items.GOLD_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.LEATHER), 
+				new ItemStack(Items.GOLD_INGOT)).isEmpty())
 		{
 			return ConfigHandler.STRENGTH_BELT;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
-				new ItemStack(Items.GOLD_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
+				new ItemStack(Items.GOLD_INGOT)).isEmpty())
 		{
 			return ConfigHandler.FLIGHT_CLOAK;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.NETHER_STAR), 
-				new ItemStack(Items.GOLD_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.NETHER_STAR), 
+				new ItemStack(Items.GOLD_INGOT)).isEmpty())
 		{
 			return ConfigHandler.LUCK_CHARM;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_STAR), 
-				new ItemStack(Items.IRON_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_STAR), 
+				new ItemStack(Items.IRON_INGOT)).isEmpty())
 		{
 			return ConfigHandler.INVERSE_AMULET;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.LEATHER), 
-				new ItemStack(Items.IRON_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.LEATHER), 
+				new ItemStack(Items.IRON_INGOT)).isEmpty())
 		{
 			return ConfigHandler.RESISTANCE_BELT;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
-				new ItemStack(Items.IRON_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
+				new ItemStack(Items.IRON_INGOT)).isEmpty())
 		{
 			return ConfigHandler.INVIS_CLOAK;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.NETHER_STAR), 
-				new ItemStack(Items.IRON_INGOT)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.NETHER_STAR), 
+				new ItemStack(Items.IRON_INGOT)).isEmpty())
 		{
 			return ConfigHandler.VOID_CHARM;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
-				new ItemStack(Items.STRING)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
+				new ItemStack(Items.STRING)).isEmpty())
 		{
 			return ConfigHandler.FEAST_COWL;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
-				new ItemStack(Items.BONE)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
+				new ItemStack(Items.BONE)).isEmpty())
 		{
 			return ConfigHandler.FEAST_COWL;
 		}
 		
 		
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.IRON_INGOT), 
-				new ItemStack(ModItems.CRYSTAL)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.IRON_INGOT), 
+				new ItemStack(ModItems.CRYSTAL)).isEmpty())
 		{
 			return ConfigHandler.DWARF_BRICK;
 		}
-		else if(AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.GOLD_INGOT), 
-				new ItemStack(ModItems.CRYSTAL)) != null)
+		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.GOLD_INGOT), 
+				new ItemStack(ModItems.CRYSTAL)).isEmpty())
 		{
 			return ConfigHandler.DWARF_BRICK;
 		}
