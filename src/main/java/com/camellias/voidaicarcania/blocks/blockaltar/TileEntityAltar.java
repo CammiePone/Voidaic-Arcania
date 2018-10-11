@@ -70,7 +70,7 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 		{
 			return 50;
 		}
-		if(recipe == new ItemStack(Items.DYE, 1, 4))
+		if(result == new ItemStack(Items.DYE, 1, 4).getItem())
 		{
 			return 75;
 		}
