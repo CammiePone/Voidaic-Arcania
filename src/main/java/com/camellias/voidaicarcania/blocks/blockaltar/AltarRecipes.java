@@ -23,30 +23,59 @@ public class AltarRecipes
 	
 	private AltarRecipes() 
 	{
-		//Transmutation Orb Recipes
+		//Transmutation Orb Recipes (Resources)
 		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.COAL), new ItemStack(Items.COAL));
 		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_INGOT));
-		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.ENDER_PEARL), new ItemStack(Items.ENDER_PEARL));
 		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.REDSTONE), new ItemStack(Items.REDSTONE));
 		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.DYE, 1, 4), new ItemStack(Items.DYE, 1, 4));
 		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.GLOWSTONE_DUST), new ItemStack(Items.GLOWSTONE_DUST));
+		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.GOLD_INGOT), new ItemStack(Items.GOLD_INGOT));
 		
-		//Void Orb Recipes
+		
+		//Transmutation Orb Recipes (Drops)
+		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.ROTTEN_FLESH), new ItemStack(Items.ROTTEN_FLESH));
+		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.BONE), new ItemStack(Items.BONE));
+		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.SPIDER_EYE), new ItemStack(Items.SPIDER_EYE));
+		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.LEATHER), new ItemStack(Items.LEATHER));
+		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.FEATHER), new ItemStack(Items.FEATHER));
+		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.ENDER_PEARL), new ItemStack(Items.ENDER_PEARL));
+		
+		
+		
+		//Void Orb Recipes (Resources)
 		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.COAL), new ItemStack(Items.COAL));
 		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.IRON_INGOT));
-		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.ENDER_PEARL), new ItemStack(Items.ENDER_PEARL));
 		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.REDSTONE), new ItemStack(Items.REDSTONE));
 		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.DYE, 1, 4), new ItemStack(Items.DYE, 1, 4));
 		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.GLOWSTONE_DUST), new ItemStack(Items.GLOWSTONE_DUST));
 		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.GOLD_INGOT), new ItemStack(Items.GOLD_INGOT));
+		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.CRYSTAL));
+		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(ModItems.ENARGITE), new ItemStack(ModItems.ENARGITE));
 		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.DIAMOND), new ItemStack(Items.DIAMOND));
 		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.EMERALD), new ItemStack(Items.EMERALD));
+		
+		
+		//Void Orb Recipes (Drops)
+		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.ROTTEN_FLESH), new ItemStack(Items.ROTTEN_FLESH));
+		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.BONE), new ItemStack(Items.BONE));
+		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.SPIDER_EYE), new ItemStack(Items.SPIDER_EYE));
+		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.LEATHER), new ItemStack(Items.LEATHER));
+		addAltarRecipe(new ItemStack(ModItems.TRANS_ORB), new ItemStack(Items.FEATHER), new ItemStack(Items.FEATHER));
+		addAltarRecipe(new ItemStack(ModItems.VOID_ORB), new ItemStack(Items.ENDER_PEARL), new ItemStack(Items.ENDER_PEARL));
+		
+		
 		
 		//Misc Recipes
 		addAltarRecipe(new ItemStack(Items.DRAGON_BREATH), new ItemStack(Items.ENDER_PEARL), new ItemStack(ModItems.VOID_BOTTLE));
 		addAltarRecipe(new ItemStack(Items.GLASS_BOTTLE), new ItemStack(Items.END_CRYSTAL), new ItemStack(Items.DRAGON_BREATH));
 		addAltarRecipe(new ItemStack(Items.BRICK), new ItemStack(Items.IRON_NUGGET), new ItemStack(ModItems.DWARF_BRICK));
+		addAltarRecipe(new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
+		addAltarRecipe(new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
+		addAltarRecipe(new ItemStack(ModItems.MERCURY), new ItemStack(ModItems.MOON_MINT), new ItemStack(ModItems.LUNA_ORB));
 		
+		
+		
+		//Bauble Recipes
 		addAltarRecipe(new ItemStack(ModItems.VOID_STAR), new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.SHIELD_AMULET));
 		addAltarRecipe( new ItemStack(ModItems.VOID_STAR), new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.INVERSE_AMULET));
 		
@@ -61,15 +90,12 @@ public class AltarRecipes
 		
 		addAltarRecipe(new ItemStack(Items.NETHER_STAR), new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.VOID_CHARM));
 		addAltarRecipe(new ItemStack(Items.NETHER_STAR), new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.LUCK_CHARM));
-		addAltarRecipe(new ItemStack(Items.IRON_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
-		addAltarRecipe(new ItemStack(Items.GOLD_INGOT), new ItemStack(ModItems.CRYSTAL), new ItemStack(ModItems.INFUSED_INGOT));
-		addAltarRecipe(new ItemStack(ModItems.MERCURY), new ItemStack(ModItems.MOON_MINT), new ItemStack(ModItems.LUNA_ORB));
 	}
 
 	
 	public void addAltarRecipe(ItemStack input1, ItemStack input2, ItemStack result) 
 	{
-		if(getAltarResult(input1, input2) != ItemStack.EMPTY) return;
+		if(!getAltarResult(input1, input2).isEmpty()) return;
 		this.smeltingList.put(input1, input2, result);
 	}
 	

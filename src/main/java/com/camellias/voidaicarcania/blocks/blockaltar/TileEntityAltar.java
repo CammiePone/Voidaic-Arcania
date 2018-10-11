@@ -49,169 +49,156 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 	
 	public int getCookTime(ItemStack input1, ItemStack input2) 
 	{
-		//Transmutation Orb Recipes
-		/*if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.COAL)).isEmpty())
+		ItemStack recipe = AltarRecipes.getInstance().getAltarResult(input1, input2);
+		Item result = recipe.getItem();
+		
+		
+		//Resources
+		if(result == Items.COAL)
 		{
-			return ConfigHandler.COAL_TRANS_ORB;
+			return 25;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB),
-				new ItemStack(Items.IRON_INGOT)).isEmpty())
+		if(result == Items.IRON_INGOT)
 		{
-			return ConfigHandler.IRON_TRANS_ORB;
+			return 50;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.ENDER_PEARL)).isEmpty())
+		if(result == Items.REDSTONE)
 		{
-			return ConfigHandler.PEARL_TRANS_ORB;
+			return 50;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.REDSTONE)).isEmpty())
+		if(result == Items.GLOWSTONE_DUST)
 		{
-			return ConfigHandler.REDSTONE_TRANS_ORB;
+			return 50;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.DYE, 1, 4)).isEmpty())
+		if(recipe == new ItemStack(Items.DYE, 1, 4))
 		{
-			return ConfigHandler.LAPIS_TRANS_ORB;
+			return 75;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.TRANS_ORB), 
-				new ItemStack(Items.GLOWSTONE_DUST)).isEmpty())
+		if(result == Items.GOLD_INGOT)
 		{
-			return ConfigHandler.GLOWSTONE_TRANS_ORB;
+			return 100;
+		}
+		if(result == ModItems.ENARGITE)
+		{
+			return 150;
+		}
+		if(result == ModItems.CRYSTAL)
+		{
+			return 200;
+		}
+		if(result == Items.DIAMOND)
+		{
+			return 200;
+		}
+		if(result == Items.EMERALD)
+		{
+			return 400;
 		}
 		
 		
-		//Void Orb Recipes
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.COAL)).isEmpty())
+		//Drops
+		if(result == Items.ROTTEN_FLESH)
 		{
-			return ConfigHandler.COAL_VOID_ORB;
+			return 25;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.IRON_INGOT)).isEmpty())
+		if(result == Items.BONE)
 		{
-			return ConfigHandler.IRON_VOID_ORB;
+			return 25;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.ENDER_PEARL)).isEmpty())
+		if(result == Items.SPIDER_EYE)
 		{
-			return ConfigHandler.PEARL_VOID_ORB;
+			return 25;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.REDSTONE)).isEmpty())
+		if(result == Items.LEATHER)
 		{
-			return ConfigHandler.REDSTONE_VOID_ORB;
+			return 25;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.DYE, 1, 4)).isEmpty())
+		if(result == Items.FEATHER)
 		{
-			return ConfigHandler.LAPIS_VOID_ORB;
+			return 25;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.GLOWSTONE_DUST)).isEmpty())
+		if(result == Items.ENDER_PEARL)
 		{
-			return ConfigHandler.GLOWSTONE_VOID_ORB;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.GOLD_INGOT)).isEmpty())
-		{
-			return ConfigHandler.GOLD_VOID_ORB;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.DIAMOND)).isEmpty())
-		{
-			return ConfigHandler.DIAMOND_VOID_ORB;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_ORB), 
-				new ItemStack(Items.EMERALD)).isEmpty())
-		{
-			return ConfigHandler.EMERALD_VOID_ORB;
+			return 75;
 		}
 		
 		
-		//Misc Recipes
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.DRAGON_BREATH), 
-				new ItemStack(Items.ENDER_PEARL)).isEmpty())
+		//Misc
+		if(result == Items.DRAGON_BREATH)
 		{
-			return ConfigHandler.VOID_BOTTLE;
+			return 400;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.GLASS_BOTTLE), 
-				new ItemStack(Items.END_CRYSTAL)).isEmpty())
+		if(result == ModItems.VOID_BOTTLE)
 		{
-			return ConfigHandler.VOID_BOTTLE;
+			return 400;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.IRON_NUGGET), 
-				new ItemStack(Items.BRICK)).isEmpty())
+		if(result == ModItems.DWARF_BRICK)
 		{
-			return ConfigHandler.DWARF_BRICK;
+			return 25;
 		}
-		
-		
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_STAR), 
-				new ItemStack(Items.GOLD_INGOT)).isEmpty())
+		if(result == ModItems.INFUSED_INGOT)
 		{
-			return ConfigHandler.SHIELD_AMULET;
+			return 100;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.LEATHER), 
-				new ItemStack(Items.GOLD_INGOT)).isEmpty())
+		if(result == ModItems.LUNA_ORB)
 		{
-			return ConfigHandler.STRENGTH_BELT;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
-				new ItemStack(Items.GOLD_INGOT)).isEmpty())
-		{
-			return ConfigHandler.FLIGHT_CLOAK;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.NETHER_STAR), 
-				new ItemStack(Items.GOLD_INGOT)).isEmpty())
-		{
-			return ConfigHandler.LUCK_CHARM;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(ModItems.VOID_STAR), 
-				new ItemStack(Items.IRON_INGOT)).isEmpty())
-		{
-			return ConfigHandler.INVERSE_AMULET;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.LEATHER), 
-				new ItemStack(Items.IRON_INGOT)).isEmpty())
-		{
-			return ConfigHandler.RESISTANCE_BELT;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
-				new ItemStack(Items.IRON_INGOT)).isEmpty())
-		{
-			return ConfigHandler.INVIS_CLOAK;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.NETHER_STAR), 
-				new ItemStack(Items.IRON_INGOT)).isEmpty())
-		{
-			return ConfigHandler.VOID_CHARM;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
-				new ItemStack(Items.STRING)).isEmpty())
-		{
-			return ConfigHandler.FEAST_COWL;
-		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Blocks.WOOL), 
-				new ItemStack(Items.BONE)).isEmpty())
-		{
-			return ConfigHandler.FEAST_COWL;
+			return 400;
 		}
 		
 		
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.IRON_INGOT), 
-				new ItemStack(ModItems.CRYSTAL)).isEmpty())
+		//Baubles
+		if(result == ModItems.SHIELD_AMULET)
 		{
-			return ConfigHandler.DWARF_BRICK;
+			return 1000;
 		}
-		else if(!AltarRecipes.getInstance().getAltarResult(new ItemStack(Items.GOLD_INGOT), 
-				new ItemStack(ModItems.CRYSTAL)).isEmpty())
+		if(result == ModItems.INVERSE_AMULET)
 		{
-			return ConfigHandler.DWARF_BRICK;
-		}*/
+			return 1000;
+		}
+		if(result == ModItems.SHIELD_AMULET)
+		{
+			return 1000;
+		}
+		if(result == ModItems.STRENGTH_BELT)
+		{
+			return 1000;
+		}
+		if(result == ModItems.RESISTANCE_BELT)
+		{
+			return 1000;
+		}
+		if(result == ModItems.FEAST_COWL)
+		{
+			return 1000;
+		}
+		if(result == ModItems.REAPER_COWL)
+		{
+			return 1000;
+		}
+		if(result == ModItems.FLIGHT_CLOAK)
+		{
+			return 1000;
+		}
+		if(result == ModItems.INVISIBILITY_CLOAK)
+		{
+			return 1000;
+		}
+		if(result == ModItems.VOID_CHARM)
+		{
+			return 1000;
+		}
+		if(result == ModItems.LUCK_CHARM)
+		{
+			return 1000;
+		}
 		
-		return 200;
+		
+		if(recipe.isEmpty())
+		{
+			return 0;
+		}
+		
+		return 0;
 	}
 	
 	public static int getItemBurnTime(ItemStack fuel) 
@@ -377,6 +364,7 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 		return inventory.getField(0) > 0;
 	}
 	
+	@Override
 	public void update() 
 	{
 		boolean flag = this.isBurning();
@@ -548,6 +536,12 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 			}
 			
 			else if(input1.isItemEqual(new ItemStack(ModItems.CRYSTAL)) && input2.isItemEqual(new ItemStack(Items.GOLD_INGOT)))
+			{
+				input1.shrink(1);
+				input2.shrink(1);
+			}
+			
+			else if(input1.isItemEqual(new ItemStack(ModItems.MOON_MINT)) && input2.isItemEqual(new ItemStack(ModItems.MERCURY)))
 			{
 				input1.shrink(1);
 				input2.shrink(1);
