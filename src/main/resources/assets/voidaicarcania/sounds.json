@@ -2,5 +2,11 @@
 	"voiddim.entry":
 	{
 	   "sounds": [{"name": "voidaicarcania:voiddim/entry", "subtitle": "the.void.ost", "stream": true}]
-	}
+	},
+	
+	"voiddim.ambient":
+    {
+       "sounds": [{"name": "voidaicarcania:voiddim/remnants", "subtitle": "the.void.ost", "stream": true}]
+    }
+	
 }

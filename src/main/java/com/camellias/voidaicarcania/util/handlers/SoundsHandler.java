@@ -14,10 +14,12 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 public class SoundsHandler
 {
 	public static SoundEvent VOID_THEME;
+	public static SoundEvent VOID_REMNANTS;
 	
 	public static void registerSounds()
 	{
 		VOID_THEME = registerSound("voiddim.entry");
+		VOID_REMNANTS = registerSound("voiddim.ambient");
 	}
 	
 	private static SoundEvent registerSound(String name)
