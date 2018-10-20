@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.FoodStats;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -38,10 +39,16 @@ public class ItemFeastCowlActive extends ItemFeastCowl
 		if(player instanceof EntityPlayer)
 		{
 			EntityPlayer player1 = (EntityPlayer) player;
+			FoodStats food = player1.getFoodStats();
 		
-			if(player1.ticksExisted % 39 == 0)
+			if(player1.ticksExisted % 100 == 0)
 			{
-				player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 40, 1, true, false));
+				food.setFoodLevel(food.getFoodLevel() + 20);
+				
+				if(food.getSaturationLevel() == 0)
+				{
+					food.setFoodSaturationLevel(food.getSaturationLevel() + 10);
+				}
 			}
 		}
 	}
