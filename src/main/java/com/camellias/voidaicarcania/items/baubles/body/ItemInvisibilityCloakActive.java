@@ -1,10 +1,15 @@
 package com.camellias.voidaicarcania.items.baubles.body;
 
 import java.util.List;
+import java.util.UUID;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -13,6 +18,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemInvisibilityCloakActive extends ItemInvisibilityCloak
 {
+	UUID uuid = UUID.fromString("ffeebe81-9f4f-4566-bd36-f13fa7835483");
+	
 	public ItemInvisibilityCloakActive(String name)
 	{
 		super(name);
@@ -39,16 +46,27 @@ public class ItemInvisibilityCloakActive extends ItemInvisibilityCloak
 		player1.setInvisible(true);
 	}
 	
-	/*@Override
+	@Override
 	public void onEquipped(ItemStack itemstack, EntityLivingBase player)
 	{
-		player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(player.getMaxHealth() - 2);
+		if(!player.world.isRemote)
+		{
+			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
+			
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			player.getAttributeMap().applyAttributeModifiers(attributes);
+		}
 	}
 	
 	@Override
 	public void onUnequipped(ItemStack itemstack, EntityLivingBase player)
 	{
-		player.setInvisible(false);
-		player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(player.getMaxHealth() + 2);
-	}*/
+		if(!player.world.isRemote)
+		{
+			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
+			
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			player.getAttributeMap().removeAttributeModifiers(attributes);
+		}
+	}
 }

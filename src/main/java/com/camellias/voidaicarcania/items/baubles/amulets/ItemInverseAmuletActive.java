@@ -1,9 +1,15 @@
 package com.camellias.voidaicarcania.items.baubles.amulets;
 
 import java.util.List;
+import java.util.UUID;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -14,6 +20,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemInverseAmuletActive extends ItemInverseAmulet
 {
+	UUID uuid = UUID.fromString("1faca919-e09a-4f86-9dc8-366a4d6c7147");
+	
 	public ItemInverseAmuletActive(String name)
 	{
 		super(name);
@@ -91,6 +99,30 @@ public class ItemInverseAmuletActive extends ItemInverseAmulet
 			{
 				player.removePotionEffect(MobEffects.NAUSEA);
 			}
+		}
+	}
+	
+	@Override
+	public void onEquipped(ItemStack itemstack, EntityLivingBase player)
+	{
+		if(!player.world.isRemote)
+		{
+			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
+			
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Inverse Amulet", -2, 0));
+			player.getAttributeMap().applyAttributeModifiers(attributes);
+		}
+	}
+	
+	@Override
+	public void onUnequipped(ItemStack itemstack, EntityLivingBase player)
+	{
+		if(!player.world.isRemote)
+		{
+			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
+			
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Inverse Amulet", -2, 0));
+			player.getAttributeMap().removeAttributeModifiers(attributes);
 		}
 	}
 }
