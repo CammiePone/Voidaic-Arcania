@@ -13,13 +13,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemShieldAmuletActive extends ItemShieldAmulet
 {
-	int shieldRegen = 5 * 20;
+	//int shieldRegen = 5 * 20;
 
 	public ItemShieldAmuletActive(String name)
 	{
 		super(name);
 		
-		this.setMaxDamage(3);
+		//this.setMaxDamage(3);
 	}
 	
 	@Override
@@ -29,7 +29,7 @@ public class ItemShieldAmuletActive extends ItemShieldAmulet
 		tooltip.add("\u00A7aActivated");
 	}
 	
-	@Override
+	/*@Override
 	public void onUpdate(ItemStack itemstack, World world, Entity entity, int itemSlot, boolean isSelected)
 	{
 		if(entity instanceof EntityPlayer)
@@ -55,7 +55,7 @@ public class ItemShieldAmuletActive extends ItemShieldAmulet
 				itemstack.setItemDamage(itemstack.getItemDamage() - 1);
 			}
 		}
-	}
+	}*/
 	
 	@Override
 	public boolean hasEffect(ItemStack stack) 
@@ -75,8 +75,8 @@ public class ItemShieldAmuletActive extends ItemShieldAmulet
 		player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(player.getMaxHealth() + 2);
 	}*/
 	
-	public static boolean isUsable(ItemStack stack)
+	/*public static boolean isUsable(ItemStack stack)
     {
         return stack.getItemDamage() < stack.getMaxDamage() - 1;
-    }
+    }*/
 }

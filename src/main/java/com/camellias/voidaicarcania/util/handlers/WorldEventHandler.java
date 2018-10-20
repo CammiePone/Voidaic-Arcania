@@ -103,7 +103,7 @@ public class WorldEventHandler
 			
 			if(BaublesApi.isBaubleEquipped(player, ModItems.A_SHIELD_AMULET) > -1)
 			{
-				ItemStack stack = BaublesApi.getBaublesHandler(player).getStackInSlot(0);
+				/*ItemStack stack = BaublesApi.getBaublesHandler(player).getStackInSlot(0);
 				
 				if(ModItems.A_SHIELD_AMULET.getDamage(stack) < 3)
 				{
@@ -115,6 +115,11 @@ public class WorldEventHandler
 				if(ModItems.A_SHIELD_AMULET.getDamage(stack) == 3)
 				{
 					
+				}*/
+				
+				if(event.getAmount() > 7F)
+				{
+					event.setAmount(7F);
 				}
 			}
 		}
