@@ -2,8 +2,10 @@ package com.camellias.voidaicarcania.entities;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -84,6 +86,7 @@ public class EntityVoidEye extends EntityMob
 			double d2 = (double)this.getPosition().getZ() + 0.5D;
 			
 			world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+			world.playSound(null, this.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.MASTER, 20F, 1F);
 		}
 	}
 	
