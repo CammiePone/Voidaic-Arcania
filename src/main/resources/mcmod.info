@@ -11,6 +11,8 @@
   "credits": "",
   "logoFile": "/logo/voidaicarcania.png",
   "screenshots": [],
-  "dependencies": []
+  "requiredMods": ["baubles", "forge"],
+  "dependencies": ["baubles", "forge"],
+  "useDependencyInformation": true
 }
 ]

@@ -10,6 +10,7 @@ import com.camellias.voidaicarcania.tabs.VoidicMetallurgyTab;
 import com.camellias.voidaicarcania.tabs.VoidicTab;
 import com.camellias.voidaicarcania.util.handlers.RegistryHandler;
 
+import baubles.common.Baubles;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -21,7 +22,12 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTEDVERSIONS)
+@Mod(
+	modid = Reference.MODID, 
+	name = Reference.NAME, 
+	version = Reference.VERSION, 
+	acceptedMinecraftVersions = Reference.ACCEPTEDVERSIONS, 
+	dependencies = "required-after:forge@[14.23.4.2759,];" + "required-after:baubles@[1.5.2,];")
 public class Main 
 {
 	public static File config;
