@@ -117,9 +117,9 @@ public class WorldEventHandler
 					
 				}*/
 				
-				if(event.getAmount() > 7F)
+				if(event.getAmount() > 14F)
 				{
-					event.setAmount(7F);
+					event.setAmount(14F);
 				}
 			}
 		}
