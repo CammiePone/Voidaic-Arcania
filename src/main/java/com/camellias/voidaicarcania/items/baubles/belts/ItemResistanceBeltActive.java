@@ -35,10 +35,10 @@ public class ItemResistanceBeltActive extends ItemResistanceBelt
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player)
 	{
-		/*if(itemstack.getItemDamage() == 0 && player.ticksExisted % 39 == 0) 
+		if(itemstack.getItemDamage() == 0 && player.ticksExisted % 39 == 0) 
 		{
 			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 40, 1, true, false));
-		}*/
+		}
 	}
 	
 	/*@Override
