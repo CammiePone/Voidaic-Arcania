@@ -117,9 +117,19 @@ public class WorldEventHandler
 					
 				}*/
 				
-				if(event.getAmount() > 14F)
+				if(BaublesApi.isBaubleEquipped(player, ModItems.A_RESISTANCE_BELT) > -1)
 				{
-					event.setAmount(14F);
+					if(event.getAmount() > 19F)
+					{
+						event.setAmount(19F);
+					}
+				}
+				else
+				{
+					if(event.getAmount() > 14F)
+					{
+						event.setAmount(14F);
+					}
 				}
 			}
 		}
