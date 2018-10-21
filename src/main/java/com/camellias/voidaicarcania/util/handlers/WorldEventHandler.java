@@ -304,60 +304,38 @@ public class WorldEventHandler
 	@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent event)
 	{
-		EntityPlayer player = event.player;
-		
-		EntityEquipmentSlot head = EntityEquipmentSlot.HEAD;
-		EntityEquipmentSlot body = EntityEquipmentSlot.CHEST;
-		EntityEquipmentSlot legs = EntityEquipmentSlot.LEGS;
-		EntityEquipmentSlot feet = EntityEquipmentSlot.FEET;
-		
-		if(player.getItemStackFromSlot(head).getItem() == ModItems.ASTRALITE_HELM
-				&& player.getItemStackFromSlot(body).getItem() == ModItems.ASTRALITE_CHEST
-				&& player.getItemStackFromSlot(legs).getItem() == ModItems.ASTRALITE_LEGS
-				&& player.getItemStackFromSlot(feet).getItem() == ModItems.ASTRALITE_BOOTS)
+		if(!event.player.world.isRemote)
 		{
-			if(!player.isElytraFlying() && !player.capabilities.isFlying)
-			{
-				if (player.isAirBorne)
-				{
-					if(player.motionY < 0.0D)
-					{
-						player.motionY *= 0.9D;
-					}
-					
-					player.jumpMovementFactor *= 1.3F;
-				}
-			}
-				
-			if(player.fallDistance != 0.0F)
-			{
-				player.fallDistance = 0.0F;
-			}
-		}
-		
-		if(player.dimension == -64)
-		{
-			if(!player.isElytraFlying() && !player.capabilities.isFlying)
-			{
-				if (player.isAirBorne)
-		        {
-					if(player.motionY <= 0.0D)
-					{
-			            player.motionY *= 0.9D;
-			            
-			            if(player.isSneaking())
-			            {
-			            	player.motionY *= 1.05D;
-			            }
-					}
-					
-					player.jumpMovementFactor *= 1.3F;
-		        }
-			}
+			EntityPlayer player = event.player;
 			
-			if(player.fallDistance != 0.0F)
+			EntityEquipmentSlot head = EntityEquipmentSlot.HEAD;
+			EntityEquipmentSlot body = EntityEquipmentSlot.CHEST;
+			EntityEquipmentSlot legs = EntityEquipmentSlot.LEGS;
+			EntityEquipmentSlot feet = EntityEquipmentSlot.FEET;
+			
+			if((player.getItemStackFromSlot(head).getItem() == ModItems.ASTRALITE_HELM
+					&& player.getItemStackFromSlot(body).getItem() == ModItems.ASTRALITE_CHEST
+					&& player.getItemStackFromSlot(legs).getItem() == ModItems.ASTRALITE_LEGS
+					&& player.getItemStackFromSlot(feet).getItem() == ModItems.ASTRALITE_BOOTS) 
+					|| player.dimension == -64)
 			{
-				player.fallDistance = 0.0F;
+				if(!player.isElytraFlying() && !player.capabilities.isFlying)
+				{
+					if(player.isAirBorne)
+					{
+						if(player.motionY < 0.0D)
+						{
+							player.motionY *= 0.9D;
+						}
+						
+						player.jumpMovementFactor *= 1.3F;
+					}
+				}
+					
+				if(player.fallDistance != 0.0F)
+				{
+					player.fallDistance = 0.0F;
+				}
 			}
 		}
 	}
