@@ -198,7 +198,10 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 			return 0;
 		}
 		
-		return 0;
+		else
+		{
+			return 300;
+		}
 	}
 	
 	public static int getItemBurnTime(ItemStack fuel) 
@@ -376,7 +379,7 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 		{
 			ItemStack stack = (ItemStack)this.inventory.get(2);
 			
-			if(this.isBurning() || !stack.isEmpty() && !((((ItemStack)this.inventory.get(0)).isEmpty()) || ((ItemStack)this.inventory.get(1)).isEmpty())) 
+			if(this.isBurning() || !stack.isEmpty() && !AltarRecipes.getInstance().getAltarResult((ItemStack)this.inventory.get(0), (ItemStack)this.inventory.get(1)).isEmpty()) 
 			{
 				if(!this.isBurning() && this.canSmelt()) 
 				{
@@ -429,7 +432,7 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 	
 	private boolean canSmelt() 
 	{
-		if(((ItemStack)this.inventory.get(0)).isEmpty() || ((ItemStack)this.inventory.get(1)).isEmpty()) return false;
+		if(AltarRecipes.getInstance().getAltarResult((ItemStack)this.inventory.get(0), (ItemStack)this.inventory.get(1)).isEmpty()) return false;
 		else 
 		{
 			ItemStack result = AltarRecipes.getInstance().getAltarResult((ItemStack)this.inventory.get(0), (ItemStack)this.inventory.get(1));	
