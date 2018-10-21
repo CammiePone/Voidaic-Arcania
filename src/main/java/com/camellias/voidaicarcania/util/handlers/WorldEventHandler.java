@@ -19,9 +19,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
@@ -41,7 +43,8 @@ public class WorldEventHandler
 	@SubscribeEvent
 	public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
 	{
-		event.player.sendMessage(new TextComponentString("\u00A75\u00A7l[Voidaic Arcania:] \u00A7r\u00A7dThis mod is still in BETA. Additional gameplay information can be found in the wiki here: \u00A7ohttps://github.com/CammiePone/Voidaic-Arcania/wiki"));
+		event.player.sendMessage(new TextComponentString("\u00A75\u00A7l[Voidaic Arcania:] \u00A7dThis mod is still in BETA. Additional gameplay information can be found in the wiki here:"));
+		event.player.sendMessage(ForgeHooks.newChatWithLinks("https://github.com/CammiePone/Voidaic-Arcania/wiki"));
 	}
 	
 	
@@ -117,19 +120,9 @@ public class WorldEventHandler
 					
 				}*/
 				
-				if(BaublesApi.isBaubleEquipped(player, ModItems.A_RESISTANCE_BELT) > -1)
+				if(event.getAmount() > 14F)
 				{
-					if(event.getAmount() > 19F)
-					{
-						event.setAmount(19F);
-					}
-				}
-				else
-				{
-					if(event.getAmount() > 14F)
-					{
-						event.setAmount(14F);
-					}
+					event.setAmount(14F);
 				}
 			}
 		}
