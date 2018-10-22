@@ -1,25 +1,26 @@
 package com.camellias.voidaicarcania.entities;
 
-import java.util.UUID;
-
 import javax.annotation.Nullable;
 
 import com.camellias.voidaicarcania.util.handlers.LootTableHandler;
+import com.google.common.base.Function;
+import com.google.common.base.Predicate;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.AbstractHorse;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -29,13 +30,9 @@ import net.minecraft.world.World;
 
 public class EntityVoidDaemon extends EntityMob
 {
-	private int angerLevel;
-	private UUID angerTargetUUID;
-	
 	public EntityVoidDaemon(World world)
 	{
 		super(world);
-		this.isImmuneToFire = true;
 		this.experienceValue = 5;
 	}
 	
@@ -53,79 +50,21 @@ public class EntityVoidDaemon extends EntityMob
 	@Override
 	public void initEntityAI()
     {
-        this.targetTasks.addTask(0, new EntityVoidDaemon.AIHurtByAggressor(this));
-        this.targetTasks.addTask(1, new EntityVoidDaemon.AITargetAggressor(this));
+		this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
+		this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, false, new Class[0]));
     }
 	
 	@Override
 	protected void updateAITasks()
 	{
 		super.updateAITasks();
-		
-		if (this.isAngry())
-        {
-            --this.angerLevel;
-        }
-		
-		if (this.angerLevel > 0 && this.angerTargetUUID != null && this.getRevengeTarget() == null)
-        {
-            EntityPlayer entityplayer = this.world.getPlayerEntityByUUID(this.angerTargetUUID);
-            this.setRevengeTarget(entityplayer);
-            this.attackingPlayer = entityplayer;
-            this.recentlyHit = this.getRevengeTimer();
-        }
 	}
 	
 	@Override
 	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
     {
         super.setEquipmentBasedOnDifficulty(difficulty);
-
-        if(this.world.getDifficulty() == EnumDifficulty.NORMAL || this.world.getDifficulty() == EnumDifficulty.HARD)
-        {
-        	this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
-        }
-    }
-	
-	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount)
-    {
-        if (this.isEntityInvulnerable(source))
-        {
-            return false;
-        }
-        else
-        {
-            Entity entity = source.getTrueSource();
-
-            if (entity instanceof EntityPlayer)
-            {
-                this.becomeAngryAt(entity);
-            }
-
-            return super.attackEntityFrom(source, amount);
-        }
-    }
-	
-	@Override
-	public void setRevengeTarget(@Nullable EntityLivingBase livingBase)
-    {
-        super.setRevengeTarget(livingBase);
-
-        if (livingBase != null)
-        {
-            this.angerTargetUUID = livingBase.getUniqueID();
-        }
-    }
-	
-	private void becomeAngryAt(Entity entity)
-    {
-        this.angerLevel = 400 + this.rand.nextInt(400);
-
-        if (entity instanceof EntityLivingBase)
-        {
-            this.setRevengeTarget((EntityLivingBase)entity);
-        }
+        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
     }
 	
 	@Override
@@ -152,78 +91,61 @@ public class EntityVoidDaemon extends EntityMob
         return SoundEvents.ENTITY_GENERIC_HURT;
     }
 	
-	public boolean isAngry()
+	@Override
+	public void onLivingUpdate()
     {
-        return this.angerLevel > 0;
+        super.onLivingUpdate();
+
+        if (!this.world.isRemote && this.getAttackTarget() == null && this.isAngry())
+        {
+            this.setAngry(false);
+        }
     }
 	
 	@Override
-	public void writeEntityToNBT(NBTTagCompound compound)
+	public void setAttackTarget(@Nullable EntityLivingBase entitylivingbase)
     {
-        super.writeEntityToNBT(compound);
-        compound.setShort("Anger", (short)this.angerLevel);
-
-        if (this.angerTargetUUID != null)
+        super.setAttackTarget(entitylivingbase);
+        
+        this.setAngry(true);
+    }
+	
+	public boolean shouldAttackEntity(EntityLivingBase target, EntityLivingBase owner)
+    {
+        if (!(target instanceof EntityCreeper) && !(target instanceof EntityGhast))
         {
-            compound.setString("HurtBy", this.angerTargetUUID.toString());
+            if (target instanceof EntityWolf)
+            {
+                EntityWolf entitywolf = (EntityWolf)target;
+
+                if (entitywolf.isTamed() && entitywolf.getOwner() == owner)
+                {
+                    return false;
+                }
+            }
+
+            if (target instanceof EntityPlayer && owner instanceof EntityPlayer && !((EntityPlayer)owner).canAttackPlayer((EntityPlayer)target))
+            {
+                return false;
+            }
+            else
+            {
+                return !(target instanceof AbstractHorse) || !((AbstractHorse)target).isTame();
+            }
         }
         else
         {
-            compound.setString("HurtBy", "");
-        }
-    }
-
-	@Override
-    public void readEntityFromNBT(NBTTagCompound compound)
-    {
-        super.readEntityFromNBT(compound);
-        this.angerLevel = compound.getShort("Anger");
-        String s = compound.getString("HurtBy");
-
-        if (!s.isEmpty())
-        {
-            this.angerTargetUUID = UUID.fromString(s);
-            EntityPlayer entityplayer = this.world.getPlayerEntityByUUID(this.angerTargetUUID);
-            this.setRevengeTarget(entityplayer);
-
-            if (entityplayer != null)
-            {
-                this.attackingPlayer = entityplayer;
-                this.recentlyHit = this.getRevengeTimer();
-            }
-        }
-    }
-    
-    
-	
-	static class AIHurtByAggressor extends EntityAIHurtByTarget
-    {
-        public AIHurtByAggressor(EntityVoidDaemon daemon)
-        {
-            super(daemon, true);
-        }
-        
-        protected void setEntityAttackTarget(EntityCreature creatureIn, EntityLivingBase entityLivingBaseIn)
-        {
-            super.setEntityAttackTarget(creatureIn, entityLivingBaseIn);
-
-            if(creatureIn instanceof EntityVoidDaemon)
-            {
-                ((EntityVoidDaemon)creatureIn).becomeAngryAt(entityLivingBaseIn);
-            }
+            return false;
         }
     }
 	
-	static class AITargetAggressor extends EntityAINearestAttackableTarget<EntityPlayer>
+	public boolean isAngry()
     {
-        public AITargetAggressor(EntityVoidDaemon daemon)
-        {
-            super(daemon, EntityPlayer.class, true);
-        }
+        return false;
+    }
+	
+	public void setAngry(boolean angry)
+    {
         
-        public boolean shouldExecute()
-        {
-            return ((EntityVoidDaemon)this.taskOwner).isAngry() && super.shouldExecute();
-        }
     }
 }

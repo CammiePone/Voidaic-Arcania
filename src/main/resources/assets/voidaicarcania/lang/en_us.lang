@@ -244,6 +244,7 @@ entity.void_wraith.name=Void Wraith
 entity.void_construct.name=Voidic Construct
 entity.heart_boss.name=Heart of The Void
 entity.heart_passive.name=Heart of The Void
+entity.void_daemon.name=Void Daemon
 
 
 

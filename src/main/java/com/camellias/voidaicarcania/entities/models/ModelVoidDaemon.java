@@ -1,12 +1,13 @@
 package com.camellias.voidaicarcania.entities.models;
 
-import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelVoidDaemon extends ModelBiped
+public class ModelVoidDaemon extends ModelBase
 {
+	public ModelRenderer bipedHead;
     public ModelRenderer RightHornBottom;
     public ModelRenderer LeftHornBottom;
     public ModelRenderer RightHornTop1;
@@ -14,6 +15,7 @@ public class ModelVoidDaemon extends ModelBiped
     public ModelRenderer LeftHornTop1;
     public ModelRenderer LeftHornTop2;
     
+    public ModelRenderer bipedBody;
     public ModelRenderer BackCrystalBase1;
     public ModelRenderer BackCrystalBase2;
     public ModelRenderer BackCrystal1;
@@ -21,15 +23,20 @@ public class ModelVoidDaemon extends ModelBiped
     public ModelRenderer BackCrystal3;
     public ModelRenderer BackCrystal4;
     
+    public ModelRenderer bipedRightArm;
     public ModelRenderer RightArmCrystalBottom;
     public ModelRenderer RightArmCrystal3;
     public ModelRenderer RightArmCrystalTop1;
     public ModelRenderer RightArmCrystalTop2;
     
+    public ModelRenderer bipedLeftArm;
     public ModelRenderer LeftArmCrystalBottom;
     public ModelRenderer LeftArmCrystal3;
     public ModelRenderer LeftArmCrystalTop;
     public ModelRenderer LeftArmCrystalTop2;
+    
+    public ModelRenderer bipedRightLeg;
+    public ModelRenderer bipedLeftLeg;
     
     public ModelVoidDaemon()
     {

@@ -17,6 +17,7 @@ public class RenderVoidDaemon extends RenderLiving<EntityVoidDaemon>
 	public RenderVoidDaemon(RenderManager manager) 
 	{
 		super(manager, new ModelVoidDaemon(), 0.5F);
+		this.addLayer(new LayerHeldItem(this));
 	}
 	
 	@Override
