@@ -43,7 +43,7 @@ import net.minecraft.world.World;
 
 public class EntityVoidWraith extends EntityMob
 {
-	protected static final DataParameter<Byte> WRAITH_FLAGS = EntityDataManager.<Byte>createKey(EntityVex.class, DataSerializers.BYTE);
+	protected static final DataParameter<Byte> WRAITH_FLAGS = EntityDataManager.<Byte>createKey(EntityVoidWraith.class, DataSerializers.BYTE);
 	
  	@Nullable
  	private BlockPos boundOrigin;

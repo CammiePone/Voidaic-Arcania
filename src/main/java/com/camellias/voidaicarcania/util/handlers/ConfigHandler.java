@@ -21,6 +21,7 @@ public class ConfigHandler
 	public static int ENTITY_HEART_BOSS = 130;
 	public static int ENTITY_HEART_PASSIVE = 131;
 	public static int ENTITY_VOID_EYE = 132;
+	public static int ENTITY_VOID_DAEMON = 133;
 	
 	public static boolean spawnVoidBiomeOverworld;
 	

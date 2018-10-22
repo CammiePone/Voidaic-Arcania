@@ -1,0 +1,21 @@
+{
+    "pools": [
+        {
+        	"name": "DaemonMain",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "weight": 50,
+                    "name": "voidaicarcania:void_crystal",
+                    "conditions": [
+                        {
+                            "condition": "random_chance",
+                            "chance": 0.5
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

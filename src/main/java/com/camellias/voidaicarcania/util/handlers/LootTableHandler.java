@@ -9,4 +9,5 @@ public class LootTableHandler
 {
 	public static final ResourceLocation WRAITH = LootTableList.register(new ResourceLocation(Reference.MODID, "void_wraith"));
 	public static final ResourceLocation HEART = LootTableList.register(new ResourceLocation(Reference.MODID, "void_heart"));
+	public static final ResourceLocation DAEMON = LootTableList.register(new ResourceLocation(Reference.MODID, "void_daemon"));
 }
