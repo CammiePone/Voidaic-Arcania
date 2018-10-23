@@ -301,7 +301,7 @@ public class WorldEventHandler
 		}
 	}
 	
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent event)
 	{
 		if(!event.player.world.isRemote)
@@ -338,5 +338,5 @@ public class WorldEventHandler
 				}
 			}
 		}
-	}
+	}*/
 }
