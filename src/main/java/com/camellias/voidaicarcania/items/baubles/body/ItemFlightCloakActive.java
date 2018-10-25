@@ -57,7 +57,7 @@ public class ItemFlightCloakActive extends ItemFlightCloak
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Flight Cloak", -2, 0));
 			player.getAttributeMap().applyAttributeModifiers(attributes);
 		}
 	}
@@ -80,7 +80,7 @@ public class ItemFlightCloakActive extends ItemFlightCloak
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Flight Cloak", -2, 0));
 			player.getAttributeMap().removeAttributeModifiers(attributes);
 		}
 		

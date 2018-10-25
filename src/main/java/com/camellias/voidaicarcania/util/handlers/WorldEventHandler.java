@@ -104,6 +104,9 @@ public class WorldEventHandler
 		{
 			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 			
+			
+			
+			//Amulet of Shielding
 			if(BaublesApi.isBaubleEquipped(player, ModItems.A_SHIELD_AMULET) > -1)
 			{
 				/*ItemStack stack = BaublesApi.getBaublesHandler(player).getStackInSlot(0);
@@ -125,6 +128,14 @@ public class WorldEventHandler
 					event.setAmount(14F);
 				}
 			}
+			
+			
+			
+			//Belt of Resistance
+			if(BaublesApi.isBaubleEquipped(player, ModItems.A_RESISTANCE_BELT) > -1)
+			{
+				event.setAmount(event.getAmount() / 2);
+			}
 		}
     }
 	
@@ -133,6 +144,9 @@ public class WorldEventHandler
 	{
 		EntityPlayer player = event.getEntityPlayer();
 		
+		
+		
+		//Cowl of The Reaper
 		if(BaublesApi.isBaubleEquipped(player, ModItems.A_REAPER_COWL) > -1)
 		{
 			if(player.getHealth() < player.getMaxHealth())
@@ -141,6 +155,9 @@ public class WorldEventHandler
 			}
 		}
 		
+		
+		
+		//Charm of Explosive Blows
 		if(BaublesApi.isBaubleEquipped(player, ModItems.A_VOID_CHARM) > -1)
 		{
 			if(!player.world.isRemote)
@@ -149,6 +166,9 @@ public class WorldEventHandler
 			}
 		}
 		
+		
+		
+		//Charm of Removal
 		if(BaublesApi.isBaubleEquipped(player, ModItems.A_LUCK_CHARM) > -1)
 		{
 			if(event.getTarget() instanceof EntityLivingBase)
@@ -165,15 +185,35 @@ public class WorldEventHandler
 						ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 						ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 						
-						target.entityDropItem(head, 1);
-						target.entityDropItem(body, 1);
-						target.entityDropItem(legs, 1);
-						target.entityDropItem(feet, 1);
-							
-						target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
-						target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
+						if(!head.isEmpty())
+						{
+							if(!body.isEmpty())
+							{
+								if(!legs.isEmpty())
+								{
+									if(!feet.isEmpty())
+									{
+										target.entityDropItem(feet, 1);
+										target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
+									}
+									else
+									{
+										target.entityDropItem(legs, 1);
+										target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+									}
+								}
+								else
+								{
+									target.entityDropItem(body, 1);
+									target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
+								}
+							}
+							else
+							{
+								target.entityDropItem(head, 1);
+								target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
+							}
+						}
 					}
 				}
 			}

@@ -40,22 +40,14 @@ public class ItemStrengthBeltActive extends ItemStrengthBelt
 	}
 	
 	@Override
-	public void onWornTick(ItemStack itemstack, EntityLivingBase player)
-	{
-		if(itemstack.getItemDamage() == 0 && player.ticksExisted % 39 == 0) 
-		{
-			player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 40, 1, true, false));
-		}
-	}
-	
-	@Override
 	public void onEquipped(ItemStack itemstack, EntityLivingBase player)
 	{
 		if(!player.world.isRemote)
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Strength Health", -2, 0));
+			attributes.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Strength Belt", 10, 0));
 			player.getAttributeMap().applyAttributeModifiers(attributes);
 		}
 	}
@@ -67,7 +59,8 @@ public class ItemStrengthBeltActive extends ItemStrengthBelt
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Strength Health", -2, 0));
+			attributes.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Strength Belt", 10, 0));
 			player.getAttributeMap().removeAttributeModifiers(attributes);
 		}
 	}

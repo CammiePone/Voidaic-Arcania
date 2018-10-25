@@ -51,7 +51,7 @@ public class ItemFeastCowlActive extends ItemFeastCowl
 		
 			if(player1.ticksExisted % 100 == 0)
 			{
-				food.setFoodLevel(food.getFoodLevel() + 20);
+				food.setFoodLevel(20);
 				
 				if(food.getSaturationLevel() == 0)
 				{
@@ -68,7 +68,7 @@ public class ItemFeastCowlActive extends ItemFeastCowl
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Feast Cowl", -2, 0));
 			player.getAttributeMap().applyAttributeModifiers(attributes);
 		}
 	}
@@ -80,7 +80,7 @@ public class ItemFeastCowlActive extends ItemFeastCowl
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Feast Cowl", -2, 0));
 			player.getAttributeMap().removeAttributeModifiers(attributes);
 		}
 	}

@@ -49,7 +49,7 @@ public class ItemLuckCharmActive extends ItemLuckCharm
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Removal Charm", -2, 0));
 			player.getAttributeMap().applyAttributeModifiers(attributes);
 		}
 	}
@@ -61,7 +61,7 @@ public class ItemLuckCharmActive extends ItemLuckCharm
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Removal Charm", -2, 0));
 			player.getAttributeMap().removeAttributeModifiers(attributes);
 		}
 	}

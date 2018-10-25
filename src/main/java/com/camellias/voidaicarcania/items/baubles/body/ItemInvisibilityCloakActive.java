@@ -53,7 +53,7 @@ public class ItemInvisibilityCloakActive extends ItemInvisibilityCloak
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Invis Cloak", -2, 0));
 			player.getAttributeMap().applyAttributeModifiers(attributes);
 		}
 	}
@@ -65,7 +65,7 @@ public class ItemInvisibilityCloakActive extends ItemInvisibilityCloak
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Invis Cloak", -2, 0));
 			player.getAttributeMap().removeAttributeModifiers(attributes);
 		}
 	}

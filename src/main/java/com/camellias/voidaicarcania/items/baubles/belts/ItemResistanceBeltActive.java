@@ -40,22 +40,13 @@ public class ItemResistanceBeltActive extends ItemResistanceBelt
 	}
 	
 	@Override
-	public void onWornTick(ItemStack itemstack, EntityLivingBase player)
-	{
-		if(itemstack.getItemDamage() == 0 && player.ticksExisted % 39 == 0) 
-		{
-			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 40, 1, true, false));
-		}
-	}
-	
-	@Override
 	public void onEquipped(ItemStack itemstack, EntityLivingBase player)
 	{
 		if(!player.world.isRemote)
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Resistance Health", -2, 0));
 			player.getAttributeMap().applyAttributeModifiers(attributes);
 		}
 	}
@@ -67,7 +58,7 @@ public class ItemResistanceBeltActive extends ItemResistanceBelt
 		{
 			Multimap<String, AttributeModifier> attributes = HashMultimap.create();
 			
-			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Shield Amulet", -2, 0));
+			attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Resistance Health", -2, 0));
 			player.getAttributeMap().removeAttributeModifiers(attributes);
 		}
 	}
