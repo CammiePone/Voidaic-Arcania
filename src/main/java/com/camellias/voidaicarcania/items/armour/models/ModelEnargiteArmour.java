@@ -4,13 +4,11 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.inventory.EntityEquipmentSlot;
 
 public class ModelEnargiteArmour extends ModelBiped
 {
-	public static ModelEnargiteArmour INSTANCE_HEAD = new ModelEnargiteArmour(true, false, false, false);
-	public static ModelEnargiteArmour INSTANCE_CHEST = new ModelEnargiteArmour(false, true, false, false);
-	public static ModelEnargiteArmour INSTANCE_LEGS = new ModelEnargiteArmour(false, false, true, false);
-	public static ModelEnargiteArmour INSTANCE_BOOTS = new ModelEnargiteArmour(false, false, false, true);
+	public final EntityEquipmentSlot slot;
 	
     public ModelRenderer HelmetFrontTop;
     public ModelRenderer HelmetFrontRight;
@@ -43,8 +41,10 @@ public class ModelEnargiteArmour extends ModelBiped
     private ModelRenderer LeftLegGuard;
     private ModelRenderer LeftFoot;
 
-    public ModelEnargiteArmour(boolean isHelm, boolean isChest, boolean isLegs, boolean isBoots)
+    public ModelEnargiteArmour(EntityEquipmentSlot slot)
     {
+    	this.slot = slot;
+    	
         textureWidth = 128;
         textureHeight = 128;
         
@@ -156,53 +156,59 @@ public class ModelEnargiteArmour extends ModelBiped
         
         
         
-        if(isHelm)
-        {
-        	bipedHead.addChild(HelmetFrontLeft);
-	        bipedHead.addChild(HelmetRight1);
-	        bipedHead.addChild(HelmetFrontRight);
-	        bipedHead.addChild(HelmetTop);
-	        bipedHead.addChild(HelmetLeft1);
-	        bipedHead.addChild(HelmetFrontTop);
-	        bipedHead.addChild(HelmetBack);
-	        bipedHead.addChild(HelmetLeft2);
-	        bipedHead.addChild(HeadFrontMask2);
-	        bipedHead.addChild(HelmetRight2);
-	        bipedHead.addChild(HeadFrontMask1);
-        }
+        bipedHead.addChild(HelmetFrontLeft);
+        bipedHead.addChild(HelmetRight1);
+        bipedHead.addChild(HelmetFrontRight);
+        bipedHead.addChild(HelmetTop);
+        bipedHead.addChild(HelmetLeft1);
+        bipedHead.addChild(HelmetFrontTop);
+        bipedHead.addChild(HelmetBack);
+        bipedHead.addChild(HelmetLeft2);
+        bipedHead.addChild(HeadFrontMask2);
+        bipedHead.addChild(HelmetRight2);
+        bipedHead.addChild(HeadFrontMask1);
         
-        if(isChest)
-        {
-        	bipedBody.addChild(ChestPlate);
-	        bipedBody.addChild(ChestChain);
-	        
-	        bipedRightArm.addChild(RightChainSleeve);
-	        bipedRightArm.addChild(RightSpaulder);
-	        bipedRightArm.addChild(RightSpike2);
-	        bipedRightArm.addChild(RightSpike1);
-	        
-	        bipedLeftArm.addChild(LeftSpike2);
-	        bipedLeftArm.addChild(LeftSpaulder);
-	        bipedLeftArm.addChild(LeftChainSleeve);
-	        bipedLeftArm.addChild(LeftSpike1);
-        }
+        bipedBody.addChild(ChestPlate);
+        bipedBody.addChild(ChestChain);
         
-        if(isLegs)
-        {
-	        bipedRightLeg.addChild(RightLegGuard);
-	        bipedLeftLeg.addChild(LeftLegGuard);
-        }
+        bipedRightArm.addChild(RightChainSleeve);
+        bipedRightArm.addChild(RightSpaulder);
+        bipedRightArm.addChild(RightSpike2);
+        bipedRightArm.addChild(RightSpike1);
         
-        if(isBoots)
-        {
-	        bipedRightLeg.addChild(RightFoot);
-	        bipedLeftLeg.addChild(LeftFoot);
-        }
+        bipedLeftArm.addChild(LeftSpike2);
+        bipedLeftArm.addChild(LeftSpaulder);
+        bipedLeftArm.addChild(LeftChainSleeve);
+        bipedLeftArm.addChild(LeftSpike1);
+        
+        bipedRightLeg.addChild(RightLegGuard);
+        bipedLeftLeg.addChild(LeftLegGuard);
+        
+        bipedRightLeg.addChild(RightFoot);
+        bipedLeftLeg.addChild(LeftFoot);
     }
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
+    	this.bipedHead.showModel = slot == EntityEquipmentSlot.HEAD;
+		this.bipedHeadwear.showModel = slot == EntityEquipmentSlot.HEAD;
+		
+		this.bipedBody.showModel = slot == EntityEquipmentSlot.CHEST;
+		this.bipedRightArm.showModel = slot == EntityEquipmentSlot.CHEST;
+		this.bipedLeftArm.showModel = slot == EntityEquipmentSlot.CHEST;
+		
+		if(slot == EntityEquipmentSlot.LEGS)
+		{
+			this.bipedRightLeg.showModel = slot == EntityEquipmentSlot.LEGS;
+			this.bipedLeftLeg.showModel = slot == EntityEquipmentSlot.LEGS;
+		}
+		else
+		{
+			this.bipedRightLeg.showModel = slot == EntityEquipmentSlot.FEET;
+			this.bipedLeftLeg.showModel = slot == EntityEquipmentSlot.FEET;
+		}
+    	
     	super.render(entity, f, f1, f2, f3, f4, f5);
     }
     
