@@ -1,25 +1,19 @@
 package com.camellias.voidaicarcania.util.handlers;
 
-import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.world.dimension.voidic.TeleporterVoid;
 
 import baubles.api.BaublesApi;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
@@ -32,7 +26,6 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -171,9 +164,9 @@ public class WorldEventHandler
 		//Charm of Removal
 		if(BaublesApi.isBaubleEquipped(player, ModItems.A_LUCK_CHARM) > -1)
 		{
-			if(event.getTarget() instanceof EntityLivingBase)
+			if(event.getTarget() instanceof EntityLiving)
 			{
-				EntityLivingBase target = (EntityLivingBase) event.getTarget();
+				EntityLiving target = (EntityLiving) event.getTarget();
 				
 				if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
 				{
@@ -211,6 +204,53 @@ public class WorldEventHandler
 							else
 							{
 								target.entityDropItem(head, 1);
+								target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
+							}
+						}
+					}
+				}
+			}
+			
+			if(event.getTarget() instanceof EntityPlayer)
+			{
+				EntityPlayer target = (EntityPlayer) event.getTarget();
+				
+				if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
+				{
+					if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
+							target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
+					{
+						ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+						ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+						ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+						ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+						
+						if(!head.isEmpty())
+						{
+							if(!body.isEmpty())
+							{
+								if(!legs.isEmpty())
+								{
+									if(!feet.isEmpty())
+									{
+										target.inventory.addItemStackToInventory(feet);
+										target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
+									}
+									else
+									{
+										target.inventory.addItemStackToInventory(legs);
+										target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+									}
+								}
+								else
+								{
+									target.inventory.addItemStackToInventory(body);
+									target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
+								}
+							}
+							else
+							{
+								target.inventory.addItemStackToInventory(head);
 								target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
 							}
 						}
