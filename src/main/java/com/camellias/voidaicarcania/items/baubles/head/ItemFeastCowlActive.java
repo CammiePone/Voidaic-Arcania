@@ -1,7 +1,10 @@
 package com.camellias.voidaicarcania.items.baubles.head;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.UUID;
+
+import org.jline.utils.Log;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -11,9 +14,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.FoodStats;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
@@ -23,6 +24,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemFeastCowlActive extends ItemFeastCowl
 {
 	UUID uuid = UUID.fromString("4fbfb7c8-b92a-43d5-8e04-5855851ee77b");
+	
+	public static final Field saturationLevel = ReflectionHelper.findField(FoodStats.class, "field_75125_b", "foodSaturationLevel");
 	
 	public ItemFeastCowlActive(String name)
 	{
@@ -43,7 +46,6 @@ public class ItemFeastCowlActive extends ItemFeastCowl
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player)
 	{
 		if(player instanceof EntityPlayer)
@@ -57,7 +59,15 @@ public class ItemFeastCowlActive extends ItemFeastCowl
 				
 				if(food.getSaturationLevel() == 0)
 				{
-					food.setFoodSaturationLevel(10);
+					try
+					{
+						saturationLevel.set(food, 10);
+					}
+					catch(IllegalAccessException e)
+					{
+						Log.error("Reflection on Player Saturation Level Failed");
+						e.printStackTrace();
+					}
 				}
 			}
 		}
