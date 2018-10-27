@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.FoodStats;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -42,20 +43,21 @@ public class ItemFeastCowlActive extends ItemFeastCowl
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player)
 	{
 		if(player instanceof EntityPlayer)
 		{
 			EntityPlayer player1 = (EntityPlayer) player;
 			FoodStats food = player1.getFoodStats();
-		
+			
 			if(player1.ticksExisted % 100 == 0)
 			{
 				food.setFoodLevel(20);
 				
 				if(food.getSaturationLevel() == 0)
 				{
-					food.setFoodSaturationLevel(food.getSaturationLevel() + 10);
+					food.setFoodSaturationLevel(10);
 				}
 			}
 		}
