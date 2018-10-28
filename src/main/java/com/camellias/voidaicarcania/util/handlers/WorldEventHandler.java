@@ -168,43 +168,46 @@ public class WorldEventHandler
 			{
 				EntityLiving target = (EntityLiving) event.getTarget();
 				
-				if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
+				if(target.hurtResistantTime <= 1)
 				{
-					if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
-							target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
+					if((player.getHeldItemMainhand().isEmpty() && player.getHeldItemOffhand().isEmpty()) && !player.world.isRemote)
 					{
-						ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-						ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-						ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-						ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-						
-						if(!head.isEmpty())
+						if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
+								target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
 						{
-							if(!body.isEmpty())
+							ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+							ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+							ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+							ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+							
+							if(!head.isEmpty())
 							{
-								if(!legs.isEmpty())
+								if(!body.isEmpty())
 								{
-									if(!feet.isEmpty())
+									if(!legs.isEmpty())
 									{
-										target.entityDropItem(feet, 1);
-										target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
+										if(!feet.isEmpty())
+										{
+											target.entityDropItem(feet, 1);
+											target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
+										}
+										else
+										{
+											target.entityDropItem(legs, 1);
+											target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+										}
 									}
 									else
 									{
-										target.entityDropItem(legs, 1);
-										target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+										target.entityDropItem(body, 1);
+										target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
 									}
 								}
 								else
 								{
-									target.entityDropItem(body, 1);
-									target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
+									target.entityDropItem(head, 1);
+									target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
 								}
-							}
-							else
-							{
-								target.entityDropItem(head, 1);
-								target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
 							}
 						}
 					}
@@ -215,43 +218,46 @@ public class WorldEventHandler
 			{
 				EntityPlayer target = (EntityPlayer) event.getTarget();
 				
-				if(player.getHeldItemMainhand().isEmpty() && !player.world.isRemote)
+				if(target.hurtResistantTime <= 1)
 				{
-					if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
-							target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
+					if((player.getHeldItemMainhand().isEmpty() && player.getHeldItemOffhand().isEmpty()) && !player.world.isRemote)
 					{
-						ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-						ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-						ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-						ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-						
-						if(!head.isEmpty())
+						if(target.hasItemInSlot(EntityEquipmentSlot.HEAD) || target.hasItemInSlot(EntityEquipmentSlot.CHEST) ||
+								target.hasItemInSlot(EntityEquipmentSlot.LEGS) || target.hasItemInSlot(EntityEquipmentSlot.FEET))
 						{
-							if(!body.isEmpty())
+							ItemStack head = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+							ItemStack body = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+							ItemStack legs = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+							ItemStack feet = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+							
+							if(!head.isEmpty())
 							{
-								if(!legs.isEmpty())
+								if(!body.isEmpty())
 								{
-									if(!feet.isEmpty())
+									if(!legs.isEmpty())
 									{
-										target.inventory.addItemStackToInventory(feet);
-										target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
+										if(!feet.isEmpty())
+										{
+											target.entityDropItem(feet, 1);
+											target.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(Items.AIR));
+										}
+										else
+										{
+											target.entityDropItem(legs, 1);
+											target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+										}
 									}
 									else
 									{
-										target.inventory.addItemStackToInventory(legs);
-										target.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Items.AIR));
+										target.entityDropItem(body, 1);
+										target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
 									}
 								}
 								else
 								{
-									target.inventory.addItemStackToInventory(body);
-									target.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Items.AIR));
+									target.entityDropItem(head, 1);
+									target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
 								}
-							}
-							else
-							{
-								target.inventory.addItemStackToInventory(head);
-								target.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Items.AIR));
 							}
 						}
 					}
