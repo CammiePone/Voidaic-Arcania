@@ -202,6 +202,8 @@ tile.block_dwarf_stairs.name=Dwarven Brick Stairs
 tile.block_dark_brick.name=Dark Brick
 tile.block_dark_brick_chiseled.name=Carved Dark Brick
 
+tile.block_dark_marble.name=Dark Marble
+
 tile.block_whitewood.name=Whitewood Log
 tile.block_whitewood_leaves.name=Whitewood Leaves
 tile.block_whitewood_planks.name=Whitewood Planks
