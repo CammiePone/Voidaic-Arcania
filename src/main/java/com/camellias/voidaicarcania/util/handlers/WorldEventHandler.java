@@ -282,10 +282,10 @@ public class WorldEventHandler
 					server.getCommandManager().executeCommand(server, "/give " + player.getName() + 
 							" written_book 1 0 {title:\"Of Creation - Vol. III\", author:\"Artemis\", pages:["
 							+ " \"{text:\\\"To whom it may concern,                       I've sent you this book to aide you on a quest of mine. After you've grown, I will send you information as to my whereabouts. This quest is fully voluntary, and, if you wish, you may ignore my bidding. But, if you would like power... then please, read on.\\\"}\","
-							+ " \"{text:\\\"3rd New Moon, 1052 -     I've come across a peculiar item... it hails from an unknown origin, and houses odd properties. Transformative properties... I feel further testing will be necessary. The anomoly, at least from my testing, seems to be created by pressing\\\"}\","
-							+ " \"{text:\\\"Glowstone Dust on four sides with pure diamonds, until the diamonds shatter, combining with the Hell-ish lightsource.\\\"}\","
-							+ " \"{text:\\\"5th Waxing Crescent, 1052 -                       I've made an amazing discovery! These shards... when 8 or so are surrounding a cluster of pure diamonds, they create some kind of catalyst! I can feel the energy emenating from it... it's powerful... And that excites me greatly.\\\"}\","
-							+ " \"{text:\\\"...                                                The rest is missing...\\\"}\"]}");
+							+ " \"{text:\\\"3rd New Moon, 1052 -     I've come across a peculiar item... it hails from an unknown origin, and houses odd properties. Transformative properties... I feel further testing will be necessary. The anomaly, at least from my testing, seems to be created by combining\\\"}\","
+							+ " \"{text:\\\"Glowstone Dust with four pure diamonds, until the diamonds shatter, combining with the nethereal lightsource.\\\"}\","
+							+ " \"{text:\\\"5th Waxing Crescent, 1052 -                       I've made an amazing discovery! These shards... when 8 or so are surrounding a cluster of pure diamonds, they create some kind of catalyst! I can feel the energy emanating from it... it's powerful... And that excites me greatly.\\\"}\","
+							+ " \"{text:\\\"...                                                The rest is missing...\\\"}\"]}"); 
 				}
 				
 				if(event.getAdvancement() == player.getServer().getAdvancementManager().getAdvancement(new ResourceLocation
@@ -302,7 +302,7 @@ public class WorldEventHandler
 				{
 					server.getCommandManager().executeCommand(server, "/give " + player.getName() + 
 							" written_book 1 0 {title:\"Missing Notes 2\", author:\"Artemis\", pages:["
-							+ " \"{text:\\\"4th Quarter Moon, 1055 -                        Amazing! I can use the altar without the orb! I found that I can combine an ender pearl and breath of a dragon in the altar to create a highly volitile... gasious liquid! It seems pouring it on something breaks it down\\\"}\","
+							+ " \"{text:\\\"4th Quarter Moon, 1055 -                        Amazing! I can use the altar without the orb! I found that I can combine an ender pearl and breath of a dragon in the altar to create a highly volatile... gaseous liquid! It seems pouring it on something breaks it down\\\"}\","
 							+ " \"{text:\\\"to the molecular level, even bedrock! Tonight, I will descend below the bedrock, see what I can find. I'll make sure to bring the ingredients for a portal in case I get stuck. I should probably take my wings, as well. Who knows if there's even anything down there?\\\"}\"]}");
 				}
 				
@@ -332,10 +332,10 @@ public class WorldEventHandler
 					
 					server.getCommandManager().executeCommand(server, "/give " + player.getName() + 
 							" written_book 1 0 {title:\"Missing Notes 5\", author:\"Artemis\", pages:["
-							+ " \"{text:\\\"4th Quarter Moon, 1055 -                        This confounded place... I had thought it would be easier than this. I cannot fly back out the way I came, nor can I create a portal. It seems that its forcing me to stay, or... go further down? I'll have to try, but first, research!\\\"}\","
-							+ " \"{text:\\\"4th Waning Crescent,  1055 -                       These... wraiths. They're immensly powerful. One-on-one, they aren't too bad, but... the moment they group together... I don't think anyone could hope to beat them. They phase through everything, disappear, reappear... This place...\\\"}\","
-							+ " \"{text:\\\"5th New Moon, 1055 -     Today I go further down... this may be a mistake, but... hopefully I'm wrong.\\\"}\","
-							+ " \"{text:\\\"5th New Moon, 1055 -     It's... strange. I'm back in... the nether? It's hot, and I have that same sense of dread, but... I'm on bedrock? Is... is the void an intermediary between our world and this? Is... is this the top of the nether? At least I can make my portal home, now...\\\"}\"]}");
+							+ " \"{text:\\\"4th Quarter Moon, 1055 -                        This confounded place... I had thought it would be easier than this. I cannot fly back out the way I came, nor can I create a portal. It seems that it's forcing me to stay, or... go further down? I'll have to try, but first, research!\\\"}\","
+							+ " \"{text:\\\"4th Waning Crescent,  1055 -                       These... wraiths. They're immensely  powerful. One-on-one, they aren't too bad, but... the moment they group together... I don't think anyone could hope to beat them. They phase through everything, disappear, reappear... This place...\\\"}\","
+							+ " \"{text:\\\"5th New Moon, 1055 -     Today I go further down. This may be a mistake, but hopefully I'm wrong.\\\"}\","
+							+ " \"{text:\\\"5th New Moon, 1055 -     It's strange. I'm back in the nether? It's hot, and I have that same sense of dread, but I'm on bedrock. Is the void an intermediary between our world and this? Is this the top of the nether? At least I can make my portal home now...\\\"}\"]}");
 				}
 				
 				if(event.getAdvancement() == player.getServer().getAdvancementManager().getAdvancement(new ResourceLocation
@@ -344,7 +344,7 @@ public class WorldEventHandler
 					server.getCommandManager().executeCommand(server, "/give " + player.getName() + 
 							" written_book 1 0 {title:\"Missing Notes 6\", author:\"Artemis\", pages:["
 							+ " \"{text:\\\"5th Waxing Crescent, 1055 -                       In my time visiting the void, I came across two plants which I've never seen before... a weed, and a bloom. I did some extensive testing with them, and found that, in the presence of Wraith Wisp, I can alter them. I've recorded the\\\"}\","
-							+ " \"{text:\\\"recipes that I've discovered so far, on the following pages. They're all quite... interesting, and perhaps have more uses unbeknowst to me.\\\"}\","
+							+ " \"{text:\\\"recipes that I've discovered so far, on the following pages. They're all quite... interesting, and perhaps have more uses unbeknownst to me.\\\"}\","
 							+ " \"{text:\\\"Featherweed - Feather and Void Weed                     This weed is quite interesting. It's extremely light weight, and seems to have some uses in later herbology.\\\"}\","
 							+ " \"{text:\\\"Floatshroom - Mushroom and Shulker Bullet                    An interesting mushroom. I fed a tiny amount to a rabbit, and, surprisingly, it survived. It ended up... floating for a short while.\\\"}\","
 							+ " \"{text:\\\"Glowgrowth - Netherwart and Glowstone Dust        Glowgrowth is an interesting plant. Feeding it to the same rabbit, it began to emit a bright light. Maybe I can find some uses for this...\\\"}\","
