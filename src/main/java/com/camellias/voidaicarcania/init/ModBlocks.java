@@ -15,6 +15,7 @@ import com.camellias.voidaicarcania.blocks.BlockDarkBrickChiseled;
 import com.camellias.voidaicarcania.blocks.BlockDarkMarble;
 import com.camellias.voidaicarcania.blocks.BlockDemonMetal;
 import com.camellias.voidaicarcania.blocks.BlockDwarfBrick;
+import com.camellias.voidaicarcania.blocks.BlockDwarfLantern;
 import com.camellias.voidaicarcania.blocks.BlockDwarvenStairs;
 import com.camellias.voidaicarcania.blocks.BlockEnargiteMetal;
 import com.camellias.voidaicarcania.blocks.BlockFeatherweed;
@@ -81,6 +82,7 @@ public class ModBlocks
 	public static final Block BLOCK_DARK_BRICK = new BlockDarkBrick("block_dark_brick", Material.ROCK);
 	public static final Block BLOCK_DARK_BRICK_CHISELED = new BlockDarkBrickChiseled("block_dark_brick_chiseled", Material.ROCK);
 	public static final Block BLOCK_DARK_MARBLE = new BlockDarkMarble("block_dark_marble", Material.ROCK);
+	public static final Block BLOCK_DWARF_LANTERN = new BlockDwarfLantern("block_dwarf_lantern", Material.GLASS);
 	public static final Block BLOCK_IDFK = new BlockIdfk("block_idfk", Material.WOOD);
 	public static final Block BLOCK_WHITEWOOD = new BlockWhiteWood("block_whitewood", Material.WOOD);
 	public static final Block BLOCK_WHITEWOOD_PLANKS = new BlockWhiteWoodPlanks("block_whitewood_planks", Material.WOOD);

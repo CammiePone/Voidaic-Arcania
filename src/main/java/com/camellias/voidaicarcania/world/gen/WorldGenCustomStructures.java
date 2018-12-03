@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEnd;
+import net.minecraft.world.biome.BiomeHills;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -36,7 +37,9 @@ public class WorldGenCustomStructures implements IWorldGenerator
 				
 			case 0:
 				
-				//generateStructure2(new WorldGenStructure(""), world, rand, chunkX, chunkZ, 1000, Blocks.STONE, Biome.class);
+				generateStructure2(new WorldGenStructure("dwarftower"), world, rand, chunkX, chunkZ, 500, Blocks.STONE, BiomeHills.class);
+				generateStructure2(new WorldGenStructure("dwarflonghouse"), world, rand, chunkX, chunkZ, 850, Blocks.STONE, BiomeHills.class);
+				generateStructure2(new WorldGenStructure("dwarfhut"), world, rand, chunkX, chunkZ, 200, Blocks.STONE, BiomeHills.class);
 				
 				break;
 				

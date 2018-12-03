@@ -1,4 +1,4 @@
-item.item.name=Name
+﻿item.item.name=Name
 
 item.transmutation_shard.name=§aShard of Creation
 item.voidic_shard.name=§8Voidic Shard
@@ -198,6 +198,7 @@ tile.block_starbloom.name=Starbloom Crop
 
 tile.block_dwarf_brick.name=Dwarven Bricks
 tile.block_dwarf_stairs.name=Dwarven Brick Stairs
+tile.block_dwarf_lantern.name=Dwarven Lantern
 
 tile.block_dark_brick.name=Dark Brick
 tile.block_dark_brick_chiseled.name=Carved Dark Brick
