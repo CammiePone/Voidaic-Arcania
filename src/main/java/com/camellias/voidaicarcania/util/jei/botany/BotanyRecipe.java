@@ -2,7 +2,7 @@ package com.camellias.voidaicarcania.util.jei.botany;
 
 import java.util.List;
 
-import com.camellias.voidaicarcania.blocks.blockbotanyaltar.BotanyAltarRecipes;
+import com.camellias.voidaicarcania.common.blocks.machines.blockbotanyaltar.BotanyAltarRecipes;
 
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;

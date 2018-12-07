@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.MortalCentrifugeRecipes;
+import com.camellias.voidaicarcania.common.blocks.machines.blockmortalcentrifuge.MortalCentrifugeRecipes;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Table;
 

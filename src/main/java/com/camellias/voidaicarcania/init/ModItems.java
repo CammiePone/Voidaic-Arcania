@@ -4,70 +4,71 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.items.ItemAstralite;
-import com.camellias.voidaicarcania.items.ItemChorusTea;
-import com.camellias.voidaicarcania.items.ItemCinnabar;
-import com.camellias.voidaicarcania.items.ItemDarkCamellia;
-import com.camellias.voidaicarcania.items.ItemDemoniron;
-import com.camellias.voidaicarcania.items.ItemDwarfBrick;
-import com.camellias.voidaicarcania.items.ItemEnargite;
-import com.camellias.voidaicarcania.items.ItemFeatherweed;
-import com.camellias.voidaicarcania.items.ItemFloatshroom;
-import com.camellias.voidaicarcania.items.ItemGlowgrowth;
-import com.camellias.voidaicarcania.items.ItemInfusedIngot;
-import com.camellias.voidaicarcania.items.ItemLunaOrb;
-import com.camellias.voidaicarcania.items.ItemLunatite;
-import com.camellias.voidaicarcania.items.ItemMercury;
-import com.camellias.voidaicarcania.items.ItemMoonMint;
-import com.camellias.voidaicarcania.items.ItemMythril;
-import com.camellias.voidaicarcania.items.ItemNeddlesprout;
-import com.camellias.voidaicarcania.items.ItemNetherCore;
-import com.camellias.voidaicarcania.items.ItemObsidium;
-import com.camellias.voidaicarcania.items.ItemShulkerBullet;
-import com.camellias.voidaicarcania.items.ItemSortigellium;
-import com.camellias.voidaicarcania.items.ItemStarbloom;
-import com.camellias.voidaicarcania.items.ItemTransformRoot;
-import com.camellias.voidaicarcania.items.ItemTransmutationOrb;
-import com.camellias.voidaicarcania.items.ItemTransmutationShard;
-import com.camellias.voidaicarcania.items.ItemVoidBottle;
-import com.camellias.voidaicarcania.items.ItemVoidBulb;
-import com.camellias.voidaicarcania.items.ItemVoidCrystal;
-import com.camellias.voidaicarcania.items.ItemVoidMelonSeed;
-import com.camellias.voidaicarcania.items.ItemVoidStar;
-import com.camellias.voidaicarcania.items.ItemVoidheart;
-import com.camellias.voidaicarcania.items.ItemVoidicOrb;
-import com.camellias.voidaicarcania.items.ItemVoidicShard;
-import com.camellias.voidaicarcania.items.ItemWraithWisp;
-import com.camellias.voidaicarcania.items.armour.ArmourAstralite;
-import com.camellias.voidaicarcania.items.armour.ArmourEnargite;
-import com.camellias.voidaicarcania.items.armour.ArmourMythril;
-import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmulet;
-import com.camellias.voidaicarcania.items.baubles.amulets.ItemInverseAmuletActive;
-import com.camellias.voidaicarcania.items.baubles.amulets.ItemShieldAmulet;
-import com.camellias.voidaicarcania.items.baubles.amulets.ItemShieldAmuletActive;
-import com.camellias.voidaicarcania.items.baubles.belts.ItemResistanceBelt;
-import com.camellias.voidaicarcania.items.baubles.belts.ItemResistanceBeltActive;
-import com.camellias.voidaicarcania.items.baubles.belts.ItemStrengthBelt;
-import com.camellias.voidaicarcania.items.baubles.belts.ItemStrengthBeltActive;
-import com.camellias.voidaicarcania.items.baubles.body.ItemFlightCloak;
-import com.camellias.voidaicarcania.items.baubles.body.ItemFlightCloakActive;
-import com.camellias.voidaicarcania.items.baubles.body.ItemInvisibilityCloak;
-import com.camellias.voidaicarcania.items.baubles.body.ItemInvisibilityCloakActive;
-import com.camellias.voidaicarcania.items.baubles.charms.ItemLuckCharm;
-import com.camellias.voidaicarcania.items.baubles.charms.ItemLuckCharmActive;
-import com.camellias.voidaicarcania.items.baubles.charms.ItemVoidCharm;
-import com.camellias.voidaicarcania.items.baubles.charms.ItemVoidCharmActive;
-import com.camellias.voidaicarcania.items.baubles.head.ItemFeastCowl;
-import com.camellias.voidaicarcania.items.baubles.head.ItemFeastCowlActive;
-import com.camellias.voidaicarcania.items.baubles.head.ItemReaperCowl;
-import com.camellias.voidaicarcania.items.baubles.head.ItemReaperCowlActive;
-import com.camellias.voidaicarcania.items.tools.axe.AstraliteAxe;
-import com.camellias.voidaicarcania.items.tools.axe.AxeBase;
-import com.camellias.voidaicarcania.items.tools.hoe.HoeBase;
-import com.camellias.voidaicarcania.items.tools.pick.PickaxeBase;
-import com.camellias.voidaicarcania.items.tools.shovel.ShovelBase;
-import com.camellias.voidaicarcania.items.tools.sword.MythrilSword;
-import com.camellias.voidaicarcania.items.tools.sword.SwordBase;
+import com.camellias.voidaicarcania.common.items.ItemDwarfBrick;
+import com.camellias.voidaicarcania.common.items.ItemLunaOrb;
+import com.camellias.voidaicarcania.common.items.ItemSecretStick;
+import com.camellias.voidaicarcania.common.items.ItemShulkerBullet;
+import com.camellias.voidaicarcania.common.items.armour.ArmourAstralite;
+import com.camellias.voidaicarcania.common.items.armour.ArmourEnargite;
+import com.camellias.voidaicarcania.common.items.armour.ArmourMythril;
+import com.camellias.voidaicarcania.common.items.baubles.amulets.ItemInverseAmulet;
+import com.camellias.voidaicarcania.common.items.baubles.amulets.ItemInverseAmuletActive;
+import com.camellias.voidaicarcania.common.items.baubles.amulets.ItemShieldAmulet;
+import com.camellias.voidaicarcania.common.items.baubles.amulets.ItemShieldAmuletActive;
+import com.camellias.voidaicarcania.common.items.baubles.belts.ItemResistanceBelt;
+import com.camellias.voidaicarcania.common.items.baubles.belts.ItemResistanceBeltActive;
+import com.camellias.voidaicarcania.common.items.baubles.belts.ItemStrengthBelt;
+import com.camellias.voidaicarcania.common.items.baubles.belts.ItemStrengthBeltActive;
+import com.camellias.voidaicarcania.common.items.baubles.body.ItemFlightCloak;
+import com.camellias.voidaicarcania.common.items.baubles.body.ItemFlightCloakActive;
+import com.camellias.voidaicarcania.common.items.baubles.body.ItemInvisibilityCloak;
+import com.camellias.voidaicarcania.common.items.baubles.body.ItemInvisibilityCloakActive;
+import com.camellias.voidaicarcania.common.items.baubles.charms.ItemLuckCharm;
+import com.camellias.voidaicarcania.common.items.baubles.charms.ItemLuckCharmActive;
+import com.camellias.voidaicarcania.common.items.baubles.charms.ItemVoidCharm;
+import com.camellias.voidaicarcania.common.items.baubles.charms.ItemVoidCharmActive;
+import com.camellias.voidaicarcania.common.items.baubles.head.ItemFeastCowl;
+import com.camellias.voidaicarcania.common.items.baubles.head.ItemFeastCowlActive;
+import com.camellias.voidaicarcania.common.items.baubles.head.ItemReaperCowl;
+import com.camellias.voidaicarcania.common.items.baubles.head.ItemReaperCowlActive;
+import com.camellias.voidaicarcania.common.items.metals.ItemAstralite;
+import com.camellias.voidaicarcania.common.items.metals.ItemCinnabar;
+import com.camellias.voidaicarcania.common.items.metals.ItemDemoniron;
+import com.camellias.voidaicarcania.common.items.metals.ItemEnargite;
+import com.camellias.voidaicarcania.common.items.metals.ItemInfusedIngot;
+import com.camellias.voidaicarcania.common.items.metals.ItemLunatite;
+import com.camellias.voidaicarcania.common.items.metals.ItemMercury;
+import com.camellias.voidaicarcania.common.items.metals.ItemMythril;
+import com.camellias.voidaicarcania.common.items.metals.ItemNetherCore;
+import com.camellias.voidaicarcania.common.items.metals.ItemObsidium;
+import com.camellias.voidaicarcania.common.items.metals.ItemSortigellium;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemChorusTea;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemDarkCamellia;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemFeatherweed;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemFloatshroom;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemGlowgrowth;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemMoonMint;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemNeddlesprout;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemStarbloom;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemTransformRoot;
+import com.camellias.voidaicarcania.common.items.plantsandfood.ItemVoidMelonSeed;
+import com.camellias.voidaicarcania.common.items.tools.axe.AstraliteAxe;
+import com.camellias.voidaicarcania.common.items.tools.axe.AxeBase;
+import com.camellias.voidaicarcania.common.items.tools.hoe.HoeBase;
+import com.camellias.voidaicarcania.common.items.tools.pick.PickaxeBase;
+import com.camellias.voidaicarcania.common.items.tools.shovel.ShovelBase;
+import com.camellias.voidaicarcania.common.items.tools.sword.MythrilSword;
+import com.camellias.voidaicarcania.common.items.tools.sword.SwordBase;
+import com.camellias.voidaicarcania.common.items.voidic.ItemTransmutationOrb;
+import com.camellias.voidaicarcania.common.items.voidic.ItemTransmutationShard;
+import com.camellias.voidaicarcania.common.items.voidic.ItemVoidBottle;
+import com.camellias.voidaicarcania.common.items.voidic.ItemVoidBulb;
+import com.camellias.voidaicarcania.common.items.voidic.ItemVoidCrystal;
+import com.camellias.voidaicarcania.common.items.voidic.ItemVoidStar;
+import com.camellias.voidaicarcania.common.items.voidic.ItemVoidheart;
+import com.camellias.voidaicarcania.common.items.voidic.ItemVoidicOrb;
+import com.camellias.voidaicarcania.common.items.voidic.ItemVoidicShard;
+import com.camellias.voidaicarcania.common.items.voidic.ItemWraithWisp;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
@@ -85,6 +86,15 @@ public class ModItems
 	public static final Item TRANS_SHARD = new ItemTransmutationShard("transmutation_shard");
 	public static final Item VOIDIC_SHARD = new ItemVoidicShard("voidic_shard");
 	public static final Item VOID_BOTTLE = new ItemVoidBottle("void_bottle");
+	
+	//-----Orbs-----//
+	public static final Item TRANS_ORB = new ItemTransmutationOrb("transmutation_orb");
+	public static final Item VOID_ORB = new ItemVoidicOrb("voidic_orb");
+	public static final Item LUNA_ORB = new ItemLunaOrb("luna_orb");
+	
+	public static final Item VOID_STAR = new ItemVoidStar("void_star");
+	public static final Item VOID_HEART = new ItemVoidheart("voidheart");
+	public static final Item CRYSTAL = new ItemVoidCrystal("void_crystal");
 	
 	//-----Baubles-----//
 	public static final Item SHIELD_AMULET = new ItemShieldAmulet("shield_amulet");
@@ -112,11 +122,6 @@ public class ModItems
 	public static final Item VOID_CHARM = new ItemVoidCharm("explode_charm");
 	public static final Item A_VOID_CHARM = new ItemVoidCharmActive("active_explode_charm");
 	
-	//-----Orbs-----//
-	public static final Item TRANS_ORB = new ItemTransmutationOrb("transmutation_orb");
-	public static final Item VOID_ORB = new ItemVoidicOrb("voidic_orb");
-	public static final Item LUNA_ORB = new ItemLunaOrb("luna_orb");
-	
 	//-----Food Items and Seeds-----//
 	public static final Item VOID_BULB = new ItemVoidBulb("void_bulb", 0, 0, false); //FoodItem - FoodHandler contianed in specific class
 	public static final Item FLOATSHROOM = new ItemFloatshroom("floatshroom", 0, 0, false); //FoodItem
@@ -128,6 +133,7 @@ public class ModItems
 	public static final Item MOON_MINT = new ItemMoonMint("moon_mint", 0, 0, false); //FoodItem
 	public static final Item FEATHERWEED = new ItemFeatherweed("featherweed", 0, 0, false); //FoodItem
 	public static final Item TRANSROOT = new ItemTransformRoot("transformative_root");
+	public static final Item CHORUS_TEA = new ItemChorusTea("chorus_tea", 0, 5, false); //TeaItem
 	
 	//-----Metallurgy-----//
 	public static final Item CINNIBAR = new ItemCinnabar("cinnabar");
@@ -195,19 +201,13 @@ public class ModItems
 	public static final Item PIE_MINT = new ItemMoonMint("pumpkin_pie_6", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
 	public static final Item PIE_FEATHER = new ItemFeatherweed("pumpkin_pie_7", 6, 0, false).setCreativeTab(CreativeTabs.FOOD);
 	
-	public static final Item CHORUS_TEA = new ItemChorusTea("chorus_tea", 0, 5, false); //TeaItem
-	
 	//-----Misc. Items-----//
 	public static final Item DWARF_BRICK = new ItemDwarfBrick("dwarf_brick");
 	//public static final Item SPELL_BASE = new ItemSpellBase("spell_base");
-	public static final Item VOID_STAR = new ItemVoidStar("void_star");
-	public static final Item VOID_HEART = new ItemVoidheart("voidheart");
-	
 	public static final Item WRAITH_WISP = new ItemWraithWisp("wraith_wisp");
 	public static final Item BULLET = new ItemShulkerBullet("bullet");
-	public static final Item CRYSTAL = new ItemVoidCrystal("void_crystal");
 	
-	//public static final Item CAMS_SUPER_SECRET_STICK = new ItemSecretStick("secret_stick");
+	public static final Item CAMS_SUPER_SECRET_STICK = new ItemSecretStick("secret_stick");
 	
 	//-----Armours & Tools-----//
 	

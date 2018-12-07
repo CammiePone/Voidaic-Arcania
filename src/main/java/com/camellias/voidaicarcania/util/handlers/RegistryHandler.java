@@ -1,7 +1,7 @@
 package com.camellias.voidaicarcania.util.handlers;
 
 import com.camellias.voidaicarcania.Main;
-import com.camellias.voidaicarcania.commands.CommandDimTeleport;
+import com.camellias.voidaicarcania.common.commands.CommandDimTeleport;
 import com.camellias.voidaicarcania.init.ModBiomes;
 import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModDimensions;

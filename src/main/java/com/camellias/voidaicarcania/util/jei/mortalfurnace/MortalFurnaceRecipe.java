@@ -2,7 +2,7 @@ package com.camellias.voidaicarcania.util.jei.mortalfurnace;
 
 import java.util.List;
 
-import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.MortalCentrifugeRecipes;
+import com.camellias.voidaicarcania.common.blocks.machines.blockmortalcentrifuge.MortalCentrifugeRecipes;
 
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;

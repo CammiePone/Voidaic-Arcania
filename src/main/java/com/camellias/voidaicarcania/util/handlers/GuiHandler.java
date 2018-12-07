@@ -1,14 +1,14 @@
 package com.camellias.voidaicarcania.util.handlers;
 
-import com.camellias.voidaicarcania.blocks.blockaltar.ContainerAltar;
-import com.camellias.voidaicarcania.blocks.blockaltar.GuiAltar;
-import com.camellias.voidaicarcania.blocks.blockaltar.TileEntityAltar;
-import com.camellias.voidaicarcania.blocks.blockbotanyaltar.ContainerBotanyAltar;
-import com.camellias.voidaicarcania.blocks.blockbotanyaltar.GuiBotanyAltar;
-import com.camellias.voidaicarcania.blocks.blockbotanyaltar.TileEntityBotanyAltar;
-import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.ContainerMortalCentrifuge;
-import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.GuiMortalCentrifuge;
-import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.TileEntityMortalCentrifuge;
+import com.camellias.voidaicarcania.common.blocks.machines.blockaltar.ContainerAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockaltar.GuiAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockaltar.TileEntityAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockbotanyaltar.ContainerBotanyAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockbotanyaltar.GuiBotanyAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockbotanyaltar.TileEntityBotanyAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockmortalcentrifuge.ContainerMortalCentrifuge;
+import com.camellias.voidaicarcania.common.blocks.machines.blockmortalcentrifuge.GuiMortalCentrifuge;
+import com.camellias.voidaicarcania.common.blocks.machines.blockmortalcentrifuge.TileEntityMortalCentrifuge;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;

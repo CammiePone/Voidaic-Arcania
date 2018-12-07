@@ -2,12 +2,12 @@ package com.camellias.voidaicarcania.util.jei;
 
 import java.util.IllegalFormatException;
 
-import com.camellias.voidaicarcania.blocks.blockaltar.ContainerAltar;
-import com.camellias.voidaicarcania.blocks.blockaltar.GuiAltar;
-import com.camellias.voidaicarcania.blocks.blockbotanyaltar.ContainerBotanyAltar;
-import com.camellias.voidaicarcania.blocks.blockbotanyaltar.GuiBotanyAltar;
-import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.ContainerMortalCentrifuge;
-import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.GuiMortalCentrifuge;
+import com.camellias.voidaicarcania.common.blocks.machines.blockaltar.ContainerAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockaltar.GuiAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockbotanyaltar.ContainerBotanyAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockbotanyaltar.GuiBotanyAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockmortalcentrifuge.ContainerMortalCentrifuge;
+import com.camellias.voidaicarcania.common.blocks.machines.blockmortalcentrifuge.GuiMortalCentrifuge;
 import com.camellias.voidaicarcania.util.jei.altar.AltarRecipeCategory;
 import com.camellias.voidaicarcania.util.jei.altar.AltarRecipeMaker;
 import com.camellias.voidaicarcania.util.jei.botany.BotanyRecipeCategory;

@@ -1,17 +1,17 @@
 package com.camellias.voidaicarcania.util.handlers;
 
-import com.camellias.voidaicarcania.entities.EntityVoidConstruct;
-import com.camellias.voidaicarcania.entities.EntityVoidDaemon;
-import com.camellias.voidaicarcania.entities.EntityVoidEye;
-import com.camellias.voidaicarcania.entities.EntityVoidHeartBoss;
-import com.camellias.voidaicarcania.entities.EntityVoidHeartPassive;
-import com.camellias.voidaicarcania.entities.EntityVoidWraith;
-import com.camellias.voidaicarcania.entities.render.RenderVoidConstruct;
-import com.camellias.voidaicarcania.entities.render.RenderVoidDaemon;
-import com.camellias.voidaicarcania.entities.render.RenderVoidEye;
-import com.camellias.voidaicarcania.entities.render.RenderVoidHeartBoss;
-import com.camellias.voidaicarcania.entities.render.RenderVoidHeartPassive;
-import com.camellias.voidaicarcania.entities.render.RenderVoidWraith;
+import com.camellias.voidaicarcania.client.render.RenderVoidConstruct;
+import com.camellias.voidaicarcania.client.render.RenderVoidDaemon;
+import com.camellias.voidaicarcania.client.render.RenderVoidEye;
+import com.camellias.voidaicarcania.client.render.RenderVoidHeartBoss;
+import com.camellias.voidaicarcania.client.render.RenderVoidHeartPassive;
+import com.camellias.voidaicarcania.client.render.RenderVoidWraith;
+import com.camellias.voidaicarcania.common.entities.EntityVoidConstruct;
+import com.camellias.voidaicarcania.common.entities.EntityVoidDaemon;
+import com.camellias.voidaicarcania.common.entities.EntityVoidEye;
+import com.camellias.voidaicarcania.common.entities.EntityVoidHeartBoss;
+import com.camellias.voidaicarcania.common.entities.EntityVoidHeartPassive;
+import com.camellias.voidaicarcania.common.entities.EntityVoidWraith;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;

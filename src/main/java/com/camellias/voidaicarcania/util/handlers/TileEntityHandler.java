@@ -1,8 +1,8 @@
 package com.camellias.voidaicarcania.util.handlers;
 
-import com.camellias.voidaicarcania.blocks.blockaltar.TileEntityAltar;
-import com.camellias.voidaicarcania.blocks.blockbotanyaltar.TileEntityBotanyAltar;
-import com.camellias.voidaicarcania.blocks.blockmortalcentrifuge.TileEntityMortalCentrifuge;
+import com.camellias.voidaicarcania.common.blocks.machines.blockaltar.TileEntityAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockbotanyaltar.TileEntityBotanyAltar;
+import com.camellias.voidaicarcania.common.blocks.machines.blockmortalcentrifuge.TileEntityMortalCentrifuge;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

@@ -2,7 +2,7 @@ package com.camellias.voidaicarcania.util.jei.altar;
 
 import java.util.List;
 
-import com.camellias.voidaicarcania.blocks.blockaltar.AltarRecipes;
+import com.camellias.voidaicarcania.common.blocks.machines.blockaltar.AltarRecipes;
 
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;

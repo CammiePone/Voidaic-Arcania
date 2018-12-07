@@ -1,6 +1,6 @@
 package com.camellias.voidaicarcania.world.biomes;
 
-import com.camellias.voidaicarcania.entities.EntityVoidWraith;
+import com.camellias.voidaicarcania.common.entities.EntityVoidWraith;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;

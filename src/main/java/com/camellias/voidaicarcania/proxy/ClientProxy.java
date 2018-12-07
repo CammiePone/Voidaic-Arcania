@@ -1,6 +1,6 @@
 package com.camellias.voidaicarcania.proxy;
 
-import com.camellias.voidaicarcania.items.armour.models.ModelMythrilArmour;
+import com.camellias.voidaicarcania.client.models.ModelMythrilArmour;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

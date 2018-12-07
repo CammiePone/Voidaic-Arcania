@@ -2,7 +2,7 @@ package com.camellias.voidaicarcania.world.biomes;
 
 import java.util.Random;
 
-import com.camellias.voidaicarcania.entities.EntityVoidWraith;
+import com.camellias.voidaicarcania.common.entities.EntityVoidWraith;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

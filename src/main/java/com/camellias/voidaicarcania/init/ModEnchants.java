@@ -1,8 +1,8 @@
 package com.camellias.voidaicarcania.init;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.enchants.EnchantAlchemy;
-import com.camellias.voidaicarcania.enchants.EnchantCloudStep;
+import com.camellias.voidaicarcania.common.enchants.EnchantAlchemy;
+import com.camellias.voidaicarcania.common.enchants.EnchantCloudStep;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantment.Rarity;

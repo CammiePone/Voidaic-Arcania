@@ -2,12 +2,12 @@ package com.camellias.voidaicarcania.init;
 
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.entities.EntityVoidConstruct;
-import com.camellias.voidaicarcania.entities.EntityVoidDaemon;
-import com.camellias.voidaicarcania.entities.EntityVoidEye;
-import com.camellias.voidaicarcania.entities.EntityVoidHeartBoss;
-import com.camellias.voidaicarcania.entities.EntityVoidHeartPassive;
-import com.camellias.voidaicarcania.entities.EntityVoidWraith;
+import com.camellias.voidaicarcania.common.entities.EntityVoidConstruct;
+import com.camellias.voidaicarcania.common.entities.EntityVoidDaemon;
+import com.camellias.voidaicarcania.common.entities.EntityVoidEye;
+import com.camellias.voidaicarcania.common.entities.EntityVoidHeartBoss;
+import com.camellias.voidaicarcania.common.entities.EntityVoidHeartPassive;
+import com.camellias.voidaicarcania.common.entities.EntityVoidWraith;
 import com.camellias.voidaicarcania.util.handlers.ConfigHandler;
 
 import net.minecraft.entity.Entity;
