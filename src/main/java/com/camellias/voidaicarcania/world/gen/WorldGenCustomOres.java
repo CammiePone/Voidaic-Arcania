@@ -23,7 +23,7 @@ public class WorldGenCustomOres implements IWorldGenerator
 	public WorldGenCustomOres()
 	{
 		cinnabar = new WorldGenMinable(ModBlocks.BLOCK_CINNIBAR_ORE.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.STONE));
-		peacock = new WorldGenMinable(ModBlocks.BLOCK_BORNITE_ORE.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		peacock = new WorldGenMinable(ModBlocks.BLOCK_BORNITE_ORE.getDefaultState(), 6, BlockMatcher.forBlock(Blocks.NETHERRACK));
 		nether_heart = new WorldGenMinable(ModBlocks.BLOCK_NETHERHEART_ORE.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.NETHERRACK));
 	}
 	

@@ -204,6 +204,31 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 		}
 	}
 	
+	public void smeltItem() 
+	{
+		if(this.canSmelt()) 
+		{
+			ItemStack input1 = (ItemStack)this.inventory.get(0);
+			ItemStack input2 = (ItemStack)this.inventory.get(1);
+			ItemStack resultStack = AltarRecipes.getInstance().getAltarResult(input1, input2);
+			ItemStack output = (ItemStack)this.inventory.get(3);
+			Item result = resultStack.getItem();
+			
+			if(output.isEmpty()) this.inventory.set(3, resultStack.copy());
+			else if(output.getItem() == resultStack.getItem()) output.grow(resultStack.getCount());
+			
+			if(result == Items.DRAGON_BREATH || result == ModItems.VOID_BOTTLE || result == ModItems.DWARF_BRICK || 
+					result == ModItems.INVERSE_AMULET || result == ModItems.SHIELD_AMULET || result == ModItems.STRENGTH_BELT || 
+					result == ModItems.RESISTANCE_BELT || result == ModItems.FEAST_COWL || result == ModItems.REAPER_COWL || 
+					result == ModItems.FLIGHT_CLOAK || result == ModItems.INVISIBILITY_CLOAK || result == ModItems.LUCK_CHARM || 
+					result == ModItems.VOID_CHARM || result == ModItems.INFUSED_INGOT || result == ModItems.LUNA_ORB)
+			{
+				input1.shrink(1);
+				input2.shrink(1);
+			}
+		}
+	}
+	
 	public static int getItemBurnTime(ItemStack fuel) 
 	{
 		if(fuel.isEmpty()) return 0;
@@ -373,7 +398,7 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 		boolean flag = this.isBurning();
 		boolean flag1 = false;
 		
-		if(this.isBurning()) --this.burnTime;
+		if(this.isBurning() && this.canSmelt()) --this.burnTime;
 		
 		if(!this.world.isRemote) 
 		{
@@ -444,110 +469,6 @@ public class TileEntityAltar extends TileEntity implements IInventory, ITickable
 				if(!output.isItemEqual(result)) return false;
 				int res = output.getCount() + result.getCount();
 				return res <= getInventoryStackLimit() && res <= output.getMaxStackSize();
-			}
-		}
-	}
-	
-	public void smeltItem() 
-	{
-		if(this.canSmelt()) 
-		{
-			ItemStack input1 = (ItemStack)this.inventory.get(0);
-			ItemStack input2 = (ItemStack)this.inventory.get(1);
-			ItemStack result = AltarRecipes.getInstance().getAltarResult(input1, input2);
-			ItemStack output = (ItemStack)this.inventory.get(3);
-			
-			if(output.isEmpty()) this.inventory.set(3, result.copy());
-			else if(output.getItem() == result.getItem()) output.grow(result.getCount());
-			
-			if(input1.isItemEqual(new ItemStack(Items.ENDER_PEARL)) && input2.isItemEqual(new ItemStack(Items.DRAGON_BREATH)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.BRICK)) && input2.isItemEqual(new ItemStack(Items.IRON_NUGGET)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(ModItems.VOID_STAR)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(ModItems.VOID_STAR)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(Items.LEATHER)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(Items.LEATHER)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.STRING)) && input2.isItemEqual(new ItemStack(Blocks.WOOL)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.BONE)) && input2.isItemEqual(new ItemStack(Blocks.WOOL)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(Blocks.WOOL)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(Blocks.WOOL)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.GOLD_INGOT)) && input2.isItemEqual(new ItemStack(Items.NETHER_STAR)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(Items.IRON_INGOT)) && input2.isItemEqual(new ItemStack(Items.NETHER_STAR)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(ModItems.CRYSTAL)) && input2.isItemEqual(new ItemStack(Items.IRON_INGOT)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(ModItems.CRYSTAL)) && input2.isItemEqual(new ItemStack(Items.GOLD_INGOT)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
-			}
-			
-			else if(input1.isItemEqual(new ItemStack(ModItems.MOON_MINT)) && input2.isItemEqual(new ItemStack(ModItems.MERCURY)))
-			{
-				input1.shrink(1);
-				input2.shrink(1);
 			}
 		}
 	}

@@ -1,9 +1,16 @@
 package com.camellias.voidaicarcania.util.handlers;
 
 import com.camellias.voidaicarcania.init.ModItems;
+import com.camellias.voidaicarcania.network.NetworkHandler;
+import com.camellias.voidaicarcania.network.packets.HoldSpacebarMessage;
 import com.camellias.voidaicarcania.world.dimension.voidic.TeleporterVoid;
 
 import baubles.api.BaublesApi;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.settings.GameSettings;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -13,12 +20,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -26,6 +33,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -44,7 +52,7 @@ public class WorldEventHandler
 	@SubscribeEvent
     public static void onPlayerHurt(LivingHurtEvent event) 
 	{
-        if(event.getEntityLiving() instanceof EntityPlayerMP && event.getEntityLiving().dimension == 0 
+		if(event.getEntityLiving() instanceof EntityPlayerMP && event.getEntityLiving().dimension == 0 
         		&& event.getEntityLiving().getPosition().getY() <= -60) 
         {
             EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
@@ -93,6 +101,10 @@ public class WorldEventHandler
         					player.getPosition().getX(), 250, player.getPosition().getZ()));
         }
         
+        
+        
+        
+		
         if(event.getEntityLiving() instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
@@ -374,22 +386,68 @@ public class WorldEventHandler
 	}
 	
 	@SubscribeEvent
-	public static void onPlayerJump(LivingJumpEvent event)
-	{
-		if(event.getEntityLiving() instanceof EntityPlayer)
-		{
-			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-			
-			if(player.dimension == -64)
-			{
-				player.motionY *= 2.5D;
-			}
-		}
-	}
-	
-	/*@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent event)
 	{
+		if(event.player.ticksExisted % 10 == 0)
+		{
+			if((event.player.dimension == -64 || event.player.dimension == -1) && event.player.posY <= -50)
+			{
+				event.player.heal(20.0F);
+			}
+		}
+		
+        if(event.player.dimension == -64)
+        {
+        	EntityPlayer player = event.player;
+			World world = player.world;
+			BlockPos pos = player.getPosition();
+			BlockPos blockpos = pos.add(0, -1, 0);
+			IBlockState state = player.world.getBlockState(blockpos);
+			
+			if(!player.isElytraFlying() || !player.capabilities.isFlying)
+			{
+				if(state.getBlock().isPassable(player.world, blockpos))
+				{
+					if(world.isRemote)
+					{
+						GameSettings settings = new GameSettings();
+						KeyBinding jump = settings.keyBindJump;
+						GuiScreen gui = Minecraft.getMinecraft().currentScreen;
+						
+						if(settings.isKeyDown(jump) && !(gui instanceof GuiScreen))
+						{
+							player.motionY = 0.25D;
+							NetworkHandler.INSTANCE.sendToServer(new HoldSpacebarMessage());
+						}
+						if(player.isSneaking())
+						{
+							player.motionY = -0.25D;
+						}
+						if((player.motionY <= 0.2D && player.motionY >= -0.2D))
+						{
+							player.motionY = player.motionY / 1.025D;
+						}
+					}
+					
+					player.setNoGravity(true);
+					player.jumpMovementFactor *= 1.75F;
+					player.fallDistance = 0.0F;
+				}
+				else
+				{
+					player.setNoGravity(false);
+				}
+			}
+			else
+			{
+				player.setNoGravity(false);
+			}
+		}
+		
+        
+        
+        
+        
 		if(!event.player.world.isRemote)
 		{
 			EntityPlayer player = event.player;
@@ -402,8 +460,7 @@ public class WorldEventHandler
 			if((player.getItemStackFromSlot(head).getItem() == ModItems.ASTRALITE_HELM
 					&& player.getItemStackFromSlot(body).getItem() == ModItems.ASTRALITE_CHEST
 					&& player.getItemStackFromSlot(legs).getItem() == ModItems.ASTRALITE_LEGS
-					&& player.getItemStackFromSlot(feet).getItem() == ModItems.ASTRALITE_BOOTS) 
-					|| player.dimension == -64)
+					&& player.getItemStackFromSlot(feet).getItem() == ModItems.ASTRALITE_BOOTS))
 			{
 				if(!player.isElytraFlying() && !player.capabilities.isFlying)
 				{
@@ -424,5 +481,5 @@ public class WorldEventHandler
 				}
 			}
 		}
-	}*/
+	}
 }
