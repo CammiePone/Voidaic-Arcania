@@ -12,18 +12,14 @@ public class NetworkHandler
 	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID);
 	private static int nextId = 0;
 	
-	private NetworkHandler()
+	public static int next()
 	{
-		
+		return nextId++;
 	}
 	
 	public static void init()
 	{
 		INSTANCE.registerMessage(HoldSpacebarMessage.HoldSpacebarPacketHandler.class, HoldSpacebarMessage.class, next(), Side.SERVER);
-	}
-	
-	public static int next()
-	{
-		return nextId++;
+		INSTANCE.registerMessage(HoldSpacebarMessage.HoldSpacebarPacketHandler.class, HoldSpacebarMessage.class, next(), Side.CLIENT);
 	}
 }

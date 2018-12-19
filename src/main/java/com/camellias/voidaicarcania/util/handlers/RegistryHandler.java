@@ -7,6 +7,7 @@ import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModDimensions;
 import com.camellias.voidaicarcania.init.ModEntities;
 import com.camellias.voidaicarcania.init.ModItems;
+import com.camellias.voidaicarcania.network.NetworkHandler;
 import com.camellias.voidaicarcania.util.AspectRegistry;
 import com.camellias.voidaicarcania.util.IHasModel;
 import com.camellias.voidaicarcania.util.OreDictionaryCompatibility;
@@ -77,6 +78,7 @@ public class RegistryHandler
 	
 	public static void preInitRegistries(FMLPreInitializationEvent event)
 	{
+		NetworkHandler.init();
 		ModDimensions.registerDimension();
 		ModEntities.registerEntities();
 		
