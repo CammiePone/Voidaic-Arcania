@@ -414,7 +414,7 @@ public class WorldEventHandler
 						KeyBinding jump = settings.keyBindJump;
 						GuiScreen gui = Minecraft.getMinecraft().currentScreen;
 						
-						if(settings.isKeyDown(jump) && !(gui instanceof GuiScreen))
+						if(settings.isKeyDown(jump) && gui == null)
 						{
 							player.motionY = 0.25D;
 							NetworkHandler.INSTANCE.sendToServer(new HoldSpacebarMessage());

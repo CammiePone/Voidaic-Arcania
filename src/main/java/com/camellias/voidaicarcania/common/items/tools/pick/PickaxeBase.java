@@ -14,6 +14,7 @@ public class PickaxeBase extends ItemPickaxe implements IHasModel
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(Main.voidictab);
+		setHarvestLevel("pickaxe", 3);
 		
 		ModItems.ITEMS.add(this);
 	}
