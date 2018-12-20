@@ -59,34 +59,9 @@ public class WorldEventHandler
             PlayerList playerList = player.getEntityWorld().getMinecraftServer().getPlayerList();
             
             event.setCanceled(true);
-            
-            if(player.posX > 0 && player.posZ > 0)
-            {
-            	playerList.transferPlayerToDimension(player, -64, 
-            			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
-            					player.posX + 1250, 250, player.posZ + 1250));
-            }
-            
-            if(player.posX < 0 && player.posZ < 0)
-            {
-            	playerList.transferPlayerToDimension(player, -64, 
-            			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
-            					player.posX - 1250, 250, player.posZ - 1250));
-            }
-            
-            if(player.posX < 0 && player.posZ > 0)
-            {
-            	playerList.transferPlayerToDimension(player, -64, 
-            			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
-            					player.posX - 1250, 250, player.posZ + 1250));
-            }
-            
-            if(player.posX > 0 && player.posZ < 0)
-            {
-            	playerList.transferPlayerToDimension(player, -64, 
-            			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
-            					player.posX + 1250, 250, player.posZ - 1250));
-            }
+            playerList.transferPlayerToDimension(player, -64, 
+        			new TeleporterVoid((WorldServer) player.getEntityWorld(), 
+        					player.posX, 250, player.posZ));
         }
         
         if(event.getEntityLiving() instanceof EntityPlayerMP && event.getEntityLiving().dimension == -64 
@@ -443,6 +418,13 @@ public class WorldEventHandler
 				player.setNoGravity(false);
 			}
 		}
+        else
+        {
+        	if(event.player.ticksExisted % 20 == 0)
+        	{
+        		event.player.setNoGravity(false);
+        	}
+        }
 		
         
         
