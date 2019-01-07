@@ -4,11 +4,14 @@ import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.util.IHasModel;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -27,19 +30,12 @@ public class MythrilSword extends ItemSword implements IHasModel
 		ModItems.ITEMS.add(this);
 	}
 	
-	/*@SubscribeEvent
-	public static void onAttack(AttackEntityEvent event)
+	@Override
+	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
 	{
-		EntityPlayer player = event.getEntityPlayer();
-		EntityLivingBase target = (EntityLivingBase) event.getTarget();
-		
-		if(player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.MYTHRIL_SWORD)
-		{
-			target.addPotionEffect(new PotionEffect(MobEffects.INSTANT_DAMAGE));
-			
-			System.out.println("Mythril Sword Attack");
-		}
-	}*/
+		entity.attackEntityFrom(DamageSource.MAGIC, 7);
+		return true;
+	}
 	
 	@Override
 	public void registerModels() 
