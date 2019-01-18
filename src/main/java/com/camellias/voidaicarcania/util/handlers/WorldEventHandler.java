@@ -390,19 +390,19 @@ public class WorldEventHandler
 						KeyBinding jump = settings.keyBindJump;
 						GuiScreen gui = Minecraft.getMinecraft().currentScreen;
 						
-						if(settings.isKeyDown(jump) && gui == null)
+						if(settings.isKeyDown(jump))
 						{
-							player.motionY = 0.25D;
-							NetworkHandler.INSTANCE.sendToServer(new HoldSpacebarMessage());
+							NetworkHandler.INSTANCE.sendToAll(new HoldSpacebarMessage(player));
 						}
-						if(player.isSneaking())
-						{
-							player.motionY = -0.25D;
-						}
-						if((player.motionY <= 0.2D && player.motionY >= -0.2D))
-						{
-							player.motionY = player.motionY / 1.025D;
-						}
+					}
+					
+					if(player.isSneaking())
+					{
+						player.motionY = -0.25D;
+					}
+					if((player.motionY <= 0.2D && player.motionY >= -0.2D))
+					{
+						player.motionY = player.motionY / 1.025D;
 					}
 					
 					player.setNoGravity(true);
