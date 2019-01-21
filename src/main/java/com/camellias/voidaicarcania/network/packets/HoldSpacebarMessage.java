@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.network.packets;
 import com.camellias.voidaicarcania.Main;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
@@ -48,7 +49,7 @@ public class HoldSpacebarMessage implements IMessage
 					if(Main.proxy.getPlayer(ctx) != null)
 					{
 						EntityPlayer player = (EntityPlayer) Main.proxy.getPlayer(ctx).world.getEntityByID(message.playerID);
-						GameSettings settings = new GameSettings();
+						GameSettings settings = Minecraft.getMinecraft().gameSettings;
 						KeyBinding jump = settings.keyBindJump;
 						
 						//settings.isKeyDown(jump);

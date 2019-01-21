@@ -386,11 +386,11 @@ public class WorldEventHandler
 				{
 					if(world.isRemote)
 					{
-						GameSettings settings = new GameSettings();
+						GameSettings settings = Minecraft.getMinecraft().gameSettings;
 						KeyBinding jump = settings.keyBindJump;
 						GuiScreen gui = Minecraft.getMinecraft().currentScreen;
 						
-						if(settings.isKeyDown(jump))
+						if(settings.isKeyDown(jump) && gui == null)
 						{
 							NetworkHandler.INSTANCE.sendToAll(new HoldSpacebarMessage(player));
 						}
