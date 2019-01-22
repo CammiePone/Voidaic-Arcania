@@ -1,4 +1,4 @@
-item.item.name=Name
+item.item.name=Имя
 
 item.transmutation_shard.name=§aОсколок трансмутации
 item.voidic_shard.name=§8Осколок пустоты
@@ -34,13 +34,7 @@ item.active_resistance_belt.name=§6Пояс защиты
 
 item.transmutation_orb.name=§aСфера трансмутации
 item.voidic_orb.name=§8Пустотная сфера трансмутации
-
-item.infused_ingot.name=Наполненный слиток
-item.mercury.name=Жидкая ртуть
-item.enargite_ingot.name=Слиток энаргита
-item.sortigellium_ingot.name=Слиток сортигеллиума
-item.astralite_ingot.name=Слиток астралита
-item.mythril_ingot.name=Слиток мифрила
+item.luna_orb.name=§1Сфера луны
 
 item.void_bulb.name=Луковица пустоты
 item.floatshroom.name=Летногриб
@@ -51,6 +45,16 @@ item.starbloom.name=Зведоцвет
 item.neddlesprout.name=Незрельник
 item.featherweed.name=Перьяник
 item.moon_mint.name=Лунная мята
+
+item.infused_ingot.name=Наполненный слиток
+item.mercury.name=Жидкая ртуть
+item.enargite_ingot.name=Слиток энаргита
+item.sortigellium_ingot.name=Слиток сортигеллиума
+item.astralite_ingot.name=Слиток астралита
+item.mythril_ingot.name=Слиток мифрила
+item.obsidium_ingot.name=Слиток обсидианита
+item.demon_ingot.name=Слиток алмаза
+item.lunatite_ingot.name=Слиток лунанита
 
 item.mushroom_stew_1.name=Грибной суп
 item.mushroom_stew_2.name=Грибной суп
@@ -112,6 +116,7 @@ item.cinnabar.name=Киноварь
 
 item.wraith_wisp.name=Призрачная эссенция
 item.transformative_root.name=Корень трансформации
+item.nether_core.name=Адское ядро
 
 item.mythril_helm.name=Мифриловый шлем
 item.mythril_chestplate.name=Мифриловый нагрудник
@@ -155,6 +160,7 @@ item.sortigellium_hoe.name=Сортигеллимовая мотыга
 tile.block_altar.name=Алтарь
 tile.block_botany_altar.name=Ботанический алтарь
 tile.block_mortal_furnace.name=Жаровня смерти
+tile.block_reflection_pool.name=Емкость рефракции
 
 tile.block_voidrock.name=Пустокамень
 tile.block_voidrock_pillar.name=Пустокаменная колонна
@@ -162,8 +168,13 @@ tile.block_voidrock_tiles.name=Пустокаменная плитка
 tile.block_voidrock_tiles_cracked.name=Поврежденная пустокаменная плитка
 tile.block_voidrock_smooth.name=Полированный пустокаменнь
 
+tile.block_cinnibar_ore.name=Руда киновари
+tile.block_peacock_ore.name=Руда борнита
+tile.block_netherheart_ore.name=Адская руда
+
 tile.block_voidsand.name=Пустотный песок 
 tile.block_arcane_earth.name=Таинственная земля
+tile.block_voidmass.name=Пустотный массив
 tile.block_voidcloud.name=Туман пустоты
 
 tile.block_stem.name=Держатель фонаря
@@ -176,6 +187,7 @@ tile.block_void_crop.name=Луковица пустоты
 tile.block_floatshroom.name=Летногриб
 tile.block_glowgrowth.name=Светоцвет
 tile.block_void_weed.name=Сорняк пустоты
+tile.block_tall_weed.name=Высокий сорняк пустоты
 tile.block_void_melon.name=Арбуз пустоты
 tile.block_voidtea.name=Куст темной камелии
 tile.block_melon_crop.name=Арбуз пустоты
@@ -184,17 +196,28 @@ tile.block_moonmint.name=Лунная мята
 tile.block_neddlesprout.name=Незрельник
 tile.block_starbloom.name=Зведоцвет
 
-tile.block_cinnibar_ore.name=Руда киновари
-tile.block_peacock_ore.name=Руда борнита
-
 tile.block_dwarf_brick.name=Гномьи кирпичи
 tile.block_dwarf_stairs.name=Гномьи ступеньки
+tile.block_dwarf_lantern.name=Гномий фонарь
 
 tile.block_dark_brick.name=Темные кирпичи
 tile.block_dark_brick_chiseled.name=Резные темные кирпичи
 
+tile.block_dark_marble.name=Темный мрамор
+
 tile.block_whitewood.name=Белодрево
 tile.block_whitewood_leaves.name=Листва белодрева
+tile.block_whitewood_planks.name=Белодревесные доски
+tile.block_whitewood_stairs.name=Белодревесные ступеньки
+tile.block_whitewood_slab.name=Белодревесная плита
+
+tile.block_void_totem.name=Тотем пустоты
+tile.block_infused_metal.name=Блок наполненного металла
+tile.block_enargite_metal.name=Блок энаргита
+tile.block_astralite_metal.name=Блок астралита
+tile.block_mythril_metal.name=Блок мифрила
+tile.block_frozen_mercury.name=Блок меркурия
+tile.block_demon_metal.name=Блок даймонита
 
 tile.block_construct.name=Основа конструкции
 tile.block_voideye.name=§5Глаз конструкции
@@ -220,11 +243,11 @@ itemGroup.metaltab=§5Voidaic Metallurgy
 
 
 
-
 entity.void_wraith.name=Призрак бездны
 entity.void_construct.name=Конструкция пустоты
 entity.heart_boss.name=Сердце пустоты
 entity.heart_passive.name=Сердце пустоты
+entity.void_daemon.name=Демон пустоты
 
 
 
