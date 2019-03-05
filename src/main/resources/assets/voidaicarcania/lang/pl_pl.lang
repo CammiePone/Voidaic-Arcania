@@ -1,0 +1,286 @@
+item.item.name=Name
+
+item.transmutation_shard.name=§aOdłamek Kreacji
+item.voidic_shard.name=§8Odłamek Pustki
+item.void_bottle.name=§8Butelka Esencji Pustki
+item.weak_void_cluster.name=Kryształ Pustki (Poziom 1)
+item.void_cluster.name=Kryształ Pustki (Poziom 2)
+item.strong_void_cluster.name=Kryształ Pustki (Poziom 3)
+
+item.feast_cowl.name=§6Kaptur Nieskończonej Uczty
+item.active_feast_cowl.name=§6Kaptur Nieskończonej Uczty
+item.reaper_cowl.name=§6Kaptur Żniwiarza
+item.active_reaper_cowl.name=§6Kaptur Żniwiarza
+
+item.flight_cloak.name=§6Peleryna Eteru
+item.active_flight_cloak.name=§6Peleryna Eteru
+item.invisibility_cloak.name=§6Peleryna Niewidzialności
+item.active_invisibility_cloak.name=§6Peleryna Niewidzialności
+
+item.shield_amulet.name=§6Amulet Strzeżenia
+item.active_shield_amulet.name=§6Amulet Strzeżenia
+item.inverse_amulet.name=§6Amulet Inwersji
+item.active_inverse_amulet.name=§6Amulet Inwersji
+
+item.protect_charm.name=§6Odznaka Usunięcia
+item.active_protect_charm.name=§6Odznaka Usunięcia
+item.explode_charm.name=§6Odznaka Wybuchowych Trafień
+item.active_explode_charm.name=§6Odznaka Wybuchowych Trafień
+
+item.strength_belt.name=§6Pas Siły
+item.active_strength_belt.name=§6Pas Siły
+item.resistance_belt.name=§6Pas Wytrzymałości
+item.active_resistance_belt.name=§6Pas Wytrzymałości
+
+item.transmutation_orb.name=§aSfera Kreacji
+item.voidic_orb.name=§8Sfera Kreacji Pustki
+
+item.void_bulb.name=Bulwa Pustki
+item.floatshroom.name=Lewigrzyb
+item.glowgrowth.name=Światłorost
+item.dark_camellia.name=Kamelia Pustki
+item.void_melon_seed.name=Nasiono Melona Pustki
+item.starbloom.name=Gwiezdny Kwiat
+item.neddlesprout.name=Igłopęd
+item.featherweed.name=Piórochwast
+item.moon_mint.name=Księżycowa Mięta
+
+item.infused_ingot.name=Połączona Sztabka
+item.mercury.name=Ciekła Rtęć
+item.enargite_ingot.name=Sztabka Enargitu
+item.sortigellium_ingot.name=Sztabka Sortigelium
+item.astralite_ingot.name=Sztabka Astralitu
+item.mythril_ingot.name=Sztabka Mithrilu
+
+item.mushroom_stew_1.name=Zupa grzybowa
+item.mushroom_stew_2.name=Zupa grzybowa
+item.mushroom_stew_3.name=Zupa grzybowa
+item.mushroom_stew_4.name=Zupa grzybowa
+item.mushroom_stew_5.name=Zupa grzybowa
+item.mushroom_stew_6.name=Zupa grzybowa
+item.mushroom_stew_7.name=Zupa grzybowa
+
+item.rabbit_stew_1.name=Gulasz z królika
+item.rabbit_stew_2.name=Gulasz z królika
+item.rabbit_stew_3.name=Gulasz z królika
+item.rabbit_stew_4.name=Gulasz z królika
+item.rabbit_stew_5.name=Gulasz z królika
+item.rabbit_stew_6.name=Gulasz z królika
+item.rabbit_stew_7.name=Gulasz z królika
+
+item.beetroot_soup_1.name=Barszcz
+item.beetroot_soup_2.name=Barszcz
+item.beetroot_soup_3.name=Barszcz
+item.beetroot_soup_4.name=Barszcz
+item.beetroot_soup_5.name=Barszcz
+item.beetroot_soup_6.name=Barszcz
+item.beetroot_soup_7.name=Barszcz
+
+item.bread_1.name=Chleb
+item.bread_2.name=Chleb
+item.bread_3.name=Chleb
+item.bread_4.name=Chleb
+item.bread_5.name=Chleb
+item.bread_6.name=Chleb
+item.bread_7.name=Chleb
+
+item.cookie_1.name=Ciastko
+item.cookie_2.name=Ciastko
+item.cookie_3.name=Ciastko
+item.cookie_4.name=Ciastko
+item.cookie_5.name=Ciastko
+item.cookie_6.name=Ciastko
+item.cookie_7.name=Ciastko
+
+item.pumpkin_pie_1.name=Placek dyniowy
+item.pumpkin_pie_2.name=Placek dyniowy
+item.pumpkin_pie_3.name=Placek dyniowy
+item.pumpkin_pie_4.name=Placek dyniowy
+item.pumpkin_pie_5.name=Placek dyniowy
+item.pumpkin_pie_6.name=Placek dyniowy
+item.pumpkin_pie_7.name=Placek dyniowy
+
+item.chorus_tea.name=Herbata z Owoców Refrenu
+
+item.dwarf_brick.name=Cegła Krasnoludów
+item.spell_base.name=Papier do Zaklęć
+item.void_star.name=§5Gwiazda Pustki
+item.voidheart.name=Serce Pustki
+item.bullet.name=Pocisk Shulkera
+item.void_crystal.name=Kryształ Pustki
+item.cinnabar.name=Cynober
+
+item.wraith_wisp.name=Upiorna Esencja
+item.transformative_root.name=Transformacyjny Korzeń
+
+item.mythril_helm.name=Mithrilowy Hełm
+item.mythril_chestplate.name=Mithrilowy Napierśnik
+item.mythril_leggings.name=Mithrilowe Nogawice
+item.mythril_boots.name=Mithrilowe Buty
+item.mythril_sword.name=Mithrilowe Ostrze
+item.mythril_shovel.name=Mithrilowa Łopata
+item.mythril_pickaxe.name=Mithrilowy Kilof
+item.mythril_axe.name=Mithrilowy Topór
+item.mythril_hoe.name=Mithrilowa Motyka
+
+item.enargite_helm.name=Enargitowy Hełm
+item.enargite_chestplate.name=Enargitowy Napierśnik
+item.enargite_leggings.name=Enargitowe Nogawice
+item.enargite_boots.name=Enargitowe Buty
+item.enargite_sword.name=Enargitowy Miecz
+item.enargite_shovel.name=Enargitowa Łopata
+item.enargite_pickaxe.name=Enargitowy Kilof
+item.enargite_axe.name=Enargitowy Topór
+item.enargite_hoe.name=Enargitowa Motyka
+
+item.astralite_helm.name=Astralitowy Hełm
+item.astralite_chestplate.name=Astralitowy Napierśnik
+item.astralite_leggings.name=Astralitowe Nogawice
+item.astralite_boots.name=Astralitowe Buty
+item.astralite_shovel.name=Astralitowa Łopata
+item.astralite_pickaxe.name=Astralitowy Kilof
+item.astralite_axe.name=Astralitowy Topór Bitewny
+item.astralite_hoe.name=Astralitowa Motyka
+
+item.sortigellium_sword.name=Miecz z Sortigelium
+item.sortigellium_shovel.name=Łopata z Sortigelium
+item.sortigellium_pickaxe.name=Kilof z Sortigelium
+item.sortigellium_axe.name=Topór z Sortigelium
+item.sortigellium_hoe.name=Motyka z Sortigelium
+
+
+
+
+
+tile.block_altar.name=Ołtarz
+tile.block_botany_altar.name=Tajemny Botaniczny Ołtarz
+tile.block_mortal_furnace.name=Piec Śmiertelności
+
+tile.block_voidrock.name=Kamień Pustki
+tile.block_voidrock_pillar.name=Filarowy Kamień Pustki
+tile.block_voidrock_tiles.name=Płytki z Kamienia Pustki
+tile.block_voidrock_tiles_cracked.name=Popękane Płytki z Kamienia Pustki
+tile.block_voidrock_smooth.name=Wypolerowany Kamień Pustki
+
+tile.block_cinnibar_ore.name=Ruda Cynobru
+tile.block_peacock_ore.name=Ruda Pawiego Kamienia
+
+tile.block_voidsand.name=Piasek Pustki
+tile.block_arcane_earth.name=Tajemnicza Ziemia
+tile.block_voidcloud.name=Mgła Pustki
+
+tile.block_stem.name=Łodyga Latarni
+tile.block_lantern.name=Latarnia Pustki
+tile.block_voidglass.name=Szkło Pustki
+tile.block_void_crystal.name=Blok Kryształu Pustki
+
+tile.block_void_flower.name=Kwiat Pustki
+tile.block_void_crop.name=Plon Bulwy Pustki
+tile.block_floatshroom.name=Plon Lewigrzyba
+tile.block_glowgrowth.name=Plon Światłorostu
+tile.block_void_weed.name=Ziele Pustki
+tile.block_void_melon.name=Melon Pustki
+tile.block_voidtea.name=Ciemny Krzew Kamelii
+tile.block_melon_crop.name=Plon Melona Pustki
+tile.block_featherweed.name=Plon Piórochwastu
+tile.block_moonmint.name=Plon Księżycowej Mięty
+tile.block_neddlesprout.name=Plon Igłopędu
+tile.block_starbloom.name=Plon Gwiezdnego Kwiatu
+
+tile.block_dwarf_brick.name=Krasnoludzkie Cegły
+tile.block_dwarf_stairs.name=Schody z Krasnoludzkich Cegieł
+
+tile.block_dark_brick.name=Ciemne Cegły
+tile.block_dark_brick_chiseled.name=Rzeźbione Ciemne Cegły
+
+tile.block_whitewood.name=Drewno Białodrzewu
+tile.block_whitewood_leaves.name=Liście Białodrzewu
+
+tile.block_void_totem.name=Totem Pustki
+
+tile.block_construct.name=Baza Konstruktu
+tile.block_voideye.name=§5Oko Konstruktu
+
+tile.block_idfk.name=TestBlock-ModMCdl
+item.secret_stick.name=§dSuper Sekretny Patyk Cam
+
+
+
+
+enchantment.enchant_alchemy=Alchemia
+enchantment.enchant_cloudstep=Piechur Pustki
+
+
+
+
+
+
+itemGroup.voidictab=§5Voidaic Arcania
+itemGroup.alchemytab=§5Voidaic Alchemy
+itemGroup.metaltab=§5Voidaic Metallurgy
+
+
+
+
+entity.void_wraith.name=Upiór Pustki
+entity.void_construct.name=Konstrukt Pustki
+entity.heart_boss.name=Serce Pustki
+entity.heart_passive.name=Serce Pustki
+
+
+
+
+
+container.altar=Ołtarz
+container.botany_altar=Tajemny Botaniczny Ołtarz
+container.centrifuge_furnace=Piec Śmiertelności
+
+
+
+
+
+effect.lifesteal=Kradzież Życia
+effect.voidtouch=Dotyk Pustki
+
+
+
+
+
+death.attack.voidtouch=%1$s został dotknięty przez pustkę...
+
+
+
+
+
+advancements.voidaicarcania.orb=Specyficzne Odkrycie
+advancements.voidaicarcania.orb.desc=Stwórz Sferę Kreacji
+
+advancements.voidaicarcania.void_shard=Mroczne Przebudzenie
+advancements.voidaicarcania.void_shard.desc=Stwórz lub znajdź Odłamek Pustki
+
+advancements.voidaicarcania.void_orb=Mocne Zagranie
+advancements.voidaicarcania.void_orb.desc=Stwórz lepszą Sferę Kreacji Pustki
+
+advancements.voidaicarcania.altar=Początki Czegoś Wielkiego
+advancements.voidaicarcania.altar.desc=Stwórz Ołtarz
+
+advancements.voidaicarcania.botany_altar=Siła Kwiatów
+advancements.voidaicarcania.botany_altar.desc=Otrzymaj Tajemny Botaniczny Ołtarz
+
+advancements.voidaicarcania.enter_void=W Nieznane
+advancements.voidaicarcania.enter_void.desc=Udaj się do Pustki...
+
+advancements.voidaicarcania.metallurgy=Heavy Metal
+advancements.voidaicarcania.metallurgy.desc=Stwórz Połączoną Sztabkę
+
+advancements.voidaicarcania.peacock=Desaturacja
+advancements.voidaicarcania.peacock.desc=Ta tęczowa ruda robi cooooo?
+
+advancements.voidaicarcania.stackoverflow=java.lang.StackOverflowError
+advancements.voidaicarcania.stackoverflow.desc=Zbierz stack wszystkich sztabek i roślin z Voidaic Arcania
+
+advancements.voidaicarcania.heartboss=Wybraniec
+advancements.voidaicarcania.heartboss.desc=Pokonaj Serce Pustki
+
+advancements.voidaicarcania.baubles=Mistrz Pustki
+advancements.voidaicarcania.baubles.desc=Zdobądź wszystkie 10 aktywnych Baubles

@@ -1,0 +1,308 @@
+item.item.name=Ім'я
+
+item.transmutation_shard.name=Осколок трансмутації
+item.voidic_shard.name=Осколок порожнечі
+item.void_bottle.name=Пухирець есенції порожнечі
+item.weak_void_cluster.name=Кристал порожнечі (Рівень 1)
+item.void_cluster.name=Кристал порожнечі (Рівень 2)
+item.strong_void_cluster.name=Кристал порожнечі (Рівень 3)
+
+item.feast_cowl.name=Капюшон вічного насичення
+item.active_feast_cowl.name=Капюшон вічного насичення
+item.reaper_cowl.name=Капюшон женця
+item.active_reaper_cowl.name=Капюшон женця
+
+item.flight_cloak.name=Небесна накидка
+item.active_flight_cloak.name=Небесна накидка
+item.invisibility_cloak.name=Накидка невидимості
+item.active_invisibility_cloak.name=Накидка невидимості
+
+item.shield_amulet.name=Амулет щита
+item.active_shield_amulet.name=Амулет щита
+item.inverse_amulet.name=Амулет обміну
+item.active_inverse_amulet.name=Амулет обміну
+
+item.protect_charm.name=Брелок відсторонення
+item.active_protect_charm.name=Брелок відсторонення
+item.explode_charm.name=Брелок ударної хвилі
+item.active_explode_charm.name=Брелок ударної хвилі
+
+item.strength_belt.name=Пояс сили
+item.active_strength_belt.name=Пояс сили
+item.resistance_belt.name=Пояс захисту
+item.active_resistance_belt.name=Пояс захисту
+
+item.transmutation_orb.name=Сфера трансмутації
+item.voidic_orb.name=Пустотна сфера трансмутації
+item.luna_orb.name=Сфера місяця
+
+item.void_bulb.name=Цибулина порожнечі
+item.floatshroom.name=Летногриб
+item.glowgrowth.name=Светоцвет
+item.dark_camellia.name=Камелія порожнечі
+item.void_melon_seed.name=Насіння кавуна порожнечі
+item.starbloom.name=Зведоцвет
+item.neddlesprout.name=Незрельник
+item.featherweed.name=Перьяник
+item.moon_mint.name=Місячна м'ята
+
+item.infused_ingot.name=Наповнений злиток
+item.mercury.name=Рідка ртуть
+item.enargite_ingot.name=Злиток энаргита
+item.sortigellium_ingot.name=Злиток сортигеллиума
+item.astralite_ingot.name=Злиток астралита
+item.mythril_ingot.name=Злиток міфріла
+item.obsidium_ingot.name=Злиток обсидианита
+item.demon_ingot.name=Злиток алмазу
+item.lunatite_ingot.name=Злиток лунанита
+
+item.mushroom_stew_1.name=Грибний суп
+item.mushroom_stew_2.name=Грибний суп
+item.mushroom_stew_3.name=Грибний суп
+item.mushroom_stew_4.name=Грибний суп
+item.mushroom_stew_5.name=Грибний суп
+item.mushroom_stew_6.name=Грибний суп
+item.mushroom_stew_7.name=Грибний суп
+
+item.rabbit_stew_1.name=Рагу з кролятини
+item.rabbit_stew_2.name=Рагу з кролятини
+item.rabbit_stew_3.name=Рагу з кролятини
+item.rabbit_stew_4.name=Рагу з кролятини
+item.rabbit_stew_5.name=Рагу з кролятини
+item.rabbit_stew_6.name=Рагу з кролятини
+item.rabbit_stew_7.name=Рагу з кролятини
+
+item.beetroot_soup_1.name=Буряковий суп
+item.beetroot_soup_2.name=Буряковий суп
+item.beetroot_soup_3.name=Буряковий суп
+item.beetroot_soup_4.name=Буряковий суп
+item.beetroot_soup_5.name=Буряковий суп
+item.beetroot_soup_6.name=Буряковий суп
+item.beetroot_soup_7.name=Буряковий суп
+
+item.bread_1.name=Хліб
+item.bread_2.name=Хліб
+item.bread_3.name=Хліб
+item.bread_4.name=Хліб
+item.bread_5.name=Хліб
+item.bread_6.name=Хліб
+item.bread_7.name=Хліб
+
+item.cookie_1.name=Печиво
+item.cookie_2.name=Печиво
+item.cookie_3.name=Печиво
+item.cookie_4.name=Печиво
+item.cookie_5.name=Печиво
+item.cookie_6.name=Печиво
+item.cookie_7.name=Печиво
+
+item.pumpkin_pie_1.name=Гарбузовий пиріг
+item.pumpkin_pie_2.name=Гарбузовий пиріг
+item.pumpkin_pie_3.name=Гарбузовий пиріг
+item.pumpkin_pie_4.name=Гарбузовий пиріг
+item.pumpkin_pie_5.name=Гарбузовий пиріг
+item.pumpkin_pie_6.name=Гарбузовий пиріг
+item.pumpkin_pie_7.name=Гарбузовий пиріг
+
+item.chorus_tea.name=Чай з коруса
+
+item.dwarf_brick.name=Гномьи цеглини
+item.spell_base.name=Заклята папір
+item.void_star.name=Зірка порожнечі
+item.voidheart.name=Cерце порожнечі
+item.bullet.name=Снаряд шалкера
+item.void_crystal.name=Кристал порожнечі
+item.cinnabar.name=Кіновар
+
+item.wraith_wisp.name=Примарна есенція
+item.transformative_root.name=Корінь трансформації
+item.nether_core.name=Пекельне ядро
+
+item.mythril_helm.name=Мiфрiловий шолом
+item.mythril_chestplate.name=Мiфрiловий нагрудник
+item.mythril_leggings.name=Мiфрiлови поножі
+item.mythril_boots.name=Мiфрiлови черевики
+item.mythril_sword.name=Мiфрiловий меч
+item.mythril_shovel.name=Мiфрiлова лопата
+item.mythril_pickaxe.name=Мiфрiлова кирка
+item.mythril_axe.name=Мiфрiловий сокира
+item.mythril_hoe.name=Мiфрiлова мотика
+
+item.enargite_helm.name=Энаргитовий шолом
+item.enargite_chestplate.name=Энаргитовий нагрудник
+item.enargite_leggings.name=Энаргитови поножі
+item.enargite_boots.name=Энаргитови черевики
+item.enargite_sword.name=Энаргитовий меч
+item.enargite_shovel.name=Энаргитова лопата
+item.enargite_pickaxe.name=Энаргитова кирка
+item.enargite_axe.name=Энаргитовий сокира
+item.enargite_hoe.name=Энаргитова мотика
+
+item.astralite_helm.name=Астралитовий шолом
+item.astralite_chestplate.name=Астралитовий нагрудник
+item.astralite_leggings.name=Астралитови поножі
+item.astralite_boots.name=Астралитовие черевики
+item.astralite_shovel.name=Астралитова лопата
+item.astralite_pickaxe.name=Астралитова кирка
+item.astralite_axe.name=Астралитовий бойова сокира
+item.astralite_hoe.name=Астралитова мотика
+
+item.sortigellium_sword.name=Сортигеллимовий меч
+item.sortigellium_shovel.name=Сортигеллимова лопата
+item.sortigellium_pickaxe.name=Сортигеллимова кирка
+item.sortigellium_axe.name=Сортигеллимовий сокира
+item.sortigellium_hoe.name=Сортигеллимова мотика
+
+
+
+
+
+tile.block_altar.name=Вівтар
+tile.block_botany_altar.name=Ботанічний вівтар
+tile.block_mortal_furnace.name=Жаровня смерті
+tile.block_reflection_pool.name=Ємність рефракції
+
+tile.block_voidrock.name=Пустокамень
+tile.block_voidrock_pillar.name=Пустокаменная колона
+tile.block_voidrock_tiles.name=Пустокаменная плитка
+tile.block_voidrock_tiles_cracked.name=пошкоджена пустокам'яна плитка
+tile.block_voidrock_smooth.name=Полірований пустокаменнь
+
+tile.block_cinnibar_ore.name=Руда кіноварі
+tile.block_peacock_ore.name=Руда борнита
+tile.block_netherheart_ore.name=Пекельна руда
+
+tile.block_voidsand.name=Пісок порожнечі
+tile.block_arcane_earth.name=Таємнича земля
+tile.block_voidmass.name=пустотний масив
+tile.block_voidcloud.name=Туман порожнечі
+
+tile.block_stem.name=Тримач ліхтаря
+tile.block_lantern.name=Ліхтар порожнечі
+tile.block_voidglass.name=Скло порожнечі
+tile.block_void_crystal.name=Блок кристала порожнечі
+
+tile.block_void_flower.name=Квітка порожнечі
+tile.block_void_crop.name=Цибулина порожнечі
+tile.block_floatshroom.name=Летногриб
+tile.block_glowgrowth.name=Светоцвiт
+tile.block_void_weed.name=Бур'ян порожнечі
+tile.block_tall_weed.name=Високий бур'ян порожнечі
+tile.block_void_melon.name=Кавун порожнечі
+tile.block_voidtea.name=Кущ темної камелії
+tile.block_melon_crop.name=Кавун порожнечі
+tile.block_featherweed.name=Перьяник
+tile.block_moonmint.name=Місячна м'ята
+tile.block_neddlesprout.name=Незрельнiк
+tile.block_starbloom.name=Звiздоцвiт
+
+tile.block_dwarf_brick.name=Гномьи цеглини
+tile.block_dwarf_stairs.name=Гномьи сходинки
+tile.block_dwarf_lantern.name=гномів ліхтар
+
+tile.block_dark_brick.name=Темні цеглини
+tile.block_dark_brick_chiseled.name=Різьблені темні цеглини
+
+tile.block_dark_marble.name=Темний мармур
+
+tile.block_whitewood.name=Білодерево
+tile.block_whitewood_leaves.name=Листя бiлодрева
+tile.block_whitewood_planks.name=Белодревеснi дошки
+tile.block_whitewood_stairs.name=Білодеревні сходинки
+tile.block_whitewood_slab.name=Білодеревна плита
+
+tile.block_void_totem.name=Тотем порожнечі
+tile.block_infused_metal.name=Блок наповненого металу
+tile.block_enargite_metal.name=Блок энаргита
+tile.block_astralite_metal.name=Блок астралита
+tile.block_mythril_metal.name=Блок міфріла
+tile.block_frozen_mercury.name=Блок меркурія
+tile.block_demon_metal.name=Блок даймонита
+
+tile.block_construct.name=Основа конструкції
+tile.block_voideye.name=Око конструкції
+
+tile.block_idfk.name=TestBlock-ModMCdl
+item.secret_stick.name=§dCam's Super Secret Stick
+
+
+
+
+enchantment.enchant_alchemy=Алхімія
+enchantment.enchant_cloudstep=Подорожній порожнечі
+
+
+
+
+
+
+itemGroup.voidictab=Voidaic Arcania
+itemGroup.alchemytab=Voidaic Alchemy
+itemGroup.metaltab=Voidaic Metallurgy
+
+
+
+
+entity.void_wraith.name=Привид безодні
+entity.void_construct.name=Конструкція порожнечі
+entity.heart_boss.name=Серце порожнечі
+entity.heart_passive.name=Серце порожнечі
+entity.void_daemon.name=Демон порожнечі
+
+
+
+
+
+container.altar=Вівтар
+container.botany_altar=Ботанічний вівтар
+container.centrifuge_furnace=Жаровня смерті
+
+
+
+
+
+effect.lifesteal=Крадіжка життя
+effect.voidtouch=Дотик порожнечі
+
+
+
+
+
+death.attack.voidtouch=%1$s був поглинений порожнечею...
+
+
+
+
+
+advancements.voidaicarcania.orb=Особливе відкриття
+advancements.voidaicarcania.orb.desc=Створіть Сферу трансмутації
+
+advancements.voidaicarcania.void_shard=Пробудження темряви
+advancements.voidaicarcania.void_shard.desc=Знайдіть або створіть Осколок порожнечі
+
+advancements.voidaicarcania.void_orb=Powerplay
+advancements.voidaicarcania.void_orb.desc=Створіть вищу пустотну сферу трансмутації
+
+advancements.voidaicarcania.altar=Початок чогось більшого
+advancements.voidaicarcania.altar.desc=Створіть вівтар
+
+advancements.voidaicarcania.botany_altar=Сила квітів
+advancements.voidaicarcania.botany_altar.desc=Отримайте Ботанічний вівтар
+
+advancements.voidaicarcania.enter_void=В невідомість
+advancements.voidaicarcania.enter_void.desc=Потрапте в порожнечу...
+
+advancements.voidaicarcania.metallurgy=Твердий метал
+advancements.voidaicarcania.metallurgy.desc=Створіть Наповнений злиток
+
+advancements.voidaicarcania.peacock=Спрага
+advancements.voidaicarcania.peacock.desc=Щоооо робит ця райдужна руда?
+
+advancements.voidaicarcania.stackoverflow=java.lang.StackOverflowError
+advancements.voidaicarcania.stackoverflow.desc=Зберіть стак всіх злитків і рослин з Voidaic Arcania
+
+advancements.voidaicarcania.heartboss=Обраний
+advancements.voidaicarcania.heartboss.desc=Знищіть серце порожнечі
+
+advancements.voidaicarcania.baubles=Майстер безодні
+advancements.voidaicarcania.baubles.desc=отримайте всі 10 активних аксесуарів Baubles
