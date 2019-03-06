@@ -20,7 +20,7 @@ public class EventHandler
 		
 		for(ExtendedBlockStorage storage : chunk.getBlockStorageArray())
 		{
-			if(storage != null)
+			if(storage != null && storage.getYLocation() >= 60)
 			{
 				for(int x = 0; x < 16; x++)
 				{
