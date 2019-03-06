@@ -1,63 +1,87 @@
 package com.camellias.voidaicarcania.handlers;
 
-import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import com.camellias.voidaicarcania.util.Edit;
+import com.camellias.voidaicarcania.util.ScanCallBack;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
-import net.minecraftforge.event.world.BlockEvent.FluidPlaceBlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventHandler
 {
-	public static final IBlockState AIR = Blocks.AIR.getDefaultState();
-	
 	@SubscribeEvent
 	public void onChunkPopulate(PopulateChunkEvent.Post event)
 	{
-		HashMap<BlockPos, IBlockState> map = new HashMap<BlockPos, IBlockState>();
 		Chunk chunk = event.getWorld().getChunk(event.getChunkX(), event.getChunkZ());
 		
-		for(int x = 0; x < 16; x++)
-		{
-			for(int y = 0; y < 140; y++)
-			{
-				for(int z = 0; z < 16; z++)
-				{
-					BlockPos pos = new BlockPos(x, y, z);
-					map.put(pos, chunk.getBlockState(pos));
-					
-				}
-			}
-		}
+		final Queue<Edit> editQueue = new LinkedList();
 		
-		for(int x = 0; x < 16; x++)
+		scanChunk(chunk, 140, (c, i, j, k) ->
 		{
-			for(int y = 0; y < 140; y++)
+			BlockPos pos = new BlockPos(i, j, k);
+			IBlockState state = chunk.getBlockState(pos);
+			editQueue.offer(get(pos, state));
+		});
+		
+		while(editQueue.peek() != null)
+		{
+			final Edit edit = editQueue.poll();
+			BlockPos pos = edit.pos;
+			
+			chunk.setBlockState(pos.up(16), edit.state);
+			if(pos.getY() < 16)
 			{
-				for(int z = 0; z < 16; z++)
+				chunk.setBlockState(pos, AIR);
+			}
+			
+			recycleBin.offer(edit);
+		}
+	}
+	
+	
+	
+//-----------------------------------------------------------------------------------------------------------------------//
+	
+	
+	
+	public static final IBlockState AIR = Blocks.AIR.getDefaultState();
+	
+	public void scanChunk(Chunk chunk, int yMax, ScanCallBack function)
+	{
+		loopChunk(chunk, 0, 0, 0, 16, yMax, 16, function);
+	}
+	
+	public void loopChunk(Chunk chunk, int x, int y, int z, int w, int h, int d, ScanCallBack function)
+	{
+		for(int i = x; i < w; i++)
+		{
+			for(int j = y; j < h; j++)
+			{
+				for(int k = z; k < d; k++)
 				{
-					BlockPos pos = new BlockPos(x, y, z);
-					chunk.setBlockState(pos.up(16), map.get(pos));
-					if(y < 16)
-					{
-						chunk.setBlockState(pos, AIR);
-					}
+					function.onScan(chunk, i, j, k);
 				}
 			}
 		}
 	}
 	
-	@SubscribeEvent
-	public void onFluidPlace(FluidPlaceBlockEvent event)
+	Queue<Edit> recycleBin = new LinkedList();
+	public Edit get(BlockPos pos, IBlockState state)
 	{
-		int y = event.getLiquidPos().getY();
-		
-		if(y < 16)
+		if(recycleBin.peek() != null)
 		{
-			event.setCanceled(true);
+			Edit edit = recycleBin.poll();
+			edit.pos = pos;
+			edit.state = state;
+			return edit;
 		}
+		
+		return new Edit(pos, state);
 	}
 }
