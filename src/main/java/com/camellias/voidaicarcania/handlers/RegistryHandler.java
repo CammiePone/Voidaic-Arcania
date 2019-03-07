@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @EventBusSubscriber
 public class RegistryHandler 
 {	
-	/*@SubscribeEvent
+	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
 	{
 		event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
@@ -27,6 +27,7 @@ public class RegistryHandler
 	public static void onBlockRegister(RegistryEvent.Register<Block> event)
 	{
 		event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[1]));
+		TileEntityHandler.registerTileEntities();
 	}
 	
 	@SubscribeEvent
@@ -47,7 +48,7 @@ public class RegistryHandler
 				((IHasModel)block).registerModels();
 			}
 		}
-	}*/
+	}
 	
 	public static void serverRegistries(FMLServerStartingEvent event)
 	{
