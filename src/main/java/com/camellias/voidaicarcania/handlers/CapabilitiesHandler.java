@@ -60,12 +60,12 @@ public class CapabilitiesHandler
 	@SubscribeEvent
 	public void onAddItemCapabilites(AttachCapabilitiesEvent<ItemStack> event)
 	{
-		if(VoidEssenceList.LIST.containsKey(event.getObject().getItem()))
+		if(VoidEssenceList.LIST.containsKey(event.getObject()))
 		{
 			if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
 			{
 				ItemStack stack = event.getObject();
-				int essence = VoidEssenceList.LIST.get(stack.getItem());
+				int essence = VoidEssenceList.LIST.get(stack);
 				boolean effect = false;
 				IEssence itemEssence = new DefaultEssenceCapability(essence, effect);
 				event.addCapability(new ResourceLocation(Reference.MODID, "Essence"), new EssenceProvider(itemEssence));
