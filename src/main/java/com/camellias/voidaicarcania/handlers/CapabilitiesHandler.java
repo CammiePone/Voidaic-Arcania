@@ -18,8 +18,10 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Tuple;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -61,11 +63,12 @@ public class CapabilitiesHandler
 	public void onAddItemCapabilites(AttachCapabilitiesEvent<ItemStack> event)
 	{
 		ItemStack stack = event.getObject();
-		if(VoidEssenceList.LIST.containsKey(stack.getItem()))
+		Tuple<Item, Integer> tuple = new Tuple(stack.getItem(), stack.getMetadata());
+		if(VoidEssenceList.LIST.containsKey(tuple))
 		{
 			if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
 			{
-				int essence = VoidEssenceList.LIST.get(stack.getItem());
+				int essence = VoidEssenceList.LIST.get(tuple);
 				boolean effect = false;
 				IEssence itemEssence = new DefaultEssenceCapability(essence, effect);
 				event.addCapability(new ResourceLocation(Reference.MODID, "Essence"), new EssenceProvider(itemEssence));
@@ -80,12 +83,13 @@ public class CapabilitiesHandler
 		if(event.getItemStack().hasCapability(EssenceProvider.essenceCapability, null))
 		{
 			ItemStack stack = event.getItemStack();
-			IEssence essenceCap = stack.getCapability(EssenceProvider.essenceCapability, null);
 			ITooltipFlag flag = event.getFlags();
 			List<String> tooltip = event.getToolTip();
-			String info = TextFormatting.DARK_GRAY + I18n.format(Reference.MODID + ".voidEssence");
-			int essence = essenceCap.essence();
-			tooltip.add(info + ": " + TextFormatting.GRAY + essence);
+			String itemInfo = TextFormatting.DARK_GRAY + I18n.format(Reference.MODID + ".voidEssenceItem");
+			String stackInfo = TextFormatting.DARK_GRAY + I18n.format(Reference.MODID + ".voidEssenceStack");
+			int essence = stack.getCapability(EssenceProvider.essenceCapability, null).essence();
+			tooltip.add(itemInfo + ": " + TextFormatting.GRAY + essence);
+			tooltip.add(stackInfo + ": " + TextFormatting.GRAY + (essence * stack.getCount()));
 		}
 	}
 }
