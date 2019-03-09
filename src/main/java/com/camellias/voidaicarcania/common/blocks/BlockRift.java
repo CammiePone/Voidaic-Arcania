@@ -69,6 +69,12 @@ public class BlockRift extends Block implements IHasModel
 	}
 	
 	@Override
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
+		return MapColor.PURPLE;
+	}
+	
+	@Override
 	public int quantityDropped(Random random)
     {
         return 0;
