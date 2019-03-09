@@ -18,10 +18,8 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Tuple;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -63,12 +61,11 @@ public class CapabilitiesHandler
 	public void onAddItemCapabilites(AttachCapabilitiesEvent<ItemStack> event)
 	{
 		ItemStack stack = event.getObject();
-		Tuple<Item, Integer> tuple = new Tuple(stack.getItem(), stack.getMetadata());
-		if(VoidEssenceList.LIST.containsKey(tuple))
+		if(VoidEssenceList.LIST.containsKey(stack.getItem()) && (VoidEssenceList.LIST.get(stack.getItem()).getFirst() == stack.getMetadata()))
 		{
 			if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
 			{
-				int essence = VoidEssenceList.LIST.get(tuple);
+				int essence = VoidEssenceList.LIST.get(stack.getItem()).getSecond();
 				boolean effect = false;
 				IEssence itemEssence = new DefaultEssenceCapability(essence, effect);
 				event.addCapability(new ResourceLocation(Reference.MODID, "Essence"), new EssenceProvider(itemEssence));

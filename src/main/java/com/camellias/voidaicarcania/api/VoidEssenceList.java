@@ -13,7 +13,7 @@ import thaumcraft.api.items.ItemsTC;
 
 public class VoidEssenceList
 {
-	public static final HashMap<Tuple<Item, Integer>, Integer> LIST = new HashMap<>();
+	public static final HashMap<Item, Tuple<Integer, Integer>> LIST = new HashMap<>();
 
 	public static void init()
 	{
@@ -111,7 +111,7 @@ public class VoidEssenceList
 
 	public static void addToList(ItemStack stack, int voidEssence)
 	{
-		Tuple<Item, Integer> tuple = new Tuple(stack.getItem(), stack.getMetadata());
-		LIST.put(tuple, voidEssence);
+		Tuple<Integer, Integer> tuple = new Tuple(stack.getMetadata(), voidEssence);
+		LIST.put(stack.getItem(), tuple);
 	}
 }
