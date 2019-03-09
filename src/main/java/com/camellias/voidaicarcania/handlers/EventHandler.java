@@ -15,7 +15,7 @@ public class EventHandler
 	public static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
 	
 	@SubscribeEvent
-	public void onChunkPopulate(PopulateChunkEvent.Post event)
+	public void onChunkPopulate(PopulateChunkEvent.Pre event)
 	{
 		Chunk chunk = event.getWorld().getChunk(event.getChunkX(), event.getChunkZ());
 		

@@ -1,8 +1,10 @@
 package com.camellias.voidaicarcania.handlers;
 
+import com.camellias.voidaicarcania.api.VoidEssenceList;
 import com.camellias.voidaicarcania.init.Capabilities;
 import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
+import com.camellias.voidaicarcania.kofi.Donators;
 import com.camellias.voidaicarcania.util.IHasModel;
 
 import net.minecraft.block.Block;
@@ -65,10 +67,11 @@ public class RegistryHandler
 	{
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilitiesHandler());
+		Donators.addDonators();
 	}
-
+	
 	public static void initRegistries()
 	{
-
+		VoidEssenceList.init();
 	}
 }

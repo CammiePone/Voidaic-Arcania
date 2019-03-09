@@ -5,6 +5,7 @@ import java.io.File;
 import com.camellias.voidaicarcania.handlers.RegistryHandler;
 import com.camellias.voidaicarcania.proxy.CommonProxy;
 
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -26,6 +27,7 @@ public class Main
 	
 	@Instance
 	public static Main instance;
+	public static boolean isThaumcraftLoaded = false;
 	
 	//Proxy
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
@@ -35,6 +37,11 @@ public class Main
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		if(Loader.isModLoaded("thaumcraft"))
+		{
+			isThaumcraftLoaded = true;
+		}
+		
 		RegistryHandler.otherRegistries();
 		RegistryHandler.preInitRegistries(event);
 	}
