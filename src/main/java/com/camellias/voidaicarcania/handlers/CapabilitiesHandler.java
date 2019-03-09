@@ -13,6 +13,7 @@ import com.camellias.voidaicarcania.api.capabilities.EssenceCap.IEssence;
 import com.camellias.voidaicarcania.api.capabilities.Infused.DefaultInfusedCapability;
 import com.camellias.voidaicarcania.api.capabilities.Infused.IInfused;
 import com.camellias.voidaicarcania.api.capabilities.Infused.InfusedProvider;
+import com.camellias.voidaicarcania.util.ItemStackWrapper;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -61,11 +62,12 @@ public class CapabilitiesHandler
 	public void onAddItemCapabilites(AttachCapabilitiesEvent<ItemStack> event)
 	{
 		ItemStack stack = event.getObject();
-		if(VoidEssenceList.LIST.containsKey(stack.getItem()) && (VoidEssenceList.LIST.get(stack.getItem()).getFirst() == stack.getMetadata()))
+		ItemStackWrapper wrapper = new ItemStackWrapper(stack.getItem(), stack.getMetadata());
+		if(VoidEssenceList.LIST.containsKey(wrapper))
 		{
 			if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
 			{
-				int essence = VoidEssenceList.LIST.get(stack.getItem()).getSecond();
+				int essence = VoidEssenceList.LIST.get(wrapper);
 				boolean effect = false;
 				IEssence itemEssence = new DefaultEssenceCapability(essence, effect);
 				event.addCapability(new ResourceLocation(Reference.MODID, "Essence"), new EssenceProvider(itemEssence));

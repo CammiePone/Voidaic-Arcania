@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.api;
 import java.util.HashMap;
 
 import com.camellias.voidaicarcania.Main;
+import com.camellias.voidaicarcania.util.ItemStackWrapper;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -13,7 +14,7 @@ import thaumcraft.api.items.ItemsTC;
 
 public class VoidEssenceList
 {
-	public static final HashMap<Item, Tuple<Integer, Integer>> LIST = new HashMap<>();
+	public static final HashMap<ItemStackWrapper, Integer> LIST = new HashMap<>();
 
 	public static void init()
 	{
@@ -31,6 +32,7 @@ public class VoidEssenceList
 		ItemStack ender_eye = new ItemStack(Items.ENDER_EYE);
 		ItemStack end_crystal = new ItemStack(Items.END_CRYSTAL);
 		ItemStack enchant_table = new ItemStack(Item.getItemFromBlock(Blocks.ENCHANTING_TABLE));
+		ItemStack dragon_breath = new ItemStack(Items.DRAGON_BREATH);
 		ItemStack bedrock = new ItemStack(Item.getItemFromBlock(Blocks.BEDROCK));
 		ItemStack ender_chest = new ItemStack(Item.getItemFromBlock(Blocks.ENDER_CHEST));
 		ItemStack dragon_egg = new ItemStack(Item.getItemFromBlock(Blocks.DRAGON_EGG));
@@ -49,6 +51,7 @@ public class VoidEssenceList
 		addToList(ender_eye, 75);
 		addToList(end_crystal, 150);
 		addToList(enchant_table, 200);
+		addToList(dragon_breath, 400);
 		addToList(bedrock, 500);
 		addToList(ender_chest, 500);
 		addToList(dragon_egg, 1600);
@@ -111,7 +114,6 @@ public class VoidEssenceList
 
 	public static void addToList(ItemStack stack, int voidEssence)
 	{
-		Tuple<Integer, Integer> tuple = new Tuple(stack.getMetadata(), voidEssence);
-		LIST.put(stack.getItem(), tuple);
+		LIST.put(new ItemStackWrapper(stack.getItem(), stack.getMetadata()), voidEssence);
 	}
 }

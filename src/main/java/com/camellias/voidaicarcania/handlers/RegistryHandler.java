@@ -8,6 +8,8 @@ import com.camellias.voidaicarcania.kofi.Donators;
 import com.camellias.voidaicarcania.util.IHasModel;
 
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -61,6 +63,8 @@ public class RegistryHandler
 	public static void otherRegistries()
 	{
 		Capabilities.init();
+		Blocks.DRAGON_EGG.setCreativeTab(CreativeTabs.DECORATIONS);
+		Blocks.COMMAND_BLOCK.setCreativeTab(CreativeTabs.REDSTONE);
 	}
 
 	public static void preInitRegistries(FMLPreInitializationEvent event)
