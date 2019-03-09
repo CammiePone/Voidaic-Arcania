@@ -32,21 +32,21 @@ public class CapabilitiesHandler
 	/**
 	 * Something here broke, and is spamming console with something that's returning null when referring to the player.
 	 */
-	
-	/*@SubscribeEvent
+
+	@SubscribeEvent
 	public void onAddEntityCapabilites(AttachCapabilitiesEvent<Entity> event)
 	{
 		if((event.getObject() instanceof EntityLivingBase))
 		{
 			final EntityLivingBase entity = (EntityLivingBase) event.getObject();
-			
+
 			if(!entity.hasCapability(InfusedProvider.infusedCapability, null))
 			{
 				boolean isInfused = false;
 				IInfused infused = new DefaultInfusedCapability(isInfused);
 				event.addCapability(new ResourceLocation(Reference.MODID, "Infused"), new InfusedProvider(infused));
 			}
-			
+
 			if(!entity.hasCapability(CorruptionProvider.corruptionCapability, null))
 			{
 				int amount = 0;
@@ -55,8 +55,8 @@ public class CapabilitiesHandler
 				event.addCapability(new ResourceLocation(Reference.MODID, "Corruption"), new CorruptionProvider(corruption));
 			}
 		}
-	}*/
-	
+	}
+
 	@SubscribeEvent
 	public void onAddItemCapabilites(AttachCapabilitiesEvent<ItemStack> event)
 	{
@@ -72,7 +72,7 @@ public class CapabilitiesHandler
 			}
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void onTooltipRender(ItemTooltipEvent event)
