@@ -1,5 +1,6 @@
 package com.camellias.voidaicarcania.handlers;
 
+import com.camellias.voidaicarcania.init.Capabilities;
 import com.camellias.voidaicarcania.init.ModBlocks;
 import com.camellias.voidaicarcania.init.ModItems;
 import com.camellias.voidaicarcania.util.IHasModel;
@@ -15,21 +16,21 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @EventBusSubscriber
-public class RegistryHandler 
-{	
+public class RegistryHandler
+{
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
 	{
 		event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
 	}
-	
+
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event)
 	{
 		event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[1]));
 		TileEntityHandler.registerTileEntities();
 	}
-	
+
 	@SubscribeEvent
 	public static void onModelRegister(ModelRegistryEvent event)
 	{
@@ -40,7 +41,7 @@ public class RegistryHandler
 				((IHasModel)item).registerModels();
 			}
 		}
-		
+
 		for(Block block : ModBlocks.BLOCKS)
 		{
 			if(block instanceof IHasModel)
@@ -49,24 +50,25 @@ public class RegistryHandler
 			}
 		}
 	}
-	
+
 	public static void serverRegistries(FMLServerStartingEvent event)
 	{
-		
+
 	}
-	
+
 	public static void otherRegistries()
 	{
-		
+		Capabilities.init();
 	}
-	
+
 	public static void preInitRegistries(FMLPreInitializationEvent event)
 	{
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
+		MinecraftForge.EVENT_BUS.register(new CapabilitiesHandler());
 	}
-	
+
 	public static void initRegistries()
 	{
-		
+
 	}
 }
