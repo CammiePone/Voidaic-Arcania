@@ -15,11 +15,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -28,6 +31,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockRift extends Block implements IHasModel
 {
+	protected static final AxisAlignedBB BOUNDING_AABB = new AxisAlignedBB(0.0625D, 0.0625D, 0.0625D, 0.9375D, 0.9375D, 0.9375D);
+	private static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
+	
 	public BlockRift(Material material, String name)
 	{
 		super(material);
@@ -41,28 +47,43 @@ public class BlockRift extends Block implements IHasModel
 	}
 	
 	@Override
-	public void onEntityWalk(World world, BlockPos pos, Entity entity)
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos)
 	{
-		if(entity.dimension != -64)
+		return BOUNDING_AABB;
+	}
+	
+	@Override
+	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
+	{
+		if(!entity.getEntityWorld().isRemote)
 		{
-			if(!(entity instanceof EntityPlayerMP))
+			if(entity.dimension != -64)
 			{
-				TeleporterVoid.teleportToDimension(entity, -64, entity.posX, 128, entity.posZ);
+				if(!(entity instanceof EntityPlayer))
+				{
+					TeleporterVoid.teleportToDimension(entity, -64, entity.posX, 120, entity.posZ);
+				}
+				else
+				{
+					if(entity instanceof EntityPlayerMP)
+					{
+						TeleporterVoid.teleportToDimension((EntityPlayerMP) entity, -64, entity.posX, 120, entity.posZ);
+					}
+				}
 			}
 			else
 			{
-				TeleporterVoid.teleportToDimension((EntityPlayerMP) entity, -64, entity.posX, 128, entity.posZ);
-			}
-		}
-		if(entity.dimension == -64)
-		{
-			if(!(entity instanceof EntityPlayerMP))
-			{
-				TeleporterVoid.teleportToDimension(entity, -64, entity.posX, 128, entity.posZ);
-			}
-			else
-			{
-				TeleporterVoid.teleportToDimension((EntityPlayerMP) entity, -64, entity.posX, 128, entity.posZ);
+				if(!(entity instanceof EntityPlayer))
+				{
+					TeleporterVoid.teleportToDimension(entity, 0, entity.posX, 2.2D, entity.posZ);
+				}
+				else
+				{
+					if(entity instanceof EntityPlayerMP)
+					{
+						TeleporterVoid.teleportToDimension((EntityPlayerMP) entity, 0, entity.posX, 2.2D, entity.posZ);
+					}
+				}
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 package com.camellias.voidaicarcania.core.handlers;
 
+import com.camellias.voidaicarcania.common.world.dimensions.ChunkGeneratorVoid;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.network.NetworkHandler;
 import com.camellias.voidaicarcania.core.network.packets.HoldSpacebarMessage;
@@ -15,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.gen.ChunkGeneratorOverworld;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
@@ -27,6 +29,7 @@ public class EventHandler
 {
 	public static final IBlockState RIFT = ModBlocks.RIFT.getDefaultState();
 	public static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
+	public static final IBlockState AIR = Blocks.AIR.getDefaultState();
 	
 	@SubscribeEvent
 	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
@@ -40,15 +43,33 @@ public class EventHandler
 	{
 		Chunk chunk = event.getWorld().getChunk(event.getChunkX(), event.getChunkZ());
 		
-		for(int x = 0; x < 16; x++)
+		if(event.getGenerator() instanceof ChunkGeneratorOverworld)
 		{
-			for(int z = 0; z < 16; z++)
+			for(int x = 0; x < 16; x++)
 			{
-				for(int y = 0; y <= 1; y++)
+				for(int z = 0; z < 16; z++)
 				{
-					BlockPos pos = new BlockPos(x, y, z);
-					if(y == 0) chunk.setBlockState(pos, RIFT);
-					if(y == 1) chunk.setBlockState(pos, BEDROCK);
+					for(int y = 0; y <= 1; y++)
+					{
+						BlockPos pos = new BlockPos(x, y, z);
+						if(y == 0) chunk.setBlockState(pos, RIFT);
+						if(y == 1) chunk.setBlockState(pos, BEDROCK);
+					}
+				}
+			}
+		}
+		
+		if(event.getGenerator() instanceof ChunkGeneratorVoid)
+		{
+			for(int x = 0; x < 16; x++)
+			{
+				for(int z = 0; z < 16; z++)
+				{
+					for(int y = 0; y <= 5; y++)
+					{
+						BlockPos pos = new BlockPos(x, y, z);
+						chunk.setBlockState(pos, AIR);
+					}
 				}
 			}
 		}
@@ -115,10 +136,26 @@ public class EventHandler
 						player.motionY = player.motionY / 1.025D;
 					}
 					
-					player.jumpMovementFactor *= 1.75F;
+					player.setNoGravity(true);
+					player.jumpMovementFactor *= 1.5F;
 					player.fallDistance = 0.0F;
 				}
+				else
+				{
+					player.setNoGravity(false);
+				}
+			}
+			else
+			{
+				player.setNoGravity(false);
 			}
 		}
+        else
+        {
+        	if(event.player.ticksExisted % 20 == 0)
+        	{
+        		event.player.setNoGravity(false);
+        	}
+        }
 	}
 }
