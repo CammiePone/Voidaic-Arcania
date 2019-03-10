@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.kofi;
+package com.camellias.voidaicarcania.core.kofi;
 
 import java.util.HashMap;
 import java.util.UUID;

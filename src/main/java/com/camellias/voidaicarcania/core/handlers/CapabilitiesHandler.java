@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.handlers;
+package com.camellias.voidaicarcania.core.handlers;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import com.camellias.voidaicarcania.api.capabilities.EssenceCap.IEssence;
 import com.camellias.voidaicarcania.api.capabilities.Infused.DefaultInfusedCapability;
 import com.camellias.voidaicarcania.api.capabilities.Infused.IInfused;
 import com.camellias.voidaicarcania.api.capabilities.Infused.InfusedProvider;
-import com.camellias.voidaicarcania.util.ItemStackWrapper;
+import com.camellias.voidaicarcania.core.util.ItemStackWrapper;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;

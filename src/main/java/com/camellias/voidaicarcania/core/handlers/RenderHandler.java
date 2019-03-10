@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.handlers;
+package com.camellias.voidaicarcania.core.handlers;
 
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.client.renderer.tileentity.TileEntityRiftRender;

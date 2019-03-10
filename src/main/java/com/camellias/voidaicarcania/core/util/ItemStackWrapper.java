@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.util;
+package com.camellias.voidaicarcania.core.util;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

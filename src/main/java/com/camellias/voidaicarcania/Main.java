@@ -2,7 +2,7 @@ package com.camellias.voidaicarcania;
 
 import java.io.File;
 
-import com.camellias.voidaicarcania.handlers.RegistryHandler;
+import com.camellias.voidaicarcania.core.handlers.RegistryHandler;
 import com.camellias.voidaicarcania.proxy.CommonProxy;
 
 import net.minecraftforge.fml.common.Loader;

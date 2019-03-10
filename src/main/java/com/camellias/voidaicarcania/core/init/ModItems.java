@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.init;
+package com.camellias.voidaicarcania.core.init;
 
 import java.util.ArrayList;
 import java.util.List;

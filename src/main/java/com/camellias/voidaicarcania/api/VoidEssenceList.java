@@ -3,7 +3,7 @@ package com.camellias.voidaicarcania.api;
 import java.util.HashMap;
 
 import com.camellias.voidaicarcania.Main;
-import com.camellias.voidaicarcania.util.ItemStackWrapper;
+import com.camellias.voidaicarcania.core.util.ItemStackWrapper;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

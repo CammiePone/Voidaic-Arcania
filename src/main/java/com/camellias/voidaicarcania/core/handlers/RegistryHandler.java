@@ -1,11 +1,14 @@
-package com.camellias.voidaicarcania.handlers;
+package com.camellias.voidaicarcania.core.handlers;
 
 import com.camellias.voidaicarcania.api.VoidEssenceList;
-import com.camellias.voidaicarcania.init.Capabilities;
-import com.camellias.voidaicarcania.init.ModBlocks;
-import com.camellias.voidaicarcania.init.ModItems;
-import com.camellias.voidaicarcania.kofi.Donators;
-import com.camellias.voidaicarcania.util.IHasModel;
+import com.camellias.voidaicarcania.core.init.ModBiomes;
+import com.camellias.voidaicarcania.core.init.ModBlocks;
+import com.camellias.voidaicarcania.core.init.ModCapabilities;
+import com.camellias.voidaicarcania.core.init.ModDimensions;
+import com.camellias.voidaicarcania.core.init.ModItems;
+import com.camellias.voidaicarcania.core.kofi.Donators;
+import com.camellias.voidaicarcania.core.network.NetworkHandler;
+import com.camellias.voidaicarcania.core.util.IHasModel;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -62,16 +65,19 @@ public class RegistryHandler
 
 	public static void otherRegistries()
 	{
-		Capabilities.init();
+		ModCapabilities.init();
+		ModBiomes.registerBiome();
 		Blocks.DRAGON_EGG.setCreativeTab(CreativeTabs.DECORATIONS);
 		Blocks.COMMAND_BLOCK.setCreativeTab(CreativeTabs.REDSTONE);
 	}
 
 	public static void preInitRegistries(FMLPreInitializationEvent event)
 	{
+		NetworkHandler.init();
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilitiesHandler());
 		Donators.addDonators();
+		ModDimensions.registerDimension();
 	}
 	
 	public static void initRegistries()

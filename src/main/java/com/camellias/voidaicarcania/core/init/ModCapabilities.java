@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.init;
+package com.camellias.voidaicarcania.core.init;
 
 import java.util.concurrent.Callable;
 
@@ -14,8 +14,8 @@ import com.camellias.voidaicarcania.api.capabilities.Infused.InfusedStorage;
 
 import net.minecraftforge.common.capabilities.CapabilityManager;
 
-public class Capabilities {
-
+public class ModCapabilities
+{
 	public static void init()
 	{
 		CapabilityManager.INSTANCE.register(IEssence.class, new EssenceStorage(), new ItemCapabilityFactory());
