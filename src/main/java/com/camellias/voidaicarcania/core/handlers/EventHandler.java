@@ -26,6 +26,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
 
 public class EventHandler
 {
@@ -94,44 +95,40 @@ public class EventHandler
 	}
 	
 	@SubscribeEvent
-	public void onLivingUpdate(LivingUpdateEvent event)
+	public void onWorldTick(WorldTickEvent event)
 	{
-		if(!(event.getEntity() instanceof EntityPlayer))
+		World world = event.world;
+		
+		for(Entity entity : world.loadedEntityList)
 		{
-			Entity entity = event.getEntity();
-			if(!entity.world.isRemote)
+			if(!(entity instanceof EntityPlayer))
 			{
-				World world = entity.world;
-				
-				if(event.getEntity().dimension == -64)
-		        {
-					entity.setNoGravity(true);
-				}
-				
-				if(event.getEntity().dimension == 0)
+				if(!world.isRemote)
 				{
-					int y = (int) entity.posY;
-					
-					if(y < 10)
-					{
+					if(entity.dimension == -64)
+			        {
 						entity.setNoGravity(true);
 					}
-					else
+					
+					if(entity.dimension == 0)
 					{
-						if(!entity.onGround && entity.motionY < 0.0D)
+						if(entity.posY <= 10) entity.setNoGravity(true);
+						
+						if(entity.posY <= 30)
 						{
-							entity.motionY *= (y * 0.01);
+							if(!entity.onGround && entity.motionY < 0.0D)
+							{
+								entity.motionY *= (entity.posY * 0.06);
+							}
+							entity.setNoGravity(false);
 						}
-						entity.setNoGravity(false);
+						if(entity.posY > 30) entity.setNoGravity(false);
 					}
+			        else
+			        {
+			        	if(entity.ticksExisted % 20 == 0) entity.setNoGravity(false);
+			        }
 				}
-		        else
-		        {
-		        	if(event.getEntity().ticksExisted % 20 == 0)
-		        	{
-		        		event.getEntity().setNoGravity(false);
-		        	}
-		        }
 			}
 		}
 	}
@@ -160,9 +157,9 @@ public class EventHandler
 				
 				if(player.isSneaking())
 				{
-					player.motionY = -0.15D;
+					player.motionY = -0.2D;
 				}
-				if((player.motionY <= 0.1D && player.motionY >= -0.1D))
+				if((player.motionY <= 0.15D && player.motionY >= -0.15D))
 				{
 					player.motionY = player.motionY / 1.025D;
 				}
@@ -178,9 +175,7 @@ public class EventHandler
 		}
 		if(player.dimension == 0)
 		{
-			int y = (int) player.posY;
-			
-			if(y < 10)
+			if(player.posY <= 10)
 			{
 				if(!player.isElytraFlying() || !player.capabilities.isFlying)
 				{
@@ -198,9 +193,9 @@ public class EventHandler
 					
 					if(player.isSneaking())
 					{
-						player.motionY = -0.15D;
+						player.motionY = -0.20D;
 					}
-					if((player.motionY <= 0.1D && player.motionY >= -0.1D))
+					if((player.motionY <= 0.15D && player.motionY >= -0.15D))
 					{
 						player.motionY = player.motionY / 1.025D;
 					}
@@ -214,19 +209,21 @@ public class EventHandler
 					player.setNoGravity(false);
 				}
 			}
+			if(player.posY <= 30)
+			{
+				if(!player.capabilities.isFlying || !player.isElytraFlying())
+				{
+					if(!player.onGround && player.motionY < 0.0D)
+			        {
+			            player.motionY *= (player.posY * 0.06);
+			            player.setNoGravity(false);
+			        }
+				}
+				player.setNoGravity(false);
+			}
 			else
 			{
-				if(!world.isRemote)
-				{
-					if(!player.capabilities.isFlying || !player.isElytraFlying())
-					{
-						if(!player.onGround && player.motionY < 0.0D)
-				        {
-				            player.motionY *= (y * 0.01);
-				        }
-					}
-					player.setNoGravity(false);
-				}
+				player.setNoGravity(false);
 			}
 		}
 	}

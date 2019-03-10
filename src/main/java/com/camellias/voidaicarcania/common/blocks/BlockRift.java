@@ -51,6 +51,11 @@ public class BlockRift extends Block implements IHasModel
 		return true;
 	}
 	
+	@Override
+	public boolean isCollidable()
+	{
+		return false;
+	}
 	
 	@Override
 	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
