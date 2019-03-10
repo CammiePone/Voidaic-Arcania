@@ -31,7 +31,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockRift extends Block implements IHasModel
 {
-	protected static final AxisAlignedBB BOUNDING_AABB = new AxisAlignedBB(0.0625D, 0.0625D, 0.0625D, 0.9375D, 0.9375D, 0.9375D);
 	private static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
 	
 	public BlockRift(Material material, String name)
@@ -47,10 +46,11 @@ public class BlockRift extends Block implements IHasModel
 	}
 	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos)
+	public boolean isPassable(IBlockAccess world, BlockPos pos)
 	{
-		return BOUNDING_AABB;
+		return true;
 	}
+	
 	
 	@Override
 	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
