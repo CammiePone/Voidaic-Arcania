@@ -2,6 +2,8 @@ package com.camellias.voidaicarcania.common.blocks;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.common.tileentities.TileEntityRift;
 import com.camellias.voidaicarcania.common.world.dimensions.TeleporterVoid;
@@ -45,16 +47,11 @@ public class BlockRift extends Block implements IHasModel
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 	
+	@Nullable
 	@Override
-	public boolean isPassable(IBlockAccess world, BlockPos pos)
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
 	{
-		return true;
-	}
-	
-	@Override
-	public boolean isCollidable()
-	{
-		return false;
+		return NULL_AABB;
 	}
 	
 	@Override

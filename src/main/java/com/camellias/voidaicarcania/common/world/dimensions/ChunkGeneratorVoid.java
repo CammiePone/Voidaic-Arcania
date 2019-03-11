@@ -42,11 +42,11 @@ public class ChunkGeneratorVoid implements IChunkGenerator
 			{
 				IBlockState iblockstate;
 				
-				for (int j1 = 127; j1 >= 0; --j1)
+				for(int j1 = 127; j1 >= 0; --j1)
 				{
-					if (j1 < 127 - this.rand.nextInt(5) && j1 > this.rand.nextInt(5))
+					if(j1 < 127 - this.rand.nextInt(5) && j1 > this.rand.nextInt(5))
 					{
-						if (j1 < 5)
+						if(j1 < 5)
 						{
                             iblockstate = AIR;
 						}
