@@ -79,7 +79,7 @@ public class RegistryHandler
 		NetworkHandler.init();
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilitiesHandler());
-		MinecraftForge.EVENT_BUS.register(new OverlayRenderer());
+		MinecraftForge.EVENT_BUS.register(OverlayRenderer.instance);
 		Donators.addDonators();
 		ModDimensions.registerDimension();
 	}

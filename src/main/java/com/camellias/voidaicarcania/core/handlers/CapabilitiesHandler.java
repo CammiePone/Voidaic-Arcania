@@ -1,6 +1,7 @@
 package com.camellias.voidaicarcania.core.handlers;
 
 import java.util.List;
+import java.util.Random;
 
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.api.VoidEssenceList;
@@ -22,18 +23,18 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class CapabilitiesHandler
 {
-	/**
-	 * Something here broke, and is spamming console with something that's returning null when referring to the player.
-	 */
-
 	@SubscribeEvent
 	public void onAddEntityCapabilites(AttachCapabilitiesEvent<Entity> event)
 	{
@@ -53,7 +54,7 @@ public class CapabilitiesHandler
 				int amount = 0;
 				boolean corrupted = false;
 				ICorruption corruption = new DefaultCorruptionCapability(amount, corrupted);
-				event.addCapability(new ResourceLocation(Reference.MODID, "Corruption"), new CorruptionProvider(corruption));
+				event.addCapability(new ResourceLocation(Reference.MODID, "PlayerCorruption"), new CorruptionProvider(corruption));
 			}
 		}
 	}
@@ -70,11 +71,48 @@ public class CapabilitiesHandler
 				int essence = VoidEssenceList.LIST.get(wrapper);
 				boolean effect = false;
 				IEssence itemEssence = new DefaultEssenceCapability(essence, effect);
-				event.addCapability(new ResourceLocation(Reference.MODID, "Essence"), new EssenceProvider(itemEssence));
+				event.addCapability(new ResourceLocation(Reference.MODID, "ItemEssence"), new EssenceProvider(itemEssence));
 			}
 		}
 	}
-
+	
+	@SubscribeEvent
+	public void onAddChunkCapabilities(AttachCapabilitiesEvent<Chunk> event)
+	{
+		Chunk chunk = event.getObject();
+		if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
+		{
+			int essence = 0;
+			boolean effect = false;
+			IEssence chunkEssence = new DefaultEssenceCapability(essence, effect);
+			event.addCapability(new ResourceLocation(Reference.MODID, "ChunkEssence"), new EssenceProvider(chunkEssence));
+		}
+		if(!chunk.hasCapability(CorruptionProvider.corruptionCapability, null))
+		{
+			int amount = 0;
+			boolean corrupted = false;
+			ICorruption corruption = new DefaultCorruptionCapability(amount, corrupted);
+			event.addCapability(new ResourceLocation(Reference.MODID, "ChunkCorruption"), new CorruptionProvider(corruption));
+		}
+	}
+	
+	@SubscribeEvent(priority = EventPriority.LOWEST)
+	public void onChunkPopulate(PopulateChunkEvent.Post event)
+	{
+		World world = event.getWorld();
+		Chunk chunk = world.getChunk(event.getChunkX(), event.getChunkZ());
+		Random rand = new Random();
+		
+		if(chunk.hasCapability(EssenceProvider.essenceCapability, null))
+		{
+			chunk.getCapability(EssenceProvider.essenceCapability, null).setEssence(rand.nextInt(1600));
+		}
+		if(chunk.hasCapability(CorruptionProvider.corruptionCapability, null))
+		{
+			chunk.getCapability(CorruptionProvider.corruptionCapability, null).setCorruption(rand.nextInt(1000));
+		}
+	}
+	
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void onTooltipRender(ItemTooltipEvent event)
