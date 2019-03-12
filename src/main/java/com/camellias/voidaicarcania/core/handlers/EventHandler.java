@@ -81,7 +81,9 @@ public class EventHandler
 			
 			if(player.ticksExisted % 10 == 0)
 			{
-				if(player.hasCapability(CorruptionProvider.corruptionCapability, null))
+				if(chunk.hasCapability(EssenceProvider.essenceCapability, null) && 
+						chunk.hasCapability(CorruptionProvider.corruptionCapability, null) &&
+						player.hasCapability(CorruptionProvider.corruptionCapability, null))
 				{
 					int chunkVE = chunk.getCapability(EssenceProvider.essenceCapability, null).essence();
 					int chunkVC = chunk.getCapability(CorruptionProvider.corruptionCapability, null).corruption();

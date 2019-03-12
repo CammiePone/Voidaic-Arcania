@@ -8,7 +8,7 @@ public interface IEssence {
 
 	void setEffect(boolean transformed);
 
-	int essence();
+	int getEssence();
 
 	void setEssence(int type);
 

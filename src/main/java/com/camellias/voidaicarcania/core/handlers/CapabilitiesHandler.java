@@ -23,11 +23,10 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraftforge.event.world.ChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -80,16 +79,17 @@ public class CapabilitiesHandler
 	public void onAddChunkCapabilities(AttachCapabilitiesEvent<Chunk> event)
 	{
 		Chunk chunk = event.getObject();
+		Random rand = new Random();
 		if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
 		{
-			int essence = 0;
+			int essence = rand.nextInt(1200);
 			boolean effect = false;
 			IEssence chunkEssence = new DefaultEssenceCapability(essence, effect);
 			event.addCapability(new ResourceLocation(Reference.MODID, "ChunkEssence"), new EssenceProvider(chunkEssence));
 		}
 		if(!chunk.hasCapability(CorruptionProvider.corruptionCapability, null))
 		{
-			int amount = 0;
+			int amount = rand.nextInt(1000);
 			boolean corrupted = false;
 			ICorruption corruption = new DefaultCorruptionCapability(amount, corrupted);
 			event.addCapability(new ResourceLocation(Reference.MODID, "ChunkCorruption"), new CorruptionProvider(corruption));
@@ -97,19 +97,23 @@ public class CapabilitiesHandler
 	}
 	
 	@SubscribeEvent(priority = EventPriority.LOWEST)
-	public void onChunkPopulate(PopulateChunkEvent.Post event)
+	public void onChunkLoaded(ChunkEvent.Load event)
 	{
-		World world = event.getWorld();
-		Chunk chunk = world.getChunk(event.getChunkX(), event.getChunkZ());
-		Random rand = new Random();
+		Chunk chunk = event.getChunk();
 		
 		if(chunk.hasCapability(EssenceProvider.essenceCapability, null))
 		{
-			chunk.getCapability(EssenceProvider.essenceCapability, null).setEssence(rand.nextInt(1600));
+			if(chunk.getCapability(EssenceProvider.essenceCapability, null).getEssence() > 1600)
+			{
+				chunk.getCapability(EssenceProvider.essenceCapability, null).setEssence(1600);
+			}
 		}
 		if(chunk.hasCapability(CorruptionProvider.corruptionCapability, null))
 		{
-			chunk.getCapability(CorruptionProvider.corruptionCapability, null).setCorruption(rand.nextInt(1000));
+			if(chunk.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption() > 1000)
+			{
+				chunk.getCapability(CorruptionProvider.corruptionCapability, null).setCorruption(1000);
+			}
 		}
 	}
 	
@@ -124,7 +128,7 @@ public class CapabilitiesHandler
 			List<String> tooltip = event.getToolTip();
 			String itemInfo = TextFormatting.DARK_GRAY + I18n.format(Reference.MODID + ".voidEssenceItem");
 			String stackInfo = TextFormatting.DARK_GRAY + I18n.format(Reference.MODID + ".voidEssenceStack");
-			int essence = stack.getCapability(EssenceProvider.essenceCapability, null).essence();
+			int essence = stack.getCapability(EssenceProvider.essenceCapability, null).getEssence();
 			tooltip.add(itemInfo + ": " + TextFormatting.GRAY + essence);
 			tooltip.add(stackInfo + ": " + TextFormatting.GRAY + (essence * stack.getCount()));
 		}

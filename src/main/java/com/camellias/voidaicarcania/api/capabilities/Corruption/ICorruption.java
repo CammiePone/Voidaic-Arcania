@@ -4,11 +4,11 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public interface ICorruption {
 
-	boolean corrupted();
+	boolean isCorrupted();
 
 	void setCorrupted(boolean value);
 
-	int corruption();
+	int getCorruption();
 
 	void setCorruption(int amount);
 
