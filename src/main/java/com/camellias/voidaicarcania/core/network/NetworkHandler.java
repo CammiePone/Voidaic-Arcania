@@ -2,6 +2,7 @@ package com.camellias.voidaicarcania.core.network;
 
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.core.network.packets.HoldSpacebarMessage;
+import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -21,5 +22,7 @@ public class NetworkHandler
 	{
 		INSTANCE.registerMessage(HoldSpacebarMessage.HoldSpacebarPacketHandler.class, HoldSpacebarMessage.class, next(), Side.SERVER);
 		INSTANCE.registerMessage(HoldSpacebarMessage.HoldSpacebarPacketHandler.class, HoldSpacebarMessage.class, next(), Side.CLIENT);
+		
+		INSTANCE.registerMessage(OverlayMessage.OverlayPacketHandler.class, OverlayMessage.class, next(), Side.CLIENT);
 	}
 }

@@ -1,4 +1,6 @@
-package com.camellias.voidaicarcania.proxy;
+package com.camellias.voidaicarcania.core.proxy;
+
+import com.google.common.util.concurrent.ListenableFuture;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -39,5 +41,11 @@ public class ClientProxy extends CommonProxy
 		{
 			return context.getServerHandler().player.server;
 		}
+	}
+	
+	@Override
+    public ListenableFuture<Object> addScheduledTaskClient(Runnable runnableToSchedule)
+	{
+        return Minecraft.getMinecraft().addScheduledTask(runnableToSchedule);
 	}
 }

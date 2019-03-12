@@ -1,7 +1,11 @@
 package com.camellias.voidaicarcania.core.handlers;
 
+import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
+import com.camellias.voidaicarcania.common.world.chunkdata.WorldCorruption;
+import com.camellias.voidaicarcania.common.world.chunkdata.WorldEssence;
 import com.camellias.voidaicarcania.core.network.NetworkHandler;
 import com.camellias.voidaicarcania.core.network.packets.HoldSpacebarMessage;
+import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -11,11 +15,17 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.MapStorage;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
@@ -24,12 +34,25 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
 public class EventHandler
 {
 	public static final IBlockState AIR = Blocks.AIR.getDefaultState();
+	private int ticker;
 	
 	@SubscribeEvent
 	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
 	{
 		event.player.sendMessage(new TextComponentString("\u00A75\u00A7l[Voidaic Arcania:] \u00A7dThis mod is still in BETA. Gameplay info can currently be found on the VA Wiki:"));
 		event.player.sendMessage(ForgeHooks.newChatWithLinks(" https://github.com/CammiePone/Voidaic-Arcania/wiki"));
+	}
+	
+	@SubscribeEvent(priority = EventPriority.LOWEST)
+	public void onChunkPopulate(PopulateChunkEvent.Post event)
+	{
+		World world = event.getWorld();
+		MapStorage storage = world.getPerWorldStorage();
+		WorldEssence worldEssence = WorldEssence.get(world);
+		WorldCorruption worldCorruption = WorldCorruption.get(world);
+		
+		worldEssence.setEssence(world);
+		worldCorruption.setCorruption(world);
 	}
 	
 	@SubscribeEvent
@@ -66,6 +89,23 @@ public class EventHandler
 		        {
 		        	if(entity.ticksExisted % 20 == 0) entity.setNoGravity(false);
 		        }
+			}
+		}
+		
+		for(EntityPlayer player : world.playerEntities)
+		{
+			if(player.ticksExisted % 20 == 0)
+			{
+				if(player.hasCapability(CorruptionProvider.corruptionCapability, null))
+				{
+					if((player.getHeldItemMainhand().getItem() == Items.APPLE) || (player.getHeldItemOffhand().getItem() == Items.APPLE))
+					{
+						int chunkVE = WorldEssence.get(world).getEssence();
+						int chunkVC = WorldCorruption.get(world).getCorruption();
+						int playerVC = player.getCapability(CorruptionProvider.corruptionCapability, null).corruption();
+						NetworkHandler.INSTANCE.sendTo(new OverlayMessage(chunkVE, chunkVC, playerVC), (EntityPlayerMP) player);
+					}
+				}
 			}
 		}
 	}

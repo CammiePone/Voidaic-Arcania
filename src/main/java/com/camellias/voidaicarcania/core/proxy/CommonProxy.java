@@ -1,4 +1,6 @@
-package com.camellias.voidaicarcania.proxy;
+package com.camellias.voidaicarcania.core.proxy;
+
+import com.google.common.util.concurrent.ListenableFuture;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -34,6 +36,11 @@ public class CommonProxy
 		{
 			throw new WrongSideException("Tried to get the IThreadListener from a client-side MessageContext on the dedicated server");
 		}
+	}
+	
+	public ListenableFuture<Object> addScheduledTaskClient(Runnable runnableToSchedule)
+	{
+		throw new IllegalStateException("This should only be called from client side");
 	}
 	
 	class WrongSideException extends RuntimeException

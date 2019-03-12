@@ -39,25 +39,25 @@ public class HoldSpacebarMessage implements IMessage
 	
 //-------------------------------------------------------------------------------------------------------------------------//
 	
-		public static class HoldSpacebarPacketHandler implements IMessageHandler<HoldSpacebarMessage, IMessage>
+	public static class HoldSpacebarPacketHandler implements IMessageHandler<HoldSpacebarMessage, IMessage>
+	{
+		@Override
+		public IMessage onMessage(HoldSpacebarMessage message, MessageContext ctx)
 		{
-			@Override
-			public IMessage onMessage(HoldSpacebarMessage message, MessageContext ctx)
+			Main.proxy.getThreadListener(ctx).addScheduledTask(() ->
 			{
-				Main.proxy.getThreadListener(ctx).addScheduledTask(() ->
+				if(Main.proxy.getPlayer(ctx) != null)
 				{
-					if(Main.proxy.getPlayer(ctx) != null)
-					{
-						EntityPlayer player = (EntityPlayer) Main.proxy.getPlayer(ctx).world.getEntityByID(message.playerID);
-						GameSettings settings = Minecraft.getMinecraft().gameSettings;
-						KeyBinding jump = settings.keyBindJump;
-						
-						//settings.isKeyDown(jump);
-						player.motionY = 0.25D;
-					}
-				});
-				
-				return null;
-			}
+					EntityPlayer player = (EntityPlayer) Main.proxy.getPlayer(ctx).world.getEntityByID(message.playerID);
+					GameSettings settings = Minecraft.getMinecraft().gameSettings;
+					KeyBinding jump = settings.keyBindJump;
+					
+					//settings.isKeyDown(jump);
+					player.motionY = 0.25D;
+				}
+			});
+			
+			return null;
 		}
+	}
 }
