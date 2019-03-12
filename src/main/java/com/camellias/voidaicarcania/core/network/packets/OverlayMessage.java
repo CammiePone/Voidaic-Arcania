@@ -46,13 +46,11 @@ public class OverlayMessage implements IMessage
 		@Override
 		public IMessage onMessage(OverlayMessage message, MessageContext ctx)
 		{
-			Main.proxy.addScheduledTaskClient(() -> overlay(message, ctx));
+			Main.proxy.getThreadListener(ctx).addScheduledTask(() ->
+			{
+				OverlayRenderer.instance.setEssenceCorruption(message.chunkEssence, message.chunkCorruption, message.playerCorruption);
+			});
 			return null;
-		}
-		
-		private void overlay(OverlayMessage message, MessageContext ctx)
-		{
-			OverlayRenderer.instance.setEssenceCorruption(message.chunkEssence, message.chunkCorruption, message.playerCorruption);
 		}
 	}
 }

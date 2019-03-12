@@ -13,9 +13,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class OverlayRenderer
 {
 	public static OverlayRenderer instance = new OverlayRenderer();
-	private int chunkEssence;
-	private int chunkCorruption;
-	private int playerCorruption;
+	private int chunkEssence = 0;
+	private int chunkCorruption = 0;
+	private int playerCorruption = 0;
 	
 	public void setEssenceCorruption(int chunkEssence, int chunkCorruption, int playerCorruption)
 	{
@@ -33,7 +33,7 @@ public class OverlayRenderer
 			return;
 		}
 		
-		if(Minecraft.getMinecraft().player.getHeldItem(EnumHand.MAIN_HAND).getItem() != Items.APPLE)
+		if((Minecraft.getMinecraft().player.getHeldItem(EnumHand.MAIN_HAND).getItem() != Items.APPLE))
 		{
 			return;
 		}
@@ -52,5 +52,5 @@ public class OverlayRenderer
 		x = 200;
 		x = fontRenderer.drawString("Player Corruption ", x, y, 0xffffffff);
 		x = fontRenderer.drawString("" + (playerCorruption), x, y, 0xffff0000);
-	}	
+	}
 }
