@@ -1,7 +1,9 @@
 package com.camellias.voidaicarcania.core.handlers;
 
 import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
+import com.camellias.voidaicarcania.api.capabilities.Corruption.ICorruption;
 import com.camellias.voidaicarcania.api.capabilities.EssenceCap.EssenceProvider;
+import com.camellias.voidaicarcania.common.world.dimensions.ChunkGeneratorVoid;
 import com.camellias.voidaicarcania.core.network.NetworkHandler;
 import com.camellias.voidaicarcania.core.network.packets.HoldSpacebarMessage;
 import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
@@ -16,26 +18,48 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
 
 public class EventHandler
 {
 	public static final IBlockState AIR = Blocks.AIR.getDefaultState();
-	private int ticker;
 	
 	@SubscribeEvent
 	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
 	{
 		event.player.sendMessage(new TextComponentString("\u00A75\u00A7l[Voidaic Arcania:] \u00A7dThis mod is still in BETA. Gameplay info can currently be found on the VA Wiki:"));
 		event.player.sendMessage(ForgeHooks.newChatWithLinks(" https://github.com/CammiePone/Voidaic-Arcania/wiki"));
+	}
+	
+	@SubscribeEvent
+	public void onChunkPopulate(PopulateChunkEvent.Pre event)
+	{
+		Chunk chunk = event.getWorld().getChunk(event.getChunkX(), event.getChunkZ());
+		if(event.getGenerator() instanceof ChunkGeneratorVoid)
+		{
+			for(int x = 0; x < 16; x++)
+			{
+				for(int z = 0; z < 16; z++)
+				{
+					for(int y = 0; y <= 5; y++)
+					{
+						BlockPos pos = new BlockPos(x, y, z);
+						chunk.setBlockState(pos, AIR);
+					}
+				}
+			}
+		}
 	}
 	
 	@SubscribeEvent
@@ -57,38 +81,57 @@ public class EventHandler
 	@SubscribeEvent
 	public void onWorldTick(WorldTickEvent event)
 	{
-		World world = event.world;
-		
-		for(Entity entity : world.loadedEntityList)
+		if(event.phase == Phase.START)
 		{
-			if(!(entity instanceof EntityPlayer))
-			{
-				if(entity.dimension == -64)
-		        {
-					entity.setNoGravity(true);
-					entity.motionY = 0;
-				}
-		        else
-		        {
-		        	if(entity.ticksExisted % 20 == 0) entity.setNoGravity(false);
-		        }
-			}
-		}
-		
-		for(EntityPlayer player : world.playerEntities)
-		{
-			Chunk chunk = world.getChunk(player.getPosition());
+			World world = event.world;
 			
-			if(player.ticksExisted % 10 == 0)
+			for(Entity entity : world.loadedEntityList)
 			{
-				if(chunk.hasCapability(EssenceProvider.essenceCapability, null) && 
-						chunk.hasCapability(CorruptionProvider.corruptionCapability, null) &&
-						player.hasCapability(CorruptionProvider.corruptionCapability, null))
+				if(!(entity instanceof EntityPlayer))
 				{
-					int chunkVE = chunk.getCapability(EssenceProvider.essenceCapability, null).getEssence();
-					int chunkVC = chunk.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
-					int playerVC = player.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
-					NetworkHandler.INSTANCE.sendTo(new OverlayMessage(chunkVE, chunkVC, playerVC), (EntityPlayerMP) player);
+					if(entity.dimension == -64)
+			        {
+						entity.setNoGravity(true);
+						entity.motionY = 0;
+					}
+			        else
+			        {
+			        	if(entity.ticksExisted % 20 == 0) entity.setNoGravity(false);
+			        }
+				}
+			}
+			
+			for(EntityPlayer player : world.playerEntities)
+			{
+				Chunk chunk = world.getChunk(player.getPosition());
+				
+				if(player.ticksExisted % 20 == 0)
+				{
+					if(chunk.hasCapability(EssenceProvider.essenceCapability, null) && 
+							chunk.hasCapability(CorruptionProvider.corruptionCapability, null) &&
+							player.hasCapability(CorruptionProvider.corruptionCapability, null))
+					{
+						int chunkVE = chunk.getCapability(EssenceProvider.essenceCapability, null).getEssence();
+						int chunkVC = chunk.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
+						int playerVC = player.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
+						NetworkHandler.INSTANCE.sendTo(new OverlayMessage(chunkVE, chunkVC, playerVC), (EntityPlayerMP) player);
+						
+						if(player.dimension == -64)
+						{
+							ICorruption corruption = player.getCapability(CorruptionProvider.corruptionCapability, null);
+							if(!corruption.isCorrupted())
+							{
+								corruption.setCorrupted(true);
+							}
+							else
+							{
+								if(corruption.getCorruption() <= 1200)
+								{
+									corruption.setCorruption(corruption.getCorruption() + 1);
+								}
+							}
+						}
+					}
 				}
 			}
 		}

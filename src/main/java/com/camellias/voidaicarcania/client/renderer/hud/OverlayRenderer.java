@@ -30,7 +30,7 @@ public class OverlayRenderer
 	private int chunkCorruption = 0;
 	private int maxChunkCorruption = 1000;
 	private int playerCorruption = 0;
-	private int maxPlayerCorruption = 1000;
+	private int maxPlayerCorruption = 1200;
 	
 	public void setEssenceCorruption(int chunkEssence, int chunkCorruption, int playerCorruption)
 	{
@@ -70,7 +70,7 @@ public class OverlayRenderer
 		ingame.drawTexturedModalRect(x + 34, y + 48, 20, 78, chunkCorruptionMeter, 12);
 		
 		int playerCorruptionMeter = playerCorruptionMeter(49);
-		ingame.drawTexturedModalRect(x, y, 0, 72, 12, playerCorruptionMeter);
+		ingame.drawTexturedModalRect(x + 11, y + 18, 0, 72, 12, playerCorruptionMeter);
 		
 		ingame.drawTexturedModalRect(x + 10, y + 10, 0, 0, 81, 65);
 		
