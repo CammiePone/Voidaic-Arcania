@@ -28,7 +28,7 @@ public class DefaultEssenceCapability implements IEssence {
 		}
 	}
 	@Override
-	public int essence() {
+	public int getEssence() {
 		return this.essence;
 	}
 

@@ -13,7 +13,7 @@ public class EssenceStorage implements IStorage<IEssence> {
 	@Override
 	public NBTBase writeNBT(Capability<IEssence> capability, IEssence instance, EnumFacing side) {
 		final NBTTagCompound tag = new NBTTagCompound();
-		tag.setInteger("essence", instance.essence());
+		tag.setInteger("essence", instance.getEssence());
 		tag.setBoolean("effect", instance.effect());
 		return tag;
 	}

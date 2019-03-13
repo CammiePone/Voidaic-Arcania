@@ -17,7 +17,7 @@ public class DefaultCorruptionCapability implements ICorruption {
 	}
 
 	@Override
-	public boolean corrupted() {
+	public boolean isCorrupted() {
 		return this.corrupted;
 	}
 
@@ -28,7 +28,7 @@ public class DefaultCorruptionCapability implements ICorruption {
 		}
 	}
 	@Override
-	public int corruption() {
+	public int getCorruption() {
 		return this.corruption;
 	}
 

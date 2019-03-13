@@ -85,18 +85,10 @@ public class EventHandler
 						chunk.hasCapability(CorruptionProvider.corruptionCapability, null) &&
 						player.hasCapability(CorruptionProvider.corruptionCapability, null))
 				{
-					int chunkVE = chunk.getCapability(EssenceProvider.essenceCapability, null).essence();
-					int chunkVC = chunk.getCapability(CorruptionProvider.corruptionCapability, null).corruption();
-					int playerVC = player.getCapability(CorruptionProvider.corruptionCapability, null).corruption();
+					int chunkVE = chunk.getCapability(EssenceProvider.essenceCapability, null).getEssence();
+					int chunkVC = chunk.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
+					int playerVC = player.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
 					NetworkHandler.INSTANCE.sendTo(new OverlayMessage(chunkVE, chunkVC, playerVC), (EntityPlayerMP) player);
-					
-					if(player.isSneaking())
-					{
-						System.out.println("");
-						System.out.println("Chunk VE: " + chunkVE);
-						System.out.println("Chunk VC: " + chunkVC);
-						System.out.println("Player VC: " + playerVC);
-					}
 				}
 			}
 		}

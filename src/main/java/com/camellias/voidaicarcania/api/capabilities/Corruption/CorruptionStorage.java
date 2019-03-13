@@ -13,8 +13,8 @@ public class CorruptionStorage implements IStorage<ICorruption> {
 	@Override
 	public NBTBase writeNBT(Capability<ICorruption> capability, ICorruption instance, EnumFacing side) {
 		final NBTTagCompound tag = new NBTTagCompound();
-		tag.setInteger("corruption", instance.corruption());
-		tag.setBoolean("corrupted", instance.corrupted());
+		tag.setInteger("corruption", instance.getCorruption());
+		tag.setBoolean("corrupted", instance.isCorrupted());
 		return tag;
 	}
 
