@@ -4,13 +4,17 @@ import com.camellias.voidaicarcania.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiIngame;
+import net.minecraft.client.gui.GuiNewChat;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -39,51 +43,46 @@ public class OverlayRenderer
 	@SubscribeEvent
 	public void renderGameOverlayEvent(RenderGameOverlayEvent event)
 	{
-		if(event.isCancelable() || event.getType() != RenderGameOverlayEvent.ElementType.EXPERIENCE)
+		if(event.isCancelable() || event.getType() != ElementType.ALL)
 		{
 			return;
 		}
 		
-		if((this.mc.player.getHeldItem(EnumHand.MAIN_HAND).getItem() != Items.APPLE))
+		if((this.mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() != Items.DIAMOND_HELMET))
 		{
 			return;
 		}
+		
+		GuiIngame ingame = new GuiIngame(mc);
 		
 		GlStateManager.disableLighting();
-		
 		GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
-		GlStateManager.scale(0.75f, 0.75f, 0.75f);
-		GuiIngame gui = new GuiIngame(mc);
-		FontRenderer fontRenderer = gui.getFontRenderer();
+		GlStateManager.pushMatrix();
+		FontRenderer fontRenderer = ingame.getFontRenderer();
 		TextureManager textureManager = this.mc.getTextureManager();
 		int x = 0;
-		int y = event.getResolution().getScaledHeight() - 47;
-		
+		int y = 0;
 		textureManager.bindTexture(TEXTURES);
-		gui.drawTexturedModalRect(x + 5, y - 5, 0, 0, 240, 47);
 		
-		int chunkEssenceMeter = chunkEssenceMeter(100);
-		gui.drawTexturedModalRect(x + 16, y + 3, 0, 47, chunkEssenceMeter, 12);
+		int chunkEssenceMeter = chunkEssenceMeter(49);
+		ingame.drawTexturedModalRect(x + 34, y + 25, 20, 78, chunkEssenceMeter, 12);
 		
-		int chunkCorruptionMeter = chunkCorruptionMeter(100);
-		gui.drawTexturedModalRect(x + 134, y + 3, 140, 47, chunkCorruptionMeter, 12);
+		int chunkCorruptionMeter = chunkCorruptionMeter(49);
+		ingame.drawTexturedModalRect(x + 34, y + 48, 20, 78, chunkCorruptionMeter, 12);
 		
-		int playerCorruptionMeter = playerCorruptionMeter(110);
-		gui.drawTexturedModalRect(x + 70, y + 22, 65, 60, playerCorruptionMeter, 12);
+		int playerCorruptionMeter = playerCorruptionMeter(49);
+		ingame.drawTexturedModalRect(x, y, 0, 72, 12, playerCorruptionMeter);
+		
+		ingame.drawTexturedModalRect(x + 10, y + 10, 0, 0, 81, 65);
 		
 		if(this.mc.player.isSneaking())
 		{
-			x = 26;
-			y += 5;
-			x = fontRenderer.drawString("Chunk VE: ", x, y, 0xffffff);
-			x = fontRenderer.drawString("" + chunkEssence, x, y, 0xffffff);
-			x = fontRenderer.drawString("             Chunk VC: ", x, y, 0xffffff);
-			x = fontRenderer.drawString("" + chunkCorruption, x, y, 0xffffff);
-			y += 19;
-			x = 77;
-			x = fontRenderer.drawString("Player VC: ", x, y, 0xffffff);
-			x = fontRenderer.drawString("" + (playerCorruption), x, y, 0xffffff);
+			fontRenderer.drawString("Chunk VE: " + chunkEssence, x + 28, y + 15, 0xe500ce);
+			fontRenderer.drawString("Chunk VC: " + chunkCorruption, x + 28, y + 39, 0xe500ce);
+			fontRenderer.drawString("Player VC: " + playerCorruption, x + 1, y + 1, 0xe500ce);
 		}
+		
+		GlStateManager.popMatrix();
 	}
 	
 	private int chunkEssenceMeter(int pixels)
