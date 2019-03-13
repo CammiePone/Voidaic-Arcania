@@ -57,7 +57,6 @@ public class OverlayRenderer
 		
 		GlStateManager.disableLighting();
 		GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
-		GlStateManager.pushMatrix();
 		FontRenderer fontRenderer = ingame.getFontRenderer();
 		TextureManager textureManager = this.mc.getTextureManager();
 		int x = 0;
@@ -81,8 +80,6 @@ public class OverlayRenderer
 			fontRenderer.drawString("Chunk VC: " + chunkCorruption, x + 28, y + 39, 0xe500ce);
 			fontRenderer.drawString("Player VC: " + playerCorruption, x + 1, y + 1, 0xe500ce);
 		}
-		
-		GlStateManager.popMatrix();
 	}
 	
 	private int chunkEssenceMeter(int pixels)
