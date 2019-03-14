@@ -39,7 +39,10 @@ public class TickHandler
 					if(entity.dimension == -64)
 			        {
 						entity.setNoGravity(true);
-						entity.motionY = 0;
+						if(entity.motionY < 0)
+						{
+							entity.motionY = 0;
+						}
 					}
 			        else
 			        {

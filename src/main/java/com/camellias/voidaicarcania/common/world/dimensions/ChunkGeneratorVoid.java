@@ -19,7 +19,6 @@ import net.minecraft.world.gen.IChunkGenerator;
 
 public class ChunkGeneratorVoid implements IChunkGenerator
 {
-	protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
 	protected static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
 	
 	private final Random rand;
@@ -34,26 +33,23 @@ public class ChunkGeneratorVoid implements IChunkGenerator
 		this.rand = new Random(rand);
 	}
 	
-	public void setBlocksInChunk(int x, int z, ChunkPrimer primer)
+	public void setBlocksInChunk(int i, int j, ChunkPrimer primer)
 	{
-		for (int j = 0; j < 16; ++j)
+		for(int x = 0; x < 16; ++x)
 		{
-			for (int k = 0; k < 16; ++k)
+			for(int z = 0; z < 16; ++z)
 			{
 				IBlockState iblockstate;
 				
-				for(int j1 = 127; j1 >= 0; --j1)
+				for(int y = 127; y >= 0; --y)
 				{
-					if(j1 < 127 - this.rand.nextInt(5) && j1 > this.rand.nextInt(5))
+					if(y < 127 - this.rand.nextInt(5) && y > this.rand.nextInt(5))
 					{
-						if(j1 < 5)
-						{
-                            iblockstate = AIR;
-						}
+						
 					}
 					else
 					{
-						primer.setBlockState(k, j1, j, BEDROCK);
+						primer.setBlockState(x, y, z, BEDROCK);
 					}
 				}
 			}
