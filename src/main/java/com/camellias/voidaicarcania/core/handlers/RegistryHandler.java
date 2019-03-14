@@ -22,8 +22,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber
 public class RegistryHandler
@@ -77,6 +75,7 @@ public class RegistryHandler
 	public static void preInitRegistries(FMLPreInitializationEvent event)
 	{
 		NetworkHandler.init();
+		MinecraftForge.EVENT_BUS.register(new TickHandler());
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilitiesHandler());
 		MinecraftForge.EVENT_BUS.register(OverlayRenderer.instance);

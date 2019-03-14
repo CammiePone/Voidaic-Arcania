@@ -53,7 +53,7 @@ public class HoldSpacebarMessage implements IMessage
 					KeyBinding jump = settings.keyBindJump;
 					
 					//settings.isKeyDown(jump);
-					player.motionY = 0.25D;
+					player.motionY = 0.1D;
 				}
 			});
 			
