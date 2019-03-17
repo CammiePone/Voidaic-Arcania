@@ -149,5 +149,9 @@ public class TickHandler
 				player.setNoGravity(false);
 			}
 		}
+		else
+		{
+			player.setNoGravity(false);
+		}
 	}
 }
