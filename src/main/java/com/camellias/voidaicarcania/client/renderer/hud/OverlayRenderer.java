@@ -45,7 +45,7 @@ public class OverlayRenderer
 			return;
 		}
 		
-		if((this.mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() != Items.DIAMOND_HELMET))
+		if((OverlayRenderer.mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() != Items.DIAMOND_HELMET))
 		{
 			return;
 		}
@@ -55,7 +55,7 @@ public class OverlayRenderer
 		GlStateManager.disableLighting();
 		GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
 		FontRenderer fontRenderer = ingame.getFontRenderer();
-		TextureManager textureManager = this.mc.getTextureManager();
+		TextureManager textureManager = OverlayRenderer.mc.getTextureManager();
 		int x = 0;
 		int y = 0;
 		textureManager.bindTexture(TEXTURES);
@@ -71,7 +71,7 @@ public class OverlayRenderer
 		
 		ingame.drawTexturedModalRect(x + 10, y + 10, 0, 0, 81, 65);
 		
-		if(this.mc.player.isSneaking())
+		if(OverlayRenderer.mc.player.isSneaking())
 		{
 			fontRenderer.drawString("Chunk VE: " + chunkEssence, x + 28, y + 15, 0xe500ce);
 			fontRenderer.drawString("Chunk VC: " + chunkCorruption, x + 28, y + 39, 0xe500ce);

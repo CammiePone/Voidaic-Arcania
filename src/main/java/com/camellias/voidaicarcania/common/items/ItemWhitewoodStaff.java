@@ -4,6 +4,7 @@ import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.core.init.ModItems;
 import com.camellias.voidaicarcania.core.util.IHasModel;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class ItemWhitewoodStaff extends Item implements IHasModel
@@ -13,6 +14,7 @@ public class ItemWhitewoodStaff extends Item implements IHasModel
 		this.setTranslationKey(name);         
 		this.setRegistryName(name);
 		this.maxStackSize = 1;
+		this.setCreativeTab(CreativeTabs.COMBAT);
 		
 		ModItems.ITEMS.add(this);
 	}

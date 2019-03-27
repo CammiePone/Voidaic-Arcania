@@ -8,6 +8,7 @@ import com.camellias.voidaicarcania.core.util.IHasModel;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
@@ -22,6 +23,7 @@ public class BlockWhitewoodStairs extends BlockStairs implements IHasModel
 		this.setRegistryName(name);
 		this.useNeighborBrightness = true;
 		this.setSoundType(SoundType.WOOD);
+		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

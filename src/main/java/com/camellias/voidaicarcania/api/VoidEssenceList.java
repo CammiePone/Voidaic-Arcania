@@ -56,7 +56,7 @@ public class VoidEssenceList
 		addToList(ender_chest, 500);
 		addToList(dragon_egg, 1600);
 
-		if(Main.instance.isThaumcraftLoaded == true)
+		if(Main.isThaumcraftLoaded == true)
 		{
 			ItemStack void_nugget = new ItemStack(ItemsTC.nuggets, 1, 7);
 			ItemStack void_seed = new ItemStack(ItemsTC.voidSeed);

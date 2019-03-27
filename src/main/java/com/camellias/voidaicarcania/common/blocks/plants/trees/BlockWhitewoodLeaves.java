@@ -11,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;
@@ -26,7 +27,7 @@ public class BlockWhitewoodLeaves extends Block implements IHasModel
 		this.setSoundType(SoundType.PLANT);
 		this.setHardness(3.5F);
 		this.setResistance(10.0F);
-		
+		this.setCreativeTab(CreativeTabs.DECORATIONS);
 		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

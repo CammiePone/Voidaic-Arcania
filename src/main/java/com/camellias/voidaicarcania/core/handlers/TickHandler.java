@@ -125,7 +125,7 @@ public class TickHandler
 					KeyBinding jump = settings.keyBindJump;
 					GuiScreen gui = Minecraft.getMinecraft().currentScreen;
 					
-					if(settings.isKeyDown(jump) && gui == null)
+					if(GameSettings.isKeyDown(jump) && gui == null)
 					{
 						NetworkHandler.INSTANCE.sendToAll(new HoldSpacebarMessage(player));
 					}

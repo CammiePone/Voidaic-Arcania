@@ -1,2 +1,12 @@
+//Tooltips
 voidaicarcania.voidEssenceItem=Void Essence
 voidaicarcania.voidEssenceStack=Stack Void Essence
+
+//Items
+item.whitewood_staff.name=Whitewood Staff
+
+//Blocks
+tile.whitewood_planks.name=Whitewood Planks
+tile.whitewood_stairs.name=Whitewood Stairs
+tile.whitewood_leaves.name=Whitewood Leaves
+tile.whitewood_log.name=Whitewood Log
