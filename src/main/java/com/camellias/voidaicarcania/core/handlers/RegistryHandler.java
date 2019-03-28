@@ -2,6 +2,7 @@ package com.camellias.voidaicarcania.core.handlers;
 
 import com.camellias.voidaicarcania.api.VoidEssenceList;
 import com.camellias.voidaicarcania.client.renderer.hud.OverlayRenderer;
+import com.camellias.voidaicarcania.common.world.structures.WorldGenCustomStructures;
 import com.camellias.voidaicarcania.core.init.ModBiomes;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.init.ModCapabilities;
@@ -22,6 +23,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @EventBusSubscriber
 public class RegistryHandler
@@ -79,8 +81,10 @@ public class RegistryHandler
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilitiesHandler());
 		MinecraftForge.EVENT_BUS.register(OverlayRenderer.instance);
+		
 		Donators.addDonators();
 		ModDimensions.registerDimension();
+		GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
 	}
 	
 	public static void initRegistries()
