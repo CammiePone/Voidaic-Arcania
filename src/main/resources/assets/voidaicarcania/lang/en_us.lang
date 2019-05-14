@@ -2,8 +2,12 @@
 voidaicarcania.voidEssenceItem=Void Essence
 voidaicarcania.voidEssenceStack=Stack Void Essence
 
+//Creative Tabs
+itemGroup.voidaicarcania.creative_tab_main=Voidaic Arcania
+
 //Items
 item.voidaicarcania.whitewood_staff.name=Whitewood Staff
+item.voidaicarcania.void_resonator.name=Void Resonator
 
 //Blocks
 tile.voidaicarcania.whitewood_planks.name=Whitewood Planks

@@ -1,13 +1,13 @@
 package com.camellias.voidaicarcania.client.renderer.hud;
 
 import com.camellias.voidaicarcania.Reference;
+import com.camellias.voidaicarcania.core.init.ModItems;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -45,7 +45,7 @@ public class OverlayRenderer
 			return;
 		}
 		
-		if((OverlayRenderer.mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() != Items.DIAMOND_HELMET))
+		if((OverlayRenderer.mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() != ModItems.VOID_RESONATOR))
 		{
 			return;
 		}

@@ -42,7 +42,7 @@ public class Main
 			isThaumcraftLoaded = true;
 		}
 		
-		RegistryHandler.otherRegistries();
+		RegistryHandler.clientRegistries(event);
 		RegistryHandler.preInitRegistries(event);
 	}
 	

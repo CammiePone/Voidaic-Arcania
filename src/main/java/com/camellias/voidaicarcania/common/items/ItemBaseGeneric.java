@@ -2,20 +2,19 @@ package com.camellias.voidaicarcania.common.items;
 
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.Reference;
+import com.camellias.voidaicarcania.core.init.ModCreativeTabs;
 import com.camellias.voidaicarcania.core.init.ModItems;
 import com.camellias.voidaicarcania.core.util.IHasModel;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class ItemWhitewoodStaff extends Item implements IHasModel
+public class ItemBaseGeneric extends Item implements IHasModel
 {
-	public ItemWhitewoodStaff(String name)
+	public ItemBaseGeneric(String name)
 	{
-		this.setTranslationKey(Reference.MODID + name);         
+		this.setTranslationKey(Reference.MODID + "." + name);         
 		this.setRegistryName(name);
-		this.maxStackSize = 1;
-		this.setCreativeTab(CreativeTabs.COMBAT);
+		this.setCreativeTab(ModCreativeTabs.VA_TAB_MAIN);
 		
 		ModItems.ITEMS.add(this);
 	}

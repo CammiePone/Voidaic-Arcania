@@ -39,7 +39,7 @@ public class BlockRift extends Block implements IHasModel
 	public BlockRift(Material material, String name)
 	{
 		super(material);
-		this.setTranslationKey(Reference.MODID + name);
+		this.setTranslationKey(Reference.MODID + "." + name);
 		this.setRegistryName(name);
 		this.setLightLevel(0.25F);
 		this.setBlockUnbreakable();

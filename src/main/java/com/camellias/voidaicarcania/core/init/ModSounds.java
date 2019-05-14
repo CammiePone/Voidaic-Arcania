@@ -15,6 +15,8 @@ public class ModSounds
 {
 	public static final List<SoundEvent> SOUNDS = new ArrayList<>();
 	
+	public static final SoundEvent THE_VOID = createSoundEvent("the_void");
+	public static final SoundEvent REMNANTS = createSoundEvent("remnants");
 	public static final SoundEvent VOID_WRAITH_IDLE = createSoundEvent("void_wraith_idle");
 	
 	private static final SoundEvent createSoundEvent(String name)
