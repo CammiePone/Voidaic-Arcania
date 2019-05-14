@@ -3,10 +3,14 @@ voidaicarcania.voidEssenceItem=Void Essence
 voidaicarcania.voidEssenceStack=Stack Void Essence
 
 //Items
-item.whitewood_staff.name=Whitewood Staff
+item.voidaicarcania.whitewood_staff.name=Whitewood Staff
 
 //Blocks
-tile.whitewood_planks.name=Whitewood Planks
-tile.whitewood_stairs.name=Whitewood Stairs
-tile.whitewood_leaves.name=Whitewood Leaves
-tile.whitewood_log.name=Whitewood Log
+tile.voidaicarcania.whitewood_planks.name=Whitewood Planks
+tile.voidaicarcania.whitewood_stairs.name=Whitewood Stairs
+tile.voidaicarcania.whitewood_leaves.name=Whitewood Leaves
+tile.voidaicarcania.whitewood_log.name=Whitewood Log
+
+//Entities
+entity.voidaicarcania.void_wraith.name=Void Wraith
+entity.voidaicarcania.void_crawler.name=Void Crawler

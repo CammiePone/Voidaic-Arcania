@@ -1,6 +1,7 @@
 package com.camellias.voidaicarcania.common.items;
 
 import com.camellias.voidaicarcania.Main;
+import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.core.init.ModItems;
 import com.camellias.voidaicarcania.core.util.IHasModel;
 
@@ -11,7 +12,7 @@ public class ItemWhitewoodStaff extends Item implements IHasModel
 {
 	public ItemWhitewoodStaff(String name)
 	{
-		this.setTranslationKey(name);         
+		this.setTranslationKey(Reference.MODID + name);         
 		this.setRegistryName(name);
 		this.maxStackSize = 1;
 		this.setCreativeTab(CreativeTabs.COMBAT);

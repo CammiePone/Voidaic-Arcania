@@ -1,6 +1,7 @@
 package com.camellias.voidaicarcania.common.blocks.plants.trees;
 
 import com.camellias.voidaicarcania.Main;
+import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.init.ModItems;
 import com.camellias.voidaicarcania.core.util.IHasModel;
@@ -18,7 +19,7 @@ public class BlockWhitewoodPlanks extends Block implements IHasModel
 	{
 		super(material);
 		
-		this.setTranslationKey(name);
+		this.setTranslationKey(Reference.MODID + name);
 		this.setRegistryName(name);
 		this.setHardness(2.0F);
 		this.setSoundType(SoundType.WOOD);

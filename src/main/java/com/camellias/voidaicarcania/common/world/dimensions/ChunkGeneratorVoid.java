@@ -41,9 +41,9 @@ public class ChunkGeneratorVoid implements IChunkGenerator
 			{
 				IBlockState iblockstate;
 				
-				for(int y = 127; y >= 0; --y)
+				for(int y = 255; y >= 0; --y)
 				{
-					if(y < 127 - this.rand.nextInt(5) && y > this.rand.nextInt(5))
+					if(y < 255 - this.rand.nextInt(5) && y > this.rand.nextInt(5))
 					{
 						
 					}

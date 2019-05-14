@@ -5,6 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.camellias.voidaicarcania.Main;
+import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.common.tileentities.TileEntityRift;
 import com.camellias.voidaicarcania.common.world.dimensions.TeleporterVoid;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
@@ -38,7 +39,7 @@ public class BlockRift extends Block implements IHasModel
 	public BlockRift(Material material, String name)
 	{
 		super(material);
-		this.setTranslationKey(name);
+		this.setTranslationKey(Reference.MODID + name);
 		this.setRegistryName(name);
 		this.setLightLevel(0.25F);
 		this.setBlockUnbreakable();
@@ -63,7 +64,7 @@ public class BlockRift extends Block implements IHasModel
 			{
 				if(!(entity instanceof EntityPlayer))
 				{
-					TeleporterVoid.teleportToDimension(entity, -64, entity.posX, 120, entity.posZ);
+					TeleporterVoid.teleportToDimension(entity, -64, entity.posX, 250, entity.posZ);
 				}
 				else
 				{

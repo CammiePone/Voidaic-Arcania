@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.common.blocks.plants.trees;
 import java.util.Random;
 
 import com.camellias.voidaicarcania.Main;
+import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.init.ModItems;
 import com.camellias.voidaicarcania.core.util.IHasModel;
@@ -22,7 +23,7 @@ public class BlockWhitewoodLeaves extends Block implements IHasModel
 	public BlockWhitewoodLeaves(Material material, String name)
 	{
 		super(material);
-		this.setTranslationKey(name);
+		this.setTranslationKey(Reference.MODID + name);
 		this.setRegistryName(name);
 		this.setSoundType(SoundType.PLANT);
 		this.setHardness(3.5F);
