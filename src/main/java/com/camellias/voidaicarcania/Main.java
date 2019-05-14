@@ -61,8 +61,6 @@ public class Main
 	@EventHandler
 	public static void serverInit(FMLServerStartingEvent event)
 	{
-		RegistryHandler.serverRegistries(event);
-		
 		System.out.println("Voidaic Arcania checking in!");
 	}
 }

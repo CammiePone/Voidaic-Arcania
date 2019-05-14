@@ -8,6 +8,7 @@ import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.init.ModCapabilities;
 import com.camellias.voidaicarcania.core.init.ModDimensions;
 import com.camellias.voidaicarcania.core.init.ModItems;
+import com.camellias.voidaicarcania.core.init.ModSounds;
 import com.camellias.voidaicarcania.core.kofi.Donators;
 import com.camellias.voidaicarcania.core.network.NetworkHandler;
 import com.camellias.voidaicarcania.core.util.IHasModel;
@@ -16,6 +17,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -31,14 +33,30 @@ public class RegistryHandler
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
 	{
-		event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
+		for(Item item : ModItems.ITEMS)
+		{
+			event.getRegistry().register(item);
+		}
 	}
 
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event)
 	{
-		event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[1]));
+		for(Block block : ModBlocks.BLOCKS)
+		{
+			event.getRegistry().register(block);
+		}
+		
 		TileEntityHandler.registerTileEntities();
+	}
+	
+	@SubscribeEvent
+	public static void onSoundRegister(RegistryEvent.Register<SoundEvent> event)
+	{
+		for(SoundEvent sound : ModSounds.SOUNDS)
+		{
+			event.getRegistry().register(sound);
+		}
 	}
 
 	@SubscribeEvent
@@ -59,11 +77,6 @@ public class RegistryHandler
 				((IHasModel)block).registerModels();
 			}
 		}
-	}
-
-	public static void serverRegistries(FMLServerStartingEvent event)
-	{
-
 	}
 
 	public static void otherRegistries()

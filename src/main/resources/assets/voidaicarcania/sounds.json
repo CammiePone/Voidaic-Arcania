@@ -1,0 +1,16 @@
+{
+    "the_void":
+    {
+        "sounds": [{"name": "voidaicarcania:the_void/the_void", "subtitle": "voidaicarcania.the_void_ost", "stream": true}]
+    },
+    
+    "remnants":
+    {
+        "sounds": [{"name": "voidaicarcania:the_void/remnants", "subtitle": "voidaicarcania.remnants_ost", "stream": true}]
+    },
+    
+	"void_wraith_idle":
+	{
+	   "sounds": [{"name": "voidaicarcania:void_wraith/idle", "subtitle": "voidaicarcania.void_wraith_idle", "stream": true}]
+	}
+}
