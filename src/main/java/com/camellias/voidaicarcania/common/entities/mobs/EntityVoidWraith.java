@@ -1,8 +1,9 @@
 package com.camellias.voidaicarcania.common.entities.mobs;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
-import com.camellias.voidaicarcania.core.init.ModItems;
 import com.camellias.voidaicarcania.core.init.ModSounds;
 
 import net.minecraft.block.state.IBlockState;
@@ -11,11 +12,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
@@ -26,7 +25,6 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -70,10 +68,10 @@ public class EntityVoidWraith extends EntityMob
 	public void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(5.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(4.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5F);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(25.0D);
 	}
 	
 	@Override
@@ -82,7 +80,6 @@ public class EntityVoidWraith extends EntityMob
 		super.initEntityAI();
 		
 		//this.tasks.addTask(2, new EntityAITempt(this, 1.25D, ModItems.VOIDIC_SHARD, false));
-		this.tasks.addTask(3, new EntityAIAttackMelee(this, 1.0D, false));
 		this.tasks.addTask(4, new EntityVoidWraith.AIChargeAttack());
 		this.tasks.addTask(5, new EntityVoidWraith.AIMoveRandom());
 		
@@ -93,8 +90,31 @@ public class EntityVoidWraith extends EntityMob
 	@Override
 	public void onUpdate()
 	{
+		this.noClip = true;
 		super.onUpdate();
+		this.noClip = false;
 		this.setNoGravity(true);
+		List<EntityLivingBase> targets = world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox());
+		
+		for(EntityLivingBase target : targets)
+		{
+			if(!(target instanceof EntityVoidWraith || target instanceof EntityVoidCrawler))
+			{
+				if(target instanceof EntityPlayer)
+				{
+					EntityPlayer player = (EntityPlayer) target;
+					
+					if(!player.isCreative())
+					{
+						player.setPositionAndRotation(this.posX, this.posY - (player.height - 0.25F), this.posZ, this.rotationYaw, player.rotationPitch);
+					}
+				}
+				else
+				{
+					target.setPositionAndRotation(this.posX, this.posY - (target.height - 0.25F), this.posZ, this.rotationYaw, target.rotationPitch);
+				}
+			}
+		}
 		
 		if(this.ticksExisted == 20 * 30)
 		{

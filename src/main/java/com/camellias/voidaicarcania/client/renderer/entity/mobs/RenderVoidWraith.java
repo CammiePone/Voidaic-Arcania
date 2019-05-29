@@ -5,6 +5,7 @@ import com.camellias.voidaicarcania.client.models.entity.mobs.ModelVoidWraith;
 import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidWraith;
 
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
