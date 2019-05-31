@@ -4,7 +4,7 @@ import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvid
 import com.camellias.voidaicarcania.api.capabilities.Corruption.ICorruption;
 import com.camellias.voidaicarcania.api.capabilities.EssenceCap.EssenceProvider;
 import com.camellias.voidaicarcania.core.network.NetworkHandler;
-import com.camellias.voidaicarcania.core.network.packets.HoldSpacebarMessage;
+import com.camellias.voidaicarcania.core.network.packets.PressKeyMessage;
 import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
 
 import net.minecraft.client.Minecraft;
@@ -127,7 +127,7 @@ public class TickHandler
 					
 					if(GameSettings.isKeyDown(jump) && gui == null)
 					{
-						NetworkHandler.INSTANCE.sendToAll(new HoldSpacebarMessage(player));
+						NetworkHandler.INSTANCE.sendToAll(new PressKeyMessage(player));
 					}
 				}
 				

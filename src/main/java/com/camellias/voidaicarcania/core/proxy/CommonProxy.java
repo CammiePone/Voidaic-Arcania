@@ -5,6 +5,7 @@ import com.google.common.util.concurrent.ListenableFuture;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.IThreadListener;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class CommonProxy 
@@ -12,6 +13,11 @@ public class CommonProxy
 	public void registerItemRenderer(Item item, int meta, String id)
 	{
 		
+	}
+	
+	public World getClientWorld()
+	{
+		return null;
 	}
 	
 	public EntityPlayer getPlayer(final MessageContext context)

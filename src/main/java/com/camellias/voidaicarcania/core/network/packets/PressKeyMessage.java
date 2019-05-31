@@ -11,16 +11,16 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class HoldSpacebarMessage implements IMessage
+public class PressKeyMessage implements IMessage
 {
-	public HoldSpacebarMessage()
+	public PressKeyMessage()
 	{
 		
 	}
 	
 	public int playerID;
 	
-	public HoldSpacebarMessage(EntityPlayer player)
+	public PressKeyMessage(EntityPlayer player)
 	{
 		this.playerID = player.getEntityId();
 	}
@@ -39,10 +39,10 @@ public class HoldSpacebarMessage implements IMessage
 	
 //-------------------------------------------------------------------------------------------------------------------------//
 	
-	public static class HoldSpacebarPacketHandler implements IMessageHandler<HoldSpacebarMessage, IMessage>
+	public static class HoldSpacebarPacketHandler implements IMessageHandler<PressKeyMessage, IMessage>
 	{
 		@Override
-		public IMessage onMessage(HoldSpacebarMessage message, MessageContext ctx)
+		public IMessage onMessage(PressKeyMessage message, MessageContext ctx)
 		{
 			Main.proxy.getThreadListener(ctx).addScheduledTask(() ->
 			{

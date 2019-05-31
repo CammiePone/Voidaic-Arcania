@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.common.tileentities.TileEntityRift;
+import com.camellias.voidaicarcania.common.tileentities.misc.TERift;
 import com.camellias.voidaicarcania.common.world.dimensions.TeleporterVoid;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.init.ModItems;
@@ -94,7 +94,7 @@ public class BlockRift extends Block implements IHasModel
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state)
 	{
-		world.setTileEntity(pos, new TileEntityRift());
+		world.setTileEntity(pos, new TERift());
 	}
 	
 	@Override
@@ -145,7 +145,7 @@ public class BlockRift extends Block implements IHasModel
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state)
 	{
-		return new TileEntityRift();
+		return new TERift();
 	}
 	
 	@Override

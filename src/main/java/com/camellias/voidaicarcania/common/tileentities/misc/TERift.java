@@ -1,11 +1,12 @@
-package com.camellias.voidaicarcania.common.tileentities;
+package com.camellias.voidaicarcania.common.tileentities.misc;
 
-import net.minecraft.tileentity.TileEntity;
+import com.camellias.voidaicarcania.common.tileentities.TEGeneric;
+
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TileEntityRift extends TileEntity
+public class TERift extends TEGeneric
 {
 	@SideOnly(Side.CLIENT)
     public boolean shouldRenderFace(EnumFacing face)
