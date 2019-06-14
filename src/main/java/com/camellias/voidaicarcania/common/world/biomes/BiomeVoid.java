@@ -1,8 +1,12 @@
 package com.camellias.voidaicarcania.common.world.biomes;
 
+import java.util.Random;
+
+import com.camellias.voidaicarcania.core.init.ModBiomes;
 import com.camellias.voidaicarcania.core.init.ModEntities;
 
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -15,6 +19,8 @@ public class BiomeVoid extends Biome
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
+        
+        this.decorator.treesPerChunk = 1;
         
         ModEntities.VOID_BIOME.add(this.getBiomeName());
 	}
@@ -31,4 +37,10 @@ public class BiomeVoid extends Biome
     {
         return true;
     }
+	
+	@Override
+	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
+	{
+		return ModBiomes.Features.WHITEWOOD_TREE;
+	}
 }

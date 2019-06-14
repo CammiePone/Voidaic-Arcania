@@ -1,12 +1,11 @@
 package com.camellias.voidaicarcania.core.init;
 
 import com.camellias.voidaicarcania.common.world.biomes.BiomeVoid;
+import com.camellias.voidaicarcania.common.world.features.WhitewoodTreeFeature;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -25,5 +24,10 @@ public class ModBiomes
 		ForgeRegistries.BIOMES.register(biome);
 		BiomeDictionary.addTypes(biome, types);
 		return biome;
+	}
+	
+	public static abstract class Features
+	{
+		public static final WhitewoodTreeFeature WHITEWOOD_TREE = new WhitewoodTreeFeature(false);
 	}
 }

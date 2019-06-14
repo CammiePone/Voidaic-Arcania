@@ -70,7 +70,7 @@ public class BlockRift extends Block implements IHasModel
 				{
 					if(entity instanceof EntityPlayerMP)
 					{
-						TeleporterVoid.teleportToDimension((EntityPlayerMP) entity, -64, entity.posX, 120, entity.posZ);
+						TeleporterVoid.teleportToDimension((EntityPlayerMP) entity, -64, entity.posX, 248, entity.posZ);
 					}
 				}
 			}
