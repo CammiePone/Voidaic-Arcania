@@ -17,6 +17,7 @@ public class Donators
 	public static final UUID spinyshell = UUID.fromString("43ddc09a-fa14-4706-a5dc-9c7490497ff9");
 	public static final UUID Brosingr = UUID.fromString("38e31ac9-0fb3-4f1e-ad92-2d120028e0bc");
 	public static final UUID Jin666 = UUID.fromString("00030e5f-22e2-491b-9e81-7db6ff39d894");
+	public static final UUID AbstractFox = UUID.fromString("8f1f8872-1f66-4c3c-b2f6-d2a024107e45");
 	
 	public static void addDonators()
 	{
@@ -30,5 +31,6 @@ public class Donators
 		DONATOR_ID.put(spinyshell, 6);
 		DONATOR_ID.put(Brosingr, 1);
 		DONATOR_ID.put(Jin666, 1);
+		DONATOR_ID.put(AbstractFox, 1);
 	}
 }
