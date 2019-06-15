@@ -37,7 +37,7 @@ public class DimensionVoid extends WorldProvider
 	@Override
 	public float calculateCelestialAngle(long worldTime, float partialTicks)
     {
-        return 0.75F;
+        return 0.5F;
     }
 	
 	@Nullable
@@ -48,11 +48,17 @@ public class DimensionVoid extends WorldProvider
         return null;
     }
 	
+	@Override
+	public boolean hasSkyLight()
+	{
+		return false;
+	}
+	
 	@SideOnly(Side.CLIENT)
 	@Override
     public Vec3d getFogColor(float colour1, float colour2)
     {
-        int i = 10518688;
+        int i = 7933291;
         float f = MathHelper.cos(colour1 * ((float)Math.PI * 2F)) * 2.0F + 0.5F;
         f = MathHelper.clamp(f, 0.0F, 1.0F);
         float f1 = 0.627451F;
@@ -61,6 +67,7 @@ public class DimensionVoid extends WorldProvider
         f1 = f1 * (f * 0.0F + 0.15F);
         f2 = f2 * (f * 0.0F + 0.15F);
         f3 = f3 * (f * 0.0F + 0.15F);
+        
         return new Vec3d((double)f1, (double)f2, (double)f3);
     }
 

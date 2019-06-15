@@ -41,6 +41,6 @@ public class BiomeVoid extends Biome
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	{
-		return ModBiomes.Features.WHITEWOOD_TREE;
+		return rand.nextInt(20) == 0 ? ModBiomes.Features.WHITEWOOD_TREE : super.getRandomTreeFeature(rand);
 	}
 }

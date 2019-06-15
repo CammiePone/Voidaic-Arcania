@@ -10,12 +10,14 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.event.ForgeEventFactory;
 
 public class ChunkGeneratorVoid implements IChunkGenerator
 {
@@ -41,13 +43,9 @@ public class ChunkGeneratorVoid implements IChunkGenerator
 			{
 				IBlockState iblockstate;
 				
-				for(int y = 255; y >= 0; --y)
+				for(int y = 255; y >= 248; y--)
 				{
-					if(y < 255 - this.rand.nextInt(5) && y > this.rand.nextInt(5))
-					{
-						
-					}
-					else
+					if(y > 255 - this.rand.nextInt(5) || y == 255)
 					{
 						primer.setBlockState(x, y, z, BEDROCK);
 					}
@@ -59,17 +57,19 @@ public class ChunkGeneratorVoid implements IChunkGenerator
 	@Override
 	public Chunk generateChunk(int x, int z)
 	{
-		this.chunkX = x; this.chunkZ = z;
+		this.chunkX = x;
+		this.chunkZ = z;
 		this.rand.setSeed((long)x * 341873128712L + (long)z * 132897987541L);
 		ChunkPrimer chunkprimer = new ChunkPrimer();
 		this.setBlocksInChunk(x, z, chunkprimer);
 		Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
 		byte[] abyte = chunk.getBiomeArray();
 		
-		for (int i = 0; i < abyte.length; ++i)
+		for(int i = 0; i < abyte.length; ++i)
 		{
 			abyte[i] = (byte)Biome.getIdForBiome(ModBiomes.VOID);
 		}
+		
 		chunk.generateSkylightMap();
 		return chunk;
 	}
@@ -78,17 +78,17 @@ public class ChunkGeneratorVoid implements IChunkGenerator
 	public void populate(int x, int z)
 	{
 		BlockFalling.fallInstantly = true;
-		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, false);
+		ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, false);
         BlockPos blockpos = new BlockPos(x * 16, 0, z * 16);
         
         this.world.getBiome(blockpos.add(16, 0, 16)).decorate(this.world, this.world.rand, blockpos);
         
-        net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, x, z, false);
+        ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, x, z, false);
         BlockFalling.fallInstantly = false;
 	}
 	
 	@Override
-	public boolean generateStructures(Chunk chunkIn, int x, int z)
+	public boolean generateStructures(Chunk chunk, int x, int z)
 	{
 		return false;
 	}
@@ -100,7 +100,7 @@ public class ChunkGeneratorVoid implements IChunkGenerator
 	}
 	
 	@Override
-	public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored)
+	public BlockPos getNearestStructurePos(World world, String structureName, BlockPos position, boolean findUnexplored)
 	{
 		return null;
 	}
@@ -112,7 +112,7 @@ public class ChunkGeneratorVoid implements IChunkGenerator
 	}
 	
 	@Override
-	public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos)
+	public boolean isInsideStructure(World world, String structureName, BlockPos pos)
 	{
 		return false;
 	}

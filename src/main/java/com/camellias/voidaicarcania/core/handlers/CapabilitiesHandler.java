@@ -34,6 +34,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class CapabilitiesHandler
 {
+	private Random rand = new Random();
+	
 	@SubscribeEvent
 	public void onAddEntityCapabilites(AttachCapabilitiesEvent<Entity> event)
 	{
@@ -63,6 +65,7 @@ public class CapabilitiesHandler
 	{
 		ItemStack stack = event.getObject();
 		ItemStackWrapper wrapper = new ItemStackWrapper(stack.getItem(), stack.getMetadata());
+		
 		if(VoidEssenceList.LIST.containsKey(wrapper))
 		{
 			if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
@@ -79,41 +82,21 @@ public class CapabilitiesHandler
 	public void onAddChunkCapabilities(AttachCapabilitiesEvent<Chunk> event)
 	{
 		Chunk chunk = event.getObject();
-		Random rand = new Random();
+		
 		if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
 		{
-			int essence = rand.nextInt(1200);
+			int essence = rand.nextInt(1201);
 			boolean effect = false;
 			IEssence chunkEssence = new DefaultEssenceCapability(essence, effect);
 			event.addCapability(new ResourceLocation(Reference.MODID, "ChunkEssence"), new EssenceProvider(chunkEssence));
 		}
+		
 		if(!chunk.hasCapability(CorruptionProvider.corruptionCapability, null))
 		{
-			int amount = rand.nextInt(1000);
+			int amount = rand.nextInt(1001);
 			boolean corrupted = false;
 			ICorruption corruption = new DefaultCorruptionCapability(amount, corrupted);
 			event.addCapability(new ResourceLocation(Reference.MODID, "ChunkCorruption"), new CorruptionProvider(corruption));
-		}
-	}
-	
-	@SubscribeEvent(priority = EventPriority.LOWEST)
-	public void onChunkLoaded(ChunkEvent.Load event)
-	{
-		Chunk chunk = event.getChunk();
-		
-		if(chunk.hasCapability(EssenceProvider.essenceCapability, null))
-		{
-			if(chunk.getCapability(EssenceProvider.essenceCapability, null).getEssence() > 1600)
-			{
-				chunk.getCapability(EssenceProvider.essenceCapability, null).setEssence(1600);
-			}
-		}
-		if(chunk.hasCapability(CorruptionProvider.corruptionCapability, null))
-		{
-			if(chunk.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption() > 1000)
-			{
-				chunk.getCapability(CorruptionProvider.corruptionCapability, null).setCorruption(1000);
-			}
 		}
 	}
 	
