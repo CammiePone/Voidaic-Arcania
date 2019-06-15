@@ -36,7 +36,7 @@ public class WhitewoodTreeFeature  extends WorldGenAbstractTree
 		
 		BlockPos pos0 = new BlockPos(x, 255, z);
 		
-		while(world.getBlockState(pos0).getBlock() != Blocks.AIR)
+		while((world.getBlockState(pos0).getBlock() != Blocks.AIR) && (world.getBlockState(pos0.up()).getBlock() != Blocks.BEDROCK))
 		{
 			pos0 = pos0.down();
 
@@ -65,34 +65,65 @@ public class WhitewoodTreeFeature  extends WorldGenAbstractTree
 					//Logs
 					this.placeLogsAt(world, blockpos1);
 					
-					/*for(int i = 0; i < 5; i++)
-					{
-						//Leaves
-						pos0 = pos0.down((j2 - 2) - i);
-						this.placeLeafAt(world, pos0.north().west());
-						this.placeLeafAt(world, pos0.north());
-						this.placeLeafAt(world, pos0.north().east());
-						this.placeLeafAt(world, pos0.west());
-						this.placeLeafAt(world, pos0.east());
-						this.placeLeafAt(world, pos0.south().west());
-						this.placeLeafAt(world, pos0.south());
-						this.placeLeafAt(world, pos0.east());
-						
-						pos0 = pos0.down((j2 - 4));
-						this.placeLeafAt(world, pos0.north());
-						this.placeLeafAt(world, pos0.west());
-						this.placeLeafAt(world, pos0.east());
-						this.placeLeafAt(world, pos0.south());
-						
-						pos0 = pos0.down((j2 - 5));
-						this.placeLeafAt(world, pos0.north());
-						this.placeLeafAt(world, pos0.west());
-						this.placeLeafAt(world, pos0.east());
-						this.placeLeafAt(world, pos0.south());
-						
-						pos0 = pos0.down((j2 - 6));
-						this.placeLeafAt(world, pos0);
-					}*/
+					//Leaves
+					BlockPos pos1 = pos0;
+					int leafY = pos1.getY() - treeHeight;
+					System.out.println(leafY);
+					
+					pos1 = new BlockPos(x, leafY + 5, z);
+					this.placeLeafAt(world, pos1.north().west());
+					this.placeLeafAt(world, pos1.north());
+					this.placeLeafAt(world, pos1.north().east());
+					this.placeLeafAt(world, pos1.west());
+					this.placeLeafAt(world, pos1.east());
+					this.placeLeafAt(world, pos1.south().west());
+					this.placeLeafAt(world, pos1.south());
+					this.placeLeafAt(world, pos1.south().east());
+					
+					pos1 = new BlockPos(x, leafY + 4, z);
+					this.placeLeafAt(world, pos1.north().west());
+					this.placeLeafAt(world, pos1.north());
+					this.placeLeafAt(world, pos1.north().east());
+					this.placeLeafAt(world, pos1.west());
+					this.placeLeafAt(world, pos1.east());
+					this.placeLeafAt(world, pos1.south().west());
+					this.placeLeafAt(world, pos1.south());
+					this.placeLeafAt(world, pos1.south().east());
+					
+					pos1 = new BlockPos(x, leafY + 3, z);
+					this.placeLeafAt(world, pos1.north().west());
+					this.placeLeafAt(world, pos1.north());
+					this.placeLeafAt(world, pos1.north().east());
+					this.placeLeafAt(world, pos1.west());
+					this.placeLeafAt(world, pos1.east());
+					this.placeLeafAt(world, pos1.south().west());
+					this.placeLeafAt(world, pos1.south());
+					this.placeLeafAt(world, pos1.south().east());
+					
+					pos1 = new BlockPos(x, leafY + 2, z);
+					this.placeLeafAt(world, pos1.north().west());
+					this.placeLeafAt(world, pos1.north());
+					this.placeLeafAt(world, pos1.north().east());
+					this.placeLeafAt(world, pos1.west());
+					this.placeLeafAt(world, pos1.east());
+					this.placeLeafAt(world, pos1.south().west());
+					this.placeLeafAt(world, pos1.south());
+					this.placeLeafAt(world, pos1.south().east());
+					
+					pos1 = new BlockPos(x, leafY + 1, z);
+					this.placeLeafAt(world, pos1.north());
+					this.placeLeafAt(world, pos1.west());
+					this.placeLeafAt(world, pos1.east());
+					this.placeLeafAt(world, pos1.south());
+					
+					pos1 = new BlockPos(x, leafY, z);
+					this.placeLeafAt(world, pos1.north());
+					this.placeLeafAt(world, pos1.west());
+					this.placeLeafAt(world, pos1.east());
+					this.placeLeafAt(world, pos1.south());
+					
+					pos1 = new BlockPos(x, leafY - 1, z);
+					this.placeLeafAt(world, pos1);
 				}
 			}
 			

@@ -9,6 +9,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockWhitewoodLeaves extends BlockBaseGeneric
 {
@@ -18,6 +20,12 @@ public class BlockWhitewoodLeaves extends BlockBaseGeneric
 		this.setSoundType(SoundType.PLANT);
 		this.setHardness(3.5F);
 		this.setResistance(10.0F);
+	}
+	
+	@Override
+	public boolean isLeaves(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
+		return true;
 	}
 	
 	@Override
