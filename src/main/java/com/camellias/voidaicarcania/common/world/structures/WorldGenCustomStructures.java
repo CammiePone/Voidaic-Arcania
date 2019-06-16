@@ -55,8 +55,8 @@ public class WorldGenCustomStructures implements IWorldGenerator
 		
 		int x = (chunkX * 16) + rand.nextInt(15);
 		int z = (chunkZ * 16) + rand.nextInt(15);
-		int y = rand.nextInt(4) + 1;
-		BlockPos pos = new BlockPos(x, y + (248), z);
+		int y = rand.nextInt(3);
+		BlockPos pos = new BlockPos(x, (255 - 5) - y, z);
 		
 		Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
 		
@@ -76,8 +76,8 @@ public class WorldGenCustomStructures implements IWorldGenerator
 		
 		int x = (chunkX * 16) + rand.nextInt(15);
 		int z = (chunkZ * 16) + rand.nextInt(15);
-		int y = rand.nextInt(4);
-		BlockPos pos = new BlockPos(x, y + (122 - 6), z);
+		int y = rand.nextInt(3);
+		BlockPos pos = new BlockPos(x, (155 - 6) - y, z);
 		
 		Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
 		
@@ -97,8 +97,8 @@ public class WorldGenCustomStructures implements IWorldGenerator
 		
 		int x = (chunkX * 16) + rand.nextInt(15);
 		int z = (chunkZ * 16) + rand.nextInt(15);
-		int y = rand.nextInt(4);
-		BlockPos pos = new BlockPos(x, y + (122 - 7), z);
+		int y = rand.nextInt(3);
+		BlockPos pos = new BlockPos(x, (255 - 7) - y, z);
 		
 		Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
 		
@@ -118,8 +118,8 @@ public class WorldGenCustomStructures implements IWorldGenerator
 		
 		int x = (chunkX * 16) + rand.nextInt(15);
 		int z = (chunkZ * 16) + rand.nextInt(15);
-		int y = rand.nextInt(4);
-		BlockPos pos = new BlockPos(x, y + (122 - 8), z);
+		int y = rand.nextInt(3);
+		BlockPos pos = new BlockPos(x, (255 - 8) - y, z);
 		
 		Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
 		
