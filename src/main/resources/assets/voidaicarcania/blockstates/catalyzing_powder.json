@@ -1,0 +1,180 @@
+{
+    "forge_marker": 1,
+    "defaults":
+    {
+        "model": "voidaicarcania:flat_block",
+        "textures":
+        {
+            "texture": "voidaicarcania:blocks/catalyst_dot"
+        }
+    },
+    "variants":
+    {
+        "attached=false,east=false,north=false,south=false,west=false":
+        {
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_dot"
+            }
+        },
+        
+        "attached=false,east=false,north=true,south=false,west=false":
+        {
+            "__comment": "north",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ns"
+            }
+        },
+        
+        "attached=false,east=false,north=false,south=true,west=false":
+        {
+            "__comment": "south",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ns"
+            },
+            "y": 180
+        },
+        
+        "attached=false,east=true,north=false,south=false,west=false":
+        {
+            "__comment": "east",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ew"
+            }
+        },
+        
+        "attached=false,east=false,north=false,south=false,west=true":
+        {
+            "__comment": "west",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ew"
+            },
+            "y": 180
+        },
+        
+        "attached=false,east=true,north=true,south=false,west=false":
+        {
+            "__comment": "north-east",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ne"
+            }
+        },
+        
+        "attached=false,east=true,north=false,south=true,west=false":
+        {
+            "__comment": "south-east",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ne"
+            },
+            "y": 90
+        },
+        
+        "attached=false,east=false,north=false,south=true,west=true":
+        {
+            "__comment": "south-west",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ne"
+            },
+            "y": 180
+        },
+        
+        "attached=false,east=false,north=true,south=false,west=true":
+        {
+            "__comment": "north-west",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ne"
+            },
+            "y": 270
+        },
+        
+        "attached=false,east=false,north=true,south=true,west=false":
+        {
+            "__comment": "north-south",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ns"
+            }
+        },
+        
+        "attached=false,east=true,north=false,south=false,west=true":
+        {
+            "__comment": "east-west",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_ew"
+            }
+        },
+        
+        "attached=false,east=true,north=true,south=true,west=false":
+        {
+            "__comment": "north-south-east",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_nse"
+            }
+        },
+        
+        "attached=false,east=true,north=false,south=true,west=true":
+        {
+            "__comment": "south-east-west",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_nse"
+            },
+            "y": 90
+        },
+        
+        "attached=false,east=false,north=true,south=true,west=true":
+        {
+            "__comment": "north-south-west",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_nse"
+            },
+            "y": 180
+        },
+        
+        "attached=false,east=true,north=true,south=false,west=true":
+        {
+            "__comment": "north-east-west",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_nse"
+            },
+            "y": 270
+        },
+        
+        "attached=false,east=true,north=true,south=true,west=true":
+        {
+            "__comment": "north-south-east-west",
+            "model": "voidaicarcania:flat_block",
+            "textures":
+            {
+                "texture": "voidaicarcania:blocks/catalyst_nsew"
+            }
+        }
+    }
+}

@@ -18,8 +18,9 @@ public class BlockWhitewoodLeaves extends BlockBaseGeneric
 	{
 		super(material, name);
 		this.setSoundType(SoundType.PLANT);
-		this.setHardness(3.5F);
-		this.setResistance(10.0F);
+		this.setHardness(0.2F);
+		this.setLightOpacity(1);
+		this.setLightLevel(0.3F);
 	}
 	
 	@Override

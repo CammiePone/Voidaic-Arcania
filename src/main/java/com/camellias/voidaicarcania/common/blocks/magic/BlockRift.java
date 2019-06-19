@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.common.blocks;
+package com.camellias.voidaicarcania.common.blocks.magic;
 
 import java.util.Random;
 
