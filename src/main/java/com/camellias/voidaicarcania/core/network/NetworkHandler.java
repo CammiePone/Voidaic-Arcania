@@ -3,8 +3,7 @@ package com.camellias.voidaicarcania.core.network;
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
 import com.camellias.voidaicarcania.core.network.packets.PressKeyMessage;
-import com.camellias.voidaicarcania.core.network.packets.TileToClientMessage;
-import com.camellias.voidaicarcania.core.network.packets.TileToServerMessage;
+import com.camellias.voidaicarcania.core.network.packets.SyncTileToClientMessage;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -22,12 +21,11 @@ public class NetworkHandler
 	
 	public static void init()
 	{
-		INSTANCE.registerMessage(PressKeyMessage.HoldSpacebarPacketHandler.class, PressKeyMessage.class, next(), Side.SERVER);
-		INSTANCE.registerMessage(PressKeyMessage.HoldSpacebarPacketHandler.class, PressKeyMessage.class, next(), Side.CLIENT);
+		INSTANCE.registerMessage(PressKeyMessage.PacketHandler.class, PressKeyMessage.class, next(), Side.SERVER);
+		INSTANCE.registerMessage(PressKeyMessage.PacketHandler.class, PressKeyMessage.class, next(), Side.CLIENT);
 		
-		INSTANCE.registerMessage(OverlayMessage.OverlayPacketHandler.class, OverlayMessage.class, next(), Side.CLIENT);
+		INSTANCE.registerMessage(OverlayMessage.PacketHandler.class, OverlayMessage.class, next(), Side.CLIENT);
 		
-		INSTANCE.registerMessage(TileToServerMessage.class, TileToServerMessage.class, next(), Side.SERVER);
-		INSTANCE.registerMessage(TileToClientMessage.class, TileToClientMessage.class, next(), Side.CLIENT);
+		INSTANCE.registerMessage(SyncTileToClientMessage.PacketHandler.class, SyncTileToClientMessage.class, next(), Side.CLIENT);
 	}
 }

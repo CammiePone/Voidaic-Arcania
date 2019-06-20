@@ -4,7 +4,7 @@ import java.nio.FloatBuffer;
 import java.util.Random;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.common.tileentities.misc.TERift;
+import com.camellias.voidaicarcania.common.tileentities.misc.TileRift;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class TERiftRender extends TileEntitySpecialRenderer<TERift>
+public class TileRiftRenderer extends TileEntitySpecialRenderer<TileRift>
 {
 	private static final ResourceLocation RIFT_LAYER_1 = new ResourceLocation(Reference.MODID + ":textures/blocks/void_rift_layer_1.png");
     private static final ResourceLocation RIFT_LAYER_2 = new ResourceLocation(Reference.MODID + ":textures/blocks/void_rift_layer_2.png");
@@ -29,7 +29,7 @@ public class TERiftRender extends TileEntitySpecialRenderer<TERift>
     private final FloatBuffer buffer = GLAllocation.createDirectFloatBuffer(16);
     
     @Override
-    public void render(TERift te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
+    public void render(TileRift te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
     {
         GlStateManager.disableLighting();
         RANDOM.setSeed(31100L);

@@ -41,7 +41,7 @@ public class OverlayMessage implements IMessage
 	
 //-------------------------------------------------------------------------------------------------------------------------//
 	
-	public static class OverlayPacketHandler implements IMessageHandler<OverlayMessage, IMessage>
+	public static class PacketHandler implements IMessageHandler<OverlayMessage, IMessage>
 	{
 		@Override
 		public IMessage onMessage(OverlayMessage message, MessageContext ctx)

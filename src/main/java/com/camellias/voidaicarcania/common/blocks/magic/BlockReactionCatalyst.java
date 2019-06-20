@@ -46,7 +46,7 @@ public class BlockReactionCatalyst extends BlockBaseGeneric
 	public static final PropertyBool EAST = PropertyBool.create("east");
 	public static final PropertyBool SOUTH = PropertyBool.create("south");
 	public static final PropertyBool WEST = PropertyBool.create("west");
-	protected static final AxisAlignedBB CATALYST_AABB = new AxisAlignedBB(0.0D, 0.0625D, 0.0D, 1.0D, 0.15625D, 1.0D);
+	protected static final AxisAlignedBB CATALYST_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.1D, 1.0D);
 	
 	public BlockReactionCatalyst(Material material, String name)
 	{

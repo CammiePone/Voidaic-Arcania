@@ -39,7 +39,7 @@ public class PressKeyMessage implements IMessage
 	
 //-------------------------------------------------------------------------------------------------------------------------//
 	
-	public static class HoldSpacebarPacketHandler implements IMessageHandler<PressKeyMessage, IMessage>
+	public static class PacketHandler implements IMessageHandler<PressKeyMessage, IMessage>
 	{
 		@Override
 		public IMessage onMessage(PressKeyMessage message, MessageContext ctx)
