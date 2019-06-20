@@ -10,6 +10,8 @@ item.voidaicarcania.whitewood_staff.name=Whitewood Staff
 item.voidaicarcania.void_resonator.name=Void Resonator
 
 //Blocks
+tile.voidaicarcania.catalyzing_powder.name=Catalyzing Powder
+tile.voidaicarcania.whitewood_pedestal.name=Whitewood Pedestal
 tile.voidaicarcania.whitewood_planks.name=Whitewood Planks
 tile.voidaicarcania.whitewood_stairs.name=Whitewood Stairs
 tile.voidaicarcania.whitewood_leaves.name=Whitewood Leaves

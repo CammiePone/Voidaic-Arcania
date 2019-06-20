@@ -8,6 +8,7 @@ import com.camellias.voidaicarcania.core.init.ModBlocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,14 +16,25 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockWhitewoodPedestal extends BlockBaseGeneric
 {
+	protected static final AxisAlignedBB PEDESTAL_AABB = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.875D, 0.75D);
+	
 	public BlockWhitewoodPedestal(Material material, String name)
 	{
 		super(material, name);
+		this.setHardness(2.0F);
+	}
+	
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+	{
+		return PEDESTAL_AABB;
 	}
 	
 	@Override
@@ -34,9 +46,25 @@ public class BlockWhitewoodPedestal extends BlockBaseGeneric
 			
 			if(!player.getHeldItem(hand).isEmpty() && pedestal.handler.getStackInSlot(0).getCount() < 1)
 			{
-				pedestal.handler.setStackInSlot(0, player.getHeldItem(hand).splitStack(1));
+				if(!player.isCreative())
+				{
+					pedestal.handler.setStackInSlot(0, player.getHeldItem(hand).splitStack(1));
+				}
+				else
+				{
+					ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem(), 1, player.getHeldItem(hand).getMetadata());
+					pedestal.handler.setStackInSlot(0, stack);
+				}
+			}
+			if(player.getHeldItem(hand).isEmpty() && pedestal.handler.getStackInSlot(0).getCount() > 0)
+			{
+				player.inventory.addItemStackToInventory(pedestal.handler.getStackInSlot(0));
 			}
 		}
+		
+		state = world.getBlockState(pos);
+		
+		world.notifyBlockUpdate(pos, state, state, 2);
 		
 		return true;
 	}
@@ -69,7 +97,10 @@ public class BlockWhitewoodPedestal extends BlockBaseGeneric
 	public void breakBlock(World world, BlockPos pos, IBlockState state)
 	{
 		TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(pos);
-		//InventoryHelper.dropInventoryItems(world, pos, tileEntity);
+		ItemStack stack = pedestal.handler.getStackInSlot(0);
+		
+		EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+		world.spawnEntity(entityItem);
 		super.breakBlock(world, pos, state);
 	}
 	
@@ -78,4 +109,10 @@ public class BlockWhitewoodPedestal extends BlockBaseGeneric
     {
         return false;
     }
+	
+	@Override
+	public boolean isFullCube(IBlockState state)
+	{
+		return false;
+	}
 }

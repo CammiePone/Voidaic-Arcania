@@ -1,13 +1,15 @@
 package com.camellias.voidaicarcania.common.tileentities.altar;
 
-import com.camellias.voidaicarcania.core.network.NetworkHandler;
-import com.camellias.voidaicarcania.core.network.packets.SyncTileToClientMessage;
+import javax.annotation.Nullable;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -21,19 +23,32 @@ public class TileWhitewoodPedestal extends TileEntity
 		@Override
 		protected void onContentsChanged(int slot)
 		{
-			for(EntityPlayer player : world.playerEntities)
-			{
-				if(player instanceof EntityPlayerMP)
-				{
-					EntityPlayerMP players = (EntityPlayerMP) player;
-					
-					NetworkHandler.INSTANCE.sendTo(new SyncTileToClientMessage(handler.getStackInSlot(0)), players);
-				}
-			}
-			
 			TileWhitewoodPedestal.this.markDirty();
 		}
 	};
+	
+	@Override
+	@Nullable
+	public SPacketUpdateTileEntity getUpdatePacket()
+	{
+		BlockPos pos1 = getPos();
+		return new SPacketUpdateTileEntity(pos1, 0, getUpdateTag());
+	}
+	
+	@Override
+	public NBTTagCompound getUpdateTag()
+	{
+		NBTTagCompound nbt = super.getUpdateTag();
+		writeToNBT(nbt);
+		return nbt;
+	}
+	
+	@Override
+	public void onDataPacket(NetworkManager manager, SPacketUpdateTileEntity packet)
+	{
+		NBTTagCompound tag = packet.getNbtCompound();
+		readFromNBT(tag);
+	}
 	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt)

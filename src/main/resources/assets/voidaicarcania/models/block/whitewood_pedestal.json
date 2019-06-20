@@ -1,0 +1,64 @@
+{
+    "parent": "block/block",
+	"textures":
+	{
+		"0": "voidaicarcania:blocks/whitewood_log_side",
+		"1": "voidaicarcania:blocks/whitewood_log_top",
+		"2": "voidaicarcania:blocks/whitewood_planks",
+		"particle": "voidaicarcania:blocks/whitewood_log_side"
+	},
+	"display":
+	{
+        "fixed":
+        {
+            "rotation": [ 0, 90, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.5, 0.5, 0.5 ]
+        }
+    },
+	"elements":
+	[
+		{
+			"name": "PedestalBase",
+			"from": [2, 0, 2],
+			"to": [14, 2, 14],
+			"faces":
+			{
+				"north": {"uv": [4, 2, 16, 4], "texture": "#2"},
+				"east": {"uv": [0, 3, 12, 5], "texture": "#2"},
+				"south": {"uv": [4, 2, 16, 4], "texture": "#2"},
+				"west": {"uv": [0, 3, 12, 5], "texture": "#2"},
+				"up": {"uv": [4, 3, 16, 15], "texture": "#2"},
+				"down": {"uv": [4, 3, 16, 15], "texture": "#2"}
+			}
+		},
+		{
+			"name": "PedestalTower",
+			"from": [4, 2, 4],
+			"to": [12, 14, 12],
+			"faces":
+			{
+				"north": {"uv": [2, 3, 10, 15], "texture": "#0"},
+				"east": {"uv": [5, 2, 13, 14], "texture": "#0"},
+				"south": {"uv": [5, 2, 13, 14], "texture": "#0"},
+				"west": {"uv": [2, 1, 10, 13], "texture": "#0"},
+				"up": {"uv": [4, 4, 12, 12], "texture": "#1"},
+				"down": {"uv": [4, 4, 12, 12], "texture": "#1"}
+			}
+		},
+		{
+			"name": "PedestalTop",
+			"from": [2, 11, 2],
+			"to": [14, 13, 14],
+			"faces":
+			{
+				"north": {"uv": [0, 3, 12, 5], "texture": "#2"},
+				"east": {"uv": [4, 2, 16, 4], "texture": "#2"},
+				"south": {"uv": [0, 3, 12, 5], "texture": "#2"},
+				"west": {"uv": [4, 2, 16, 4], "texture": "#2"},
+				"up": {"uv": [2, 2, 14, 14], "texture": "#1"},
+				"down": {"uv": [2, 2, 14, 14], "texture": "#2"}
+			}
+		}
+	]
+}

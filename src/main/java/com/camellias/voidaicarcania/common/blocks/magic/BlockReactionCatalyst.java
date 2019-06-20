@@ -104,12 +104,12 @@ public class BlockReactionCatalyst extends BlockBaseGeneric
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	{
-		return Items.STRING;
+		return Item.getItemFromBlock(ModBlocks.CATALYST);
 	}
 	
 	public ItemStack getItem(World world, BlockPos pos, IBlockState state)
 	{
-		return new ItemStack(Items.STRING);
+		return new ItemStack(Item.getItemFromBlock(ModBlocks.CATALYST));
 	}
 	
 	@Override
