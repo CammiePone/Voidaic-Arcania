@@ -19,7 +19,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public abstract class AbstractSpellCrystal extends ItemBaseGeneric
 {
 	private int potency;
-	private double damage;
 	private String spellName;
 	private AbstractSpellComponent[] spellComponents;
 	
@@ -40,12 +39,8 @@ public abstract class AbstractSpellCrystal extends ItemBaseGeneric
 		String potencySlot = TextFormatting.DARK_PURPLE + I18n.format(Reference.MODID + ".spellPotencySlot.name");
 		String potencyAmt = TextFormatting.DARK_GRAY + I18n.format(Reference.MODID + "." + getPotency() + ".name");
 		
-		String damageSlot = TextFormatting.DARK_PURPLE + I18n.format(Reference.MODID + ".spellDamageSlot.name");
-		String damageAmt = TextFormatting.DARK_GRAY + I18n.format(Reference.MODID + "." + getDamage() + ".name");
-		
 		tooltip.add(nameSlot + " " + spellName);
 		tooltip.add(potencySlot + " " + potencyAmt);
-		tooltip.add(damageSlot + " " + damageAmt);
 	}
 	
 	@Override
@@ -109,26 +104,6 @@ public abstract class AbstractSpellCrystal extends ItemBaseGeneric
 	{
 		this.potency = potency;
 		return this.potency;
-	}
-	
-	/**
-	 * Returns the damage the spell is supposed to do.
-	 * @return
-	 */
-	public double getDamage()
-	{
-		return this.damage;
-	}
-	
-	/**
-	 * Sets the base damage, which gets multiplied by the potency and then divided by 2.
-	 * @param damage
-	 * @return
-	 */
-	public double setDamage(double damage)
-	{
-		this.damage = ((damage * getPotency()) / 2);
-		return this.damage;
 	}
 	
 	/**
