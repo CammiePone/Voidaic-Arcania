@@ -2,6 +2,7 @@ package com.camellias.voidaicarcania.common.blocks.magic;
 
 import java.util.Random;
 
+import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.common.blocks.BlockBaseGeneric;
 import com.camellias.voidaicarcania.common.tileentities.altar.TileVoidaicAltar;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
@@ -18,6 +19,8 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class BlockVoidaicAltar extends BlockBaseGeneric
@@ -36,17 +39,37 @@ public class BlockVoidaicAltar extends BlockBaseGeneric
 			TileVoidaicAltar pedestal = (TileVoidaicAltar) world.getTileEntity(pos);
 			
 			if(!player.getHeldItem(hand).isEmpty()
-				&& pedestal.handler.getStackInSlot(0).getCount() < 1
 				&& player.getHeldItem(hand).getItem() != ModItems.WHITEWOOD_STAFF)
 			{
 				if(!player.isCreative())
 				{
-					pedestal.handler.setStackInSlot(0, player.getHeldItem(hand).splitStack(1));
+					if(pedestal.handler.getStackInSlot(0).getCount() < 1)
+						pedestal.handler.setStackInSlot(0, player.getHeldItem(hand).splitStack(1));
+					
+					if(pedestal.handler.getStackInSlot(1).getCount() < 1 && pedestal.handler.getStackInSlot(0).getCount() > 0)
+						pedestal.handler.setStackInSlot(1, player.getHeldItem(hand).splitStack(1));
+					
+					if(pedestal.handler.getStackInSlot(2).getCount() < 1 && pedestal.handler.getStackInSlot(1).getCount() > 0)
+						pedestal.handler.setStackInSlot(2, player.getHeldItem(hand).splitStack(1));
+					
+					if(pedestal.handler.getStackInSlot(3).getCount() < 1 && pedestal.handler.getStackInSlot(2).getCount() > 0)
+						pedestal.handler.setStackInSlot(3, player.getHeldItem(hand).splitStack(1));
 				}
 				else
 				{
 					ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem(), 1, player.getHeldItem(hand).getMetadata());
-					pedestal.handler.setStackInSlot(0, stack);
+					
+					if(pedestal.handler.getStackInSlot(0).getCount() < 1)
+						pedestal.handler.setStackInSlot(0, stack);
+					
+					if(pedestal.handler.getStackInSlot(1).getCount() < 1 && pedestal.handler.getStackInSlot(0).getCount() > 0)
+						pedestal.handler.setStackInSlot(1, stack);
+					
+					if(pedestal.handler.getStackInSlot(2).getCount() < 1 && pedestal.handler.getStackInSlot(1).getCount() > 0)
+						pedestal.handler.setStackInSlot(2, stack);
+					
+					if(pedestal.handler.getStackInSlot(3).getCount() < 1 && pedestal.handler.getStackInSlot(2).getCount() > 0)
+						pedestal.handler.setStackInSlot(3, stack);
 				}
 			}
 			else if(player.getHeldItem(hand).isEmpty()
@@ -56,7 +79,7 @@ public class BlockVoidaicAltar extends BlockBaseGeneric
 			}
 			else if(player.getHeldItem(hand).getItem() == ModItems.WHITEWOOD_STAFF)
 			{
-				if(!pedestal.isCasting()) pedestal.startCasting();
+				if(!pedestal.isCasting()) pedestal.startCasting(player);
 				else pedestal.stopCasting();
 			}
 		}

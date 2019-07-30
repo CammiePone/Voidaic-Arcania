@@ -12,6 +12,7 @@ item.voidaicarcania.void_resonator.name=Void Resonator
 //Blocks
 tile.voidaicarcania.catalyzing_powder.name=Catalyzing Powder
 tile.voidaicarcania.whitewood_pedestal.name=Whitewood Pedestal
+tile.voidaicarcania.voidaic_altar.name=Voidaic Altar
 tile.voidaicarcania.whitewood_planks.name=Whitewood Planks
 tile.voidaicarcania.whitewood_stairs.name=Whitewood Stairs
 tile.voidaicarcania.whitewood_leaves.name=Whitewood Leaves
@@ -20,3 +21,7 @@ tile.voidaicarcania.whitewood_log.name=Whitewood Log
 //Entities
 entity.voidaicarcania.void_wraith.name=Void Wraith
 entity.voidaicarcania.void_crawler.name=Void Crawler
+
+//Misc
+voidaicarcania.altar.notenoughspace=The altar does not have enough space. Try using less essence.
+voidaicarcania.altar.isfull=The altar is full of Void Essence.

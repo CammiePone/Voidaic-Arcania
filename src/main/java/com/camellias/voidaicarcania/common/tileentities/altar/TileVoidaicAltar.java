@@ -1,19 +1,18 @@
 package com.camellias.voidaicarcania.common.tileentities.altar;
 
-import java.util.List;
-
 import javax.annotation.Nullable;
 
+import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.api.capabilities.EssenceCap.EssenceProvider;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockWorldState;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -23,16 +22,22 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.MutableBlockPos;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class TileVoidaicAltar extends TileEntity implements ITickable
 {
-	public static final int SLOTS = 1;
-	public int voidEssence = 0;
+	public static final int SLOTS = 4;
+	public int voidEssence;
 	public int maxEssence = 5000;
 	private boolean isCasting = false;
+	private boolean isInputEssence = false;
+	private boolean isCraftingItem = false;
+	private boolean isCraftingSpell = false;
 	
 	private BlockPattern pattern = FactoryBlockPattern.start().aisle(
 			"0003000", "0302030", "0022200", "3221223", "0022200", "0302030", "0003000")
@@ -85,12 +90,12 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 		
 		if(nbt.hasKey("isCasting"))
 		{
-			nbt.getBoolean("isCasting");
+			isCasting = nbt.getBoolean("isCasting");
 		}
 		
 		if(nbt.hasKey("voidEssence"))
 		{
-			nbt.getInteger("voidEssence");
+			voidEssence = nbt.getInteger("voidEssence");
 		}
 	}
 	
@@ -131,9 +136,9 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	@Override
 	public void update()
 	{
-		if(isCasting && !isValidStructure())
+		if(isCasting)
 		{
-			stopCasting();
+			if(!isValidStructure()) stopCasting();
 		}
 	}
 	
@@ -142,15 +147,26 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 		return pattern.match(world, pos) != null;
 	}
 	
-	public void startCasting()
+	public void startCasting(EntityPlayer player)
 	{
 		if(!world.isRemote && isValidStructure())
 		{
-			isCasting = true;
-			
-			if(getEssenceFromPedestals() > 0 && maxEssence >= (voidEssence + getEssenceFromPedestals()))
+			if(getEssenceFromPedestals() <= 0)
 			{
-				voidEssence += getEssenceFromPedestals();
+				isCasting = true;
+			}
+			else if(getEssenceFromPedestals() > 0 && maxEssence >= (voidEssence + getEssenceFromPedestals()))
+			{
+				isCasting = true;
+				isInputEssence = true;
+			}
+			else if(getEssenceFromPedestals() > 0 && maxEssence < (voidEssence + getEssenceFromPedestals()) && maxEssence > voidEssence)
+			{
+				player.sendMessage(new TextComponentString(TextFormatting.RED + "" + TextFormatting.ITALIC + new TextComponentTranslation(Reference.MODID + ".altar.notenoughspace").getUnformattedText()));
+			}
+			else if(getEssenceFromPedestals() > 0 && maxEssence < (voidEssence + getEssenceFromPedestals()) && maxEssence == voidEssence)
+			{
+				player.sendMessage(new TextComponentString(TextFormatting.RED + "" + TextFormatting.ITALIC + new TextComponentTranslation(Reference.MODID + ".altar.isfull").getUnformattedText()));
 			}
 		}
 	}
@@ -159,7 +175,53 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	{
 		if(!world.isRemote)
 		{
-			isCasting = false;
+			Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
+			
+			for(MutableBlockPos allBlockPos : blocksWithin)
+			{
+				if(world.getTileEntity(allBlockPos) instanceof TileWhitewoodPedestal)
+				{
+					TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(allBlockPos);
+					IBlockState state = world.getBlockState(allBlockPos);
+					ItemStack stack = pedestal.handler.getStackInSlot(0);
+					
+					if(stack.hasCapability(EssenceProvider.essenceCapability, null))
+					{
+						if(isInputEssence)
+						{
+							voidEssence += getEssenceFromPedestals();
+							isCasting = false;
+							isInputEssence = false;
+						}
+						if(isCraftingItem)
+						{
+							isCasting = false;
+							isCraftingItem = false;
+						}
+						if(isCraftingSpell)
+						{
+							isCasting = false;
+							isCraftingSpell = false;
+						}
+						
+						stack.shrink(1);
+						world.notifyBlockUpdate(allBlockPos, state, state, 2);
+					}
+				}
+			}
+			
+			world.setBlockToAir(pos.north(2));
+			world.setBlockToAir(pos.north().west());
+			world.setBlockToAir(pos.north());
+			world.setBlockToAir(pos.north().east());
+			world.setBlockToAir(pos.west(2));
+			world.setBlockToAir(pos.west());
+			world.setBlockToAir(pos.east());
+			world.setBlockToAir(pos.east(2));
+			world.setBlockToAir(pos.south().west());
+			world.setBlockToAir(pos.south());
+			world.setBlockToAir(pos.south().east());
+			world.setBlockToAir(pos.south(2));
 		}
 	}
 	
