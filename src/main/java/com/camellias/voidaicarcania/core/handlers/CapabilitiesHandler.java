@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.api.VoidEssenceList;
 import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
 import com.camellias.voidaicarcania.api.capabilities.Corruption.DefaultCorruptionCapability;
 import com.camellias.voidaicarcania.api.capabilities.Corruption.ICorruption;
@@ -14,6 +13,7 @@ import com.camellias.voidaicarcania.api.capabilities.EssenceCap.IEssence;
 import com.camellias.voidaicarcania.api.capabilities.Infused.DefaultInfusedCapability;
 import com.camellias.voidaicarcania.api.capabilities.Infused.IInfused;
 import com.camellias.voidaicarcania.api.capabilities.Infused.InfusedProvider;
+import com.camellias.voidaicarcania.api.registry.VoidEssenceList;
 import com.camellias.voidaicarcania.core.util.ItemStackWrapper;
 
 import net.minecraft.client.resources.I18n;

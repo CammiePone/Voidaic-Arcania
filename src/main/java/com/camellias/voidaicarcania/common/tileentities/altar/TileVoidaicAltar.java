@@ -4,15 +4,18 @@ import javax.annotation.Nullable;
 
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.api.capabilities.EssenceCap.EssenceProvider;
+import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
+import com.camellias.voidaicarcania.core.init.ModItems;
 
 import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -38,6 +41,7 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	private boolean isInputEssence = false;
 	private boolean isCraftingItem = false;
 	private boolean isCraftingSpell = false;
+	private int ticks;
 	
 	private BlockPattern pattern = FactoryBlockPattern.start().aisle(
 			"0003000", "0302030", "0022200", "3221223", "0022200", "0302030", "0003000")
@@ -93,6 +97,21 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 			isCasting = nbt.getBoolean("isCasting");
 		}
 		
+		if(nbt.hasKey("isInputEssence"))
+		{
+			isInputEssence = nbt.getBoolean("isInputEssence");
+		}
+		
+		if(nbt.hasKey("isCraftingItem"))
+		{
+			isCraftingItem = nbt.getBoolean("isCraftingItem");
+		}
+		
+		if(nbt.hasKey("isCraftingSpell"))
+		{
+			isCraftingSpell = nbt.getBoolean("isCraftingSpell");
+		}
+		
 		if(nbt.hasKey("voidEssence"))
 		{
 			voidEssence = nbt.getInteger("voidEssence");
@@ -106,6 +125,9 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 		
 		nbt.setTag("items", handler.serializeNBT());
 		nbt.setBoolean("isCasting", isCasting);
+		nbt.setBoolean("isInputEssence", isInputEssence);
+		nbt.setBoolean("isCraftingItem", isCraftingItem);
+		nbt.setBoolean("isCraftingSpell", isCraftingSpell);
 		nbt.setInteger("voidEssence", voidEssence);
 		
 		return nbt;
@@ -139,6 +161,32 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 		if(isCasting)
 		{
 			if(!isValidStructure()) stopCasting();
+			
+			if(isCraftingItem || isCraftingSpell)
+			{
+				if(ticks < VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost())
+				{
+					ticks++;
+				}
+				else if(ticks >= VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost())
+				{
+					ticks = 0;
+					stopCasting();
+				}
+			}
+			
+			if(isInputEssence)
+			{
+				if(ticks < 200)
+				{
+					ticks++;
+				}
+				else if(ticks >= 200)
+				{
+					ticks = 0;
+					stopCasting();
+				}
+			}
 		}
 	}
 	
@@ -151,14 +199,32 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	{
 		if(!world.isRemote && isValidStructure())
 		{
-			if(getEssenceFromPedestals() <= 0)
+			if(getEssenceFromPedestals() <= 0 && getEssenceFromPedestals() >= VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost())
 			{
 				isCasting = true;
+				
+				if(handler.getStackInSlot(0).getItem() == ModItems.SPELL_PAPER 
+					|| handler.getStackInSlot(1).getItem() == ModItems.SPELL_PAPER 
+					|| handler.getStackInSlot(2).getItem() == ModItems.SPELL_PAPER 
+					|| handler.getStackInSlot(3).getItem() == ModItems.SPELL_PAPER)
+				{
+					isCraftingSpell = true;
+					isCraftingItem = false;
+				}
+				else
+				{
+					isCraftingItem = true;
+					isCraftingSpell = false;
+				}
 			}
-			else if(getEssenceFromPedestals() > 0 && maxEssence >= (voidEssence + getEssenceFromPedestals()))
+			else if(getEssenceFromPedestals() > 0 && maxEssence >= (voidEssence + getEssenceFromPedestals()) && !(isCraftingItem || isCraftingSpell))
 			{
 				isCasting = true;
 				isInputEssence = true;
+			}
+			else if(getEssenceFromPedestals() <= VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost() && VoidaicAltarRecipes.INSTANCE.getRecipes() != null)
+			{
+				player.sendMessage(new TextComponentString(TextFormatting.RED + "" + TextFormatting.ITALIC + new TextComponentTranslation(Reference.MODID + ".altar.notenoughessence").getUnformattedText()));
 			}
 			else if(getEssenceFromPedestals() > 0 && maxEssence < (voidEssence + getEssenceFromPedestals()) && maxEssence > voidEssence)
 			{
@@ -190,11 +256,17 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 						if(isInputEssence)
 						{
 							voidEssence += getEssenceFromPedestals();
+							stack.shrink(1);
 							isCasting = false;
 							isInputEssence = false;
 						}
 						if(isCraftingItem)
 						{
+							EntityItem item = new EntityItem(world, pos.getX() + 0.5D, pos.getY() + 1D, pos.getZ() + 0.5D, 
+								VoidaicAltarRecipes.INSTANCE.getRecipeResult(handler.getStackInSlot(0), handler.getStackInSlot(1), 
+								handler.getStackInSlot(2), handler.getStackInSlot(3), VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost()));
+							world.spawnEntity(item);
+							
 							isCasting = false;
 							isCraftingItem = false;
 						}
@@ -204,8 +276,9 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 							isCraftingSpell = false;
 						}
 						
-						stack.shrink(1);
 						world.notifyBlockUpdate(allBlockPos, state, state, 2);
+						state = world.getBlockState(pos);
+						world.notifyBlockUpdate(pos, state, state, 2);
 					}
 				}
 			}

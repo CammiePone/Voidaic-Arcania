@@ -2,9 +2,13 @@ package com.camellias.voidaicarcania;
 
 import java.io.File;
 
+import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
 import com.camellias.voidaicarcania.core.handlers.RegistryHandler;
+import com.camellias.voidaicarcania.core.init.ModItems;
 import com.camellias.voidaicarcania.core.proxy.CommonProxy;
 
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -42,6 +46,8 @@ public class Main
 			isThaumcraftLoaded = true;
 		}
 		
+		//Example recipe
+		VoidaicAltarRecipes.INSTANCE.addRecipe(new ItemStack(Items.APPLE), new ItemStack(Items.AIR), new ItemStack(Items.AIR), new ItemStack(Items.AIR), 100, new ItemStack(ModItems.VOID_RESONATOR));
 		RegistryHandler.clientRegistries(event);
 		RegistryHandler.preInitRegistries(event);
 	}

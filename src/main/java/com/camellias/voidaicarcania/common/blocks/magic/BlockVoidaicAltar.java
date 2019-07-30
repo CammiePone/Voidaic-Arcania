@@ -36,51 +36,60 @@ public class BlockVoidaicAltar extends BlockBaseGeneric
 	{
 		if(!world.isRemote)
 		{
-			TileVoidaicAltar pedestal = (TileVoidaicAltar) world.getTileEntity(pos);
+			TileVoidaicAltar altar = (TileVoidaicAltar) world.getTileEntity(pos);
 			
 			if(!player.getHeldItem(hand).isEmpty()
 				&& player.getHeldItem(hand).getItem() != ModItems.WHITEWOOD_STAFF)
 			{
 				if(!player.isCreative())
 				{
-					if(pedestal.handler.getStackInSlot(0).getCount() < 1)
-						pedestal.handler.setStackInSlot(0, player.getHeldItem(hand).splitStack(1));
+					if(altar.handler.getStackInSlot(0).getCount() < 1)
+						altar.handler.setStackInSlot(0, player.getHeldItem(hand).splitStack(1));
 					
-					if(pedestal.handler.getStackInSlot(1).getCount() < 1 && pedestal.handler.getStackInSlot(0).getCount() > 0)
-						pedestal.handler.setStackInSlot(1, player.getHeldItem(hand).splitStack(1));
+					if(altar.handler.getStackInSlot(1).getCount() < 1 && altar.handler.getStackInSlot(0).getCount() > 0)
+						altar.handler.setStackInSlot(1, player.getHeldItem(hand).splitStack(1));
 					
-					if(pedestal.handler.getStackInSlot(2).getCount() < 1 && pedestal.handler.getStackInSlot(1).getCount() > 0)
-						pedestal.handler.setStackInSlot(2, player.getHeldItem(hand).splitStack(1));
+					if(altar.handler.getStackInSlot(2).getCount() < 1 && altar.handler.getStackInSlot(1).getCount() > 0)
+						altar.handler.setStackInSlot(2, player.getHeldItem(hand).splitStack(1));
 					
-					if(pedestal.handler.getStackInSlot(3).getCount() < 1 && pedestal.handler.getStackInSlot(2).getCount() > 0)
-						pedestal.handler.setStackInSlot(3, player.getHeldItem(hand).splitStack(1));
+					if(altar.handler.getStackInSlot(3).getCount() < 1 && altar.handler.getStackInSlot(2).getCount() > 0)
+						altar.handler.setStackInSlot(3, player.getHeldItem(hand).splitStack(1));
 				}
 				else
 				{
 					ItemStack stack = new ItemStack(player.getHeldItem(hand).getItem(), 1, player.getHeldItem(hand).getMetadata());
 					
-					if(pedestal.handler.getStackInSlot(0).getCount() < 1)
-						pedestal.handler.setStackInSlot(0, stack);
+					if(altar.handler.getStackInSlot(0).getCount() < 1)
+						altar.handler.setStackInSlot(0, stack);
 					
-					if(pedestal.handler.getStackInSlot(1).getCount() < 1 && pedestal.handler.getStackInSlot(0).getCount() > 0)
-						pedestal.handler.setStackInSlot(1, stack);
+					if(altar.handler.getStackInSlot(1).getCount() < 1 && altar.handler.getStackInSlot(0).getCount() > 0)
+						altar.handler.setStackInSlot(1, stack);
 					
-					if(pedestal.handler.getStackInSlot(2).getCount() < 1 && pedestal.handler.getStackInSlot(1).getCount() > 0)
-						pedestal.handler.setStackInSlot(2, stack);
+					if(altar.handler.getStackInSlot(2).getCount() < 1 && altar.handler.getStackInSlot(1).getCount() > 0)
+						altar.handler.setStackInSlot(2, stack);
 					
-					if(pedestal.handler.getStackInSlot(3).getCount() < 1 && pedestal.handler.getStackInSlot(2).getCount() > 0)
-						pedestal.handler.setStackInSlot(3, stack);
+					if(altar.handler.getStackInSlot(3).getCount() < 1 && altar.handler.getStackInSlot(2).getCount() > 0)
+						altar.handler.setStackInSlot(3, stack);
 				}
 			}
-			else if(player.getHeldItem(hand).isEmpty()
-				&& pedestal.handler.getStackInSlot(0).getCount() > 0)
+			else if(player.getHeldItem(hand).isEmpty())
 			{
-				player.inventory.addItemStackToInventory(pedestal.handler.getStackInSlot(0));
+				if(altar.handler.getStackInSlot(3).getCount() > 0)
+					player.inventory.addItemStackToInventory(altar.handler.getStackInSlot(3));
+				
+				if(altar.handler.getStackInSlot(2).getCount() > 0 && altar.handler.getStackInSlot(3).getCount() < 1)
+					player.inventory.addItemStackToInventory(altar.handler.getStackInSlot(2));
+				
+				if(altar.handler.getStackInSlot(1).getCount() > 0 && altar.handler.getStackInSlot(2).getCount() < 1)
+					player.inventory.addItemStackToInventory(altar.handler.getStackInSlot(1));
+				
+				if(altar.handler.getStackInSlot(0).getCount() > 0 && altar.handler.getStackInSlot(1).getCount() < 1)
+					player.inventory.addItemStackToInventory(altar.handler.getStackInSlot(0));
 			}
 			else if(player.getHeldItem(hand).getItem() == ModItems.WHITEWOOD_STAFF)
 			{
-				if(!pedestal.isCasting()) pedestal.startCasting(player);
-				else pedestal.stopCasting();
+				if(!altar.isCasting()) altar.startCasting(player);
+				else altar.stopCasting();
 			}
 		}
 		

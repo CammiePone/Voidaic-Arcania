@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.api;
+package com.camellias.voidaicarcania.api.registry;
 
 import java.util.HashMap;
 

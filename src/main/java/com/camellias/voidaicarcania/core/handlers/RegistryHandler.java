@@ -1,6 +1,6 @@
 package com.camellias.voidaicarcania.core.handlers;
 
-import com.camellias.voidaicarcania.api.VoidEssenceList;
+import com.camellias.voidaicarcania.api.registry.VoidEssenceList;
 import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderVoidCrawler;
 import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderVoidWraith;
 import com.camellias.voidaicarcania.client.renderer.hud.OverlayRenderer;

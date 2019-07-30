@@ -23,5 +23,6 @@ entity.voidaicarcania.void_wraith.name=Void Wraith
 entity.voidaicarcania.void_crawler.name=Void Crawler
 
 //Misc
-voidaicarcania.altar.notenoughspace=The altar does not have enough space. Try using less essence.
+voidaicarcania.altar.notenoughessence=The altar does not have enough Void Essence for this recipe.
+voidaicarcania.altar.notenoughspace=The altar does not have enough space. Try putting in less Void Essence.
 voidaicarcania.altar.isfull=The altar is full of Void Essence.
