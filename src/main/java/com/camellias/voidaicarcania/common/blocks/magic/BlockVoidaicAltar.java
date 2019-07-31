@@ -46,14 +46,11 @@ public class BlockVoidaicAltar extends BlockBaseGeneric
 					if(altar.handler.getStackInSlot(0).getCount() < 1)
 						altar.handler.setStackInSlot(0, player.getHeldItem(hand).splitStack(1));
 					
-					if(altar.handler.getStackInSlot(1).getCount() < 1 && altar.handler.getStackInSlot(0).getCount() > 0)
+					else if(altar.handler.getStackInSlot(1).getCount() < 1 && altar.handler.getStackInSlot(0).getCount() > 0)
 						altar.handler.setStackInSlot(1, player.getHeldItem(hand).splitStack(1));
 					
-					if(altar.handler.getStackInSlot(2).getCount() < 1 && altar.handler.getStackInSlot(1).getCount() > 0)
+					else if(altar.handler.getStackInSlot(2).getCount() < 1 && altar.handler.getStackInSlot(1).getCount() > 0)
 						altar.handler.setStackInSlot(2, player.getHeldItem(hand).splitStack(1));
-					
-					if(altar.handler.getStackInSlot(3).getCount() < 1 && altar.handler.getStackInSlot(2).getCount() > 0)
-						altar.handler.setStackInSlot(3, player.getHeldItem(hand).splitStack(1));
 				}
 				else
 				{
@@ -62,34 +59,37 @@ public class BlockVoidaicAltar extends BlockBaseGeneric
 					if(altar.handler.getStackInSlot(0).getCount() < 1)
 						altar.handler.setStackInSlot(0, stack);
 					
-					if(altar.handler.getStackInSlot(1).getCount() < 1 && altar.handler.getStackInSlot(0).getCount() > 0)
+					else if(altar.handler.getStackInSlot(1).getCount() < 1 && altar.handler.getStackInSlot(0).getCount() > 0)
 						altar.handler.setStackInSlot(1, stack);
 					
-					if(altar.handler.getStackInSlot(2).getCount() < 1 && altar.handler.getStackInSlot(1).getCount() > 0)
+					else if(altar.handler.getStackInSlot(2).getCount() < 1 && altar.handler.getStackInSlot(1).getCount() > 0)
 						altar.handler.setStackInSlot(2, stack);
-					
-					if(altar.handler.getStackInSlot(3).getCount() < 1 && altar.handler.getStackInSlot(2).getCount() > 0)
-						altar.handler.setStackInSlot(3, stack);
 				}
 			}
 			else if(player.getHeldItem(hand).isEmpty())
 			{
-				if(altar.handler.getStackInSlot(3).getCount() > 0)
-					player.inventory.addItemStackToInventory(altar.handler.getStackInSlot(3));
-				
-				if(altar.handler.getStackInSlot(2).getCount() > 0 && altar.handler.getStackInSlot(3).getCount() < 1)
+				if(altar.handler.getStackInSlot(2).getCount() > 0)
+				{
+					if(altar.isCasting()) altar.stopCasting(true);
 					player.inventory.addItemStackToInventory(altar.handler.getStackInSlot(2));
+				}
 				
-				if(altar.handler.getStackInSlot(1).getCount() > 0 && altar.handler.getStackInSlot(2).getCount() < 1)
+				else if(altar.handler.getStackInSlot(1).getCount() > 0 && altar.handler.getStackInSlot(2).getCount() < 1)
+				{
+					if(altar.isCasting()) altar.stopCasting(true);
 					player.inventory.addItemStackToInventory(altar.handler.getStackInSlot(1));
+				}
 				
-				if(altar.handler.getStackInSlot(0).getCount() > 0 && altar.handler.getStackInSlot(1).getCount() < 1)
+				else if(altar.handler.getStackInSlot(0).getCount() > 0 && altar.handler.getStackInSlot(1).getCount() < 1)
+				{
+					if(altar.isCasting()) altar.stopCasting(true);
 					player.inventory.addItemStackToInventory(altar.handler.getStackInSlot(0));
+				}
 			}
 			else if(player.getHeldItem(hand).getItem() == ModItems.WHITEWOOD_STAFF)
 			{
 				if(!altar.isCasting()) altar.startCasting(player);
-				else altar.stopCasting();
+				else altar.stopCasting(true);
 			}
 		}
 		

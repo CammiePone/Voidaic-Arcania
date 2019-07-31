@@ -26,3 +26,5 @@ entity.voidaicarcania.void_crawler.name=Void Crawler
 voidaicarcania.altar.notenoughessence=The altar does not have enough Void Essence for this recipe.
 voidaicarcania.altar.notenoughspace=The altar does not have enough space. Try putting in less Void Essence.
 voidaicarcania.altar.isfull=The altar is full of Void Essence.
+voidaicarcania.altar.unknownrecipe=The recipe in the altar is invalid.
+voidaicarcania.altar.isempty=The altar has no Void Essence or valid recipe.

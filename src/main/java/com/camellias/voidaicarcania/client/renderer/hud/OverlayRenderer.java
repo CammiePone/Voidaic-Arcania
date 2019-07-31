@@ -23,7 +23,7 @@ public class OverlayRenderer
 	private static Minecraft mc = Minecraft.getMinecraft();
 	protected float zLevel;
 	private int chunkEssence = 0;
-	private int maxChunkEssence = 1600;
+	private int maxChunkEssence = 1500;
 	private int chunkCorruption = 0;
 	private int maxChunkCorruption = 1000;
 	private int playerCorruption = 0;

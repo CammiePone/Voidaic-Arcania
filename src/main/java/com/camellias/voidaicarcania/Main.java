@@ -46,8 +46,6 @@ public class Main
 			isThaumcraftLoaded = true;
 		}
 		
-		//Example recipe
-		VoidaicAltarRecipes.INSTANCE.addRecipe(new ItemStack(Items.APPLE), new ItemStack(Items.AIR), new ItemStack(Items.AIR), new ItemStack(Items.AIR), 100, new ItemStack(ModItems.VOID_RESONATOR));
 		RegistryHandler.clientRegistries(event);
 		RegistryHandler.preInitRegistries(event);
 	}

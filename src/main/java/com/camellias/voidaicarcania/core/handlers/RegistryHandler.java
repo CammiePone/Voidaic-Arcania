@@ -1,6 +1,7 @@
 package com.camellias.voidaicarcania.core.handlers;
 
 import com.camellias.voidaicarcania.api.registry.VoidEssenceList;
+import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
 import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderVoidCrawler;
 import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderVoidWraith;
 import com.camellias.voidaicarcania.client.renderer.hud.OverlayRenderer;
@@ -99,6 +100,7 @@ public class RegistryHandler
 		ModBiomes.registerBiome();
 		ModDimensions.registerDimension();
 		Donators.addDonators();
+		VoidaicAltarRecipes.INSTANCE.init();
 		
 		GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
 		
