@@ -227,25 +227,47 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	{
 		if(!world.isRemote && isValidStructure() && !isCasting)
 		{
-			VoidaicAltarRecipeHelper activeRecipe = VoidaicAltarRecipes.INSTANCE.getRecipe(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
+			VoidaicAltarRecipeHelper abc = VoidaicAltarRecipes.INSTANCE.getRecipe(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
+			VoidaicAltarRecipeHelper acb = VoidaicAltarRecipes.INSTANCE.getRecipe(handler.getStackInSlot(0), handler.getStackInSlot(2), handler.getStackInSlot(1));
+			VoidaicAltarRecipeHelper bca = VoidaicAltarRecipes.INSTANCE.getRecipe(handler.getStackInSlot(1), handler.getStackInSlot(2), handler.getStackInSlot(0));
+			VoidaicAltarRecipeHelper bac = VoidaicAltarRecipes.INSTANCE.getRecipe(handler.getStackInSlot(1), handler.getStackInSlot(0), handler.getStackInSlot(2));
+			VoidaicAltarRecipeHelper cab = VoidaicAltarRecipes.INSTANCE.getRecipe(handler.getStackInSlot(2), handler.getStackInSlot(0), handler.getStackInSlot(1));
+			VoidaicAltarRecipeHelper cba = VoidaicAltarRecipes.INSTANCE.getRecipe(handler.getStackInSlot(2), handler.getStackInSlot(1), handler.getStackInSlot(0));
 			
-			if(getEssenceFromPedestals() <= 0 && voidEssence >= VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2)))
+			VoidaicAltarRecipeHelper activeRecipe = abc != null ? abc : acb != null ? acb :
+													bca != null ? bca : bac != null ? bac :
+													cab != null ? cab : cba != null ? cba : null;
+			
+			int xyz = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
+			int xzy = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(2), handler.getStackInSlot(1));
+			int yzx = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(1), handler.getStackInSlot(2), handler.getStackInSlot(0));
+			int yxz = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(1), handler.getStackInSlot(0), handler.getStackInSlot(2));
+			int zxy = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(2), handler.getStackInSlot(0), handler.getStackInSlot(1));
+			int zyx = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(2), handler.getStackInSlot(1), handler.getStackInSlot(0));
+			
+			int getVoidEssence = xyz != 0 ? xyz : xzy != 0 ? xzy :
+								yzx != 0 ? yzx : yxz != 0 ? yxz :
+								zxy != 0 ? zxy : zyx != 0 ? zyx : 0;
+			
+			if(getEssenceFromPedestals() <= 0 && voidEssence >= getVoidEssence)
 			{
 				if(activeRecipe != null)
 				{
-					if(handler.getStackInSlot(0).getItem() == ModItems.SPELL_PAPER)
+					if(handler.getStackInSlot(0).getItem() == ModItems.SPELL_PAPER
+						|| handler.getStackInSlot(1).getItem() == ModItems.SPELL_PAPER
+						|| handler.getStackInSlot(2).getItem() == ModItems.SPELL_PAPER)
 					{
 						isCasting = true;
 						isCraftingSpell = true;
 						isCraftingItem = false;
-						ticks = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
+						ticks = getVoidEssence;
 					}
 					else
 					{
 						isCasting = true;
 						isCraftingItem = true;
 						isCraftingSpell = false;
-						ticks = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
+						ticks = getVoidEssence;
 					}
 				}
 			}
@@ -254,7 +276,7 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 				isCasting = true;
 				isInputEssence = true;
 			}
-			else if(getEssenceFromPedestals() <= VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2)) && activeRecipe != null)
+			else if(getEssenceFromPedestals() <= getVoidEssence && activeRecipe != null)
 			{
 				player.sendMessage(new TextComponentString(TextFormatting.RED + "" + TextFormatting.ITALIC + new TextComponentTranslation(Reference.MODID + ".altar.notenoughessence").getUnformattedText()));
 			}
@@ -298,13 +320,27 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 					
 					if(isCraftingItem)
 					{
-						EntityItem item = new EntityItem(world, pos.getX() + 0.5D, pos.getY() + 1D, pos.getZ() + 0.5D, 
-							VoidaicAltarRecipes.INSTANCE.getRecipeResult(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2)));
+						ItemStack abc = VoidaicAltarRecipes.INSTANCE.getRecipeResult(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
+						ItemStack acb = VoidaicAltarRecipes.INSTANCE.getRecipeResult(handler.getStackInSlot(0), handler.getStackInSlot(2), handler.getStackInSlot(1));
+						ItemStack bca = VoidaicAltarRecipes.INSTANCE.getRecipeResult(handler.getStackInSlot(1), handler.getStackInSlot(2), handler.getStackInSlot(0));
+						ItemStack bac = VoidaicAltarRecipes.INSTANCE.getRecipeResult(handler.getStackInSlot(1), handler.getStackInSlot(0), handler.getStackInSlot(2));
+						ItemStack cab = VoidaicAltarRecipes.INSTANCE.getRecipeResult(handler.getStackInSlot(2), handler.getStackInSlot(0), handler.getStackInSlot(1));
+						ItemStack cba = VoidaicAltarRecipes.INSTANCE.getRecipeResult(handler.getStackInSlot(2), handler.getStackInSlot(1), handler.getStackInSlot(0));
 						
-						world.spawnEntity(item);
-						handler.getStackInSlot(0).shrink(1);
-						handler.getStackInSlot(1).shrink(1);
-						handler.getStackInSlot(2).shrink(1);
+						ItemStack getResult = abc != null ? abc : acb != null ? acb :
+																bca != null ? bca : bac != null ? bac :
+																cab != null ? cab : cba != null ? cba : null;
+						
+						if(getResult != null)
+						{
+							EntityItem item = new EntityItem(world, pos.getX() + 0.5D, pos.getY() + 1D, pos.getZ() + 0.5D, getResult);
+							
+							world.spawnEntity(item);
+							handler.getStackInSlot(0).shrink(1);
+							handler.getStackInSlot(1).shrink(1);
+							handler.getStackInSlot(2).shrink(1);
+						}
+						
 						isCasting = false;
 						isCraftingItem = false;
 					}

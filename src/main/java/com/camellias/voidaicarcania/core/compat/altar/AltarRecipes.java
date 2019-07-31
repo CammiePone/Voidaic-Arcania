@@ -35,7 +35,7 @@ public class AltarRecipes implements IRecipeWrapper
 	@Override
 	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY)
 	{
-		minecraft.fontRenderer.drawString("VE: " + voidEssence, recipeWidth / 2, recipeHeight / 2, Color.black.getRGB());
+		minecraft.fontRenderer.drawString("VE: " + voidEssence, 104, 140, Color.black.getRGB());
 		VoidaicAltarRecipes recipes = VoidaicAltarRecipes.INSTANCE;
 	}
 }

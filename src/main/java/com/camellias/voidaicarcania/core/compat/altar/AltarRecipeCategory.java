@@ -21,8 +21,8 @@ public class AltarRecipeCategory extends AbstractAltarRecipeCategory<AltarRecipe
 	public AltarRecipeCategory(IGuiHelper helper)
 	{
 		super(helper);
-		background = helper.createDrawable(TEXTURES, 4, 4, 169, 78);
-		name = I18n.format(Reference.MODID + "voidaicaltar.recipes");
+		background = helper.createDrawable(TEXTURES, 4, 4, 168, 168);
+		name = I18n.format(Reference.MODID + ".voidaicaltar.recipes");
 	}
 	
 	@Override
@@ -58,11 +58,11 @@ public class AltarRecipeCategory extends AbstractAltarRecipeCategory<AltarRecipe
 	public void setRecipe(IRecipeLayout recipeLayout, AltarRecipes recipeWrapper, IIngredients ingredients)
 	{
 		IGuiItemStackGroup stacks = recipeLayout.getItemStacks();
-		stacks.init(input1, true, 64, 9);
-		stacks.init(input2, true, 80, 9);
-		stacks.init(input3, true, 96, 9);
+		stacks.init(input1, true, 44, 85);
+		stacks.init(input2, true, 75, 38);
+		stacks.init(input3, true, 106, 85);
 		
-		stacks.init(output, false, 136, 9);
+		stacks.init(output, false, 75, 74);
 		stacks.set(0, renderStack);
 		stacks.set(ingredients);
 	};

@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 
 import com.camellias.voidaicarcania.core.init.ModItems;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,7 +20,7 @@ public class VoidaicAltarRecipes
 	public void init()
 	{
 		//Example Recipe (NEEDS TO BE REMOVED LATER)
-		addItemRecipe(new ItemStack(Items.DYE, 1, 2), new ItemStack(Items.AIR), new ItemStack(Items.AIR), 100, new ItemStack(ModItems.VOID_RESONATOR));
+		addItemRecipe(new ItemStack(Items.GOLD_INGOT), new ItemStack(Items.GOLD_INGOT), new ItemStack(Blocks.GLASS), 100, new ItemStack(ModItems.VOID_RESONATOR));
 	}
 	
 	private String BuildKeyComponent(ItemStack input)
@@ -38,11 +39,11 @@ public class VoidaicAltarRecipes
 	}
 	
 	/**
-	 * Used to add shaped item recipes to the Voidaic Altar.
+	 * Used to add shapeless item recipes to the Voidaic Altar.
 	 *
-	 * @param input1 - The first ingredient (in an ItemStack, to allow for metadata).
-	 * @param input2 - The second ingredient (in an ItemStack, to allow for metadata).
-	 * @param input3 - The third ingredient (in an ItemStack, to allow for metadata).
+	 * @param input1 - The first ingredient (an ItemStack, to allow for metadata. Do NOT change stack size, else it won't work).
+	 * @param input2 - The second ingredient (an ItemStack, to allow for metadata. Do NOT change stack size, else it won't work).
+	 * @param input3 - The third ingredient (an ItemStack, to allow for metadata. Do NOT change stack size, else it won't work).
 	 * @param voidEssenceCost - How much Void Essence the recipe requires. Has to be higher than 0, else the recipe won't work.
 	 * @param result - The resulting ItemStack of the recipe.
 	 * @return

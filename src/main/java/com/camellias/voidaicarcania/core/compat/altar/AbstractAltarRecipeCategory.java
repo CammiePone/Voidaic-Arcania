@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 
 public abstract class AbstractAltarRecipeCategory<T extends IRecipeWrapper> implements IRecipeCategory<T>
 {
-	protected static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MODID + ":textures/gui/jei_altar.png");
+	protected static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MODID + ":textures/gui/jei_voidaic_altar.png");
 	
 	protected static final int input1 = 0;
 	protected static final int input2 = 1;
