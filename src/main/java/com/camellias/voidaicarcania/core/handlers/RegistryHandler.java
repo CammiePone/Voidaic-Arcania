@@ -32,7 +32,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber
 public class RegistryHandler
@@ -85,16 +84,16 @@ public class RegistryHandler
 			}
 		}
 	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void clientRegistries(FMLPreInitializationEvent event)
-	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityVoidWraith.class, RenderVoidWraith::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, RenderVoidCrawler::new);
-	}
 
 	public static void preInitRegistries(FMLPreInitializationEvent event)
 	{
+		if(event.getSide() == Side.CLIENT)
+		{
+			MinecraftForge.EVENT_BUS.register(OverlayRenderer.instance);
+			RenderingRegistry.registerEntityRenderingHandler(EntityVoidWraith.class, RenderVoidWraith::new);
+			RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, RenderVoidCrawler::new);
+		}
+		
 		NetworkHandler.init();
 		ModCapabilities.init();
 		ModBiomes.registerBiome();
@@ -107,7 +106,6 @@ public class RegistryHandler
 		MinecraftForge.EVENT_BUS.register(new TickHandler());
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilitiesHandler());
-		MinecraftForge.EVENT_BUS.register(OverlayRenderer.instance);
 		
 		Blocks.DRAGON_EGG.setCreativeTab(CreativeTabs.DECORATIONS);
 		Blocks.COMMAND_BLOCK.setCreativeTab(CreativeTabs.REDSTONE);

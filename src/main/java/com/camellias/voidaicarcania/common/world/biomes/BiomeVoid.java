@@ -22,7 +22,7 @@ public class BiomeVoid extends Biome
         
         this.decorator.treesPerChunk = 1;
         
-        ModEntities.VOID_BIOME.add(this.getBiomeName());
+        ModEntities.VOID_BIOME.add("Void");
 	}
 	
 	@SideOnly(Side.CLIENT)

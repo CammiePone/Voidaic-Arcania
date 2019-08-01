@@ -4,13 +4,15 @@ import com.camellias.voidaicarcania.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
+@SideOnly(Side.CLIENT)
 public class VoidEssenceParticle extends Particle
 {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "particles/particle_void_essence");
@@ -48,7 +50,7 @@ public class VoidEssenceParticle extends Particle
 	public void onUpdate()
 	{
 		super.onUpdate();
-		if(motionY <= 0D) posY = realY + 1D * Math.sin(particleAge * (0.15D));
+		if(motionY == 0D) posY = realY + 1D * Math.sin(particleAge * (0.15D));
 	}
 	
 	@Override
