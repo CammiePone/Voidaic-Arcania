@@ -3,8 +3,6 @@ package com.camellias.voidaicarcania.api.registry;
 import java.util.Collection;
 import java.util.HashMap;
 
-import javax.annotation.Nullable;
-
 import com.camellias.voidaicarcania.core.init.ModItems;
 
 import net.minecraft.init.Blocks;
@@ -52,6 +50,12 @@ public class VoidaicAltarRecipes
 	{
 		String key = BuildKey(input1, input2, input3);
 		recipes.put(key, new VoidaicAltarRecipeHelper(input1, input2, input3, voidEssenceCost, result));
+	}
+	
+	public void removeItemRecipe(ItemStack input1, ItemStack input2, ItemStack input3)
+	{
+		String key = BuildKey(input1, input2, input3);
+		recipes.remove(key);
 	}
 	
 	public Collection<VoidaicAltarRecipeHelper> getRecipes()

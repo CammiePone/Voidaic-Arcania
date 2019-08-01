@@ -87,19 +87,13 @@ public class RegistryHandler
 
 	public static void preInitRegistries(FMLPreInitializationEvent event)
 	{
-		if(event.getSide() == Side.CLIENT)
-		{
-			MinecraftForge.EVENT_BUS.register(OverlayRenderer.instance);
-			RenderingRegistry.registerEntityRenderingHandler(EntityVoidWraith.class, RenderVoidWraith::new);
-			RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, RenderVoidCrawler::new);
-		}
+		VoidaicAltarRecipes.INSTANCE.init();
 		
 		NetworkHandler.init();
 		ModCapabilities.init();
 		ModBiomes.registerBiome();
 		ModDimensions.registerDimension();
 		Donators.addDonators();
-		VoidaicAltarRecipes.INSTANCE.init();
 		
 		GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
 		
@@ -109,6 +103,13 @@ public class RegistryHandler
 		
 		Blocks.DRAGON_EGG.setCreativeTab(CreativeTabs.DECORATIONS);
 		Blocks.COMMAND_BLOCK.setCreativeTab(CreativeTabs.REDSTONE);
+		
+		if(event.getSide() == Side.CLIENT)
+		{
+			MinecraftForge.EVENT_BUS.register(OverlayRenderer.instance);
+			RenderingRegistry.registerEntityRenderingHandler(EntityVoidWraith.class, RenderVoidWraith::new);
+			RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, RenderVoidCrawler::new);
+		}
 	}
 	
 	public static void initRegistries()

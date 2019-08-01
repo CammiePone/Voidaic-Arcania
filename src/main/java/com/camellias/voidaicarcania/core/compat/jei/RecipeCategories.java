@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.core.compat;
+package com.camellias.voidaicarcania.core.compat.jei;
 
 import com.camellias.voidaicarcania.Reference;
 

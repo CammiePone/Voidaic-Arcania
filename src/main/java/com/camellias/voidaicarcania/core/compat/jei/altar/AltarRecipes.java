@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.core.compat.altar;
+package com.camellias.voidaicarcania.core.compat.jei.altar;
 
 import java.awt.Color;
 import java.util.List;

@@ -1,9 +1,9 @@
-package com.camellias.voidaicarcania.core.compat;
+package com.camellias.voidaicarcania.core.compat.jei;
 
 import java.util.IllegalFormatException;
 
-import com.camellias.voidaicarcania.core.compat.altar.AltarRecipeCategory;
-import com.camellias.voidaicarcania.core.compat.altar.AltarRecipeMaker;
+import com.camellias.voidaicarcania.core.compat.jei.altar.AltarRecipeCategory;
+import com.camellias.voidaicarcania.core.compat.jei.altar.AltarRecipeMaker;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IJeiHelpers;
