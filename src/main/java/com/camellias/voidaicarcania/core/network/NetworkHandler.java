@@ -4,6 +4,7 @@ import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
 import com.camellias.voidaicarcania.core.network.packets.PressKeyMessage;
 
+import com.camellias.voidaicarcania.core.network.packets.SpawnVoidEssenceParticle;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -24,5 +25,7 @@ public class NetworkHandler
 		INSTANCE.registerMessage(PressKeyMessage.PacketHandler.class, PressKeyMessage.class, next(), Side.CLIENT);
 		
 		INSTANCE.registerMessage(OverlayMessage.PacketHandler.class, OverlayMessage.class, next(), Side.CLIENT);
+		
+		INSTANCE.registerMessage(SpawnVoidEssenceParticle.Handler.class, SpawnVoidEssenceParticle.class, next(), Side.CLIENT);
 	}
 }

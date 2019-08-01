@@ -2,6 +2,7 @@ package com.camellias.voidaicarcania.common.tileentities.altar;
 
 import javax.annotation.Nullable;
 
+import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.api.capabilities.EssenceCap.EssenceProvider;
 import com.camellias.voidaicarcania.api.capabilities.EssenceCap.IEssence;
@@ -11,6 +12,8 @@ import com.camellias.voidaicarcania.client.particles.VoidEssenceParticle;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.init.ModItems;
 
+import com.camellias.voidaicarcania.core.network.NetworkHandler;
+import com.camellias.voidaicarcania.core.network.packets.SpawnVoidEssenceParticle;
 import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
@@ -178,149 +181,129 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	@Override
 	public void update()
 	{
-		if(isCasting)
+		if (!world.isRemote)
 		{
-			if(!isValidStructure()) stopCasting(true);
-			
-			//TODO Filling chunk
-			if(isFillingChunk)
+			if(isCasting)
 			{
-				Chunk chunk = world.getChunk(pos);
-				
-				for(int i = 0; i < 20; i++)
+				if(!isValidStructure()) stopCasting(true);
+				//TODO Filling chunk
+				if(isFillingChunk)
 				{
-					double posX = getPos().getX() + 0.5D;
-					double posY = getPos().getY() + 1D;
-					double posZ = getPos().getZ() + 0.5D;
-					double motionX = ((world.rand.nextInt(8) - 4)) * 0.01D;
-					double motionY = (world.rand.nextInt(3) + 3) * 0.1D;
-					double motionZ = ((world.rand.nextInt(8) - 4)) * 0.01D;
+					Chunk chunk = world.getChunk(pos);
 					
-					if(world.isRemote)
+					for(int i = 0; i < 20; i++)
 					{
-						VoidEssenceParticle essence = new VoidEssenceParticle(world, posX, posY, posZ, motionX, motionY, motionZ);
-						Minecraft.getMinecraft().effectRenderer.addEffect(essence);
+						double posX = getPos().getX() + 0.5D;
+						double posY = getPos().getY() + 1D;
+						double posZ = getPos().getZ() + 0.5D;
+						double motionX = ((world.rand.nextInt(8) - 4)) * 0.01D;
+						double motionY = (world.rand.nextInt(3) + 3) * 0.1D;
+						double motionZ = ((world.rand.nextInt(8) - 4)) * 0.01D;
+						NetworkHandler.INSTANCE.sendToDimension(new SpawnVoidEssenceParticle(posX, posY, posZ, motionX, motionY, motionZ), world.provider.getDimension());
 					}
-				}
-				
-				if(chunk.hasCapability(EssenceProvider.essenceCapability, null))
-				{
-					IEssence cap = chunk.getCapability(EssenceProvider.essenceCapability, null);
 					
-					if(cap.getEssence() < 1500 && voidEssence > 0)
+					if(chunk.hasCapability(EssenceProvider.essenceCapability, null))
 					{
-						voidEssence--;
-						cap.setEssence(cap.getEssence() + 1);
-					}
-					else
-					{
-						isCasting = false;
-						isFillingChunk = false;
-					}
-				}
-			}
-			
-			//TODO Crafting item/spell
-			if(isCraftingItem || isCraftingSpell)
-			{
-				if(ticks <= voidEssence && ticks > 0)
-				{
-					if(world.isRemote) System.out.println(isCraftingItem);
-					ticks--;
-					voidEssence--;
-					
-					Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
-					
-					for(MutableBlockPos allBlockPos : blocksWithin)
-					{
-						if(world.getTileEntity(allBlockPos) instanceof TileWhitewoodPedestal)
+						IEssence cap = chunk.getCapability(EssenceProvider.essenceCapability, null);
+						
+						if(cap.getEssence() < 1500 && voidEssence > 0)
 						{
-							TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(allBlockPos);
-							
-							double posX = (pedestal.getPos().getX() + 0.5D);
-							double posY = pedestal.getPos().getY() + 1D;
-							double posZ = (pedestal.getPos().getZ() + 0.5D);
-							double motionX = ((pos.getX() + 0.5D) - posX) * 0.06D;
-							double motionY = ((pos.getY() + 4D) - posY) * 0.06D;
-							double motionZ = ((pos.getZ() + 0.5D) - posZ) * 0.06D;
-							
-							if(world.isRemote)
-							{
-								VoidEssenceParticle essence = new VoidEssenceParticle(world, posX, posY, posZ, motionX, motionY, motionZ);
-								Minecraft.getMinecraft().effectRenderer.addEffect(essence);
-							}
-							
-							int xyz = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
-							int xzy = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(2), handler.getStackInSlot(1));
-							int yzx = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(1), handler.getStackInSlot(2), handler.getStackInSlot(0));
-							int yxz = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(1), handler.getStackInSlot(0), handler.getStackInSlot(2));
-							int zxy = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(2), handler.getStackInSlot(0), handler.getStackInSlot(1));
-							int zyx = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(2), handler.getStackInSlot(1), handler.getStackInSlot(0));
-							
-							int getVoidEssence = xyz != 0 ? xyz : xzy != 0 ? xzy :
-												yzx != 0 ? yzx : yxz != 0 ? yxz :
-												zxy != 0 ? zxy : zyx != 0 ? zyx : 0;
-							
-							if(ticks <= (getVoidEssence / 2))
-							{
-								posX = getPos().getX() + 0.5D;
-								posY = getPos().getY() + 3.9D;
-								posZ = getPos().getZ() + 0.5D;
-								motionX = ((world.rand.nextInt(8) - 4)) * 0.01D;
-								motionY = (world.rand.nextInt(3) + 3) * -0.1D;
-								motionZ = ((world.rand.nextInt(8) - 4)) * 0.01D;
-								
-								if(world.isRemote)
-								{
-									VoidEssenceParticle essence = new VoidEssenceParticle(world, posX, posY, posZ, motionX, motionY, motionZ);
-									Minecraft.getMinecraft().effectRenderer.addEffect(essence);
-								}
-							}
+							voidEssence--;
+							cap.setEssence(cap.getEssence() + 1);
+						}
+						else
+						{
+							isCasting = false;
+							isFillingChunk = false;
 						}
 					}
 				}
-				else if(ticks == 0)
+				
+				//TODO Crafting item/spell
+				if(isCraftingItem || isCraftingSpell)
 				{
-					stopCasting(false);
-				}
-			}
-			
-			//TODO Filling altar
-			if(isInputEssence)
-			{
-				if(ticks < 200)
-				{
-					ticks++;
-					
-					Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
-					
-					for(MutableBlockPos allBlockPos : blocksWithin)
+					if(ticks <= voidEssence && ticks > 0)
 					{
-						if(world.getTileEntity(allBlockPos) instanceof TileWhitewoodPedestal)
+						ticks--;
+						voidEssence--;
+						
+						Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
+						
+						for(MutableBlockPos allBlockPos : blocksWithin)
 						{
-							TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(allBlockPos);
-							
-							if(!pedestal.handler.getStackInSlot(0).isEmpty())
+							if(world.getTileEntity(allBlockPos) instanceof TileWhitewoodPedestal)
 							{
+								TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(allBlockPos);
+								
 								double posX = (pedestal.getPos().getX() + 0.5D);
 								double posY = pedestal.getPos().getY() + 1D;
 								double posZ = (pedestal.getPos().getZ() + 0.5D);
 								double motionX = ((pos.getX() + 0.5D) - posX) * 0.06D;
+								double motionY = ((pos.getY() + 4D) - posY) * 0.06D;
 								double motionZ = ((pos.getZ() + 0.5D) - posZ) * 0.06D;
+								NetworkHandler.INSTANCE.sendToDimension(new SpawnVoidEssenceParticle(posX, posY, posZ, motionX, motionY, motionZ), world.provider.getDimension());
 								
-								if(world.isRemote)
+								int xyz = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
+								int xzy = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(2), handler.getStackInSlot(1));
+								int yzx = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(1), handler.getStackInSlot(2), handler.getStackInSlot(0));
+								int yxz = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(1), handler.getStackInSlot(0), handler.getStackInSlot(2));
+								int zxy = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(2), handler.getStackInSlot(0), handler.getStackInSlot(1));
+								int zyx = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(2), handler.getStackInSlot(1), handler.getStackInSlot(0));
+								
+								int getVoidEssence = xyz != 0 ? xyz : xzy != 0 ? xzy :
+										yzx != 0 ? yzx : yxz != 0 ? yxz :
+												zxy != 0 ? zxy : zyx;
+								
+								if(ticks <= (getVoidEssence / 2))
 								{
-									VoidEssenceParticle essence = new VoidEssenceParticle(world, posX, posY, posZ, motionX, 0D, motionZ);
-									Minecraft.getMinecraft().effectRenderer.addEffect(essence);
+									posX = getPos().getX() + 0.5D;
+									posY = getPos().getY() + 3.9D;
+									posZ = getPos().getZ() + 0.5D;
+									motionX = ((world.rand.nextInt(8) - 4)) * 0.01D;
+									motionY = (world.rand.nextInt(3) + 3) * -0.1D;
+									motionZ = ((world.rand.nextInt(8) - 4)) * 0.01D;
+									NetworkHandler.INSTANCE.sendToDimension(new SpawnVoidEssenceParticle(posX, posY, posZ, motionX, motionY, motionZ), world.provider.getDimension());
 								}
 							}
 						}
 					}
+					else if(ticks == 0)
+					{
+						stopCasting(false);
+					}
 				}
-				else if(ticks >= 200)
+				
+				//TODO Filling altar
+				if(isInputEssence)
 				{
-					ticks = 0;
-					stopCasting(false);
+					if(ticks < 200)
+					{
+						ticks++;
+						
+						Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
+						
+						for(MutableBlockPos allBlockPos : blocksWithin)
+						{
+							if(world.getTileEntity(allBlockPos) instanceof TileWhitewoodPedestal)
+							{
+								TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(allBlockPos);
+								
+								if(!pedestal.handler.getStackInSlot(0).isEmpty())
+								{
+									double posX = (pedestal.getPos().getX() + 0.5D);
+									double posY = pedestal.getPos().getY() + 1D;
+									double posZ = (pedestal.getPos().getZ() + 0.5D);
+									double motionX = ((pos.getX() + 0.5D) - posX) * 0.06D;
+									double motionZ = ((pos.getZ() + 0.5D) - posZ) * 0.06D;
+									NetworkHandler.INSTANCE.sendToDimension(new SpawnVoidEssenceParticle(posX, posY, posZ, motionX, 0, motionZ), world.provider.getDimension());
+								}
+							}
+						}
+					}
+					else {
+						ticks = 0;
+						stopCasting(false);
+					}
 				}
 			}
 		}
@@ -343,8 +326,8 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 			VoidaicAltarRecipeHelper cba = VoidaicAltarRecipes.INSTANCE.getRecipe(handler.getStackInSlot(2), handler.getStackInSlot(1), handler.getStackInSlot(0));
 			
 			VoidaicAltarRecipeHelper activeRecipe = abc != null ? abc : acb != null ? acb :
-													bca != null ? bca : bac != null ? bac :
-													cab != null ? cab : cba != null ? cba : null;
+					bca != null ? bca : bac != null ? bac :
+							cab != null ? cab : cba;
 			
 			int xyz = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
 			int xzy = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(2), handler.getStackInSlot(1));
@@ -354,16 +337,16 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 			int zyx = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(2), handler.getStackInSlot(1), handler.getStackInSlot(0));
 			
 			int getVoidEssence = xyz != 0 ? xyz : xzy != 0 ? xzy :
-								yzx != 0 ? yzx : yxz != 0 ? yxz :
-								zxy != 0 ? zxy : zyx != 0 ? zyx : 0;
+					yzx != 0 ? yzx : yxz != 0 ? yxz :
+							zxy != 0 ? zxy : zyx;
 			
 			if(getEssenceFromPedestals() <= 0 && voidEssence >= getVoidEssence && isValidStructure())
 			{
 				if(activeRecipe != null)
 				{
 					if(handler.getStackInSlot(0).getItem() == ModItems.SPELL_PAPER
-						|| handler.getStackInSlot(1).getItem() == ModItems.SPELL_PAPER
-						|| handler.getStackInSlot(2).getItem() == ModItems.SPELL_PAPER)
+							|| handler.getStackInSlot(1).getItem() == ModItems.SPELL_PAPER
+							|| handler.getStackInSlot(2).getItem() == ModItems.SPELL_PAPER)
 					{
 						isCasting = true;
 						isCraftingSpell = true;
@@ -399,10 +382,10 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 			
 			if(activeRecipe == null && getEssenceFromPedestals() <= 0)
 			{
-				if(isValidStructure() 
-					&& handler.getStackInSlot(0).getCount() > 0
-					|| handler.getStackInSlot(1).getCount() > 0
-					|| handler.getStackInSlot(2).getCount() > 0)
+				if(isValidStructure()
+						&& handler.getStackInSlot(0).getCount() > 0
+						|| handler.getStackInSlot(1).getCount() > 0
+						|| handler.getStackInSlot(2).getCount() > 0)
 				{
 					player.sendMessage(new TextComponentString(TextFormatting.RED + "" + TextFormatting.ITALIC + new TextComponentTranslation(Reference.MODID + ".altar.unknownrecipe").getUnformattedText()));
 				}
@@ -441,8 +424,8 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 						ItemStack cba = VoidaicAltarRecipes.INSTANCE.getRecipeResult(handler.getStackInSlot(2), handler.getStackInSlot(1), handler.getStackInSlot(0));
 						
 						ItemStack getResult = abc != null ? abc : acb != null ? acb :
-																bca != null ? bca : bac != null ? bac :
-																cab != null ? cab : cba != null ? cba : null;
+								bca != null ? bca : bac != null ? bac :
+										cab != null ? cab : cba != null ? cba : null;
 						
 						if(getResult != null)
 						{
@@ -520,23 +503,24 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	
 	public int getEssenceFromPedestals()
 	{
-		Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
 		int essence = 0;
-		
-		for(MutableBlockPos allBlockPos : blocksWithin)
+		if (!world.isRemote)
 		{
-			if(world.getTileEntity(allBlockPos) instanceof TileWhitewoodPedestal)
+			Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
+			for(MutableBlockPos allBlockPos : blocksWithin)
 			{
-				TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(allBlockPos);
-				ItemStack stack = pedestal.handler.getStackInSlot(0);
-				
-				if(stack.hasCapability(EssenceProvider.essenceCapability, null))
+				if(world.getTileEntity(allBlockPos) instanceof TileWhitewoodPedestal)
 				{
-					essence += stack.getCapability(EssenceProvider.essenceCapability, null).getEssence();
+					TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(allBlockPos);
+					ItemStack stack = pedestal.handler.getStackInSlot(0);
+					
+					if(stack.hasCapability(EssenceProvider.essenceCapability, null))
+					{
+						essence += stack.getCapability(EssenceProvider.essenceCapability, null).getEssence();
+					}
 				}
 			}
 		}
-		
 		return essence;
 	}
 	
