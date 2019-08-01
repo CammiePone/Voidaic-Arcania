@@ -7,6 +7,7 @@ import com.camellias.voidaicarcania.api.capabilities.EssenceCap.EssenceProvider;
 import com.camellias.voidaicarcania.api.capabilities.EssenceCap.IEssence;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipeHelper;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
+import com.camellias.voidaicarcania.client.particles.VoidEssenceParticle;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.init.ModItems;
 
@@ -15,8 +16,10 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -26,8 +29,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.MutableBlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
@@ -117,6 +118,11 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 			isCraftingSpell = nbt.getBoolean("isCraftingSpell");
 		}
 		
+		if(nbt.hasKey("isFillingChunk"))
+		{
+			isFillingChunk = nbt.getBoolean("isFillingChunk");
+		}
+		
 		if(nbt.hasKey("voidEssence"))
 		{
 			voidEssence = nbt.getInteger("voidEssence");
@@ -133,6 +139,7 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 		nbt.setBoolean("isInputEssence", isInputEssence);
 		nbt.setBoolean("isCraftingItem", isCraftingItem);
 		nbt.setBoolean("isCraftingSpell", isCraftingSpell);
+		nbt.setBoolean("isFillingChunk", isFillingChunk);
 		nbt.setInteger("voidEssence", voidEssence);
 		
 		return nbt;
@@ -163,56 +170,94 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	@Override
 	public void update()
 	{
-		if(!world.isRemote)
+		if(isFillingChunk)
 		{
-			if(isFillingChunk)
+			Chunk chunk = world.getChunk(pos);
+			
+			for(int i = 0; i < 20; i++)
 			{
-				Chunk chunk = world.getChunk(pos);
+				double posX = getPos().getX() + 0.5D;
+				double posY = getPos().getY() + 1D;
+				double posZ = getPos().getZ() + 0.5D;
+				double motionX = ((world.rand.nextInt(8) - 4)) * 0.01D;
+				double motionY = (world.rand.nextInt(3) + 3) * 0.1D;
+				double motionZ = ((world.rand.nextInt(8) - 4)) * 0.01D;
 				
-				if(chunk.hasCapability(EssenceProvider.essenceCapability, null))
+				if(world.isRemote)
 				{
-					IEssence cap = chunk.getCapability(EssenceProvider.essenceCapability, null);
-					
-					if(cap.getEssence() < 1500 && voidEssence > 0)
-					{
-						voidEssence--;
-						cap.setEssence(cap.getEssence() + 1);
-					}
-					else
-					{
-						isFillingChunk = false;
-					}
+					VoidEssenceParticle tornado = new VoidEssenceParticle(world, posX, posY, posZ, motionX, motionY, motionZ);
+					Minecraft.getMinecraft().effectRenderer.addEffect(tornado);
 				}
 			}
 			
-			if(isCasting)
+			if(chunk.hasCapability(EssenceProvider.essenceCapability, null))
 			{
-				if(!isValidStructure()) stopCasting(true);
+				IEssence cap = chunk.getCapability(EssenceProvider.essenceCapability, null);
 				
-				if(isCraftingItem || isCraftingSpell)
+				if(cap.getEssence() < 1500 && voidEssence > 0)
 				{
-					if(ticks <= voidEssence && ticks > 0)
+					voidEssence--;
+					cap.setEssence(cap.getEssence() + 1);
+				}
+				else
+				{
+					isFillingChunk = false;
+				}
+			}
+		}
+		
+		if(isCasting)
+		{
+			if(!isValidStructure()) stopCasting(true);
+			
+			if(isCraftingItem || isCraftingSpell)
+			{
+				if(ticks <= voidEssence && ticks > 0)
+				{
+					ticks--;
+					voidEssence--;
+				}
+				else if(ticks == 0)
+				{
+					stopCasting(false);
+				}
+			}
+			
+			if(isInputEssence)
+			{
+				if(ticks < 200)
+				{
+					ticks++;
+					
+					Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
+					
+					for(MutableBlockPos allBlockPos : blocksWithin)
 					{
-						ticks--;
-						voidEssence--;
-					}
-					else if(ticks == 0)
-					{
-						stopCasting(false);
+						if(world.getTileEntity(allBlockPos) instanceof TileWhitewoodPedestal)
+						{
+							TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(allBlockPos);
+							
+							if(!pedestal.handler.getStackInSlot(0).isEmpty())
+							{
+								double posX = (pedestal.getPos().getX() + 0.5D);
+								double posY = pedestal.getPos().getY() + 1D;
+								double posZ = (pedestal.getPos().getZ() + 0.5D);
+								double motionX = (posX - (pos.getX() + 0.5D)) * -0.06D;
+								double motionZ = (posZ - (pos.getZ() + 0.5D)) * -0.06D;
+								
+								if(world.isRemote)
+								{
+									VoidEssenceParticle tornado = new VoidEssenceParticle(world, posX, posY, posZ, motionX, 0D, motionZ);
+									Minecraft.getMinecraft().effectRenderer.addEffect(tornado);
+								}
+							}
+						}
 					}
 				}
-				
-				if(isInputEssence)
+				else if(ticks >= 200)
 				{
-					if(ticks < 200)
-					{
-						ticks++;
-					}
-					else if(ticks >= 200)
-					{
-						ticks = 0;
-						stopCasting(false);
-					}
+					ticks = 0;
+					stopCasting(false);
 				}
 			}
 		}

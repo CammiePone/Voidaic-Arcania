@@ -33,6 +33,8 @@ public class EventHandler
 	{
 		final TextureMap map = event.getMap();
 		
+		map.registerSprite(new ResourceLocation(Reference.MODID, "particles/particle_void_essence"));
+		
 		if(map == Minecraft.getMinecraft().getTextureMapBlocks())
 		{
 			map.setTextureEntry(new AlphaSprite(new ResourceLocation(Reference.MODID, "items/glyphs/glyph_1")));

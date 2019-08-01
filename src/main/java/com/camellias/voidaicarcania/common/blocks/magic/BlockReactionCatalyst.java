@@ -95,6 +95,24 @@ public class BlockReactionCatalyst extends BlockBaseGeneric
 	}
 	
 	@Override
+	public boolean canPlaceBlockAt(World world, BlockPos pos)
+	{
+		return world.getBlockState(pos.down()).isTopSolid();
+	}
+	
+	@Override
+	public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side)
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean isTopSolid(IBlockState state)
+	{
+		return false;
+	}
+	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getRenderLayer()
 	{
