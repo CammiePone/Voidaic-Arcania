@@ -91,8 +91,8 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	@Override
 	public void onDataPacket(NetworkManager manager, SPacketUpdateTileEntity packet)
 	{
-		NBTTagCompound tag = packet.getNbtCompound();
-		readFromNBT(tag);
+		NBTTagCompound nbt = packet.getNbtCompound();
+		readFromNBT(nbt);
 	}
 	
 	@Override
@@ -192,6 +192,7 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 				if(isFillingChunk)
 				{
 					Chunk chunk = world.getChunk(pos);
+					
 					for(int i = 0; i < 20; i++)
 					{
 						double posX = getPos().getX() + 0.5D;
@@ -293,7 +294,8 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 							}
 						}
 					}
-					else {
+					else
+					{
 						ticks = 0;
 						stopCasting(false);
 					}
@@ -385,10 +387,16 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 				}
 				else
 				{
-					if(voidEssence > 0)
+					Chunk chunk = world.getChunk(pos);
+					
+					if(voidEssence > 0 && chunk.hasCapability(EssenceProvider.essenceCapability, null))
 					{
-						isFillingChunk = true;
-						isCasting = true;
+						if(chunk.getCapability(EssenceProvider.essenceCapability, null).getEssence() < 1500)
+						{
+							isFillingChunk = true;
+							isCasting = true;
+						}
+						else player.sendMessage(new TextComponentString(TextFormatting.RED + "" + TextFormatting.ITALIC + new TextComponentTranslation(Reference.MODID + ".altar.chunkisfull").getUnformattedText()));
 					}
 					else player.sendMessage(new TextComponentString(TextFormatting.RED + "" + TextFormatting.ITALIC + new TextComponentTranslation(Reference.MODID + ".altar.isempty").getUnformattedText()));
 				}
