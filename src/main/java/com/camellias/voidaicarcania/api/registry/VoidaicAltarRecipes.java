@@ -52,10 +52,19 @@ public class VoidaicAltarRecipes
 		recipes.put(key, new VoidaicAltarRecipeHelper(input1, input2, input3, voidEssenceCost, result));
 	}
 	
-	public void removeItemRecipe(ItemStack input1, ItemStack input2, ItemStack input3)
+	public void removeItemRecipe(ItemStack input1, ItemStack input2, ItemStack input3, int voidEssenceCost, ItemStack result)
 	{
 		String key = BuildKey(input1, input2, input3);
-		recipes.remove(key);
+		
+		if(recipes.containsKey(key))
+		{
+			VoidaicAltarRecipeHelper recipe = recipes.get(key);
+			
+			if(recipe.voidEssenceCost == voidEssenceCost && BuildKeyComponent(recipe.result) == BuildKeyComponent(result))
+			{
+				recipes.remove(key);
+			}
+		}
 	}
 	
 	public Collection<VoidaicAltarRecipeHelper> getRecipes()

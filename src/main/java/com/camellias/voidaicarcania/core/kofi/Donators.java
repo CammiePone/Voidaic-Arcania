@@ -20,21 +20,23 @@ public class Donators
 	public static final UUID AbstractFox = UUID.fromString("8f1f8872-1f66-4c3c-b2f6-d2a024107e45");
 	public static final UUID LopezThePenguin = UUID.fromString("b67eb686-4b59-45a6-9f3d-ae51393ff1f9");
 	public static final UUID MystifiedAxe = UUID.fromString("181b66df-2244-4d76-b796-e86aa994ff69");
+	public static final UUID Solaptrys = UUID.fromString("be541477-71ee-443b-9622-5adf3e8ff897");
 	
 	public static void addDonators()
 	{
 		DONATOR_ID.put(TigersHideout, 1);
 		DONATOR_ID.put(DanTheDetermined, 1);
-		DONATOR_ID.put(Cacti_Farmer, 5);
 		DONATOR_ID.put(Smaugnolia, 1);
-		//Mysterious Stranger who I can't put here because idk who they are ;-;
-		DONATOR_ID.put(Caridos, 4);
-		DONATOR_ID.put(MechaJ, 8);
-		DONATOR_ID.put(spinyshell, 6);
 		DONATOR_ID.put(Brosingr, 1);
 		DONATOR_ID.put(Jin666, 1);
 		DONATOR_ID.put(AbstractFox, 1);
 		DONATOR_ID.put(LopezThePenguin, 1);
 		DONATOR_ID.put(MystifiedAxe, 1);
+		DONATOR_ID.put(Solaptrys, 1);
+		DONATOR_ID.put(Caridos, 4);
+		DONATOR_ID.put(Cacti_Farmer, 5);
+		DONATOR_ID.put(spinyshell, 6);
+		DONATOR_ID.put(MechaJ, 8);
+		//Mysterious Stranger who I can't put here because idk who they are ;-;
 	}
 }
