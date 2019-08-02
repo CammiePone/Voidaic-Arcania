@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.api.capabilities.EssenceCap;
+package com.camellias.voidaicarcania.api.capabilities.Essence;
 
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;

@@ -4,8 +4,8 @@ import javax.annotation.Nullable;
 
 import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.api.capabilities.EssenceCap.EssenceProvider;
-import com.camellias.voidaicarcania.api.capabilities.EssenceCap.IEssence;
+import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
+import com.camellias.voidaicarcania.api.capabilities.Essence.IEssence;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipeHelper;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
 import com.camellias.voidaicarcania.client.particles.VoidEssenceParticle;
@@ -183,7 +183,7 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	@Override
 	public void update()
 	{
-		if (!world.isRemote)
+		if(!world.isRemote)
 		{
 			if(isCasting)
 			{

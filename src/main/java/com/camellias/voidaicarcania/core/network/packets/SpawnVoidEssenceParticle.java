@@ -8,7 +8,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
 public class SpawnVoidEssenceParticle implements IMessage {
 	public double x, y, z, motionX, motionY, motionZ;
 	
@@ -22,18 +21,6 @@ public class SpawnVoidEssenceParticle implements IMessage {
 		this.motionX = motionX;
 		this.motionY = motionY;
 		this.motionZ = motionZ;
-	}
-	
-	public SpawnVoidEssenceParticle(double x, double y, double z) {
-		this(x, y, z, 0, 0, 0);
-	}
-	
-	public SpawnVoidEssenceParticle(BlockPos pos, double colorX, double colorY, double colorZ) {
-		this(pos.getX(), pos.getY(), pos.getZ(), colorX, colorY, colorZ);
-	}
-	
-	public SpawnVoidEssenceParticle(BlockPos pos) {
-		this(pos, 0, 0, 0);
 	}
 	
 	@Override

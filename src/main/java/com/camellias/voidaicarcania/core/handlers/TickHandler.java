@@ -2,10 +2,13 @@ package com.camellias.voidaicarcania.core.handlers;
 
 import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
 import com.camellias.voidaicarcania.api.capabilities.Corruption.ICorruption;
-import com.camellias.voidaicarcania.api.capabilities.EssenceCap.EssenceProvider;
+import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
+import com.camellias.voidaicarcania.client.particles.VoidEssenceParticle;
+import com.camellias.voidaicarcania.common.tileentities.altar.TileVoidaicAltar;
 import com.camellias.voidaicarcania.core.network.NetworkHandler;
-import com.camellias.voidaicarcania.core.network.packets.PressKeyMessage;
 import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
+import com.camellias.voidaicarcania.core.network.packets.PressKeyMessage;
+import com.camellias.voidaicarcania.core.network.packets.SpawnVoidEssenceParticle;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -16,6 +19,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

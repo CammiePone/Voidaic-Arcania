@@ -7,9 +7,9 @@ import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
 import com.camellias.voidaicarcania.api.capabilities.Corruption.DefaultCorruptionCapability;
 import com.camellias.voidaicarcania.api.capabilities.Corruption.ICorruption;
-import com.camellias.voidaicarcania.api.capabilities.EssenceCap.DefaultEssenceCapability;
-import com.camellias.voidaicarcania.api.capabilities.EssenceCap.EssenceProvider;
-import com.camellias.voidaicarcania.api.capabilities.EssenceCap.IEssence;
+import com.camellias.voidaicarcania.api.capabilities.Essence.DefaultEssenceCapability;
+import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
+import com.camellias.voidaicarcania.api.capabilities.Essence.IEssence;
 import com.camellias.voidaicarcania.api.capabilities.Infused.DefaultInfusedCapability;
 import com.camellias.voidaicarcania.api.capabilities.Infused.IInfused;
 import com.camellias.voidaicarcania.api.capabilities.Infused.InfusedProvider;
@@ -56,6 +56,14 @@ public class CapabilitiesHandler
 				boolean corrupted = false;
 				ICorruption corruption = new DefaultCorruptionCapability(amount, corrupted);
 				event.addCapability(new ResourceLocation(Reference.MODID, "PlayerCorruption"), new CorruptionProvider(corruption));
+			}
+			
+			if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
+			{
+				int amount = 0;
+				boolean effect = false;
+				IEssence essence = new DefaultEssenceCapability(amount, effect);
+				event.addCapability(new ResourceLocation(Reference.MODID, "PlayerEssence"), new EssenceProvider(essence));
 			}
 		}
 	}
