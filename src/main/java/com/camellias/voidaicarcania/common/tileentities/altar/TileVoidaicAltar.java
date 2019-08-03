@@ -47,14 +47,14 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 	public static final int SLOTS = 3;
 	public int voidEssence;
 	public int maxEssence = 5000;
+	private Iterable<MutableBlockPos> blocksWithin;
 	private boolean isCasting = false;
 	private boolean isInputEssence = false;
 	private boolean isCraftingItem = false;
 	private boolean isCraftingSpell = false;
 	private boolean isFillingChunk = false;
+	private Chunk chunk;
 	private int ticks;
-	
-	Iterable<MutableBlockPos> blocksWithin;
 	
 	private BlockPattern pattern = FactoryBlockPattern.start().aisle(
 			"0003000", "0302030", "0022200", "3221223", "0022200", "0302030", "0003000")
@@ -71,6 +71,13 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 			TileVoidaicAltar.this.markDirty();
 		}
 	};
+	
+	@Override
+	public void onLoad()
+	{
+		super.onLoad();
+		chunk = world.getChunk(pos);
+	}
 	
 	@Override
 	@Nullable
@@ -187,12 +194,9 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 		{
 			if(isCasting)
 			{
-				if(!isValidStructure()) stopCasting(true);
 				//TODO Filling chunk
 				if(isFillingChunk)
 				{
-					Chunk chunk = world.getChunk(pos);
-					
 					for(int i = 0; i < 20; i++)
 					{
 						double posX = getPos().getX() + 0.5D;
@@ -387,8 +391,6 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 				}
 				else
 				{
-					Chunk chunk = world.getChunk(pos);
-					
 					if(voidEssence > 0 && chunk.hasCapability(EssenceProvider.essenceCapability, null))
 					{
 						if(chunk.getCapability(EssenceProvider.essenceCapability, null).getEssence() < 1500)
@@ -508,6 +510,16 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 			}
 		}
 		return essence;
+	}
+	
+	public boolean shouldStopAltar()
+	{
+		if(!isValidStructure())
+		{
+			stopCasting(true);
+			return true;
+		}
+		else return false;
 	}
 	
 	public boolean canInteractWith(EntityPlayer player)

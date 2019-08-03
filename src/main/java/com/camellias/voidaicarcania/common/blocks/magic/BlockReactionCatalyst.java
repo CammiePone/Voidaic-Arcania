@@ -2,38 +2,30 @@ package com.camellias.voidaicarcania.common.blocks.magic;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import javax.annotation.Nullable;
 
 import com.camellias.voidaicarcania.common.blocks.BlockBaseGeneric;
+import com.camellias.voidaicarcania.common.tileentities.altar.TileVoidaicAltar;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockTripWireHook;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockPos.MutableBlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -58,6 +50,21 @@ public class BlockReactionCatalyst extends BlockBaseGeneric
 				.withProperty(SOUTH, Boolean.valueOf(false))
 				.withProperty(WEST, Boolean.valueOf(false)));
 		this.setTickRandomly(true);
+	}
+	
+	@Override
+	public void breakBlock(World world, BlockPos pos, IBlockState state)
+	{
+		super.breakBlock(world, pos, state);
+		Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
+		for(BlockPos blockPos : blocksWithin)
+		{
+			if(world.getTileEntity(blockPos) instanceof TileVoidaicAltar)
+			{
+				TileVoidaicAltar altar = (TileVoidaicAltar) world.getTileEntity(blockPos);
+				altar.shouldStopAltar();
+			}
+		}
 	}
 	
 	@Override

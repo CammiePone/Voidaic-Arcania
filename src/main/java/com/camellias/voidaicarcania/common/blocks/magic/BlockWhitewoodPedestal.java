@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.common.blocks.magic;
 import java.util.Random;
 
 import com.camellias.voidaicarcania.common.blocks.BlockBaseGeneric;
+import com.camellias.voidaicarcania.common.tileentities.altar.TileVoidaicAltar;
 import com.camellias.voidaicarcania.common.tileentities.altar.TileWhitewoodPedestal;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 
@@ -18,6 +19,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockPos.MutableBlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -96,6 +98,16 @@ public class BlockWhitewoodPedestal extends BlockBaseGeneric
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state)
 	{
+		Iterable<MutableBlockPos> blocksWithin = BlockPos.getAllInBoxMutable(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY(), pos.getZ() + 3);
+		for(BlockPos blockPos : blocksWithin)
+		{
+			if(world.getTileEntity(blockPos) instanceof TileVoidaicAltar)
+			{
+				TileVoidaicAltar altar = (TileVoidaicAltar) world.getTileEntity(blockPos);
+				altar.shouldStopAltar();
+			}
+		}
+		
 		TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(pos);
 		ItemStack stack = pedestal.handler.getStackInSlot(0);
 		
