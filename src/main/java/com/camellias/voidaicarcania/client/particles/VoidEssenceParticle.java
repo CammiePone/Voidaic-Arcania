@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.client.particles;
 import com.camellias.voidaicarcania.Reference;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -117,5 +118,19 @@ public class VoidEssenceParticle extends Particle
 				.color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha)
 				.lightmap(skyLightTimes16, blockLightTimes16)
 				.endVertex();
+	}
+	
+	public static class Factory implements IParticleFactory
+	{
+		public Factory()
+		{
+			
+		}
+		
+		@Override
+		public Particle createParticle(int id, World world, double x, double y, double z, double motionX, double motionY, double motionZ, int... args)
+		{
+			return new VoidEssenceParticle(world, x, y, z, motionX, motionY, motionZ);
+		}
 	}
 }

@@ -8,13 +8,17 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class SpawnVoidEssenceParticle implements IMessage {
+public class SpawnVoidEssenceParticle implements IMessage
+{
 	public double x, y, z, motionX, motionY, motionZ;
 	
-	public SpawnVoidEssenceParticle() {
+	public SpawnVoidEssenceParticle()
+	{
+		
 	}
 	
-	public SpawnVoidEssenceParticle(double x, double y, double z, double motionX, double motionY, double motionZ) {
+	public SpawnVoidEssenceParticle(double x, double y, double z, double motionX, double motionY, double motionZ)
+	{
 		this.x = x;
 		this.y = y;
 		this.z = z;
@@ -24,7 +28,8 @@ public class SpawnVoidEssenceParticle implements IMessage {
 	}
 	
 	@Override
-	public void fromBytes(ByteBuf byteBuf) {
+	public void fromBytes(ByteBuf byteBuf)
+	{
 		x = byteBuf.readDouble();
 		y = byteBuf.readDouble();
 		z = byteBuf.readDouble();
@@ -34,7 +39,8 @@ public class SpawnVoidEssenceParticle implements IMessage {
 	}
 	
 	@Override
-	public void toBytes(ByteBuf byteBuf) {
+	public void toBytes(ByteBuf byteBuf)
+	{
 		byteBuf.writeDouble(x);
 		byteBuf.writeDouble(y);
 		byteBuf.writeDouble(z);
@@ -43,11 +49,19 @@ public class SpawnVoidEssenceParticle implements IMessage {
 		byteBuf.writeDouble(motionZ);
 	}
 	
-	public static class Handler implements IMessageHandler<SpawnVoidEssenceParticle, IMessage> {
+	public static class Handler implements IMessageHandler<SpawnVoidEssenceParticle, IMessage>
+	{
 		@Override
-		public IMessage onMessage(SpawnVoidEssenceParticle message, MessageContext ctx) {
-			if (ctx.side.isClient())
-				Minecraft.getMinecraft().addScheduledTask(() -> Minecraft.getMinecraft().effectRenderer.addEffect(new VoidEssenceParticle(Minecraft.getMinecraft().player.world, message.x, message.y, message.z, message.motionX, message.motionY, message.motionZ)));
+		public IMessage onMessage(SpawnVoidEssenceParticle message, MessageContext ctx)
+		{
+			if(ctx.side.isClient())
+			{
+				Minecraft.getMinecraft().addScheduledTask(() ->
+					Minecraft.getMinecraft().effectRenderer.addEffect(new VoidEssenceParticle.Factory()
+							.createParticle(0, Minecraft.getMinecraft().player.world, 
+									message.x, message.y, message.z, message.motionX, message.motionY, message.motionZ)));
+			}
+			
 			return null;
 		}
 	}

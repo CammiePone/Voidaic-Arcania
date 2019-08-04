@@ -2,25 +2,21 @@ package com.camellias.voidaicarcania.common.tileentities.altar;
 
 import javax.annotation.Nullable;
 
-import com.camellias.voidaicarcania.Main;
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
 import com.camellias.voidaicarcania.api.capabilities.Essence.IEssence;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipeHelper;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
-import com.camellias.voidaicarcania.client.particles.VoidEssenceParticle;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.init.ModItems;
-
 import com.camellias.voidaicarcania.core.network.NetworkHandler;
 import com.camellias.voidaicarcania.core.network.packets.SpawnVoidEssenceParticle;
+
 import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -37,8 +33,6 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
