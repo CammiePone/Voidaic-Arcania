@@ -28,11 +28,11 @@ public class Donators
 		DONATOR_ID.put(Smaugnolia, 1);
 		DONATOR_ID.put(Brosingr, 1);
 		DONATOR_ID.put(Jin666, 1);
-		DONATOR_ID.put(AbstractFox, 1);
 		DONATOR_ID.put(LopezThePenguin, 1);
 		DONATOR_ID.put(MystifiedAxe, 1);
 		DONATOR_ID.put(Solaptrys, 1);
 		DONATOR_ID.put(DanTheDetermined, 2);
+		DONATOR_ID.put(AbstractFox, 4);
 		DONATOR_ID.put(Caridos, 4);
 		DONATOR_ID.put(Cacti_Farmer, 5);
 		DONATOR_ID.put(spinyshell, 6);
