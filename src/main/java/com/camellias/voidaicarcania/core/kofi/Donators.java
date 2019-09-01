@@ -21,6 +21,8 @@ public class Donators
 	public static final UUID LopezThePenguin = UUID.fromString("b67eb686-4b59-45a6-9f3d-ae51393ff1f9");
 	public static final UUID MystifiedAxe = UUID.fromString("181b66df-2244-4d76-b796-e86aa994ff69");
 	public static final UUID Solaptrys = UUID.fromString("be541477-71ee-443b-9622-5adf3e8ff897");
+	public static final UUID BanditCreamy = UUID.fromString("137b0f20-cce3-4273-939a-70e5617838b9");
+	public static final UUID RogueCreamy = UUID.fromString("348d4942-81ea-4b07-a548-ed19db7fc477");
 	
 	public static void addDonators()
 	{
@@ -31,6 +33,8 @@ public class Donators
 		DONATOR_ID.put(LopezThePenguin, 1);
 		DONATOR_ID.put(MystifiedAxe, 1);
 		DONATOR_ID.put(Solaptrys, 1);
+		DONATOR_ID.put(BanditCreamy, 1);
+		DONATOR_ID.put(RogueCreamy, 1);
 		DONATOR_ID.put(DanTheDetermined, 2);
 		DONATOR_ID.put(AbstractFox, 4);
 		DONATOR_ID.put(Caridos, 4);
