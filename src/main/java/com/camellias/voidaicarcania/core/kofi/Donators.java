@@ -37,7 +37,7 @@ public class Donators
 		DONATOR_ID.put(BanditCreamy, 1);
 		DONATOR_ID.put(RogueCreamy, 1);
 		DONATOR_ID.put(Demon_LotusYT, 1);
-		DONATOR_ID.put(DanTheDetermined, 2);
+		DONATOR_ID.put(DanTheDetermined, 3);
 		DONATOR_ID.put(AbstractFox, 4);
 		DONATOR_ID.put(Caridos, 4);
 		DONATOR_ID.put(Cacti_Farmer, 5);
