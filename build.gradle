@@ -22,12 +22,17 @@ compileJava
     sourceCompatibility = targetCompatibility = '1.8'
 }
 
+def core_plugin = "com.camellias.voidaicarcania.core.coremod.VALoadingPlugin"
+
 minecraft
 {
     version = "1.12.2-14.23.5.2768"
     runDir = "run"
     
     mappings = "stable_39"
+
+    clientJvmArgs = ["-Dfml.coreMods.load=core_plugin"]
+    serverJvmArgs = ["-Dfml.coreMods.load=core_plugin"]
 }
 
 repositories
@@ -94,6 +99,8 @@ jar
 {
     manifest
     {
+        attributes "FMLCorePlugin": core_plugin
+        attributes "FMLCorePluginContainsFMLMod": "true"
 	attributes 'FMLAT': 'VoidaicArcania_at.cfg'
     }
 }

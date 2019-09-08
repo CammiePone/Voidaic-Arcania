@@ -2,13 +2,12 @@ package com.camellias.voidaicarcania;
 
 import java.io.File;
 
-import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.camellias.voidaicarcania.core.handlers.RegistryHandler;
-import com.camellias.voidaicarcania.core.init.ModItems;
 import com.camellias.voidaicarcania.core.proxy.CommonProxy;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -18,7 +17,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(
 	modid = Reference.MODID, 
@@ -29,6 +27,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class Main 
 {
 	public static File config;
+	public static final Logger LOGGER = LogManager.getLogger(Reference.NAME);
 	
 	@Instance
 	public static Main instance;

@@ -23,7 +23,7 @@ public class Donators
 	public static final UUID Solaptrys = UUID.fromString("be541477-71ee-443b-9622-5adf3e8ff897");
 	public static final UUID BanditCreamy = UUID.fromString("137b0f20-cce3-4273-939a-70e5617838b9");
 	public static final UUID RogueCreamy = UUID.fromString("348d4942-81ea-4b07-a548-ed19db7fc477");
-	public static final UUID Demon_LotusYT = UUID.fromString("273f2ffe-0434-4985-9725-afb7dc903b26);
+	public static final UUID Demon_LotusYT = UUID.fromString("273f2ffe-0434-4985-9725-afb7dc903b26");
 	
 	public static void addDonators()
 	{
