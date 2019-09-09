@@ -8,8 +8,10 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.World;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.event.entity.PlaySoundAtEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -22,6 +24,17 @@ public class EventHandler
 	{
 		event.player.sendMessage(new TextComponentString("\u00A75\u00A7l[Voidaic Arcania:] \u00A7dThis mod is still in BETA. Gameplay info can currently be found on the VA Wiki:"));
 		event.player.sendMessage(ForgeHooks.newChatWithLinks(" https://github.com/CammiePone/Voidaic-Arcania/wiki"));
+	}
+	
+	@SubscribeEvent
+	public void onSoundPlayed(PlaySoundAtEntityEvent event)
+	{
+		World world = Minecraft.getMinecraft().world;
+		
+		if(SoundReverbHandler.shouldEcho(world))
+		{
+			event.setVolume(event.getVolume() * 5F);
+		}
 	}
 	
 	/*

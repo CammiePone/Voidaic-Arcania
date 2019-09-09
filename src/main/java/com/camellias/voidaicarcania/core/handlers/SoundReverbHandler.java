@@ -102,7 +102,7 @@ public class SoundReverbHandler
 		EFX10.alAuxiliaryEffectSloti(auxEffectSlot, EFX10.AL_EFFECTSLOT_EFFECT, reverbEffectSlot);
 	}
 	
-	private static boolean shouldEcho(World world)
+	public static boolean shouldEcho(World world)
 	{
 		return world != null && world.provider.getDimension() == -64;
 	}
