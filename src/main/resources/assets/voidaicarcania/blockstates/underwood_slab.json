@@ -1,0 +1,36 @@
+{
+    "forge_marker": 1,
+    "defaults":
+    {
+        "model": "minecraft:half_slab",
+        "textures":
+        {
+            "bottom": "voidaicarcania:blocks/underwood_planks",
+            "top": "voidaicarcania:blocks/underwood_planks",
+            "side": "voidaicarcania:blocks/underwood_planks"
+        }
+    },
+    "variants": 
+    {
+        "half=bottom":
+        {
+            "model": "minecraft:half_slab",
+            "textures":
+            {
+                "bottom": "voidaicarcania:blocks/underwood_planks",
+                "top": "voidaicarcania:blocks/underwood_planks",
+                "side": "voidaicarcania:blocks/underwood_planks"
+            }
+        },
+        "half=top":
+        {
+            "model": "minecraft:upper_slab",
+            "textures":
+            {
+                "bottom": "voidaicarcania:blocks/underwood_planks",
+                "top": "voidaicarcania:blocks/underwood_planks",
+                "side": "voidaicarcania:blocks/underwood_planks"
+            }
+        }
+    }
+}

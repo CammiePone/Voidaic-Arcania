@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "voidaicarcania:blocks/whitewood_planks",
-        "top": "voidaicarcania:blocks/whitewood_planks",
-        "side": "voidaicarcania:blocks/whitewood_planks"
-    }
-}

@@ -1,8 +1,19 @@
 {
+    "ambientocclusion": false,
 	"textures":
 	{
-		"0": "voidaicarcania:blocks/whitewood_log_side",
-		"1": "minecraft:blocks/gold_block"
+		"0": "voidaicarcania:blocks/underwood_log_side",
+		"1": "minecraft:blocks/gold_block",
+		"glyph1": "voidaicarcania:items/glyphs/glyph_1",
+		"glyph2": "voidaicarcania:items/glyphs/glyph_2",
+		"glyph3": "voidaicarcania:items/glyphs/glyph_3",
+		"glyph4": "voidaicarcania:items/glyphs/glyph_4",
+		"glyph5": "voidaicarcania:items/glyphs/glyph_5",
+		"glyph6": "voidaicarcania:items/glyphs/glyph_6",
+		"glyph7": "voidaicarcania:items/glyphs/glyph_7",
+		"glyph8": "voidaicarcania:items/glyphs/glyph_8",
+		"glyph9": "voidaicarcania:items/glyphs/glyph_9",
+		"glyph10": "voidaicarcania:items/glyphs/glyph_10"
 	},
 	"elements":
 	[
@@ -151,6 +162,130 @@
 				"up": {"uv": [5, 0, 7.5, 1], "texture": "#1"},
 				"down": {"uv": [11, 15, 13.5, 16], "texture": "#1"}
 			}
+		},
+		{
+			"name": "Crystal",
+			"from": [7, 16.3, 8.9],
+			"to": [9, 18.3, 10.9],
+			"rotation": {"angle": 45, "axis": "x", "origin": [8, 17.5, 10]},
+			"color": 2,
+			"faces":
+			{
+				"north": {"uv": [0, 0, 16, 16], "texture": "#missing"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#missing"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#missing"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#missing"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#missing"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "Glyph1",
+			"from": [3, 11, 8],
+			"to": [6, 14, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [4.5, 12.5, 8]},
+			"color": 4,
+			"faces":
+			{
+				"north": {"uv": [0, 0, 16, 16], "texture": "#glyph1"}
+			}
+		},
+		{
+			"name": "Glyph2",
+			"from": [7, 9, 6],
+			"to": [10, 12, 6],
+			"color": 4,
+			"faces":
+			{
+				"north": {"uv": [0, 0, 16, 16], "texture": "#glyph2"}
+			}
+		},
+		{
+			"name": "Glyph3",
+			"from": [9, 10, 4],
+			"to": [12, 13, 4],
+			"rotation": {"angle": -45, "axis": "y", "origin": [4.5, 12.5, 8]},
+			"color": 4,
+			"faces":
+			{
+				"north": {"uv": [0, 0, 16, 16], "texture": "#glyph3"}
+			}
+		},
+		{
+			"name": "Glyph4",
+			"from": [7, 11, 14],
+			"to": [10, 14, 14],
+			"color": 4,
+			"faces":
+			{
+				"north": {"uv": [0, 0, 16, 16], "texture": "#glyph4"}
+			}
+		},
+		{
+			"name": "Glyph5",
+			"from": [6, 10, 11],
+			"to": [9, 13, 11],
+			"rotation": {"angle": -45, "axis": "y", "origin": [4.5, 12.5, 8]},
+			"color": 4,
+			"faces":
+			{
+				"north": {"uv": [0, 0, 16, 16], "texture": "#glyph5"}
+			}
+		},
+		{
+			"name": "Glyph6",
+			"from": [5, 12, 16],
+			"to": [8, 15, 16],
+			"rotation": {"angle": 45, "axis": "y", "origin": [4.5, 12.5, 8]},
+			"color": 4,
+			"faces":
+			{
+				"north": {"uv": [0, 0, 16, 16], "texture": "#glyph6"}
+			}
+		},
+		{
+			"name": "Glyph7",
+			"from": [6, 17, 5],
+			"to": [9, 20, 5],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [4.5, 12.5, 8]},
+			"color": 4,
+			"faces":
+			{
+				"north": {"uv": [0, 0, 16, 16], "texture": "#glyph7"}
+			}
+		},
+		{
+			"name": "Glyph8",
+			"from": [2, 17, 10],
+			"to": [2, 20, 13],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [4.5, 12.5, 8]},
+			"color": 4,
+			"faces":
+			{
+				"east": {"uv": [0, 0, 16, 16], "texture": "#glyph8"}
+			}
+		},
+		{
+			"name": "Glyph9",
+			"from": [14, 15, 9],
+			"to": [14, 18, 12],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [4.5, 12.5, 8]},
+			"color": 4,
+			"faces":
+			{
+				"east": {"uv": [0, 0, 16, 16], "texture": "#glyph9"}
+			}
+		},
+		{
+			"name": "Glyph10",
+			"from": [7, 13, 16],
+			"to": [10, 16, 16],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [4.5, 12.5, 8]},
+			"color": 4,
+			"faces":
+			{
+				"north": {"uv": [0, 0, 16, 16], "texture": "#glyph10"}
+			}
 		}
 	],
 	"display":
@@ -164,17 +299,17 @@
 			"scale": [0.75, 0.75, 0.75]
 		},
 		"firstperson_righthand":
-        {
-            "rotation": [10, 0, 0],
-            "translation": [0, 2, 0],
-            "scale": [0.8, 0.8, 0.8]
-        },
-        "firstperson_lefthand":
-        {
-            "rotation": [10, 0, 0],
-            "translation": [0, 2, 0],
-            "scale": [0.8, 0.8, 0.8]
-        },
+		{
+			"rotation": [10, 0, 0],
+			"translation": [0, 2, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"firstperson_lefthand":
+		{
+			"rotation": [10, 0, 0],
+			"translation": [0, 2, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
 		"ground":
 		{
 			"rotation": [45, 0, 0],

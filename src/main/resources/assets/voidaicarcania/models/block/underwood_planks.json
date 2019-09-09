@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "voidaicarcania:blocks/whitewood_leaves"
+        "all": "voidaicarcania:blocks/underwood_planks"
     }
 }

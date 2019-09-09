@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/half_slab",
+	"textures":
+    {
+        "bottom": "voidaicarcania:blocks/underwood_planks",
+        "top": "voidaicarcania:blocks/underwood_planks",
+        "side": "voidaicarcania:blocks/underwood_planks"
+    }
+}

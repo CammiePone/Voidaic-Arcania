@@ -23,11 +23,11 @@ public class ModBlocks
 	//Magic
 	public static final Block RIFT = new BlockRift(Material.PORTAL, "void_rift");
 	public static final Block CATALYST = new BlockReactionCatalyst(Material.CIRCUITS, "catalyzing_powder");
-	public static final Block PEDESTAL = new BlockWhitewoodPedestal(Material.WOOD, "whitewood_pedestal");
+	public static final Block PEDESTAL = new BlockWhitewoodPedestal(Material.WOOD, "underwood_pedestal");
 	public static final Block ALTAR = new BlockVoidaicAltar(Material.WOOD, "voidaic_altar");
 	
-	public static final Block WHITEWOOD_LOG = new BlockWhitewoodLog(Material.WOOD, "whitewood_log");
-	public static final Block WHITEWOOD_LEAVES = new BlockWhitewoodLeaves(Material.PLANTS, "whitewood_leaves");
-	public static final Block WHITEWOOD_PLANKS = new BlockWhitewoodPlanks(Material.WOOD, "whitewood_planks");
-	public static final Block WHITEWOOD_STAIRS = new BlockWhitewoodStairs(WHITEWOOD_PLANKS.getDefaultState(), "whitewood_stairs");
+	public static final Block UNDERWOOD_LOG = new BlockWhitewoodLog(Material.WOOD, "underwood_log");
+	public static final Block UNDERWOOD_LEAVES = new BlockWhitewoodLeaves(Material.PLANTS, "underwood_leaves");
+	public static final Block UNDERWOOD_PLANKS = new BlockWhitewoodPlanks(Material.WOOD, "underwood_planks");
+	public static final Block UNDERWOOD_STAIRS = new BlockWhitewoodStairs(UNDERWOOD_PLANKS.getDefaultState(), "underwood_stairs");
 }

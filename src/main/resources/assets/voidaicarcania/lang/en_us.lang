@@ -6,17 +6,17 @@ voidaicarcania.voidEssenceStack=Stack Void Essence
 itemGroup.voidaicarcania.creative_tab_main=Voidaic Arcania
 
 //Items
-item.voidaicarcania.whitewood_staff.name=Whitewood Staff
+item.voidaicarcania.underwood_staff.name=Underwood Staff
 item.voidaicarcania.void_resonator.name=Void Resonator
 
 //Blocks
 tile.voidaicarcania.catalyzing_powder.name=Catalyzing Powder
-tile.voidaicarcania.whitewood_pedestal.name=Whitewood Pedestal
+tile.voidaicarcania.underwood_pedestal.name=Underwood Pedestal
 tile.voidaicarcania.voidaic_altar.name=Voidaic Altar
-tile.voidaicarcania.whitewood_planks.name=Whitewood Planks
-tile.voidaicarcania.whitewood_stairs.name=Whitewood Stairs
-tile.voidaicarcania.whitewood_leaves.name=Whitewood Leaves
-tile.voidaicarcania.whitewood_log.name=Whitewood Log
+tile.voidaicarcania.underwood_planks.name=Underwood Planks
+tile.voidaicarcania.underwood_stairs.name=Underwood Stairs
+tile.voidaicarcania.underwood_leaves.name=Underwood Leaves
+tile.voidaicarcania.underwood_log.name=Underwood Log
 
 //Entities
 entity.voidaicarcania.void_wraith.name=Void Wraith

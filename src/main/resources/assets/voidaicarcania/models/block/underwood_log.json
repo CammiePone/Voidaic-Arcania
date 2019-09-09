@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "voidaicarcania:blocks/underwood_log_top",
+        "side": "voidaicarcania:blocks/underwood_log_side"
+    }
+}

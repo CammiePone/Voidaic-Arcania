@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "voidaicarcania:underwood_log" },
+        "axis=z":   { "model": "voidaicarcania:underwood_log", "x": 90 },
+        "axis=x":   { "model": "voidaicarcania:underwood_log", "x": 90, "y": 90 }
+    }
+}

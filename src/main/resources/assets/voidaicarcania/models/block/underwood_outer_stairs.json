@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "voidaicarcania:blocks/underwood_planks",
+        "top": "voidaicarcania:blocks/underwood_planks",
+        "side": "voidaicarcania:blocks/underwood_planks"
+    }
+}

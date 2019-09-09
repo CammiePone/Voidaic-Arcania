@@ -2,10 +2,10 @@
     "parent": "block/block",
 	"textures":
 	{
-		"0": "voidaicarcania:blocks/whitewood_log_side",
-		"1": "voidaicarcania:blocks/whitewood_planks",
+		"0": "voidaicarcania:blocks/underwood_log_side",
+		"1": "voidaicarcania:blocks/underwood_planks",
 		"2": "voidaicarcania:blocks/pedestal_base",
-		"particle": "voidaicarcania:blocks/whitewood_log_side"
+		"particle": "voidaicarcania:blocks/underwood_log_side"
 	},
 	"display":
 	{

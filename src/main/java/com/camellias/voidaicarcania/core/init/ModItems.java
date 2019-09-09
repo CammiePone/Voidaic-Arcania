@@ -15,7 +15,7 @@ public class ModItems
 	//-----Item list-----//
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	
-	public static final Item WHITEWOOD_STAFF = new ItemWhitewoodStaff("whitewood_staff");
+	public static final Item UNDERWOOD_STAFF = new ItemWhitewoodStaff("underwood_staff");
 	public static final Item VOID_RESONATOR = new ItemVoidDetector("void_resonator", ModMaterials.RESONATOR, 1, EntityEquipmentSlot.HEAD);
 	public static final Item SPELL_PAPER = new ItemBaseGeneric("spell_paper");
 }
