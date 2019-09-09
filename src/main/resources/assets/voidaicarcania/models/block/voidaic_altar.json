@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "voidaicarcania:blocks/void_altar_top",
+        "side": "voidaicarcania:blocks/void_altar_side"
+    }
+}

@@ -3,8 +3,8 @@
 	"textures":
 	{
 		"0": "voidaicarcania:blocks/whitewood_log_side",
-		"1": "voidaicarcania:blocks/whitewood_log_top",
-		"2": "voidaicarcania:blocks/whitewood_planks",
+		"1": "voidaicarcania:blocks/whitewood_planks",
+		"2": "voidaicarcania:blocks/pedestal_base",
 		"particle": "voidaicarcania:blocks/whitewood_log_side"
 	},
 	"display":
@@ -52,12 +52,12 @@
 			"to": [14, 13, 14],
 			"faces":
 			{
-				"north": {"uv": [0, 3, 12, 5], "texture": "#2"},
-				"east": {"uv": [4, 2, 16, 4], "texture": "#2"},
-				"south": {"uv": [0, 3, 12, 5], "texture": "#2"},
-				"west": {"uv": [4, 2, 16, 4], "texture": "#2"},
+				"north": {"uv": [0, 3, 12, 5], "texture": "#1"},
+				"east": {"uv": [4, 2, 16, 4], "texture": "#1"},
+				"south": {"uv": [0, 3, 12, 5], "texture": "#1"},
+				"west": {"uv": [4, 2, 16, 4], "texture": "#1"},
 				"up": {"uv": [2, 2, 14, 14], "texture": "#1"},
-				"down": {"uv": [2, 2, 14, 14], "texture": "#2"}
+				"down": {"uv": [2, 2, 14, 14], "texture": "#1"}
 			}
 		}
 	]
