@@ -31,8 +31,8 @@ minecraft
     
     mappings = "stable_39"
 
-    clientJvmArgs = ["-Dfml.coreMods.load=core_plugin"]
-    serverJvmArgs = ["-Dfml.coreMods.load=core_plugin"]
+    clientJvmArgs = ["-Dfml.coreMods.load=$core_plugin"]
+    serverJvmArgs = ["-Dfml.coreMods.load=$core_plugin"]
 }
 
 repositories
