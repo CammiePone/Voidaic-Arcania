@@ -78,6 +78,7 @@ public class VAClassTransformer implements IClassTransformer, Opcodes
 		ClassNode node = new ClassNode();
 		ClassReader reader = new ClassReader(data);
 		reader.accept(node, 0);
+		LOGGER.info("Patching class {}", name);
 		
 		if(transformer.test(node))
 		{
@@ -104,7 +105,7 @@ public class VAClassTransformer implements IClassTransformer, Opcodes
 		else
 		{
 			StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-			LOGGER.warn("Failed to find location to insert for{}", stackTrace[1].getMethodName());
+			LOGGER.warn("Failed to find location to insert for {}", stackTrace[1].getMethodName());
 		}
 	}
 	
@@ -119,7 +120,7 @@ public class VAClassTransformer implements IClassTransformer, Opcodes
 		else
 		{
 			StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-			LOGGER.warn("Failed to find location to insert for{}", stackTrace[1].getMethodName());
+			LOGGER.warn("Failed to find location to insert for {}", stackTrace[1].getMethodName());
 		}
 	}
 	
