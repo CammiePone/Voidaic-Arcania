@@ -3,6 +3,8 @@ package com.camellias.voidaicarcania.core.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.camellias.voidaicarcania.common.blocks.deco.BlockFungalStem;
+import com.camellias.voidaicarcania.common.blocks.deco.BlockFungalWall;
 import com.camellias.voidaicarcania.common.blocks.magic.BlockReactionCatalyst;
 import com.camellias.voidaicarcania.common.blocks.magic.BlockRift;
 import com.camellias.voidaicarcania.common.blocks.magic.BlockVoidaicAltar;
@@ -26,8 +28,13 @@ public class ModBlocks
 	public static final Block PEDESTAL = new BlockWhitewoodPedestal(Material.WOOD, "underwood_pedestal");
 	public static final Block ALTAR = new BlockVoidaicAltar(Material.WOOD, "voidaic_altar");
 	
+	//Underwood
 	public static final Block UNDERWOOD_LOG = new BlockWhitewoodLog(Material.WOOD, "underwood_log");
 	public static final Block UNDERWOOD_LEAVES = new BlockWhitewoodLeaves(Material.PLANTS, "underwood_leaves");
 	public static final Block UNDERWOOD_PLANKS = new BlockWhitewoodPlanks(Material.WOOD, "underwood_planks");
 	public static final Block UNDERWOOD_STAIRS = new BlockWhitewoodStairs(UNDERWOOD_PLANKS.getDefaultState(), "underwood_stairs");
+	
+	//Decoration
+	public static final Block FUNGAL_WALL = new BlockFungalWall(Material.GOURD, "fungal_wall");
+	public static final Block FUNGAL_STEM = new BlockFungalStem(Material.GOURD, "fungal_stem");
 }

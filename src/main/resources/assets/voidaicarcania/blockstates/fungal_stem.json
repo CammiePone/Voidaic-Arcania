@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "voidaicarcania:fungal_stem" },
+        "axis=z":   { "model": "voidaicarcania:fungal_stem", "x": 90 },
+        "axis=x":   { "model": "voidaicarcania:fungal_stem", "x": 90, "y": 90 }
+    }
+}

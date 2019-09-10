@@ -19,8 +19,8 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class WhitewoodTreeFeature  extends WorldGenAbstractTree
 {
-	private static final IBlockState TRUNK = ModBlocks.WHITEWOOD_LOG.getDefaultState().withProperty(BlockWhitewoodLog.AXIS, Axis.Y);
-	private static final IBlockState LEAF = ModBlocks.WHITEWOOD_LEAVES.getDefaultState();
+	private static final IBlockState TRUNK = ModBlocks.UNDERWOOD_LOG.getDefaultState().withProperty(BlockWhitewoodLog.AXIS, Axis.Y);
+	private static final IBlockState LEAF = ModBlocks.UNDERWOOD_LEAVES.getDefaultState();
 	
 	public WhitewoodTreeFeature(boolean notify)
 	{

@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "voidaicarcania:blocks/fungal_stem_top",
+        "side": "voidaicarcania:blocks/fungal_stem_side"
+    }
+}
