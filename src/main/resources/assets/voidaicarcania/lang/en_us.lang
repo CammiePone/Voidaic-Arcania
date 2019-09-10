@@ -19,6 +19,8 @@ tile.voidaicarcania.underwood_leaves.name=Underwood Leaves
 tile.voidaicarcania.underwood_log.name=Underwood Log
 tile.voidaicarcania.fungal_wall.name=Fungal Wall
 tile.voidaicarcania.fungal_stem.name=Fungal Stem
+tile.voidaicarcania.lantern_bulb.name=Hanging Lantern
+tile.voidaicarcania.lantern_stem.name=Hanging Lantern Stem
 
 //Entities
 entity.voidaicarcania.void_wraith.name=Void Wraith

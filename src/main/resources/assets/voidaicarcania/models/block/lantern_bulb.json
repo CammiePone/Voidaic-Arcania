@@ -1,0 +1,50 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "voidaicarcania:blocks/lantern_bulb",
+		"particle": "voidaicarcania:blocks/lantern_bulb"
+	},
+	"elements": [
+		{
+			"name": "bulb",
+			"from": [3, 3, 3],
+			"to": [13, 16, 13],
+			"faces": {
+				"north": {"uv": [0, 5, 8, 16], "texture": "#0"},
+				"east": {"uv": [0, 5, 8, 16], "texture": "#0"},
+				"south": {"uv": [0, 5, 8, 16], "texture": "#0"},
+				"west": {"uv": [0, 5, 8, 16], "texture": "#0"},
+				"up": {"uv": [8, 8, 16, 16], "texture": "#0"},
+				"down": {"uv": [8, 8, 16, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "knot",
+			"from": [6, 2, 8],
+			"to": [10, 3, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [2, 5, 6, 6], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 1], "texture": "#missing"},
+				"south": {"uv": [2, 5, 6, 6], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 1], "texture": "#missing"},
+				"up": {"uv": [0, 0, 4, 0], "texture": "#missing"},
+				"down": {"uv": [0, 0, 4, 0], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "knot",
+			"from": [6, 2, 8],
+			"to": [10, 3, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [2, 5, 6, 6], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 1], "texture": "#missing"},
+				"south": {"uv": [2, 5, 6, 6], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 1], "texture": "#missing"},
+				"up": {"uv": [0, 0, 4, 0], "texture": "#missing"},
+				"down": {"uv": [0, 0, 4, 0], "texture": "#missing"}
+			}
+		}
+	]
+}

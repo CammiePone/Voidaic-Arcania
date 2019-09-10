@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.camellias.voidaicarcania.common.blocks.deco.BlockFungalStem;
 import com.camellias.voidaicarcania.common.blocks.deco.BlockFungalWall;
+import com.camellias.voidaicarcania.common.blocks.deco.BlockLanternBulb;
+import com.camellias.voidaicarcania.common.blocks.deco.BlockLanternStem;
 import com.camellias.voidaicarcania.common.blocks.magic.BlockReactionCatalyst;
 import com.camellias.voidaicarcania.common.blocks.magic.BlockRift;
 import com.camellias.voidaicarcania.common.blocks.magic.BlockVoidaicAltar;
@@ -37,4 +39,6 @@ public class ModBlocks
 	//Decoration
 	public static final Block FUNGAL_WALL = new BlockFungalWall(Material.GOURD, "fungal_wall");
 	public static final Block FUNGAL_STEM = new BlockFungalStem(Material.GOURD, "fungal_stem");
+	public static final Block LANTERN_STEM = new BlockLanternStem(Material.PLANTS, "lantern_stem");
+	public static final Block LANTERN_BULB = new BlockLanternBulb(Material.PLANTS, "lantern_bulb");
 }
