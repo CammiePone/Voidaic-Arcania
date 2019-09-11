@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 public abstract class BlockSlabBase extends BlockSlab implements IHasModel
 {
-	Block half;
+	public Block half;
 	public static final PropertyEnum<Variant> VARIANT = PropertyEnum.<Variant>create("variant", Variant.class);
 	
 	public BlockSlabBase(Material material, String name, BlockSlab half) 

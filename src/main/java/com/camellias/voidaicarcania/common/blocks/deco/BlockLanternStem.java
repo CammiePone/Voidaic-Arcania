@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.camellias.voidaicarcania.common.blocks.BlockBaseGeneric;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -68,6 +69,40 @@ public class BlockLanternStem extends BlockBaseGeneric
 	{
 		super.addCollisionBoxToList(pos, entityBox, collidingBoxes, BOUNDING_BOX);
 	}
-
-
+	
+	@Override
+	public boolean canPlaceBlockAt(World world, BlockPos pos)
+	{
+		return this.canBePlacedOn(world, pos.up());
+	}
+	
+	@Override
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos)
+	{
+		this.checkForDrop(world, pos, state);
+	}
+	
+	public final boolean checkForDrop(World world, BlockPos pos, IBlockState state)
+	{
+		if (this.canBlockStay(world, pos))
+		{
+			return true;
+		}
+		else
+		{
+			this.dropBlockAsItem(world, pos, state, 0);
+			world.setBlockToAir(pos);
+			return false;
+		}
+	}
+	
+	public boolean canBlockStay(World world, BlockPos pos)
+	{
+		return this.canPlaceBlockAt(world, pos);
+	}
+	
+	public boolean canBePlacedOn(World world, BlockPos pos)
+	{
+		return world.getBlockState(pos).isTopSolid() || world.getBlockState(pos).getBlock() instanceof BlockLanternStem;
+	}
 }

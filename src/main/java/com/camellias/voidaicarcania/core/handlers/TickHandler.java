@@ -139,9 +139,9 @@ public class TickHandler
 				{
 					player.motionY = -0.1D;
 				}
-				if((player.motionY <= 0.05D && player.motionY >= -0.05D))
+				if((player.motionY <= 0.075D && player.motionY >= -0.08D))
 				{
-					player.motionY = player.motionY / 1.025D;
+					player.motionY = player.motionY / 1.05D;
 				}
 				
 				player.setNoGravity(true);

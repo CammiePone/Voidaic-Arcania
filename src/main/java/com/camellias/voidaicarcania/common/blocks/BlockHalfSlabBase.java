@@ -12,7 +12,7 @@ public class BlockHalfSlabBase extends BlockSlabBase
 	public BlockHalfSlabBase(Material material, String name, BlockSlab half, BlockSlab doubleSlab, String tool, int level, SoundType sound, float hardness, float resistance)
 	{
 		super(material, name, half);
-		this.setHarvestLevel(tool, level);
+		if(tool != null) this.setHarvestLevel(tool, level);
 		this.setSoundType(sound);
 		this.setHardness(hardness);
 		this.setResistance(resistance);

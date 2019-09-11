@@ -38,8 +38,8 @@ public class ModBlocks
 	public static final Block UNDERWOOD_LOG = new BlockWhitewoodLog(Material.WOOD, "underwood_log");
 	public static final Block UNDERWOOD_LEAVES = new BlockWhitewoodLeaves(Material.PLANTS, "underwood_leaves");
 	public static final Block UNDERWOOD_PLANKS = new BlockWhitewoodPlanks(Material.WOOD, "underwood_planks");
-	public static final BlockSlab UNDERWOOD_SLAB_FULL = new BlockFullSlabBase(Material.WOOD, "underwood_full_slab", ModBlocks.UNDERWOOD_SLAB, "axe", 0, SoundType.WOOD, 2F, 0F);
-	public static final BlockSlab UNDERWOOD_SLAB = new BlockHalfSlabBase(Material.WOOD, "underwood_half_slab", ModBlocks.UNDERWOOD_SLAB, ModBlocks.UNDERWOOD_SLAB_FULL, "axe", 0, SoundType.WOOD, 2F, 0F);
+	public static final BlockSlab UNDERWOOD_SLAB_FULL = new BlockFullSlabBase(Material.WOOD, "underwood_full_slab", ModBlocks.UNDERWOOD_SLAB, null, 0, SoundType.WOOD, 2F, 0F);
+	public static final BlockSlab UNDERWOOD_SLAB = new BlockHalfSlabBase(Material.WOOD, "underwood_half_slab", ModBlocks.UNDERWOOD_SLAB, ModBlocks.UNDERWOOD_SLAB_FULL, null, 0, SoundType.WOOD, 2F, 0F);
 	public static final Block UNDERWOOD_STAIRS = new BlockWhitewoodStairs(UNDERWOOD_PLANKS.getDefaultState(), "underwood_stairs");
 	
 	//Decoration
