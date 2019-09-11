@@ -78,7 +78,7 @@ public class VAClassTransformer implements IClassTransformer, Opcodes
 		ClassNode node = new ClassNode();
 		ClassReader reader = new ClassReader(data);
 		reader.accept(node, 0);
-		LOGGER.info("Patching class {}", name);
+		LOGGER.info("Attempting to patch class {}", name);
 		
 		if(transformer.test(node))
 		{

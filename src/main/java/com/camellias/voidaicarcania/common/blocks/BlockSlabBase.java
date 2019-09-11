@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.common.blocks;
 import java.util.Random;
 
 import com.camellias.voidaicarcania.Main;
+import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.core.init.ModBlocks;
 import com.camellias.voidaicarcania.core.init.ModCreativeTabs;
 import com.camellias.voidaicarcania.core.util.IHasModel;
@@ -28,6 +29,8 @@ public abstract class BlockSlabBase extends BlockSlab implements IHasModel
 	public BlockSlabBase(Material material, String name, BlockSlab half) 
 	{
 		super(material);
+		this.setTranslationKey(Reference.MODID + "." + name);
+		this.setRegistryName(name);
 		this.setCreativeTab(ModCreativeTabs.VA_TAB_MAIN);
 		this.useNeighborBrightness = !this.isDouble();
 		

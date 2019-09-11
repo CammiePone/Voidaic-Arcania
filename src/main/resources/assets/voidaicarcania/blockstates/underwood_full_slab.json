@@ -6,7 +6,7 @@
     },
     "variants": 
     {
-        "half=bottom,variant=default":
+        "variant=default":
         {
             "model": "voidaicarcania:underwood_planks"
         }

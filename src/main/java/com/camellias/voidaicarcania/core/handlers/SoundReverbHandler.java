@@ -7,7 +7,6 @@ import org.lwjgl.openal.ALC10;
 import org.lwjgl.openal.EFX10;
 
 import com.camellias.voidaicarcania.Main;
-import com.camellias.voidaicarcania.common.world.dimensions.DimensionVoid;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.World;
@@ -25,9 +24,6 @@ public class SoundReverbHandler
 	private static boolean setup;
 	
 	private static int auxEffectSlot;
-	private static int reverbEffectSlot;
-	
-	private static boolean reverbApplied;
 	
 	public static void onPlaySound(int soundId)
 	{
@@ -37,9 +33,9 @@ public class SoundReverbHandler
 			setup = true;
 		}
 		
-		if(available)
+		if(available && shouldEcho(MC.world))
 		{
-			applyEffect(soundId);
+			AL11.alSource3i(soundId, EFX10.AL_AUXILIARY_SEND_FILTER, auxEffectSlot, 0, EFX10.AL_FILTER_NULL);
 		}
 	}
 	
@@ -56,49 +52,11 @@ public class SoundReverbHandler
 		auxEffectSlot = EFX10.alGenAuxiliaryEffectSlots();
 		EFX10.alAuxiliaryEffectSloti(auxEffectSlot, EFX10.AL_EFFECTSLOT_AUXILIARY_SEND_AUTO, AL10.AL_TRUE);
 		
-		reverbEffectSlot = EFX10.alGenEffects();
-	}
-	
-	private static void applyEffect(int soundId)
-	{
-		if(shouldEcho(MC.world))
-		{
-			applyReverbEffect();
-		}
-		else
-		{
-			applyDefaultEffect();
-		}
-		
-		AL11.alSource3i(soundId, EFX10.AL_AUXILIARY_SEND_FILTER, auxEffectSlot, 0, EFX10.AL_FILTER_NULL);
-	}
-	
-	private static void applyReverbEffect()
-	{
-		if(reverbApplied)
-		{
-			return;
-		}
-		
-		reverbApplied = true;
+		int reverbEffectSlot = EFX10.alGenEffects();
 		
 		EFX10.alEffecti(reverbEffectSlot, EFX10.AL_EFFECT_TYPE, EFX10.AL_EFFECT_EAXREVERB);
-		EFX10.alEffectf(reverbEffectSlot, EFX10.AL_EAXREVERB_ECHO_DEPTH, 20F);
-		EFX10.alEffectf(reverbEffectSlot, EFX10.AL_EAXREVERB_DECAY_TIME, 20F);
-		
-		EFX10.alAuxiliaryEffectSloti(auxEffectSlot, EFX10.AL_EFFECTSLOT_EFFECT, reverbEffectSlot);
-	}
-	
-	private static void applyDefaultEffect()
-	{
-		if(!reverbApplied)
-		{
-			return;
-		}
-		
-		reverbApplied = false;
-		
-		EFX10.alEffecti(reverbEffectSlot, EFX10.AL_EFFECT_TYPE, EFX10.AL_EFFECT_NULL);
+		EFX10.alEffectf(reverbEffectSlot, EFX10.AL_EAXREVERB_DECAY_TIME, 6.0F);
+
 		EFX10.alAuxiliaryEffectSloti(auxEffectSlot, EFX10.AL_EFFECTSLOT_EFFECT, reverbEffectSlot);
 	}
 	
