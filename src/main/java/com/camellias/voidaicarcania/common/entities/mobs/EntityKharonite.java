@@ -21,9 +21,9 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
-public class EntityVoidCrawler extends EntityMob
+public class EntityKharonite extends EntityMob
 {
-	public EntityVoidCrawler(World world)
+	public EntityKharonite(World world)
 	{
 		super(world);
 		this.experienceValue = 5;

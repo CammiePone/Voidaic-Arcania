@@ -1,0 +1,14 @@
+{
+    "forge_marker": 1,
+    "defaults":
+    {
+        "model": "voidaicarcania:underwood_planks"
+    },
+    "variants": 
+    {
+        "half=bottom,variant=default":
+        {
+            "model": "voidaicarcania:underwood_planks"
+        }
+    }
+}

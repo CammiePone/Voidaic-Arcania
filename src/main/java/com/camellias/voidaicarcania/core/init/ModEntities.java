@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidCrawler;
+import com.camellias.voidaicarcania.common.entities.mobs.EntityKharonite;
 import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidWraith;
 
 import net.minecraft.entity.Entity;
@@ -27,7 +27,7 @@ public class ModEntities
 	
 	private static final EntityEntry VOID_WRAITH = createEntityEntry(EntityVoidWraith.class, "void_wraith", 
 			0x4e2760, 0x0b070e, EnumCreatureType.MONSTER, 6, 1, 4, VOID_BIOME);
-	private static final EntityEntry VOID_CRAWLER = createEntityEntry(EntityVoidCrawler.class, "void_crawler", 
+	private static final EntityEntry KHARONITE = createEntityEntry(EntityKharonite.class, "kharonite", 
 			0x593f4d, 0x341e3f, EnumCreatureType.AMBIENT, 3, 1, 6, VOID_BIOME);
 	
 	

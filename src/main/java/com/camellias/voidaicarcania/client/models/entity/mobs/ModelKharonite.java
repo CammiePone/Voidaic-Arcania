@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelVoidCrawler extends ModelBase
+public class ModelKharonite extends ModelBase
 {
 	public ModelRenderer bipedHead;
     public ModelRenderer RightHornBottom;
@@ -38,7 +38,7 @@ public class ModelVoidCrawler extends ModelBase
     public ModelRenderer bipedRightLeg;
     public ModelRenderer bipedLeftLeg;
     
-    public ModelVoidCrawler()
+    public ModelKharonite()
     {
         this.textureWidth = 64;
         this.textureHeight = 96;

@@ -1,8 +1,8 @@
 package com.camellias.voidaicarcania.client.renderer.entity.mobs;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.client.models.entity.mobs.ModelVoidCrawler;
-import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidCrawler;
+import com.camellias.voidaicarcania.client.models.entity.mobs.ModelKharonite;
+import com.camellias.voidaicarcania.common.entities.mobs.EntityKharonite;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -11,15 +11,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderVoidCrawler extends RenderLiving<EntityVoidCrawler>
+public class RenderKharonite extends RenderLiving<EntityKharonite>
 {
-	public RenderVoidCrawler(RenderManager rendermanager)
+	public RenderKharonite(RenderManager rendermanager)
 	{
-		super(rendermanager, new ModelVoidCrawler(), 0.5F);
+		super(rendermanager, new ModelKharonite(), 0.5F);
 	}
 	
 	@Override
-	public ResourceLocation getEntityTexture(EntityVoidCrawler entity)
+	public ResourceLocation getEntityTexture(EntityKharonite entity)
 	{
 		return new ResourceLocation(Reference.MODID + ":textures/entity/void_crawler.png");
 	}

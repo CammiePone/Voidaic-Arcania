@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.common.blocks.plants.trees;
+package com.camellias.voidaicarcania.common.blocks.deco;
 
 import com.camellias.voidaicarcania.common.blocks.BlockBaseStairs;
 

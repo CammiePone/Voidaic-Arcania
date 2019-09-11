@@ -12,7 +12,7 @@
     },
     "variants": 
     {
-        "half=bottom":
+        "half=bottom,variant=default":
         {
             "model": "minecraft:half_slab",
             "textures":
@@ -22,7 +22,7 @@
                 "side": "voidaicarcania:blocks/underwood_planks"
             }
         },
-        "half=top":
+        "half=top,variant=default":
         {
             "model": "minecraft:upper_slab",
             "textures":

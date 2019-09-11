@@ -14,6 +14,8 @@ tile.voidaicarcania.catalyzing_powder.name=Catalyzing Powder
 tile.voidaicarcania.underwood_pedestal.name=Underwood Pedestal
 tile.voidaicarcania.voidaic_altar.name=Voidaic Altar
 tile.voidaicarcania.underwood_planks.name=Underwood Planks
+tile.voidaicarcania.underwood_half_slab.name=Underwood Slab
+tile.voidaicarcania.underwood_full_slab.name=Underwood Slabs
 tile.voidaicarcania.underwood_stairs.name=Underwood Stairs
 tile.voidaicarcania.underwood_leaves.name=Underwood Leaves
 tile.voidaicarcania.underwood_log.name=Underwood Log
@@ -24,7 +26,7 @@ tile.voidaicarcania.lantern_stem.name=Hanging Lantern Stem
 
 //Entities
 entity.voidaicarcania.void_wraith.name=Void Wraith
-entity.voidaicarcania.void_crawler.name=Void Crawler
+entity.voidaicarcania.kharonite.name=Kharonite
 
 //Misc
 voidaicarcania.voidaicaltar.recipes=Voidaic Altar

@@ -2,10 +2,10 @@ package com.camellias.voidaicarcania.core.handlers;
 
 import com.camellias.voidaicarcania.api.registry.VoidEssenceList;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
-import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderVoidCrawler;
+import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderKharonite;
 import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderVoidWraith;
 import com.camellias.voidaicarcania.client.renderer.hud.OverlayRenderer;
-import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidCrawler;
+import com.camellias.voidaicarcania.common.entities.mobs.EntityKharonite;
 import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidWraith;
 import com.camellias.voidaicarcania.common.world.structures.WorldGenCustomStructures;
 import com.camellias.voidaicarcania.core.init.ModBiomes;
@@ -108,7 +108,7 @@ public class RegistryHandler
 		{
 			MinecraftForge.EVENT_BUS.register(OverlayRenderer.instance);
 			RenderingRegistry.registerEntityRenderingHandler(EntityVoidWraith.class, RenderVoidWraith::new);
-			RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, RenderVoidCrawler::new);
+			RenderingRegistry.registerEntityRenderingHandler(EntityKharonite.class, RenderKharonite::new);
 		}
 	}
 	

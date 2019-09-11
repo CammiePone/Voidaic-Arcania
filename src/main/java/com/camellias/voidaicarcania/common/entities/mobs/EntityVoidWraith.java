@@ -98,7 +98,7 @@ public class EntityVoidWraith extends EntityMob
 		
 		for(EntityLivingBase target : targets)
 		{
-			if(!(target instanceof EntityVoidWraith || target instanceof EntityVoidCrawler))
+			if(!(target instanceof EntityVoidWraith || target instanceof EntityKharonite))
 			{
 				if(target instanceof EntityPlayer)
 				{
