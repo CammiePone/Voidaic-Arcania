@@ -45,7 +45,7 @@ public class ChunkGeneratorVoid implements IChunkGenerator
 				
 				for(int y = 255; y >= 248; y--)
 				{
-					if(y > 255 - this.rand.nextInt(5) || y == 255)
+					if(y > 255 - this.rand.nextInt(3) || y == 255)
 					{
 						primer.setBlockState(x, y, z, BEDROCK);
 					}

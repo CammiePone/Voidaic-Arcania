@@ -20,6 +20,7 @@ public class DimensionVoid extends WorldProvider
 	public DimensionVoid()
 	{
 		this.biomeProvider = new BiomeProviderSingle(ModBiomes.VOID);
+		this.biomeProvider = new BiomeProviderSingle(ModBiomes.FUNGAL_PATCH);
 	}
 	
 	@Override
