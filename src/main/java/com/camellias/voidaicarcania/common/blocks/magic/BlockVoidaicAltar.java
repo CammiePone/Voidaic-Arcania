@@ -39,7 +39,7 @@ public class BlockVoidaicAltar extends BlockBaseGeneric
 			TileVoidaicAltar altar = (TileVoidaicAltar) world.getTileEntity(pos);
 			
 			if(!player.getHeldItem(hand).isEmpty()
-				&& player.getHeldItem(hand).getItem() != ModItems.WHITEWOOD_STAFF)
+				&& player.getHeldItem(hand).getItem() != ModItems.UNDERWOOD_STAFF)
 			{
 				if(!player.isCreative())
 				{
@@ -86,7 +86,7 @@ public class BlockVoidaicAltar extends BlockBaseGeneric
 					player.inventory.addItemStackToInventory(altar.handler.getStackInSlot(0));
 				}
 			}
-			else if(player.getHeldItem(hand).getItem() == ModItems.WHITEWOOD_STAFF)
+			else if(player.getHeldItem(hand).getItem() == ModItems.UNDERWOOD_STAFF)
 			{
 				if(!altar.isCasting()) altar.startCasting(player);
 				else altar.stopCasting(true);
