@@ -1,22 +1,17 @@
-package com.camellias.voidaicarcania.core.coremod;
-
-import java.util.Map;
-
-import javax.annotation.Nullable;
+package com.camellias.voidaicarcania.core.mixin.plugin;
 
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
-/**
- * @author Gegy
- * All code below belongs to CrypticMushroom under the GNU General Public License 3.0.
- * https://github.com/Cryptic-Mushroom
- */
+import javax.annotation.Nullable;
+import java.util.Map;
+
+@IFMLLoadingPlugin.MCVersion("1.12.2")
 public class VALoadingPlugin implements IFMLLoadingPlugin
 {
 	@Override
 	public String[] getASMTransformerClass()
 	{
-		return new String[] { "com.camellias.voidaicarcania.core.coremod.transformer.VAClassTransformer" };
+		return new String[0];
 	}
 	
 	@Override
@@ -25,16 +20,17 @@ public class VALoadingPlugin implements IFMLLoadingPlugin
 		return null;
 	}
 	
-	@Nullable
 	@Override
+	@Nullable
 	public String getSetupClass()
 	{
-		return null;
+		return VASetupHook.class.getName();
 	}
 	
 	@Override
 	public void injectData(Map<String, Object> data)
 	{
+		
 	}
 	
 	@Override

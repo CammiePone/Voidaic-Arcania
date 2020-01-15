@@ -1,29 +1,20 @@
-buildscript
-{
-    repositories
-    {
+buildscript {
+    repositories {
         jcenter()
-        maven { url = "https://files.minecraftforge.net/maven" }
-	maven {
-            name = 'sponge'
-            url = 'https://repo.spongepowered.org/maven'
-        }
-	maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        maven { url = "http://files.minecraftforge.net/maven" }
+        maven { url = 'https://repo.spongepowered.org/maven' }
     }
-    dependencies
-    {
+    dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-	classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: "org.spongepowered.mixin"
+apply plugin: 'org.spongepowered.mixin'
 
 version = "1.0"
-group = "com.yourname.modid"
-archivesBaseName = "modid"
+group = "com.camellias.voidaicarcania"
+archivesBaseName = "voidaicarcania"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava
@@ -33,10 +24,13 @@ compileJava
 
 minecraft
 {
-    version = "1.12.2-14.23.5.2838"
+    version = "1.12.2-14.23.5.2768"
     runDir = "run"
-    
+
     mappings = "stable_39"
+
+    clientJvmArgs += "-Dfml.coreMods.load=com.camellias.voidaicarcania.core.mixin.plugin.VALoadingPlugin"
+    serverJvmArgs += "-Dfml.coreMods.load=com.camellias.voidaicarcania.core.mixin.plugin.VALoadingPlugin"
 }
 
 repositories
@@ -52,77 +46,76 @@ repositories
     {
 	url = "https://maven.blamejared.com"
     }
-
     maven
     {
         url = "https://minecraft.curseforge.com/api/maven/"
     }
-
     maven
     {
         name = "Progwml6 maven"
         url = "http://dvs1.progwml6.com/files/maven"
     }
-
     maven
     {
         name = "ModMaven"
         url = "modmaven.k-4u.nl"
     }
-
-    maven {
-        name = "sponge"
-        url = "https://repo.spongepowered.org/maven/"
+    maven
+    {
+	url = 'https://repo.spongepowered.org/maven'
     }
 }
 
+mixin {
+    add sourceSets.main, "mixins.voidaicarcania.refmap.json"
+}
+
 configurations {
-    embed
-    compile.extendsFrom(embed)
-    compileOnly.transitive = false
+    shade
+    compile.extendsFrom shade
 }
 
 dependencies
 {
+    shade('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
+        transitive = false
+    }
     deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
     deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.9.6"
-
     deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
-
     compile "thaumcraft:Thaumcraft:1.12.2:6.1.BETA26"
+}
 
-    compileOnly 'org.spongepowered:spongeforge:1.12.2-2838-7.1.7-RC3881:dev'
-
-    embed('org.spongepowered:mixin:0.7.11-SNAPSHOT')
-    {
-        ['gson','guava','commons-io'].each
-	{
-            exclude module: it
+jar {
+    classifier = 'universal'
+    manifest.attributes(
+            'FMLCorePlugin': 'com.camellias.voidaicarcania.core.mixin.plugin.VALoadingPlugin',
+            'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+            'MixinConfigs': 'mixins.voidaicarcania.json',
+            'FMLCorePluginContainsFMLMod': 'true',
+            'ForceLoadAsMod': 'true'
+    )
+    configurations.shade.each { dep ->
+        from(project.zipTree(dep)) {
+            rename 'LICENSE.txt', 'org/spongepowered/LICENSE.txt'
+            exclude 'META-INF/*.SF'
+            exclude 'META-INF/*.RSA'
+            exclude 'META-INF/*.MF'
+            exclude '**/*.html'
         }
-        exclude module: 'launchwrapper'
     }
 }
 
-processResources
-{
+processResources {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
-}
 
-sourceSets
-{
-    main
-    {
-        refMap = "mixins.voidaicarcania.refmap.json"
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-}
-
-jar
-{
-    manifest.attributes(
-        'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
-        'MixinConfigs': 'mixins.blockphysics.json',
-        'FMLCorePluginContainsFMLMod': 'true',
-    )
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
 }

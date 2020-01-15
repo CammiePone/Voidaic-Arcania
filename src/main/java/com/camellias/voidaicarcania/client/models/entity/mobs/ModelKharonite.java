@@ -192,14 +192,15 @@ public class ModelKharonite extends ModelBase
     }
     
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    { 
-        this.bipedLeftLeg.render(f5);
-        this.bipedBody.render(f5);
-        this.bipedRightLeg.render(f5);
-        this.bipedRightArm.render(f5);
-        this.bipedLeftArm.render(f5);
-        this.bipedHead.render(f5);
+    public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+    {
+    	super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        this.bipedLeftLeg.render(scale);
+        this.bipedBody.render(scale);
+        this.bipedRightLeg.render(scale);
+        this.bipedRightArm.render(scale);
+        this.bipedLeftArm.render(scale);
+        this.bipedHead.render(scale);
     }
     
     @Override

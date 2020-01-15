@@ -1,11 +1,18 @@
 {
-    "required": true,
-    "package": "com.camellias.voidaicarcania.core.mixins",
-    "refmap": "mixins.voidaicarcania.refmap.json",
-    "compatibilityLevel": "JAVA_8",
-    "minVersion": "0.6.0",
-    "mixin":
-    [
-        "ModelPlayerMixin"
-    ]
+  "required": true,
+  "package": "com.camellias.voidaicarcania.core.mixin",
+  "minVersion": "0.7.11",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mixins.voidaicarcania.refmap.json",
+  "mixins": [
+    
+  ],
+  "client": [
+    "MixinPlayerModel",
+    "MixinVoidReverb",
+    "IAccessorAnimationMetadata"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

@@ -1,6 +1,7 @@
 package com.camellias.voidaicarcania.core.handlers;
 
 import com.camellias.voidaicarcania.Reference;
+import com.camellias.voidaicarcania.core.mixin.IAccessorAnimationMetadata;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -18,7 +19,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EventHandler
-{
+{	
 	@SubscribeEvent
 	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
 	{
@@ -75,20 +76,20 @@ public class EventHandler
 		{
 			++this.tickCounter;
 			
-			if(this.tickCounter >= this.animationMetadata.getFrameTimeSingle(this.frameCounter))
+			if(this.tickCounter >= ((IAccessorAnimationMetadata) this).getMetadata().getFrameTimeSingle(this.frameCounter))
 			{
-				int i = this.animationMetadata.getFrameIndex(this.frameCounter);
-				int j = this.animationMetadata.getFrameCount() == 0 ? this.framesTextureData.size() : this.animationMetadata.getFrameCount();
+				int i = ((IAccessorAnimationMetadata) this).getMetadata().getFrameIndex(this.frameCounter);
+				int j = ((IAccessorAnimationMetadata) this).getMetadata().getFrameCount() == 0 ? this.framesTextureData.size() : ((IAccessorAnimationMetadata) this).getMetadata().getFrameCount();
 				this.frameCounter = (this.frameCounter + 1) % j;
 				this.tickCounter = 0;
-				int k = this.animationMetadata.getFrameIndex(this.frameCounter);
+				int k = ((IAccessorAnimationMetadata) this).getMetadata().getFrameIndex(this.frameCounter);
 				
 				if(i != k && k >= 0 && k < this.framesTextureData.size())
 				{
 					TextureUtil.uploadTextureMipmap(this.framesTextureData.get(k), this.width, this.height, this.originX, this.originY, false, false);
 				}
 			}
-			else if(this.animationMetadata.isInterpolate())
+			else if(((IAccessorAnimationMetadata) this).getMetadata().isInterpolate())
 			{
 				this.updateAnimationInterpolated();
 			}
@@ -96,10 +97,10 @@ public class EventHandler
 		
 		private void updateAnimationInterpolated()
 		{
-			double d0 = 1.0D - (double)this.tickCounter / (double)this.animationMetadata.getFrameTimeSingle(this.frameCounter);
-			int i = this.animationMetadata.getFrameIndex(this.frameCounter);
-			int j = this.animationMetadata.getFrameCount() == 0 ? this.framesTextureData.size() : this.animationMetadata.getFrameCount();
-			int k = this.animationMetadata.getFrameIndex((this.frameCounter + 1) % j);
+			double d0 = 1.0D - (double)this.tickCounter / (double)((IAccessorAnimationMetadata) this).getMetadata().getFrameTimeSingle(this.frameCounter);
+			int i = ((IAccessorAnimationMetadata) this).getMetadata().getFrameIndex(this.frameCounter);
+			int j = ((IAccessorAnimationMetadata) this).getMetadata().getFrameCount() == 0 ? this.framesTextureData.size() : ((IAccessorAnimationMetadata) this).getMetadata().getFrameCount();
+			int k = ((IAccessorAnimationMetadata) this).getMetadata().getFrameIndex((this.frameCounter + 1) % j);
 
 			if(i != k && k >= 0 && k < this.framesTextureData.size())
 			{
