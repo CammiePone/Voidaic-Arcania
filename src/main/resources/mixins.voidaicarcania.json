@@ -1,0 +1,11 @@
+{
+    "required": true,
+    "package": "com.camellias.voidaicarcania.core.mixins",
+    "refmap": "mixins.voidaicarcania.refmap.json",
+    "compatibilityLevel": "JAVA_8",
+    "minVersion": "0.6.0",
+    "mixin":
+    [
+        "ModelPlayerMixin"
+    ]
+}
