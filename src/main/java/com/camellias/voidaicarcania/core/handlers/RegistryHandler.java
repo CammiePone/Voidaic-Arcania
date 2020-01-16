@@ -106,7 +106,7 @@ public class RegistryHandler
 		
 		if(event.getSide() == Side.CLIENT)
 		{
-			MinecraftForge.EVENT_BUS.register(OverlayRenderer.instance);
+			MinecraftForge.EVENT_BUS.register(new OverlayRenderer());
 			RenderingRegistry.registerEntityRenderingHandler(EntityVoidWraith.class, RenderVoidWraith::new);
 			RenderingRegistry.registerEntityRenderingHandler(EntityKharonite.class, RenderKharonite::new);
 		}

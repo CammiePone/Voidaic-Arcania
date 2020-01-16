@@ -9,6 +9,7 @@
   ],
   "client": [
     "MixinPlayerModel",
+    "MixinRenderPlayer",
     "MixinVoidReverb",
     "IAccessorAnimationMetadata"
   ],

@@ -1,13 +1,12 @@
 package com.camellias.voidaicarcania.client.models.entity.mobs;
 
-import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelKharonite extends ModelBase
+public class ModelKharonite extends ModelBiped
 {
-	public ModelRenderer bipedHead;
     public ModelRenderer RightHornBottom;
     public ModelRenderer LeftHornBottom;
     public ModelRenderer RightHornTop1;
@@ -15,7 +14,6 @@ public class ModelKharonite extends ModelBase
     public ModelRenderer LeftHornTop1;
     public ModelRenderer LeftHornTop2;
     
-    public ModelRenderer bipedBody;
     public ModelRenderer BackCrystalBase1;
     public ModelRenderer BackCrystalBase2;
     public ModelRenderer BackCrystal1;
@@ -23,20 +21,15 @@ public class ModelKharonite extends ModelBase
     public ModelRenderer BackCrystal3;
     public ModelRenderer BackCrystal4;
     
-    public ModelRenderer bipedRightArm;
     public ModelRenderer RightArmCrystalBottom;
     public ModelRenderer RightArmCrystal3;
     public ModelRenderer RightArmCrystalTop1;
     public ModelRenderer RightArmCrystalTop2;
     
-    public ModelRenderer bipedLeftArm;
     public ModelRenderer LeftArmCrystalBottom;
     public ModelRenderer LeftArmCrystal3;
     public ModelRenderer LeftArmCrystalTop;
     public ModelRenderer LeftArmCrystalTop2;
-    
-    public ModelRenderer bipedRightLeg;
-    public ModelRenderer bipedLeftLeg;
     
     public ModelKharonite()
     {
@@ -194,7 +187,7 @@ public class ModelKharonite extends ModelBase
     @Override
     public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
-    	super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    	this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
         this.bipedLeftLeg.render(scale);
         this.bipedBody.render(scale);
         this.bipedRightLeg.render(scale);
@@ -204,17 +197,14 @@ public class ModelKharonite extends ModelBase
     }
     
     @Override
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
-    		float headPitch, float scaleFactor, Entity entityIn)
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
     {
-    	this.bipedLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-    	this.bipedRightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-    	
-    	this.bipedLeftArm.rotateAngleX = MathHelper.cos(limbSwing * 0.3331F) * 1.4F * limbSwingAmount;
-    	this.bipedRightArm.rotateAngleX = MathHelper.cos(limbSwing * 0.3331F + (float)Math.PI) * 1.4F * limbSwingAmount;
-    	
-    	this.bipedHead.rotateAngleY = netHeadYaw * 0.017453292F;
-    	this.bipedHead.rotateAngleX = headPitch * 0.017453292F;
+    	super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+    	this.bipedHead.setRotationPoint(0.0F, 0.5F, -1.9F);
+		this.bipedBody.setRotationPoint(0.0F, 0.3F, -1.9F);
+		this.bipedRightArm.setRotationPoint(-4.85F, 1.95F, -1.9F);
+		this.bipedLeftArm.setRotationPoint(4.85F, 1.95F, -1.9F);
+		this.bipedBody.rotateAngleX = 0.175F;
     }
     
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)

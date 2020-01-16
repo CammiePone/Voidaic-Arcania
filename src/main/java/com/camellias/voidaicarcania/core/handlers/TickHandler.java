@@ -3,12 +3,9 @@ package com.camellias.voidaicarcania.core.handlers;
 import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
 import com.camellias.voidaicarcania.api.capabilities.Corruption.ICorruption;
 import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
-import com.camellias.voidaicarcania.client.particles.VoidEssenceParticle;
-import com.camellias.voidaicarcania.common.tileentities.altar.TileVoidaicAltar;
 import com.camellias.voidaicarcania.core.network.NetworkHandler;
 import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
 import com.camellias.voidaicarcania.core.network.packets.PressKeyMessage;
-import com.camellias.voidaicarcania.core.network.packets.SpawnVoidEssenceParticle;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -19,7 +16,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -90,7 +86,10 @@ public class TickHandler
 							int chunkVE = chunk.getCapability(EssenceProvider.essenceCapability, null).getEssence();
 							int chunkVC = chunk.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
 							int playerVC = player.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
-							NetworkHandler.INSTANCE.sendTo(new OverlayMessage(chunkVE, chunkVC, playerVC), (EntityPlayerMP) player);
+							
+							NetworkHandler.INSTANCE.sendTo(new OverlayMessage(player.getCapability(CorruptionProvider.corruptionCapability, null).saveNBT(),
+									chunk.getCapability(EssenceProvider.essenceCapability, null).saveNBT(),
+									chunk.getCapability(CorruptionProvider.corruptionCapability, null).saveNBT()), (EntityPlayerMP) player);
 							
 							if(player.dimension == -64)
 							{

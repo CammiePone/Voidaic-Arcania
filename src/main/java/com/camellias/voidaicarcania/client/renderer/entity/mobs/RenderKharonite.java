@@ -21,6 +21,6 @@ public class RenderKharonite extends RenderLiving<EntityKharonite>
 	@Override
 	public ResourceLocation getEntityTexture(EntityKharonite entity)
 	{
-		return new ResourceLocation(Reference.MODID + ":textures/entity/void_crawler.png");
+		return new ResourceLocation(Reference.MODID + ":textures/entity/kharonite.png");
 	}
 }
