@@ -68,7 +68,6 @@ public class HangingLanternFeature  extends WorldGenAbstractTree
 					//Leaves
 					BlockPos pos1 = pos0;
 					int leafY = pos1.getY() - treeHeight;
-					System.out.println(leafY);
 					
 					pos1 = new BlockPos(x, leafY - 1, z);
 					this.placeLeafAt(world, pos1);

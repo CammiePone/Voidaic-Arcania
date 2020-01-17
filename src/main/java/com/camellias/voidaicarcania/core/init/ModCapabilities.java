@@ -2,15 +2,15 @@ package com.camellias.voidaicarcania.core.init;
 
 import java.util.concurrent.Callable;
 
-import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionStorage;
-import com.camellias.voidaicarcania.api.capabilities.Corruption.DefaultCorruptionCapability;
-import com.camellias.voidaicarcania.api.capabilities.Corruption.ICorruption;
-import com.camellias.voidaicarcania.api.capabilities.Essence.DefaultEssenceCapability;
-import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceStorage;
-import com.camellias.voidaicarcania.api.capabilities.Essence.IEssence;
-import com.camellias.voidaicarcania.api.capabilities.Infused.DefaultInfusedCapability;
-import com.camellias.voidaicarcania.api.capabilities.Infused.IInfused;
-import com.camellias.voidaicarcania.api.capabilities.Infused.InfusedStorage;
+import com.camellias.voidaicarcania.api.capabilities.corruption.chunk.ChunkCorruptionStorage;
+import com.camellias.voidaicarcania.api.capabilities.corruption.chunk.DefaultChunkCorruptionCapability;
+import com.camellias.voidaicarcania.api.capabilities.corruption.chunk.IChunkCorruption;
+import com.camellias.voidaicarcania.api.capabilities.essence.DefaultEssenceCapability;
+import com.camellias.voidaicarcania.api.capabilities.essence.EssenceStorage;
+import com.camellias.voidaicarcania.api.capabilities.essence.IEssence;
+import com.camellias.voidaicarcania.api.capabilities.infused.DefaultInfusedCapability;
+import com.camellias.voidaicarcania.api.capabilities.infused.IInfused;
+import com.camellias.voidaicarcania.api.capabilities.infused.InfusedStorage;
 
 import net.minecraftforge.common.capabilities.CapabilityManager;
 
@@ -20,7 +20,7 @@ public class ModCapabilities
 	{
 		CapabilityManager.INSTANCE.register(IEssence.class, new EssenceStorage(), new ItemCapabilityFactory());
 		CapabilityManager.INSTANCE.register(IInfused.class, new InfusedStorage(), new InfusedCapabilityFactory());
-		CapabilityManager.INSTANCE.register(ICorruption.class, new CorruptionStorage(), new CorruptionCapabilityFactory());
+		CapabilityManager.INSTANCE.register(IChunkCorruption.class, new ChunkCorruptionStorage(), new CorruptionCapabilityFactory());
 	}
 
 	private static class ItemCapabilityFactory implements Callable<IEssence>
@@ -40,13 +40,13 @@ public class ModCapabilities
 			return new DefaultInfusedCapability();
 		}
 	}
-
-	private static class CorruptionCapabilityFactory implements Callable<ICorruption>
+	
+	private static class CorruptionCapabilityFactory implements Callable<IChunkCorruption>
 	{
 		@Override
-		public ICorruption call() throws Exception
+		public IChunkCorruption call() throws Exception
 		{
-			return new DefaultCorruptionCapability();
+			return new DefaultChunkCorruptionCapability();
 		}
 	}
 }

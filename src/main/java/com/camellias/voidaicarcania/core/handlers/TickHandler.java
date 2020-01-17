@@ -1,11 +1,11 @@
 package com.camellias.voidaicarcania.core.handlers;
 
-import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
-import com.camellias.voidaicarcania.api.capabilities.Corruption.ICorruption;
-import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
+import com.camellias.voidaicarcania.api.capabilities.corruption.chunk.ChunkCorruptionProvider;
+import com.camellias.voidaicarcania.api.capabilities.corruption.player.PlayerCorruptionCapability;
+import com.camellias.voidaicarcania.api.capabilities.essence.EssenceProvider;
 import com.camellias.voidaicarcania.core.network.NetworkHandler;
-import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
 import com.camellias.voidaicarcania.core.network.packets.PressKeyMessage;
+import com.camellias.voidaicarcania.core.network.packets.SyncDataMessage;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -55,9 +55,9 @@ public class TickHandler
 			{
 				Chunk chunk = world.getChunk(player.getPosition());
 				
-				if(player.hasCapability(CorruptionProvider.corruptionCapability, null))
+				if(player.hasCapability(PlayerCorruptionCapability.CAPABILITY, null))
 				{
-					ICorruption corruption = player.getCapability(CorruptionProvider.corruptionCapability, null);
+					PlayerCorruptionCapability corruption = player.getCapability(PlayerCorruptionCapability.CAPABILITY, null);
 					
 					if(corruption.isCorrupted())
 					{
@@ -81,15 +81,10 @@ public class TickHandler
 					if(player.ticksExisted % 20 == 0)
 					{
 						if(chunk.hasCapability(EssenceProvider.essenceCapability, null) && 
-								chunk.hasCapability(CorruptionProvider.corruptionCapability, null))
+								chunk.hasCapability(ChunkCorruptionProvider.corruptionCapability, null))
 						{
-							int chunkVE = chunk.getCapability(EssenceProvider.essenceCapability, null).getEssence();
-							int chunkVC = chunk.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
-							int playerVC = player.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
-							
-							NetworkHandler.INSTANCE.sendTo(new OverlayMessage(player.getCapability(CorruptionProvider.corruptionCapability, null).saveNBT(),
-									chunk.getCapability(EssenceProvider.essenceCapability, null).saveNBT(),
-									chunk.getCapability(CorruptionProvider.corruptionCapability, null).saveNBT()), (EntityPlayerMP) player);
+							NetworkHandler.INSTANCE.sendTo(new SyncDataMessage(chunk.getCapability(EssenceProvider.essenceCapability, null).saveNBT(),
+									chunk.getCapability(ChunkCorruptionProvider.corruptionCapability, null).saveNBT()), (EntityPlayerMP) player);
 							
 							if(player.dimension == -64)
 							{

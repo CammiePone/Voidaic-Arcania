@@ -1,7 +1,7 @@
 package com.camellias.voidaicarcania.core.network;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.core.network.packets.OverlayMessage;
+import com.camellias.voidaicarcania.core.network.packets.SyncDataMessage;
 import com.camellias.voidaicarcania.core.network.packets.PressKeyMessage;
 
 import com.camellias.voidaicarcania.core.network.packets.SpawnVoidEssenceParticle;
@@ -24,7 +24,7 @@ public class NetworkHandler
 		INSTANCE.registerMessage(PressKeyMessage.PacketHandler.class, PressKeyMessage.class, next(), Side.SERVER);
 		INSTANCE.registerMessage(PressKeyMessage.PacketHandler.class, PressKeyMessage.class, next(), Side.CLIENT);
 		
-		INSTANCE.registerMessage(OverlayMessage.PacketHandler.class, OverlayMessage.class, next(), Side.CLIENT);
+		INSTANCE.registerMessage(SyncDataMessage.PacketHandler.class, SyncDataMessage.class, next(), Side.CLIENT);
 		
 		INSTANCE.registerMessage(SpawnVoidEssenceParticle.Handler.class, SpawnVoidEssenceParticle.class, next(), Side.CLIENT);
 	}

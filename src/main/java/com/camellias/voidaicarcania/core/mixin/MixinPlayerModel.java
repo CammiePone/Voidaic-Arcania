@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
+import com.camellias.voidaicarcania.api.capabilities.corruption.player.PlayerCorruptionCapability;
 
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.entity.Entity;
@@ -23,7 +23,7 @@ public abstract class MixinPlayerModel
 		{
 			EntityPlayer player = (EntityPlayer) entityIn;
 			
-			if(entityIn.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption() >= maxPlayerCorruption)
+			if(entityIn.getCapability(PlayerCorruptionCapability.CAPABILITY, null).getCorruption() >= maxPlayerCorruption)
 			{
 				Object obj = this;
 				

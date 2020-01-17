@@ -1,8 +1,9 @@
 package com.camellias.voidaicarcania.client.renderer.hud;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
-import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
+import com.camellias.voidaicarcania.api.capabilities.corruption.chunk.ChunkCorruptionProvider;
+import com.camellias.voidaicarcania.api.capabilities.corruption.player.PlayerCorruptionCapability;
+import com.camellias.voidaicarcania.api.capabilities.essence.EssenceProvider;
 import com.camellias.voidaicarcania.core.init.ModItems;
 
 import net.minecraft.client.Minecraft;
@@ -51,9 +52,9 @@ public class OverlayRenderer
 		
 		GuiIngame ingame = new GuiIngame(mc);
 		
-		this.playerCorruption = mc.player.getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
+		this.playerCorruption = mc.player.getCapability(PlayerCorruptionCapability.CAPABILITY, null).getCorruption();
 		this.chunkEssence = mc.player.world.getChunk(mc.player.getPosition()).getCapability(EssenceProvider.essenceCapability, null).getEssence();
-		this.chunkCorruption = mc.player.world.getChunk(mc.player.getPosition()).getCapability(CorruptionProvider.corruptionCapability, null).getCorruption();
+		this.chunkCorruption = mc.player.world.getChunk(mc.player.getPosition()).getCapability(ChunkCorruptionProvider.corruptionCapability, null).getCorruption();
 		
 		GlStateManager.disableLighting();
 		GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);

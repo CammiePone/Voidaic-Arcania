@@ -1,5 +1,7 @@
 package com.camellias.voidaicarcania.core.handlers;
 
+import com.camellias.voidaicarcania.Reference;
+import com.camellias.voidaicarcania.api.capabilities.corruption.player.PlayerCorruptionCapability;
 import com.camellias.voidaicarcania.api.registry.VoidEssenceList;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
 import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderKharonite;
@@ -32,6 +34,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import zabi.minecraft.minerva.common.capability.SimpleCapability;
 
 @EventBusSubscriber
 public class RegistryHandler
@@ -90,6 +93,7 @@ public class RegistryHandler
 		VoidaicAltarRecipes.INSTANCE.init();
 		
 		NetworkHandler.init();
+		SimpleCapability.preInit(PlayerCorruptionCapability.class);
 		ModCapabilities.init();
 		ModBiomes.registerBiome();
 		ModDimensions.registerDimension();
@@ -114,6 +118,7 @@ public class RegistryHandler
 	
 	public static void initRegistries()
 	{
+		SimpleCapability.init(PlayerCorruptionCapability.class, Reference.MODID, PlayerCorruptionCapability.CAPABILITY, PlayerCorruptionCapability.DEFAULT_INSTANCE);
 		VoidEssenceList.init();
 	}
 }

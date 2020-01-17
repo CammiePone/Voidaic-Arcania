@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.Random;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
-import com.camellias.voidaicarcania.api.capabilities.Corruption.DefaultCorruptionCapability;
-import com.camellias.voidaicarcania.api.capabilities.Corruption.ICorruption;
-import com.camellias.voidaicarcania.api.capabilities.Essence.DefaultEssenceCapability;
-import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
-import com.camellias.voidaicarcania.api.capabilities.Essence.IEssence;
-import com.camellias.voidaicarcania.api.capabilities.Infused.DefaultInfusedCapability;
-import com.camellias.voidaicarcania.api.capabilities.Infused.IInfused;
-import com.camellias.voidaicarcania.api.capabilities.Infused.InfusedProvider;
+import com.camellias.voidaicarcania.api.capabilities.corruption.chunk.ChunkCorruptionProvider;
+import com.camellias.voidaicarcania.api.capabilities.corruption.chunk.DefaultChunkCorruptionCapability;
+import com.camellias.voidaicarcania.api.capabilities.corruption.chunk.IChunkCorruption;
+import com.camellias.voidaicarcania.api.capabilities.essence.DefaultEssenceCapability;
+import com.camellias.voidaicarcania.api.capabilities.essence.EssenceProvider;
+import com.camellias.voidaicarcania.api.capabilities.essence.IEssence;
+import com.camellias.voidaicarcania.api.capabilities.infused.DefaultInfusedCapability;
+import com.camellias.voidaicarcania.api.capabilities.infused.IInfused;
+import com.camellias.voidaicarcania.api.capabilities.infused.InfusedProvider;
 import com.camellias.voidaicarcania.api.registry.VoidEssenceList;
 import com.camellias.voidaicarcania.core.util.ItemStackWrapper;
 
@@ -26,8 +26,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.world.ChunkEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -48,14 +46,6 @@ public class CapabilitiesHandler
 				boolean isInfused = false;
 				IInfused infused = new DefaultInfusedCapability(isInfused);
 				event.addCapability(new ResourceLocation(Reference.MODID, "Infused"), new InfusedProvider(infused));
-			}
-
-			if(!entity.hasCapability(CorruptionProvider.corruptionCapability, null))
-			{
-				int amount = 0;
-				boolean corrupted = false;
-				ICorruption corruption = new DefaultCorruptionCapability(amount, corrupted);
-				event.addCapability(new ResourceLocation(Reference.MODID, "PlayerCorruption"), new CorruptionProvider(corruption));
 			}
 			
 			if(!event.getObject().hasCapability(EssenceProvider.essenceCapability, null))
@@ -99,12 +89,12 @@ public class CapabilitiesHandler
 			event.addCapability(new ResourceLocation(Reference.MODID, "ChunkEssence"), new EssenceProvider(chunkEssence));
 		}
 		
-		if(!chunk.hasCapability(CorruptionProvider.corruptionCapability, null))
+		if(!chunk.hasCapability(ChunkCorruptionProvider.corruptionCapability, null))
 		{
 			int amount = rand.nextInt(1001);
 			boolean corrupted = false;
-			ICorruption corruption = new DefaultCorruptionCapability(amount, corrupted);
-			event.addCapability(new ResourceLocation(Reference.MODID, "ChunkCorruption"), new CorruptionProvider(corruption));
+			IChunkCorruption corruption = new DefaultChunkCorruptionCapability(amount, corrupted);
+			event.addCapability(new ResourceLocation(Reference.MODID, "ChunkCorruption"), new ChunkCorruptionProvider(corruption));
 		}
 	}
 	

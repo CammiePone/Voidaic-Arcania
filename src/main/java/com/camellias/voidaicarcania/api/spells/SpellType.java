@@ -3,9 +3,9 @@ package com.camellias.voidaicarcania.api.spells;
 import javax.annotation.Nullable;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
-import com.camellias.voidaicarcania.api.capabilities.Essence.IEssence;
-import com.camellias.voidaicarcania.api.capabilities.Infused.InfusedProvider;
+import com.camellias.voidaicarcania.api.capabilities.essence.EssenceProvider;
+import com.camellias.voidaicarcania.api.capabilities.essence.IEssence;
+import com.camellias.voidaicarcania.api.capabilities.infused.InfusedProvider;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;

@@ -3,8 +3,8 @@ package com.camellias.voidaicarcania.common.tileentities.altar;
 import javax.annotation.Nullable;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
-import com.camellias.voidaicarcania.api.capabilities.Essence.IEssence;
+import com.camellias.voidaicarcania.api.capabilities.essence.EssenceProvider;
+import com.camellias.voidaicarcania.api.capabilities.essence.IEssence;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipeHelper;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
 import com.camellias.voidaicarcania.core.init.ModBlocks;

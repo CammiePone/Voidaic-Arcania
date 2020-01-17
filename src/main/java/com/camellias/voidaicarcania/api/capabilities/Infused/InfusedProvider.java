@@ -1,4 +1,4 @@
-package com.camellias.voidaicarcania.api.capabilities.Infused;
+package com.camellias.voidaicarcania.api.capabilities.infused;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;

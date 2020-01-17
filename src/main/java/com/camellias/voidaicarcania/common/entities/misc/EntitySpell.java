@@ -2,8 +2,8 @@ package com.camellias.voidaicarcania.common.entities.misc;
 
 import java.util.Random;
 
-import com.camellias.voidaicarcania.api.capabilities.Essence.EssenceProvider;
-import com.camellias.voidaicarcania.api.capabilities.Essence.IEssence;
+import com.camellias.voidaicarcania.api.capabilities.essence.EssenceProvider;
+import com.camellias.voidaicarcania.api.capabilities.essence.IEssence;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
