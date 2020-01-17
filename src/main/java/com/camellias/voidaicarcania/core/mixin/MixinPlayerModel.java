@@ -7,7 +7,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.camellias.voidaicarcania.api.capabilities.Corruption.CorruptionProvider;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,6 +36,18 @@ public abstract class MixinPlayerModel
 					model.bipedRightArm.setRotationPoint(-5.0F, 2.3F, -2.0F);
 					model.bipedLeftArm.setRotationPoint(5.0F, 2.3F, -2.0F);
 					model.bipedBody.rotateAngleX = 0.175F;
+					
+					if(model.isSneak)
+					{
+						model.bipedBody.rotateAngleX = 0.5F;
+						model.bipedRightArm.rotateAngleX += 0.4F;
+						model.bipedLeftArm.rotateAngleX += 0.4F;
+						model.bipedRightLeg.rotationPointZ = 4.0F;
+						model.bipedLeftLeg.rotationPointZ = 4.0F;
+						model.bipedRightLeg.rotationPointY = 9.0F;
+						model.bipedLeftLeg.rotationPointY = 9.0F;
+						model.bipedHead.rotationPointY = 1.0F;
+					}
 				}
 			}
 		}

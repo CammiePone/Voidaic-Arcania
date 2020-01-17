@@ -2,8 +2,8 @@ package com.camellias.voidaicarcania.client.models.entity.mobs;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 public class ModelKharonite extends ModelBiped
 {
@@ -35,7 +35,6 @@ public class ModelKharonite extends ModelBiped
 	{
 		this.textureWidth = 64;
 		this.textureHeight = 96;
-		System.out.println("Is Alex: " + isAlex);
 		
 		this.BackCrystal2 = new ModelRenderer(this, 14, 57);
 		this.BackCrystal2.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -235,9 +234,10 @@ public class ModelKharonite extends ModelBiped
 	}
 	
 	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
+		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
+		
 		this.bipedLeftLeg.render(scale);
 		this.bipedBody.render(scale);
 		this.bipedRightLeg.render(scale);
@@ -255,6 +255,18 @@ public class ModelKharonite extends ModelBiped
 		this.bipedRightArm.setRotationPoint(-5.0F, 2.3F, -2.0F);
 		this.bipedLeftArm.setRotationPoint(5.0F, 2.3F, -2.0F);
 		this.bipedBody.rotateAngleX = 0.175F;
+		
+		if(this.isSneak)
+		{
+			this.bipedBody.rotateAngleX = 0.5F;
+			this.bipedRightArm.rotateAngleX += 0.4F;
+			this.bipedLeftArm.rotateAngleX += 0.4F;
+			this.bipedRightLeg.rotationPointZ = 4.0F;
+			this.bipedLeftLeg.rotationPointZ = 4.0F;
+			this.bipedRightLeg.rotationPointY = 9.0F;
+			this.bipedLeftLeg.rotationPointY = 9.0F;
+			this.bipedHead.rotationPointY = 1.0F;
+		}
 	}
 	
 	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
