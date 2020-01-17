@@ -1,8 +1,8 @@
 package com.camellias.voidaicarcania.core.handlers;
 
 import com.camellias.voidaicarcania.Reference;
-import com.camellias.voidaicarcania.client.renderer.tileentity.TileWhitewoodPedestalRenderer;
 import com.camellias.voidaicarcania.client.renderer.tileentity.TileRiftRenderer;
+import com.camellias.voidaicarcania.client.renderer.tileentity.TileWhitewoodPedestalRenderer;
 import com.camellias.voidaicarcania.common.tileentities.altar.TileWhitewoodPedestal;
 import com.camellias.voidaicarcania.common.tileentities.misc.TileRift;
 

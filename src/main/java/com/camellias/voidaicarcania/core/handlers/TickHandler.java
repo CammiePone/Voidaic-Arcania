@@ -73,7 +73,7 @@ public class TickHandler
 							}
 							if(corruption.getCorruption() >= 900)
 							{
-								player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 45, 1, true, false));
+								player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 45, 0, true, false));
 							}
 						}
 					}

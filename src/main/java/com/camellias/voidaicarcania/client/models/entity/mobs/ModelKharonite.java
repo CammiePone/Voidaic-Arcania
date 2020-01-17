@@ -250,6 +250,14 @@ public class ModelKharonite extends ModelBiped
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
 	{
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+		
+		this.bipedBody.offsetY = 0F;
+		this.bipedHead.offsetY = 0F;
+		this.bipedRightArm.offsetY = 0F;
+		this.bipedLeftArm.offsetY = 0F;
+		this.bipedRightLeg.offsetY = 0F;
+		this.bipedLeftLeg.offsetY = 0F;
+		
 		this.bipedHead.setRotationPoint(0.0F, 0.5F, -2.0F);
 		this.bipedBody.setRotationPoint(0.0F, 0.3F, -2.0F);
 		this.bipedRightArm.setRotationPoint(-5.0F, 2.3F, -2.0F);
@@ -258,6 +266,13 @@ public class ModelKharonite extends ModelBiped
 		
 		if(this.isSneak)
 		{
+			this.bipedBody.offsetY = 0.2F;
+			this.bipedHead.offsetY = 0.2F;
+			this.bipedRightArm.offsetY = 0.2F;
+			this.bipedLeftArm.offsetY = 0.2F;
+			this.bipedRightLeg.offsetY = 0.2F;
+			this.bipedLeftLeg.offsetY = 0.2F;
+			
 			this.bipedBody.rotateAngleX = 0.5F;
 			this.bipedRightArm.rotateAngleX += 0.4F;
 			this.bipedLeftArm.rotateAngleX += 0.4F;

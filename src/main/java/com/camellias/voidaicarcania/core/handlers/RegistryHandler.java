@@ -104,6 +104,7 @@ public class RegistryHandler
 		MinecraftForge.EVENT_BUS.register(new TickHandler());
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilitiesHandler());
+		MinecraftForge.EVENT_BUS.register(new KharoniteTransformationHandler());
 		
 		Blocks.DRAGON_EGG.setCreativeTab(CreativeTabs.DECORATIONS);
 		Blocks.COMMAND_BLOCK.setCreativeTab(CreativeTabs.REDSTONE);

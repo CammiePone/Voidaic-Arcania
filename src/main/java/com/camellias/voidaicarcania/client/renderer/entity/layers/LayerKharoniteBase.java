@@ -4,6 +4,8 @@ import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.api.capabilities.corruption.player.PlayerCorruptionCapability;
 
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelPlayer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.EntityLivingBase;
@@ -27,10 +29,14 @@ public abstract class LayerKharoniteBase<T extends ModelBiped> implements LayerR
 	{
 		if(entity.getCapability(PlayerCorruptionCapability.CAPABILITY, null).getCorruption() >= maxPlayerCorruption)
 		{
+			GlStateManager.pushMatrix();
+			GlStateManager.enableBlend();
 			this.modelKharonite.setModelAttributes(this.renderer.getMainModel());
 			this.modelKharonite.setLivingAnimations(entity, limbSwing, limbSwingAmount, partialTicks);
 			this.renderer.bindTexture(KHARONITE_SKIN);
 			this.modelKharonite.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			GlStateManager.disableBlend();
+			GlStateManager.popMatrix();
 		}
 	}
 	
