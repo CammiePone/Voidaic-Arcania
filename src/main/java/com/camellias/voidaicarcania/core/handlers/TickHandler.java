@@ -28,7 +28,7 @@ public class TickHandler
 	@SubscribeEvent
 	public void onWorldTick(WorldTickEvent event)
 	{
-		if(event.phase == Phase.START)
+		if(event.phase == Phase.START && !event.world.isRemote)
 		{
 			World world = event.world;
 			

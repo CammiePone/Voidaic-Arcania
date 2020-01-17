@@ -20,7 +20,6 @@ public abstract class LayerKharoniteBase<T extends ModelBiped> implements LayerR
 	public LayerKharoniteBase(RenderLivingBase<?> renderer)
 	{
 		this.renderer = renderer;
-		this.init();
 	}
 	
 	@Override
@@ -32,15 +31,13 @@ public abstract class LayerKharoniteBase<T extends ModelBiped> implements LayerR
 			this.modelKharonite.setModelAttributes(this.renderer.getMainModel());
 			this.modelKharonite.setLivingAnimations(entity, limbSwing, limbSwingAmount, partialTicks);
 			this.renderer.bindTexture(KHARONITE_SKIN);
-			this.modelKharonite.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, 0.065F);
+			this.modelKharonite.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		}
 	}
 	
 	@Override
 	public boolean shouldCombineTextures()
 	{
-		return false;
+		return true;
 	}
-	
-	public abstract void init();
 }

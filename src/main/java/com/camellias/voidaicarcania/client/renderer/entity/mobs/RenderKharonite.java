@@ -15,7 +15,7 @@ public class RenderKharonite extends RenderLiving<EntityKharonite>
 {
 	public RenderKharonite(RenderManager rendermanager)
 	{
-		super(rendermanager, new ModelKharonite(), 0.5F);
+		super(rendermanager, new ModelKharonite(false), 0.5F);
 	}
 	
 	@Override

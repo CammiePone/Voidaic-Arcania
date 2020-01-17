@@ -24,6 +24,6 @@ public abstract class MixinRenderPlayer extends RenderLivingBase<AbstractClientP
 	@Inject(method = "<init>(Lnet/minecraft/client/renderer/entity/RenderManager;Z)V", at = @At("RETURN"))
 	public void renderPlayer(RenderManager renderManager, boolean useSmallArms, CallbackInfo info)
 	{
-		this.addLayer(new LayerKharonite(this));
+		this.addLayer(new LayerKharonite(this, useSmallArms));
 	}
 }

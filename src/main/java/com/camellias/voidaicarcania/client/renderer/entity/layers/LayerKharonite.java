@@ -6,14 +6,9 @@ import net.minecraft.client.renderer.entity.RenderLivingBase;
 
 public class LayerKharonite extends LayerKharoniteBase<ModelKharonite>
 {
-	public LayerKharonite(RenderLivingBase renderer)
+	public LayerKharonite(RenderLivingBase renderer, boolean isAlex)
 	{
 		super(renderer);
-	}
-	
-	@Override
-	public void init()
-	{
-		this.modelKharonite = new ModelKharonite();
+		this.modelKharonite = new ModelKharonite(isAlex);
 	}
 }
