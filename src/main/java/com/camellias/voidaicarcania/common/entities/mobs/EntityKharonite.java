@@ -3,6 +3,7 @@ package com.camellias.voidaicarcania.common.entities.mobs;
 import javax.annotation.Nullable;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -18,6 +19,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
@@ -66,6 +68,12 @@ public class EntityKharonite extends EntityMob
 		return SoundEvents.ENTITY_STRAY_AMBIENT;
 	}
 	
+	@Override
+	public EnumCreatureAttribute getCreatureAttribute()
+	{
+		return EnumCreatureAttribute.UNDEAD;
+	}
+	
 	/*@Nullable
 	protected ResourceLocation getLootTable()
 	{
@@ -88,10 +96,24 @@ public class EntityKharonite extends EntityMob
 	public void onLivingUpdate()
 	{
 		super.onLivingUpdate();
-
-		if (!this.world.isRemote && this.getAttackTarget() == null && this.isAngry())
+		
+		if(!this.world.isRemote)
 		{
-			this.setAngry(false);
+			if(this.world.isDaytime())
+			{
+				float f = this.getBrightness();
+
+	            if(f > 0.5F && this.rand.nextFloat() * 30.0F < (f - 0.4F) * 2.0F &&
+	            		this.world.canSeeSky(new BlockPos(this.posX, this.posY + (double) this.getEyeHeight(), this.posZ)))
+	            {
+	            	this.setFire(8);
+	            }
+			}
+			
+			if(this.getAttackTarget() == null && this.isAngry())
+			{
+				this.setAngry(false);
+			}
 		}
 	}
 	

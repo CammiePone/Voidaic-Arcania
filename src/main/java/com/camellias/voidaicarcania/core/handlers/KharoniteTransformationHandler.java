@@ -3,8 +3,6 @@ package com.camellias.voidaicarcania.core.handlers;
 import java.util.UUID;
 
 import com.camellias.voidaicarcania.api.capabilities.corruption.player.PlayerCorruptionCapability;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -12,7 +10,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
@@ -21,7 +20,7 @@ public class KharoniteTransformationHandler
 {
 	private static AttributeModifier health_attrib = new AttributeModifier(UUID.fromString("ccdec1ff-1a29-4229-9dfa-30f0d6072b4a"), "KHealth", 20, 0);
 	private static AttributeModifier armour_attrib = new AttributeModifier(UUID.fromString("731f0315-7a37-43db-b8d5-493fb9d4cc81"), "KArmour", 10, 0);
-	private static AttributeModifier damage_attrib = new AttributeModifier(UUID.fromString("6cf394bb-b874-4b15-af85-66ef0d885e65"), "KDamage", 3, 0);
+	private static AttributeModifier damage_attrib = new AttributeModifier(UUID.fromString("6cf394bb-b874-4b15-af85-66ef0d885e65"), "KDamage", 4, 0);
 	
 	@SubscribeEvent
 	public void handleAbilities(PlayerTickEvent event)
@@ -29,12 +28,16 @@ public class KharoniteTransformationHandler
 		if(!event.player.world.isRemote)
 		{
 			EntityPlayer player = event.player;
+			World world = player.world;
 			
-			if(!player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty() && event.phase == Phase.START)
+			if(player.isEntityUndead() && world.isDaytime())
 			{
-				if(player.getCapability(PlayerCorruptionCapability.CAPABILITY, null).getCorruption() < 1200)
+				float brightness = player.getBrightness();
+				
+				if(brightness > 0.5F && world.rand.nextFloat() * 30.0F < (brightness - 0.4F) * 2.0F &&
+						world.canSeeSky(new BlockPos(player.posX,player.posY + (double) player.getEyeHeight(), player.posZ)))
 				{
-					player.getCapability(PlayerCorruptionCapability.CAPABILITY, null).setCorruption(player.getCapability(PlayerCorruptionCapability.CAPABILITY, null).getCorruption() + 1);
+					player.setFire(8);
 				}
 			}
 			
