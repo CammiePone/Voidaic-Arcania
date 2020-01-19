@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "mixins.voidaicarcania.refmap.json",
   "mixins": [
-    "MixinEntityPlayer"
+    "MixinEntityLivingBase"
   ],
   "client": [
     "MixinPlayerModel",

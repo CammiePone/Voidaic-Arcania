@@ -45,7 +45,7 @@ public class KharoniteTransformationHandler
 			if(shouldHaveAttribs)
 			{
 				//-----Do Sun Damage-----//
-				if(player.isEntityUndead() && world.isDaytime() && !world.isRaining())
+				if(player.isEntityUndead() && world.isDaytime() && !world.isRaining() && !player.capabilities.isCreativeMode)
 				{
 					float brightness = player.getBrightness();
 					

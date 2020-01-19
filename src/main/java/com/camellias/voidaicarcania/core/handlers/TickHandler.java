@@ -113,39 +113,45 @@ public class TickHandler
 	{
 		EntityPlayer player = event.player;
 		World world = player.world;
+		boolean shouldHaveAttribs = (player.getCapability(PlayerCorruptionCapability.CAPABILITY, null).getCorruption() >= 1200);
 		
 		if(player.dimension == -64)
         {
-			if(!player.isElytraFlying() || !player.capabilities.isFlying)
+			setPlayerFlying(player);
+		}
+		else
+		{
+			if(shouldHaveAttribs)
 			{
-				if(world.isRemote)
-				{
-					GameSettings settings = Minecraft.getMinecraft().gameSettings;
-					KeyBinding jump = settings.keyBindJump;
-					GuiScreen gui = Minecraft.getMinecraft().currentScreen;
-					
-					if(GameSettings.isKeyDown(jump) && gui == null)
-					{
-						NetworkHandler.INSTANCE.sendToAll(new PressKeyMessage(player));
-					}
-				}
-				
-				if(player.isSneaking())
-				{
-					player.motionY = -0.1D;
-				}
-				if((player.motionY <= 0.075D && player.motionY >= -0.08D))
-				{
-					player.motionY = player.motionY / 1.05D;
-				}
-				
-				player.setNoGravity(true);
-				player.jumpMovementFactor *= 1.0F;
-				player.fallDistance = 0.0F;
+				setPlayerFlying(player);
 			}
 			else
 			{
 				player.setNoGravity(false);
+			}
+		}
+	}
+	
+	private void setPlayerFlying(EntityPlayer player)
+	{
+		World world = player.world;
+		
+		if((!player.isElytraFlying() || !player.capabilities.isFlying))
+		{
+			player.setNoGravity(true);
+			player.jumpMovementFactor *= 1.25F;
+			player.fallDistance = 0.0F;
+			
+			if(world.isRemote)
+			{
+				GameSettings settings = Minecraft.getMinecraft().gameSettings;
+				KeyBinding forward = settings.keyBindForward;
+				GuiScreen gui = Minecraft.getMinecraft().currentScreen;
+				
+				if(GameSettings.isKeyDown(forward) && gui == null)
+				{
+					NetworkHandler.INSTANCE.sendToAll(new PressKeyMessage(player));
+				}
 			}
 		}
 		else
