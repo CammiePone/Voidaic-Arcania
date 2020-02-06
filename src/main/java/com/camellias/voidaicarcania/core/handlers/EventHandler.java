@@ -31,7 +31,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EventHandler
 {
-	private boolean shouldRaiseWorld = true;
+	private boolean shouldRaiseWorld = false;
 	
 	@SubscribeEvent
 	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)

@@ -45,7 +45,6 @@ public class EntityVoidWraith extends EntityMob
 	{
 		super(world);
 		this.moveHelper = new EntityVoidWraith.AIMoveControl(this);
-		this.isImmuneToFire = false;
 		
 		this.setSize(1.5F, 0.75F);
 		this.getPositionEyes(0.35F);
