@@ -1,30 +1,76 @@
 package com.camellias.voidaicarcania.core.handlers;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.core.mixin.IAccessorAnimationMetadata;
+import com.camellias.voidaicarcania.core.util.Edit;
+import com.camellias.voidaicarcania.core.util.ScanCallBack;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.texture.TextureUtil;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.PlaySoundAtEntityEvent;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EventHandler
-{	
+{
+	private boolean shouldRaiseWorld = true;
+	
 	@SubscribeEvent
 	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
 	{
 		event.player.sendMessage(new TextComponentString("\u00A75\u00A7l[Voidaic Arcania:] \u00A7dThis mod is still in BETA. Gameplay info can currently be found on the VA Wiki:"));
 		event.player.sendMessage(ForgeHooks.newChatWithLinks(" https://github.com/CammiePone/Voidaic-Arcania/wiki"));
+	}
+	
+	@SubscribeEvent
+	public void onWorldGen(PopulateChunkEvent.Post event)
+	{
+		if(shouldRaiseWorld)
+		{
+			Chunk chunk = event.getWorld().getChunk(event.getChunkX(), event.getChunkZ());
+			
+			final Queue<Edit> editQueue = new LinkedList();
+
+			scanChunk(chunk, 140, (c, i, j, k) ->
+			{
+				BlockPos pos = new BlockPos(i, j, k);
+				IBlockState state = chunk.getBlockState(pos);
+				editQueue.offer(get(pos, state));
+			});
+			
+			while(editQueue.peek() != null)
+			{
+				final Edit edit = editQueue.poll();
+				BlockPos pos = edit.pos;
+
+				chunk.setBlockState(pos.up(16), edit.state);
+				
+				if(pos.getY() < 16)
+				{
+					chunk.setBlockState(pos, AIR);
+				}
+				
+				recycleBin.offer(edit);
+			}
+		}
 	}
 	
 	@SubscribeEvent
@@ -37,6 +83,46 @@ public class EventHandler
 			event.setVolume(event.getVolume() * 5F);
 		}
 	}
+	
+//-----------------------------------------------------------------------------------------------------------------------------------------------------//
+	
+	public static final IBlockState AIR = Blocks.AIR.getDefaultState();
+
+	public void scanChunk(Chunk chunk, int yMax, ScanCallBack function)
+	{
+		loopChunk(chunk, 0, 0, 0, 16, yMax, 16, function);
+	}
+
+	public void loopChunk(Chunk chunk, int x, int y, int z, int w, int h, int d, ScanCallBack function)
+	{
+		for(int i = x; i < w; i++)
+		{
+			for(int j = y; j < h; j++)
+			{
+				for(int k = z; k < d; k++)
+				{
+					function.onScan(chunk, i, j, k);
+				}
+			}
+		}
+	}
+	
+	Queue<Edit> recycleBin = new LinkedList();
+	
+	public Edit get(BlockPos pos, IBlockState state)
+	{
+		if(recycleBin.peek() != null)
+		{
+			Edit edit = recycleBin.poll();
+			edit.pos = pos;
+			edit.state = state;
+			return edit;
+		}
+		
+		return new Edit(pos, state);
+	}
+	
+//-----------------------------------------------------------------------------------------------------------------------------------------------------//
 	
 	/*
 	 * Credit for everything below goes to Paul Fulham.
