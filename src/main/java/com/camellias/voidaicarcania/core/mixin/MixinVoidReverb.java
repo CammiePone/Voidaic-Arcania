@@ -1,7 +1,5 @@
 package com.camellias.voidaicarcania.core.mixin;
 
-import java.nio.BufferUnderflowException;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -28,15 +26,8 @@ public abstract class MixinVoidReverb extends Source
 	}
 	
 	@Inject(method = "play", at = @At(value = "INVOKE", target = "checkPitch", ordinal = 0))
-	public void reverb(Channel channel, CallbackInfo info)
+	public void reverb(Channel c, CallbackInfo info)
 	{
-		try
-		{
-			SoundReverbHandler.onPlaySound(channelOpenAL.ALSource.get());
-		}
-		catch(BufferUnderflowException e)
-		{
-			
-		}
+		SoundReverbHandler.onPlaySound(channelOpenAL.ALSource.get(0));
 	}
 }
