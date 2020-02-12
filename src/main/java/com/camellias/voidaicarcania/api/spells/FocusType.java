@@ -7,7 +7,13 @@ import net.minecraft.world.World;
 
 public abstract class FocusType implements SpellComponent
 {
-	public double costMultiplier;
+	private double costMultiplier;
+	private boolean isInstant;
+	
+	public FocusType(boolean isInstant)
+	{
+		this.isInstant = isInstant;
+	}
 	
 	public abstract void onRightClick(EntityPlayer caster, World world, EnumHand hand, ItemStack stack);
 	
@@ -19,5 +25,10 @@ public abstract class FocusType implements SpellComponent
 	public double getCostMultiplier()
 	{
 		return this.costMultiplier;
+	}
+	
+	public boolean isInstant()
+	{
+		return this.isInstant;
 	}
 }

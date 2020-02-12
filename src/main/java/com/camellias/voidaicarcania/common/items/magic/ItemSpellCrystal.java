@@ -33,14 +33,5 @@ public class ItemSpellCrystal extends ItemBaseGeneric
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isSelected)
 	{
 		super.onUpdate(stack, world, entity, slot, isSelected);
-		if(stack.hasTagCompound())
-		{
-			NBTTagCompound nbt = stack.getTagCompound();
-			
-			if(!nbt.hasKey("spellType"))
-			{
-				for(SpellType type : spellType) type.deserializeNBT((NBTTagCompound) nbt.getTag("spellType"));
-			}
-		}
 	}
 }

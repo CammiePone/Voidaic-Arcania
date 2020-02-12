@@ -49,7 +49,7 @@ public class SoundReverbHandler
 		
 		if(!available)
 		{
-			Main.LOGGER.warn("Unable to setup reverb effects, AL EFX not supported!");
+			Main.warn("Unable to setup reverb effects, AL EFX not supported!");
 			return;
 		}
 		
