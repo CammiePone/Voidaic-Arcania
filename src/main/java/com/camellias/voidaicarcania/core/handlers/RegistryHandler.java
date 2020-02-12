@@ -46,6 +46,7 @@ public class RegistryHandler
 	{
 		for(Item item : ModItems.ITEMS)
 		{
+			System.out.println(item);
 			event.getRegistry().register(item);
 		}
 	}

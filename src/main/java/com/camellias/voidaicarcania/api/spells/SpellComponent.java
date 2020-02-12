@@ -1,8 +1,8 @@
 package com.camellias.voidaicarcania.api.spells;
 
-import net.minecraftforge.registries.IForgeRegistryEntry;
+import javax.annotation.Nullable;
 
-public class SpellComponent extends IForgeRegistryEntry.Impl<SpellComponent>
+public interface SpellComponent
 {
 	
 }

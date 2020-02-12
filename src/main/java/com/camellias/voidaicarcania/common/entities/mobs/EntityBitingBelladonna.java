@@ -9,8 +9,15 @@ public class EntityBitingBelladonna extends EntityMob
 	public EntityBitingBelladonna(World world)
 	{
 		super(world);
+		this.setSize(0.8F, 2.25F);
 		this.experienceValue = 5;
 		this.setNoGravity(true);
+	}
+	
+	@Override
+	public float getEyeHeight()
+	{
+		return 0.3F;
 	}
 	
 	@Override

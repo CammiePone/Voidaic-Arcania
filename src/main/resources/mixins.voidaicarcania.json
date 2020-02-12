@@ -6,7 +6,8 @@
   "refmap": "mixins.voidaicarcania.refmap.json",
   "mixins": [
     "MixinEntityLivingBase",
-    "MixinChunk"
+    "MixinChunk",
+    "MixinBootstrap"
   ],
   "client": [
     "MixinPlayerModel",

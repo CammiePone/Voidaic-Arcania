@@ -230,7 +230,7 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 							if(world.getTileEntity(allBlockPos) instanceof TileWhitewoodPedestal)
 							{
 								TileWhitewoodPedestal pedestal = (TileWhitewoodPedestal) world.getTileEntity(allBlockPos);
-
+								
 								double posX = (pedestal.getPos().getX() + 0.5D);
 								double posY = pedestal.getPos().getY() + 1D;
 								double posZ = (pedestal.getPos().getZ() + 0.5D);
@@ -238,18 +238,18 @@ public class TileVoidaicAltar extends TileEntity implements ITickable
 								double motionY = ((pos.getY() + 4D) - posY) * 0.06D;
 								double motionZ = ((pos.getZ() + 0.5D) - posZ) * 0.06D;
 								NetworkHandler.INSTANCE.sendToDimension(new SpawnVoidEssenceParticle(posX, posY, posZ, motionX, motionY, motionZ), world.provider.getDimension());
-
+								
 								int xyz = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(1), handler.getStackInSlot(2));
 								int xzy = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(0), handler.getStackInSlot(2), handler.getStackInSlot(1));
 								int yzx = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(1), handler.getStackInSlot(2), handler.getStackInSlot(0));
 								int yxz = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(1), handler.getStackInSlot(0), handler.getStackInSlot(2));
 								int zxy = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(2), handler.getStackInSlot(0), handler.getStackInSlot(1));
 								int zyx = VoidaicAltarRecipes.INSTANCE.getVoidEssenceCost(handler.getStackInSlot(2), handler.getStackInSlot(1), handler.getStackInSlot(0));
-
+								
 								int getVoidEssence = xyz != 0 ? xyz : xzy != 0 ? xzy :
-										yzx != 0 ? yzx : yxz != 0 ? yxz :
-												zxy != 0 ? zxy : zyx;
-
+									yzx != 0 ? yzx : yxz != 0 ? yxz :
+									zxy != 0 ? zxy : zyx;
+								
 								if(ticks <= (getVoidEssence / 2))
 								{
 									posX = getPos().getX() + 0.5D;

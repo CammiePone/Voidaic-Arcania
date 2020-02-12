@@ -1,6 +1,7 @@
 package com.camellias.voidaicarcania.core.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -8,14 +9,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import com.camellias.voidaicarcania.api.capabilities.corruption.player.PlayerCorruptionCapability;
 
 import net.minecraft.client.model.ModelPlayer;
+import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
 
 @Mixin(ModelPlayer.class)
 public abstract class MixinPlayerModel
 {
 	private int maxPlayerCorruption = 1200;
+	
+	@Shadow
+	private final boolean smallArms;
+	
+	public MixinPlayerModel()
+	{
+		this.smallArms = false;
+	}
 	
 	@Inject(method = "setRotationAngles", at = @At("RETURN"))
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn, CallbackInfo info)
@@ -64,6 +73,35 @@ public abstract class MixinPlayerModel
 					}
 				}
 			}
+			else
+			{
+				Object obj = this;
+				
+				if(obj instanceof ModelPlayer)
+				{
+					ModelPlayer model = (ModelPlayer) obj;
+					
+					if(smallArms)
+					{
+						model.bipedLeftArm.setRotationPoint(5.0F, 2.5F, 0.0F);
+						model.bipedRightArm.setRotationPoint(-5.0F, 2.5F, 0.0F);
+						model.bipedLeftArmwear.setRotationPoint(5.0F, 2.5F, 0.0F);
+						model.bipedRightArmwear.setRotationPoint(-5.0F, 2.5F, 10.0F);
+					}
+					else
+					{
+						model.bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
+						model.bipedLeftArmwear.setRotationPoint(5.0F, 2.0F, 0.0F);
+						model.bipedRightArmwear.setRotationPoint(-5.0F, 2.0F, 10.0F);
+					}
+					
+					model.bipedLeftLeg.setRotationPoint(1.9F, 12.0F, 0.0F);
+					model.bipedLeftLegwear.setRotationPoint(1.9F, 12.0F, 0.0F);
+					model.bipedRightLegwear.setRotationPoint(-1.9F, 12.0F, 0.0F);
+					model.bipedBodyWear.setRotationPoint(0.0F, 0.0F, 0.0F);
+				}
+			}
+			
 		}
 	}
 }
