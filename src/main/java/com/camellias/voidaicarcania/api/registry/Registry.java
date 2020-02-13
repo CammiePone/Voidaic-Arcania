@@ -22,6 +22,8 @@ import com.camellias.voidaicarcania.common.spells.modifiers.ModifierVoid;
 import com.camellias.voidaicarcania.common.spells.modifiers.ModifierWater;
 import com.camellias.voidaicarcania.common.spells.spells.SpellBreak;
 import com.camellias.voidaicarcania.common.spells.spells.SpellDamage;
+import com.camellias.voidaicarcania.common.spells.spells.SpellElement;
+import com.camellias.voidaicarcania.common.spells.spells.SpellElemental;
 import com.camellias.voidaicarcania.common.spells.spells.SpellGrapple;
 import com.camellias.voidaicarcania.common.spells.spells.SpellJammer;
 import com.camellias.voidaicarcania.common.spells.spells.SpellRend;
@@ -37,7 +39,7 @@ import net.minecraft.util.registry.RegistryNamespaced;
 
 public class Registry
 {
-	private static final RegistryNamespaced<ResourceLocation, SpellComponent> REGISTRY = new RegistryNamespaced<ResourceLocation, SpellComponent>();
+	public static final RegistryNamespaced<ResourceLocation, SpellComponent> REGISTRY = new RegistryNamespaced<ResourceLocation, SpellComponent>();
 	private static int id = 0;
 	
 	/**
@@ -66,10 +68,12 @@ public class Registry
 		register("spell_grapple", new SpellGrapple());
 		register("teleport_spell", new SpellTeleport());
 		register("swap_spell", new SpellSwap());
+		register("conjure_element_spell", new SpellElement());
 		register("rend_spell", new SpellRend());
 		register("telekinesis_spell", new SpellTelekinesis());
 		register("resistance_spell", new SpellResistance());
 		register("jammer_spell", new SpellJammer());
+		register("summon_elemental_spell", new SpellElemental());
 		register("temporal_spell", new SpellTemporal());
 	}
 	
