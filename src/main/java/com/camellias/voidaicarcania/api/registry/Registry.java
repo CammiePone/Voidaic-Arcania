@@ -16,11 +16,13 @@ import com.camellias.voidaicarcania.common.spells.modifiers.ModifierDamage;
 import com.camellias.voidaicarcania.common.spells.modifiers.ModifierDuration;
 import com.camellias.voidaicarcania.common.spells.modifiers.ModifierEarth;
 import com.camellias.voidaicarcania.common.spells.modifiers.ModifierFire;
+import com.camellias.voidaicarcania.common.spells.modifiers.ModifierRange;
 import com.camellias.voidaicarcania.common.spells.modifiers.ModifierSize;
 import com.camellias.voidaicarcania.common.spells.modifiers.ModifierSplit;
 import com.camellias.voidaicarcania.common.spells.modifiers.ModifierVoid;
 import com.camellias.voidaicarcania.common.spells.modifiers.ModifierWater;
 import com.camellias.voidaicarcania.common.spells.spells.SpellBreak;
+import com.camellias.voidaicarcania.common.spells.spells.SpellCyclone;
 import com.camellias.voidaicarcania.common.spells.spells.SpellDamage;
 import com.camellias.voidaicarcania.common.spells.spells.SpellElement;
 import com.camellias.voidaicarcania.common.spells.spells.SpellElemental;
@@ -74,6 +76,7 @@ public class Registry
 		register("resistance_spell", new SpellResistance());
 		register("jammer_spell", new SpellJammer());
 		register("summon_elemental_spell", new SpellElemental());
+		register("cyclone_spell", new SpellCyclone());
 		register("temporal_spell", new SpellTemporal());
 	}
 	
@@ -84,6 +87,7 @@ public class Registry
 	{
 		register("damage_modifier", new ModifierDamage());
 		register("duration_modifier", new ModifierDuration());
+		register("range_modifier", new ModifierRange());
 		register("size_modifier", new ModifierSize());
 		register("split_modifier", new ModifierSplit());
 		register("water_elemental_modifier", new ModifierWater());
