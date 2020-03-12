@@ -6,6 +6,7 @@ import com.camellias.voidaicarcania.api.spells.SpellComponent;
 import com.camellias.voidaicarcania.common.spells.foci.FocusAOE;
 import com.camellias.voidaicarcania.common.spells.foci.FocusBeam;
 import com.camellias.voidaicarcania.common.spells.foci.FocusChain;
+import com.camellias.voidaicarcania.common.spells.foci.FocusHoming;
 import com.camellias.voidaicarcania.common.spells.foci.FocusLob;
 import com.camellias.voidaicarcania.common.spells.foci.FocusProjectile;
 import com.camellias.voidaicarcania.common.spells.foci.FocusSelf;
@@ -57,6 +58,7 @@ public class Registry
 		register("aoe_focus", new FocusAOE());
 		register("lob_focus", new FocusLob());
 		register("self_focus", new FocusSelf());
+		register("homing_focus", new FocusHoming());
 	}
 	
 	/**
