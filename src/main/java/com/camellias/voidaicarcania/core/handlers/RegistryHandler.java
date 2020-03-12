@@ -4,12 +4,16 @@ import com.camellias.voidaicarcania.Reference;
 import com.camellias.voidaicarcania.api.capabilities.corruption.player.PlayerCorruptionCapability;
 import com.camellias.voidaicarcania.api.registry.VoidEssenceList;
 import com.camellias.voidaicarcania.api.registry.VoidaicAltarRecipes;
+import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderArtemis;
 import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderBitingBelladonna;
 import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderKharonite;
+import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderVoidCrawler;
 import com.camellias.voidaicarcania.client.renderer.entity.mobs.RenderVoidWraith;
 import com.camellias.voidaicarcania.client.renderer.hud.OverlayRenderer;
+import com.camellias.voidaicarcania.common.entities.mobs.EntityArtemis;
 import com.camellias.voidaicarcania.common.entities.mobs.EntityBitingBelladonna;
 import com.camellias.voidaicarcania.common.entities.mobs.EntityKharonite;
+import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidCrawler;
 import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidWraith;
 import com.camellias.voidaicarcania.common.world.structures.WorldGenCustomStructures;
 import com.camellias.voidaicarcania.core.init.ModBiomes;
@@ -118,6 +122,8 @@ public class RegistryHandler
 			RenderingRegistry.registerEntityRenderingHandler(EntityVoidWraith.class, RenderVoidWraith::new);
 			RenderingRegistry.registerEntityRenderingHandler(EntityKharonite.class, RenderKharonite::new);
 			RenderingRegistry.registerEntityRenderingHandler(EntityBitingBelladonna.class, RenderBitingBelladonna::new);
+			RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, RenderVoidCrawler::new);
+			RenderingRegistry.registerEntityRenderingHandler(EntityArtemis.class, RenderArtemis::new);
 		}
 	}
 	

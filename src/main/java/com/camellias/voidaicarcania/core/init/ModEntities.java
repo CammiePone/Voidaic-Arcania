@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Set;
 
 import com.camellias.voidaicarcania.Reference;
+import com.camellias.voidaicarcania.common.entities.mobs.EntityArtemis;
 import com.camellias.voidaicarcania.common.entities.mobs.EntityBitingBelladonna;
 import com.camellias.voidaicarcania.common.entities.mobs.EntityKharonite;
+import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidCrawler;
 import com.camellias.voidaicarcania.common.entities.mobs.EntityVoidWraith;
 
 import net.minecraft.entity.Entity;
@@ -32,6 +34,11 @@ public class ModEntities
 			0x593f4d, 0x341e3f, EnumCreatureType.AMBIENT, 3, 1, 6, VOID_BIOME);
 	private static final EntityEntry BITING_BELLADONNA = createEntityEntry(EntityBitingBelladonna.class, "biting_belladonna",
 			0x8426a3, 0x402d3c, EnumCreatureType.MONSTER, 6, 1, 3, VOID_BIOME);
+	private static final EntityEntry CRYSTAL_CRAWLER = createEntityEntry(EntityVoidCrawler.class, "crystal_crawler",
+			0x0, 0x0, EnumCreatureType.MONSTER, 8, 3, 5, VOID_BIOME);
+	
+	private static final EntityEntry ARTEMIS = createEntityEntry(EntityArtemis.class, "artemis",
+			0x0, 0x0, EnumCreatureType.MONSTER, 0, 0, 0, VOID_BIOME);
 	
 	
 	
